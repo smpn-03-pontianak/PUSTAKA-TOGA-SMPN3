@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/smart-plant-smpn3/',
+  base: '/pustaka-toga-smpn3/',
 })
