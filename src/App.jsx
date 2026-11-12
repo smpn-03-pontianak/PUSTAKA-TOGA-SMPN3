@@ -29,15 +29,15 @@ import {
 const firebaseConfig = typeof __firebase_config !== 'undefined'
   ? JSON.parse(__firebase_config)
   : {
-      apiKey: 'demo-key',
-      authDomain: 'smart-plant-smpn3ptk.firebaseapp.com',
-      projectId: 'smart-plant-smpn3ptk'
+      apiKey: "AIzaSyCaU13SSrHGjEdsNFrZ4fTuZgwDuDwnnA4", storageBucket: "pustaka-toga-smpn3.firebasestorage.app", messagingSenderId: "740819502420", appId: "1:740819502420:web:68f5fe5d259036887334c1",
+      authDomain: 'pustaka-toga-smpn3.firebaseapp.com',
+      projectId: 'pustaka-toga-smpn3'
     };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'smart-plant-smpn3ptk';
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'pustaka-toga-smpn3';
 
 // ============================================================================
 // 2. DATA AWAL TANAMAN LINGKUNGAN SMP NEGERI 3 PONTIANAK
