@@ -337,7 +337,7 @@ const BotanicalIllustration = () => (
 );
 
 // ============================================================================
-// 5. APLIKASI UTAMA: SMART PLANT QR – SMP NEGERI 3 PONTIANAK (MODEL PORTRAIT)
+// 5. APLIKASI UTAMA: PUSTAKA TOGA SMPN 3 – SMP NEGERI 3 PONTIANAK (MODEL PORTRAIT)
 // ============================================================================
 export default function App() {
   const [firebaseUser, setFirebaseUser] = useState(null);
@@ -698,7 +698,7 @@ export default function App() {
               </div>
               <div>
                 <span className="font-extrabold text-sm tracking-tight text-[#164B36] block leading-tight">
-                  SMART PLANT QR
+                  PUSTAKA TOGA SMPN 3
                 </span>
                 <span className="text-[10px] font-bold text-[#23865B] tracking-wide block">
                   SMP NEGERI 3 PONTIANAK
@@ -813,7 +813,7 @@ export default function App() {
                     Panduan Penggunaan
                   </span>
                   <h2 className="text-lg font-extrabold text-[#164B36]">
-                    Cara Menggunakan Smart Plant QR
+                    Cara Menggunakan PUSTAKA TOGA SMPN 3
                   </h2>
                 </div>
 
@@ -1288,7 +1288,7 @@ export default function App() {
                   Implementasi Pembelajaran
                 </span>
                 <h1 className="text-xl font-extrabold text-[#164B36]">
-                  Aktivitas Smart Plant QR
+                  Aktivitas PUSTAKA TOGA SMPN 3
                 </h1>
                 <p className="text-xs text-[#26352D]/85 leading-relaxed">
                   Tahapan pemanfaatan teknologi QR Code untuk pengenalan flora di lingkungan SMP Negeri 3 Pontianak.
@@ -1361,13 +1361,13 @@ export default function App() {
                   Profil Media Edukasi Digital
                 </span>
                 <h1 className="text-xl font-extrabold text-[#164B36]">
-                  Tentang SMART PLANT QR
+                  Tentang PUSTAKA TOGA SMPN 3
                 </h1>
                 <p className="text-xs font-bold text-[#23865B]">
                   SMP Negeri 3 Pontianak • Kota Pontianak, Kalimantan Barat
                 </p>
                 <p className="text-xs text-[#26352D]/90 leading-relaxed">
-                  <strong>SMART PLANT QR – Discover the Green World</strong> merupakan media informasi digital berbasis web untuk memperkenalkan keanekaragaman tanaman di lingkungan <strong>SMP Negeri 3 Pontianak</strong> menggunakan teknologi QR Code.
+                  <strong>PUSTAKA TOGA SMPN 3 – Discover the Green World</strong> merupakan media informasi digital berbasis web untuk memperkenalkan keanekaragaman tanaman di lingkungan <strong>SMP Negeri 3 Pontianak</strong> menggunakan teknologi QR Code.
                 </p>
               </div>
 
