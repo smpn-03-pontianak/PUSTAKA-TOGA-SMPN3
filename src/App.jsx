@@ -294,6 +294,96 @@ const BotanicalIllustration = () => (
 // ============================================================================
 // 5. APLIKASI UTAMA: PUSTAKA TOGA SMPN 3 – SMP NEGERI 3 PONTIANAK (MODEL PORTRAIT)
 // ============================================================================
+
+const RichTextContent = ({ content, defaultAlign = "text-justify" }) => {
+  if (!content) return null;
+  const hasHtml = /<[a-z][\s\S]*>/i.test(content);
+
+  if (hasHtml) {
+    return (
+      <div
+        className={`rich-botanical text-xs text-[#4A2532]/90 leading-relaxed ${defaultAlign}`}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+    );
+  }
+
+  const lines = content.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const isNumberedList = lines.length > 1 && lines.every(l => /^\d+[.)]\s+/.test(l));
+
+  if (isNumberedList) {
+    return (
+      <ol className={`list-decimal pl-5 space-y-1.5 text-xs text-[#4A2532]/90 leading-relaxed ${defaultAlign}`}>
+        {lines.map((line, i) => (
+          <li key={i} className="pl-1">
+            {line.replace(/^\d+[.)]\s+/, "")}
+          </li>
+        ))}
+      </ol>
+    );
+  }
+
+  return (
+    <div className={`space-y-1.5 text-xs text-[#4A2532]/90 leading-relaxed ${defaultAlign}`}>
+      {lines.map((line, i) => (
+        <p key={i}>{line}</p>
+      ))}
+    </div>
+  );
+};
+
+const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
+  const editorRef = useRef(null);
+
+  useEffect(() => {
+    if (editorRef.current && editorRef.current.innerHTML !== (value || "")) {
+      editorRef.current.innerHTML = value || "";
+    }
+  }, [value]);
+
+  const execCmd = (cmd, val = null) => {
+    editorRef.current?.focus();
+    document.execCommand(cmd, false, val);
+    if (editorRef.current) onChange(editorRef.current.innerHTML);
+  };
+
+  return (
+    <div className="space-y-1">
+      {label && <label className="text-[11px] font-bold text-[#B83B66] block">{label}</label>}
+      <div className="rounded-xl border border-[#FFC0CB] bg-[#FFF5F7] overflow-hidden">
+        <div className="flex flex-wrap items-center gap-1 p-1.5 bg-white border-b border-[#FFC0CB]/70 text-[11px]">
+          <button type="button" onClick={() => execCmd("bold")} className="px-2 py-0.5 rounded hover:bg-[#FFF5F7] font-extrabold text-[#B83B66] border border-[#FFC0CB]/60">B</button>
+          <button type="button" onClick={() => execCmd("italic")} className="px-2 py-0.5 rounded hover:bg-[#FFF5F7] italic font-semibold text-[#B83B66] border border-[#FFC0CB]/60">I</button>
+          <button type="button" onClick={() => execCmd("underline")} className="px-2 py-0.5 rounded hover:bg-[#FFF5F7] underline font-semibold text-[#B83B66] border border-[#FFC0CB]/60">U</button>
+          <button type="button" onClick={() => execCmd("insertOrderedList")} className="px-2 py-0.5 rounded hover:bg-[#FFF5F7] font-bold text-[#B83B66] border border-[#FFC0CB]/60">1. List</button>
+          <button type="button" onClick={() => execCmd("justifyLeft")} className="px-2 py-0.5 rounded hover:bg-[#FFF5F7] text-[#4A2532] border border-[#FFC0CB]/60">Kiri</button>
+          <button type="button" onClick={() => execCmd("justifyCenter")} className="px-2 py-0.5 rounded hover:bg-[#FFF5F7] text-[#4A2532] border border-[#FFC0CB]/60">Tengah</button>
+          <button type="button" onClick={() => execCmd("justifyRight")} className="px-2 py-0.5 rounded hover:bg-[#FFF5F7] text-[#4A2532] border border-[#FFC0CB]/60">Kanan</button>
+          <button type="button" onClick={() => execCmd("justifyFull")} className="px-2 py-0.5 rounded hover:bg-[#FFF5F7] text-[#4A2532] border border-[#FFC0CB]/60">Kanan-Kiri</button>
+          <select
+            onChange={(e) => { if (e.target.value) execCmd("fontName", e.target.value); }}
+            defaultValue=""
+            className="ml-auto px-2 py-0.5 rounded bg-[#FFF5F7] border border-[#FFC0CB] text-[10px] font-bold text-[#B83B66] outline-none"
+          >
+            <option value="" disabled>Pilih Font</option>
+            <option value="Plus Jakarta Sans, sans-serif">Sans Modern</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="Times New Roman, serif">Times New Roman</option>
+            <option value="Courier New, monospace">Monospace</option>
+          </select>
+        </div>
+        <div
+          ref={editorRef}
+          contentEditable
+          onInput={(e) => onChange(e.currentTarget.innerHTML)}
+          style={{ minHeight }}
+          className="rich-botanical p-3 text-xs text-[#4A2532] leading-relaxed outline-none bg-[#FFF5F7]"
+        />
+      </div>
+    </div>
+  );
+};
+
 const HeroPhotoSlider = () => {
   const photos = ["1.jpeg","22.jpeg","33.jpeg","hero-toga.jpeg"];
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -1129,9 +1219,7 @@ export default function App() {
                         <h2 className="text-[11px] font-bold uppercase tracking-wider text-[#E76F95] mb-1">
                           Deskripsi Tanaman
                         </h2>
-                        <p className="text-xs text-[#4A2532]/90 leading-relaxed">
-                          {selectedPlant.description}
-                        </p>
+                        <RichTextContent content={selectedPlant.description} defaultAlign="text-justify" />
                       </div>
                     </div>
                   </div>
@@ -1141,39 +1229,37 @@ export default function App() {
                       <Layers className="w-4 h-4 text-[#E76F95]" />
                       <h3 className="font-extrabold text-sm">Ciri Morfologi & Bagian Tumbuhan</h3>
                     </div>
-                    <p className="text-xs text-[#4A2532]/85 leading-relaxed">
-                      {selectedPlant.morphology}
-                    </p>
+                    <RichTextContent content={selectedPlant.morphology} defaultAlign="text-justify" />
 
                     <div className="space-y-2.5 pt-1">
                       {selectedPlant.parts?.daun && (
                         <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
                           <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🍃 Bentuk Daun</span>
-                          <p className="text-xs text-[#4A2532]/85 leading-relaxed">{selectedPlant.parts.daun}</p>
+                          <RichTextContent content={selectedPlant.parts.daun} defaultAlign="text-justify" />
                         </div>
                       )}
                       {selectedPlant.parts?.batang && (
                         <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
                           <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🪵 Batang</span>
-                          <p className="text-xs text-[#4A2532]/85 leading-relaxed">{selectedPlant.parts.batang}</p>
+                          <RichTextContent content={selectedPlant.parts.batang} defaultAlign="text-justify" />
                         </div>
                       )}
                       {selectedPlant.parts?.akar && (
                         <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
                           <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🌱 Sistem Akar</span>
-                          <p className="text-xs text-[#4A2532]/85 leading-relaxed">{selectedPlant.parts.akar}</p>
+                          <RichTextContent content={selectedPlant.parts.akar} defaultAlign="text-justify" />
                         </div>
                       )}
                       {selectedPlant.parts?.bunga && (
                         <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
                           <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🌼 Bunga</span>
-                          <p className="text-xs text-[#4A2532]/85 leading-relaxed">{selectedPlant.parts.bunga}</p>
+                          <RichTextContent content={selectedPlant.parts.bunga} defaultAlign="text-justify" />
                         </div>
                       )}
                       {selectedPlant.parts?.buah && (
                         <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
                           <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🍎 Buah / Rimpang</span>
-                          <p className="text-xs text-[#4A2532]/85 leading-relaxed">{selectedPlant.parts.buah}</p>
+                          <RichTextContent content={selectedPlant.parts.buah} defaultAlign="text-justify" />
                         </div>
                       )}
                     </div>
@@ -1184,7 +1270,7 @@ export default function App() {
                       <h3 className="font-extrabold text-xs text-[#B83B66] flex items-center gap-1.5">
                         <MapPin className="w-4 h-4 text-[#E76F95]" /> Habitat & Lokasi di Sekolah
                       </h3>
-                      <p className="text-xs text-[#4A2532]/85 leading-relaxed">{selectedPlant.habitat}</p>
+                      <RichTextContent content={selectedPlant.habitat} defaultAlign="text-justify" />
                     </div>
 
                     <hr className="border-[#FFC0CB]/40" />
@@ -1193,7 +1279,7 @@ export default function App() {
                       <h3 className="font-extrabold text-xs text-[#B83B66] flex items-center gap-1.5">
                         <BookOpen className="w-4 h-4 text-[#E76F95]" /> Manfaat Tanaman
                       </h3>
-                      <p className="text-xs text-[#4A2532]/85 leading-relaxed">{selectedPlant.benefits}</p>
+                      <RichTextContent content={selectedPlant.benefits} defaultAlign="text-justify" />
                     </div>
 
                     <hr className="border-[#FFC0CB]/40" />
@@ -1202,7 +1288,7 @@ export default function App() {
                       <h3 className="font-extrabold text-xs text-[#B83B66] flex items-center gap-1.5">
                         <Droplets className="w-4 h-4 text-[#E76F95]" /> Cara Perawatan
                       </h3>
-                      <p className="text-xs text-[#4A2532]/85 leading-relaxed">{selectedPlant.care}</p>
+                      <RichTextContent content={selectedPlant.care} defaultAlign="text-justify" />
                     </div>
                   </div>
 
@@ -1548,15 +1634,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="text-[11px] font-bold text-[#B83B66]">Deskripsi Tanaman</label>
-                  <textarea
-                    rows="2"
-                    value={plantForm.description}
-                    onChange={e => setPlantForm({ ...plantForm, description: e.target.value })}
-                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                  />
-                </div>
+                <AdminRichEditor label="Deskripsi Tanaman" value={plantForm.description} onChange={(val) => setPlantForm(prev => ({ ...prev, description: val }))} />
 
                 <div>
                   <label className="text-[11px] font-bold text-[#B83B66]">Ciri Morfologi Umum</label>
