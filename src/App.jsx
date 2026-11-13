@@ -709,8 +709,9 @@ export default function App() {
           {activePage === 'beranda' && (
             <div className="space-y-6">
               <section
-                className="relative overflow-hidden rounded-3xl px-5 pb-5 pt-56 border border-[#FFC0CB]/70 shadow-sm space-y-5 bg-cover bg-top"
+                className="relative overflow-hidden rounded-3xl px-5 pb-5 pt-64 border border-[#FFC0CB]/70 shadow-sm space-y-5 bg-cover"
                 style={{
+                  backgroundPosition: "center 65%",
                   backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.25) 45%, rgba(255, 245, 247, 0.92) 72%, rgba(255, 245, 247, 0.98) 100%), url(${import.meta.env.BASE_URL}hero-toga.jpeg)`
                 }}
               >
