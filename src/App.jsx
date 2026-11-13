@@ -709,9 +709,9 @@ export default function App() {
           {activePage === 'beranda' && (
             <div className="space-y-6">
               <section
-                className="relative overflow-hidden rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5 bg-cover bg-center"
+                className="relative overflow-hidden rounded-3xl px-5 pb-5 pt-56 border border-[#FFC0CB]/70 shadow-sm space-y-5 bg-cover bg-top"
                 style={{
-                  backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.86), rgba(255, 245, 247, 0.90)), url(${import.meta.env.BASE_URL}hero-toga.jpeg)`
+                  backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.25) 45%, rgba(255, 245, 247, 0.92) 72%, rgba(255, 245, 247, 0.98) 100%), url(${import.meta.env.BASE_URL}hero-toga.jpeg)`
                 }}
               >
                 <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
