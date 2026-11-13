@@ -294,6 +294,78 @@ const BotanicalIllustration = () => (
 // ============================================================================
 // 5. APLIKASI UTAMA: PUSTAKA TOGA SMPN 3 – SMP NEGERI 3 PONTIANAK (MODEL PORTRAIT)
 // ============================================================================
+const HeroPhotoSlider = () => {
+  const photos = ["1.jpeg","22.jpeg","33.jpeg","hero-toga.jpeg"];
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    if (photos.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % photos.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [photos.length]);
+
+  const prevSlide = () => setCurrentIdx((prev) => (prev - 1 + photos.length) % photos.length);
+  const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % photos.length);
+
+  return (
+    <div className="relative w-full h-56 sm:h-64 rounded-3xl overflow-hidden border border-[#FFC0CB]/80 shadow-sm bg-[#FFF5F7] group">
+      {photos.map((photo, idx) => (
+        <img
+          key={photo + idx}
+          src={`${import.meta.env.BASE_URL}${photo}?v=1794565952752`}
+          alt={`Dokumentasi Taman Toga SMPN 3 - ${idx + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            idx === currentIdx ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+        />
+      ))}
+
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 via-black/20 to-transparent z-20 pointer-events-none" />
+
+      <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#B83B66] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#FFC0CB]">
+        Galeri Taman Toga SMPN 3
+      </div>
+
+      {photos.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={prevSlide}
+            aria-label="Foto sebelumnya"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={nextSlide}
+            aria-label="Foto berikutnya"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
+          >
+            ›
+          </button>
+
+          <div className="absolute bottom-3 inset-x-0 z-20 flex items-center justify-center gap-1.5">
+            {photos.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setCurrentIdx(idx)}
+                aria-label={`Pilih foto ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  idx === currentIdx ? "w-5 bg-[#FFC0CB]" : "w-1.5 bg-white/75"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
 export default function App() {
   const [firebaseUser, setFirebaseUser] = useState(null);
   const [plants, setPlants] = useState(INITIAL_PLANTS);
@@ -703,18 +775,14 @@ export default function App() {
         </header>
 
         {/* KONTEN UTAMA PORTRAIT */}
-        <main className={activePage === "beranda" ? "flex-1 px-4 pb-6 pt-0 space-y-6" : "flex-1 px-4 py-5 space-y-6"}>
+        <main className="flex-1 px-4 py-5 space-y-6">
 
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
             <div className="space-y-6">
-              <section
-                className="relative overflow-hidden -mx-4 rounded-b-3xl rounded-t-none px-5 pb-6 pt-80 border-b border-[#FFC0CB]/70 shadow-sm space-y-5 bg-cover"
-                style={{
-                  backgroundPosition: "center 36%",
-                  backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.25) 45%, rgba(255, 245, 247, 0.92) 72%, rgba(255, 245, 247, 0.98) 100%), url(${import.meta.env.BASE_URL}hero-toga.jpeg?v=1794564946474)`
-                }}
-              >
+              <HeroPhotoSlider />
+
+              <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5">
                 <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
                   <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
                   <span>Discover the Green World</span>
