@@ -360,7 +360,7 @@ export default function App() {
   const streamRef = useRef(null);
 
   // Administrator
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(() => localStorage.getItem("pustaka_toga_admin") === "true");
   const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [adminPassword, setAdminPassword] = useState('');
   const [adminLoginError, setAdminLoginError] = useState('');
@@ -516,7 +516,7 @@ export default function App() {
   const handleAdminAuth = (e) => {
     e.preventDefault();
     if (adminPassword.trim() === 'MSBSPANTA') {
-      setIsAdmin(true);
+      localStorage.setItem("pustaka_toga_admin", "true"); setIsAdmin(true);
       setShowAdminLogin(false);
       setActivePage('admin');
       setAdminPassword('');
@@ -1414,7 +1414,7 @@ export default function App() {
                   <h1 className="text-lg font-extrabold">Dashboard Admin</h1>
                 </div>
                 <button
-                  onClick={() => { setIsAdmin(false); setActivePage('beranda'); }}
+                  onClick={() => { localStorage.removeItem("pustaka_toga_admin"); setIsAdmin(false); setActivePage('beranda'); }}
                   className="inline-flex items-center gap-1.5 bg-white/15 text-white font-bold px-3.5 py-2 rounded-xl text-xs"
                 >
                   <LogOut className="w-3.5 h-3.5" />
