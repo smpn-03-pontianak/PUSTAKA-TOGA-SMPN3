@@ -567,10 +567,15 @@ export default function App() {
       funFact: plantForm.funFact
     };
 
+    setPlants(prev => editingPlantId ? prev.map(p => p.id === id ? payload : p) : [payload, ...prev]);
     if (firebaseUser) {
-      await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'plants', id), payload);
-    } else {
-      setPlants(prev => editingPlantId ? prev.map(p => p.id === id ? payload : p) : [payload, ...prev]);
+      try {
+        await setDoc(doc(db, "artifacts", appId, "public", "data", "plants", id), payload);
+      } catch (err) {
+        console.error("Gagal simpan ke Firebase:", err);
+        showToast("Gagal Simpan Cloud", err.message, "error");
+        return;
+      }
     }
 
     setEditingPlantId(null);
