@@ -790,7 +790,7 @@ export default function App() {
 
                 <div className="space-y-2.5">
                   <h1 className="text-2xl font-extrabold text-[#B83B66] leading-snug tracking-tight">
-                    Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
+                    🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
                   </h1>
                   <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed">
                     <p>
