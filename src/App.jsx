@@ -1619,7 +1619,7 @@ export default function App() {
                       </button>
                       <button
                         onClick={() => handleStartEditPlant(p)}
-                        className="p-2 rounded-xl bg-emerald-50 text-[#E76F95]"
+                        className="p-2 rounded-xl bg-pink-50 text-[#E76F95]"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
                       </button>
