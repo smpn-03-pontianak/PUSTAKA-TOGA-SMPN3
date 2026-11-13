@@ -257,7 +257,7 @@ const SmartPlantQRWidget = ({ code, plantName = 'Tanaman', size = 140, showDownl
     if (!qrDataUrl) return;
     const link = document.createElement('a');
     link.href = qrDataUrl;
-    link.download = `QR-${code || 'TANAMAN'}-SMPN3PTK.png`;
+    link.download = `QR-${code || 'TANAMAN'}-MSBSPANTA.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -515,7 +515,7 @@ export default function App() {
   // ============================================================================
   const handleAdminAuth = (e) => {
     e.preventDefault();
-    if (adminPassword === 'SMPN3PTK' || adminPassword === 'admin123') {
+    if (adminPassword === 'MSBSPANTA' || adminPassword === 'admin123') {
       setIsAdmin(true);
       setShowAdminLogin(false);
       setActivePage('admin');
@@ -523,7 +523,7 @@ export default function App() {
       setAdminLoginError('');
       showToast('Login Berhasil', 'Selamat datang di Dashboard Administrator SMPN 3 Pontianak.');
     } else {
-      setAdminLoginError('Kata sandi administrator salah. Gunakan kode akses guru: SMPN3PTK');
+      setAdminLoginError('Kata sandi administrator salah. Gunakan kode akses guru: MSBSPANTA');
     }
   };
 
@@ -1755,7 +1755,7 @@ export default function App() {
 
               <form onSubmit={handleAdminAuth} className="space-y-3.5">
                 <div>
-                  <label className="text-xs font-bold text-[#164B36]">Kode Akses (Demo: SMPN3PTK)</label>
+                  <label className="text-xs font-bold text-[#164B36]">Kode Akses</label>
                   <input
                     type="password"
                     required
