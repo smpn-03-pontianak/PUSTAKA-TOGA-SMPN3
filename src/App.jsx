@@ -1296,7 +1296,7 @@ export default function App() {
                     <h3 className="font-extrabold text-xs text-[#FFC0CB] flex items-center gap-1.5">
                       <Sparkles className="w-4 h-4" /> Fakta Menarik Tanaman
                     </h3>
-                    <p className="text-xs text-white/90 leading-relaxed">{selectedPlant.funFact}</p>
+                    <div className="text-white/95"><RichTextContent content={selectedPlant.funFact} defaultAlign="text-justify" /></div>
                   </div>
 
                   <div className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 flex flex-col items-center text-center space-y-2">
@@ -1638,91 +1638,46 @@ export default function App() {
 
                 <div>
                   <label className="text-[11px] font-bold text-[#B83B66]">Ciri Morfologi Umum</label>
-                  <input
-                    type="text"
-                    value={plantForm.morphology}
-                    onChange={e => setPlantForm({ ...plantForm, morphology: e.target.value })}
-                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                  />
+                  <AdminRichEditor label="" value={plantForm.morphology} onChange={(val) => setPlantForm(prev => ({ ...prev, morphology: val }))} minHeight="72px" />
                 </div>
 
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
                     <label className="text-[11px] font-bold text-[#B83B66]">Bentuk Daun</label>
-                    <input
-                      type="text"
-                      value={plantForm.daun}
-                      onChange={e => setPlantForm({ ...plantForm, daun: e.target.value })}
-                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                    />
+                    <AdminRichEditor label="" value={plantForm.daun} onChange={(val) => setPlantForm(prev => ({ ...prev, daun: val }))} minHeight="72px" />
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#B83B66]">Batang</label>
-                    <input
-                      type="text"
-                      value={plantForm.batang}
-                      onChange={e => setPlantForm({ ...plantForm, batang: e.target.value })}
-                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                    />
+                    <AdminRichEditor label="" value={plantForm.batang} onChange={(val) => setPlantForm(prev => ({ ...prev, batang: val }))} minHeight="72px" />
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#B83B66]">Akar</label>
-                    <input
-                      type="text"
-                      value={plantForm.akar}
-                      onChange={e => setPlantForm({ ...plantForm, akar: e.target.value })}
-                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                    />
+                    <AdminRichEditor label="" value={plantForm.akar} onChange={(val) => setPlantForm(prev => ({ ...prev, akar: val }))} minHeight="72px" />
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#B83B66]">Bunga / Buah</label>
-                    <input
-                      type="text"
-                      value={plantForm.bunga}
-                      onChange={e => setPlantForm({ ...plantForm, bunga: e.target.value })}
-                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                    />
+                    <AdminRichEditor label="" value={plantForm.bunga} onChange={(val) => setPlantForm(prev => ({ ...prev, bunga: val }))} minHeight="72px" />
                   </div>
                 </div>
 
                 <div>
                   <label className="text-[11px] font-bold text-[#B83B66]">Habitat / Lokasi di Sekolah</label>
-                  <input
-                    type="text"
-                    value={plantForm.habitat}
-                    onChange={e => setPlantForm({ ...plantForm, habitat: e.target.value })}
-                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                  />
+                  <AdminRichEditor label="" value={plantForm.habitat} onChange={(val) => setPlantForm(prev => ({ ...prev, habitat: val }))} minHeight="72px" />
                 </div>
 
                 <div>
                   <label className="text-[11px] font-bold text-[#B83B66]">Manfaat Tanaman</label>
-                  <input
-                    type="text"
-                    value={plantForm.benefits}
-                    onChange={e => setPlantForm({ ...plantForm, benefits: e.target.value })}
-                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                  />
+                  <AdminRichEditor label="" value={plantForm.benefits} onChange={(val) => setPlantForm(prev => ({ ...prev, benefits: val }))} minHeight="72px" />
                 </div>
 
                 <div>
                   <label className="text-[11px] font-bold text-[#B83B66]">Cara Perawatan</label>
-                  <input
-                    type="text"
-                    value={plantForm.care}
-                    onChange={e => setPlantForm({ ...plantForm, care: e.target.value })}
-                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                  />
+                  <AdminRichEditor label="" value={plantForm.care} onChange={(val) => setPlantForm(prev => ({ ...prev, care: val }))} minHeight="72px" />
                 </div>
 
                 <div>
                   <label className="text-[11px] font-bold text-[#B83B66]">Fakta Menarik</label>
-                  <input
-                    type="text"
-                    value={plantForm.funFact}
-                    onChange={e => setPlantForm({ ...plantForm, funFact: e.target.value })}
-                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#FFF5F7] border border-[#FFC0CB] text-xs"
-                  />
+                  <AdminRichEditor label="" value={plantForm.funFact} onChange={(val) => setPlantForm(prev => ({ ...prev, funFact: val }))} minHeight="72px" />
                 </div>
 
                 {plantForm.code && (
