@@ -509,7 +509,7 @@ export default function App() {
     batang: '',
     akar: '',
     bunga: '',
-    buah: '',
+    buah: '', daunImage: '', batangImage: '', akarImage: '', bungaImage: '', buahImage: '',
     habitat: '',
     benefits: '',
     care: '',
@@ -666,6 +666,28 @@ export default function App() {
     reader.readAsDataURL(file);
   };
 
+    const handlePartImageUpload = (partKey, e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const maxW = 600;
+        const scale = img.width > maxW ? maxW / img.width : 1;
+        canvas.width = img.width * scale;
+        canvas.height = img.height * scale;
+        canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+        const compressed = canvas.toDataURL("image/jpeg", 0.78);
+        setPlantForm(prev => ({ ...prev, [partKey + "Image"]: compressed }));
+        showToast("Foto Bagian Siap", "Foto bagian tanaman berhasil dimuat.");
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleSavePlant = async (e) => {
     e.preventDefault();
     if (!plantForm.name.trim() || !plantForm.code.trim()) return;
@@ -686,6 +708,13 @@ export default function App() {
         akar: plantForm.akar,
         bunga: plantForm.bunga,
         buah: plantForm.buah
+      },
+      partsImages: {
+        daun: plantForm.daunImage || "",
+        batang: plantForm.batangImage || "",
+        akar: plantForm.akarImage || "",
+        bunga: plantForm.bungaImage || "",
+        buah: plantForm.buahImage || ""
       },
       habitat: plantForm.habitat,
       benefits: plantForm.benefits,
@@ -726,7 +755,12 @@ export default function App() {
       batang: plant.parts?.batang || '',
       akar: plant.parts?.akar || '',
       bunga: plant.parts?.bunga || '',
-      buah: plant.parts?.buah || '',
+      buah: plant.parts?.buah || "",
+      daunImage: plant.partsImages?.daun || "",
+      batangImage: plant.partsImages?.batang || "",
+      akarImage: plant.partsImages?.akar || "",
+      bungaImage: plant.partsImages?.bunga || "",
+      buahImage: plant.partsImages?.buah || "",
       habitat: plant.habitat || '',
       benefits: plant.benefits || '',
       care: plant.care || '',
@@ -1231,37 +1265,35 @@ export default function App() {
                     </div>
                     <RichTextContent content={selectedPlant.morphology} defaultAlign="text-justify" />
 
-                    <div className="space-y-2.5 pt-1">
-                      {selectedPlant.parts?.daun && (
-                        <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
-                          <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🍃 Bentuk Daun</span>
-                          <RichTextContent content={selectedPlant.parts.daun} defaultAlign="text-justify" />
-                        </div>
-                      )}
-                      {selectedPlant.parts?.batang && (
-                        <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
-                          <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🪵 Batang</span>
-                          <RichTextContent content={selectedPlant.parts.batang} defaultAlign="text-justify" />
-                        </div>
-                      )}
-                      {selectedPlant.parts?.akar && (
-                        <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
-                          <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🌱 Sistem Akar</span>
-                          <RichTextContent content={selectedPlant.parts.akar} defaultAlign="text-justify" />
-                        </div>
-                      )}
-                      {selectedPlant.parts?.bunga && (
-                        <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
-                          <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🌼 Bunga</span>
-                          <RichTextContent content={selectedPlant.parts.bunga} defaultAlign="text-justify" />
-                        </div>
-                      )}
-                      {selectedPlant.parts?.buah && (
-                        <div className="bg-[#FFF5F7] p-3 rounded-2xl border border-[#FFC0CB]/50">
-                          <span className="text-[11px] font-extrabold text-[#B83B66] block mb-0.5">🍎 Buah / Rimpang</span>
-                          <RichTextContent content={selectedPlant.parts.buah} defaultAlign="text-justify" />
-                        </div>
-                      )}
+                    <div className="space-y-3 pt-1">
+                      {[
+                        { key: "daun", title: "🍃 Bentuk Daun" },
+                        { key: "batang", title: "🪵 Batang" },
+                        { key: "akar", title: "🌱 Sistem Akar" },
+                        { key: "bunga", title: "🌼 Bunga" },
+                        { key: "buah", title: "🍎 Buah / Rimpang" }
+                      ].map(item => {
+                        const textVal = selectedPlant.parts?.[item.key];
+                        const imgVal = selectedPlant.partsImages?.[item.key];
+                        if (!textVal && !imgVal) return null;
+                        return (
+                          <div key={item.key} className="bg-[#FFF5F7] p-3.5 rounded-2xl border border-[#FFC0CB]/60">
+                            <div className={imgVal ? "flex items-start gap-3.5" : ""}>
+                              {imgVal && (
+                                <div className="w-24 sm:w-28 aspect-[3/4] rounded-xl overflow-hidden border border-[#FFC0CB] bg-white flex-shrink-0 shadow-xs">
+                                  <img src={imgVal} alt={item.title} className="w-full h-full object-cover" />
+                                </div>
+                              )}
+                              <div className="flex-1 min-w-0">
+                                <span className="text-xs font-extrabold text-[#B83B66] block mb-1">{item.title}</span>
+                                <div className="text-[#4A2532]/85">
+                                  <RichTextContent content={textVal} defaultAlign="text-justify" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 
@@ -1645,18 +1677,86 @@ export default function App() {
                   <div>
                     <label className="text-[11px] font-bold text-[#B83B66]">Bentuk Daun</label>
                     <AdminRichEditor label="" value={plantForm.daun} onChange={(val) => setPlantForm(prev => ({ ...prev, daun: val }))} minHeight="72px" />
+                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#FFC0CB]/70">
+                    <label className="inline-flex items-center gap-1 bg-[#FFF5F7] text-[#B83B66] font-bold px-2.5 py-1.5 rounded-lg border border-[#FFC0CB] text-[10px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3 h-3 text-[#E76F95]" />
+                      <span>Foto Daun</span>
+                      <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("daun", e)} className="hidden" />
+                    </label>
+                    <input
+                      type="text"
+                      value={plantForm.daunImage || ""}
+                      onChange={(e) => setPlantForm(prev => ({ ...prev, daunImage: e.target.value }))}
+                      placeholder="Atau URL foto daun..."
+                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#FFF5F7] border border-[#FFC0CB]/60 text-[11px]"
+                    />
+                    {plantForm.daunImage && (
+                      <img src={plantForm.daunImage} alt="Preview daun" className="w-9 h-11 rounded-lg object-cover border border-[#FFC0CB] flex-shrink-0" />
+                    )}
+                  </div>
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#B83B66]">Batang</label>
                     <AdminRichEditor label="" value={plantForm.batang} onChange={(val) => setPlantForm(prev => ({ ...prev, batang: val }))} minHeight="72px" />
+                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#FFC0CB]/70">
+                    <label className="inline-flex items-center gap-1 bg-[#FFF5F7] text-[#B83B66] font-bold px-2.5 py-1.5 rounded-lg border border-[#FFC0CB] text-[10px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3 h-3 text-[#E76F95]" />
+                      <span>Foto Batang</span>
+                      <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("batang", e)} className="hidden" />
+                    </label>
+                    <input
+                      type="text"
+                      value={plantForm.batangImage || ""}
+                      onChange={(e) => setPlantForm(prev => ({ ...prev, batangImage: e.target.value }))}
+                      placeholder="Atau URL foto batang..."
+                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#FFF5F7] border border-[#FFC0CB]/60 text-[11px]"
+                    />
+                    {plantForm.batangImage && (
+                      <img src={plantForm.batangImage} alt="Preview batang" className="w-9 h-11 rounded-lg object-cover border border-[#FFC0CB] flex-shrink-0" />
+                    )}
+                  </div>
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#B83B66]">Akar</label>
                     <AdminRichEditor label="" value={plantForm.akar} onChange={(val) => setPlantForm(prev => ({ ...prev, akar: val }))} minHeight="72px" />
+                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#FFC0CB]/70">
+                    <label className="inline-flex items-center gap-1 bg-[#FFF5F7] text-[#B83B66] font-bold px-2.5 py-1.5 rounded-lg border border-[#FFC0CB] text-[10px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3 h-3 text-[#E76F95]" />
+                      <span>Foto Akar</span>
+                      <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("akar", e)} className="hidden" />
+                    </label>
+                    <input
+                      type="text"
+                      value={plantForm.akarImage || ""}
+                      onChange={(e) => setPlantForm(prev => ({ ...prev, akarImage: e.target.value }))}
+                      placeholder="Atau URL foto akar..."
+                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#FFF5F7] border border-[#FFC0CB]/60 text-[11px]"
+                    />
+                    {plantForm.akarImage && (
+                      <img src={plantForm.akarImage} alt="Preview akar" className="w-9 h-11 rounded-lg object-cover border border-[#FFC0CB] flex-shrink-0" />
+                    )}
+                  </div>
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#B83B66]">Bunga / Buah</label>
                     <AdminRichEditor label="" value={plantForm.bunga} onChange={(val) => setPlantForm(prev => ({ ...prev, bunga: val }))} minHeight="72px" />
+                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#FFC0CB]/70">
+                    <label className="inline-flex items-center gap-1 bg-[#FFF5F7] text-[#B83B66] font-bold px-2.5 py-1.5 rounded-lg border border-[#FFC0CB] text-[10px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3 h-3 text-[#E76F95]" />
+                      <span>Foto Bunga</span>
+                      <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("bunga", e)} className="hidden" />
+                    </label>
+                    <input
+                      type="text"
+                      value={plantForm.bungaImage || ""}
+                      onChange={(e) => setPlantForm(prev => ({ ...prev, bungaImage: e.target.value }))}
+                      placeholder="Atau URL foto bunga..."
+                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#FFF5F7] border border-[#FFC0CB]/60 text-[11px]"
+                    />
+                    {plantForm.bungaImage && (
+                      <img src={plantForm.bungaImage} alt="Preview bunga" className="w-9 h-11 rounded-lg object-cover border border-[#FFC0CB] flex-shrink-0" />
+                    )}
+                  </div>
                   </div>
                 </div>
 
