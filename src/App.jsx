@@ -273,7 +273,7 @@ const BotanicalIllustration = () => (
         </div>
       </div>
 
-      <div className="mt-3 flex items-center justify-between gap-2 bg-white px-3.5 py-2.5 rounded-2xl border border-[#FFC0CB]/60">
+      <div className="mt-3 flex items-center justify-between gap-2 bg-white/85 backdrop-blur-sm px-3.5 py-2.5 rounded-2xl border border-[#FFC0CB]/60">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-xl bg-[#E76F95] text-white flex items-center justify-center flex-shrink-0">
             <Smartphone className="w-4 h-4" />
@@ -708,7 +708,12 @@ export default function App() {
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
             <div className="space-y-6">
-              <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5">
+              <section
+                className="relative overflow-hidden rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5 bg-cover bg-center"
+                style={{
+                  backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.86), rgba(255, 245, 247, 0.90)), url(${import.meta.env.BASE_URL}hero-toga.jpeg)`
+                }}
+              >
                 <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
                   <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
                   <span>Discover the Green World</span>
