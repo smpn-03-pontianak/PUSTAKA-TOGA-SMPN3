@@ -189,102 +189,55 @@ const PLANT_FACTS = [
 // ============================================================================
 // 3. KOMPONEN GENERATOR QR CODE & UNDUH PNG OTOMATIS
 // ============================================================================
-const SmartPlantQRWidget = ({ code, plantName = 'Tanaman', size = 140, showDownload = false }) => {
-  const [qrDataUrl, setQrDataUrl] = useState('');
+const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownload = false }) => {
+  const cleanCode = (code || "SPN3-PLANT").trim().toUpperCase();
+  const plantUrl = `https://smpn-03-pontianak.github.io/PUSTAKA-TOGA-SMPN3/?plant=${encodeURIComponent(cleanCode)}`;
+  const qrImgUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data=${encodeURIComponent(plantUrl)}`;
 
-  useEffect(() => {
-    const rawInput = (code || 'SPN3-PLANT').trim().toUpperCase();
-    const urlMatch = String(rawInput).match(/[?&]plant=([^&]+)/i);
-    const cleanCode = urlMatch ? decodeURIComponent(urlMatch[1]).trim().toUpperCase() : rawInput;
-    const grid = 21;
-    let seed = 0;
-    for (let i = 0; i < cleanCode.length; i++) {
-      seed = (seed * 31 + cleanCode.charCodeAt(i)) % 1000003;
+  const handleDownloadQR = async () => {
+    try {
+      const response = await fetch(qrImgUrl);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = `QR-${cleanCode}-${plantName.replace(/\s+/g, "-")}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
+    } catch (err) {
+      window.open(qrImgUrl, "_blank");
     }
-
-    const isFinder = (r, c) => {
-      if (r < 7 && c < 7) return true;
-      if (r < 7 && c >= grid - 7) return true;
-      if (r >= grid - 7 && c < 7) return true;
-      return false;
-    };
-
-    const finderPixel = (r, c) => {
-      const lr = r >= grid - 7 ? r - (grid - 7) : r;
-      const lc = c >= grid - 7 ? c - (grid - 7) : c;
-      if (lr === 0 || lr === 6 || lc === 0 || lc === 6) return true;
-      if (lr >= 2 && lr <= 4 && lc >= 2 && lc <= 4) return true;
-      return false;
-    };
-
-    const canvas = document.createElement('canvas');
-    const scale = 12;
-    const margin = 24;
-    const labelHeight = 34;
-    canvas.width = grid * scale + margin * 2;
-    canvas.height = grid * scale + margin * 2 + labelHeight;
-    const ctx = canvas.getContext('2d');
-
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = '#164B36';
-    for (let r = 0; r < grid; r++) {
-      for (let c = 0; c < grid; c++) {
-        let dark = false;
-        if (isFinder(r, c)) {
-          dark = finderPixel(r, c);
-        } else {
-          const val = (seed + r * 37 + c * 73 + (r ^ c) * 19) % 11;
-          dark = val < 5;
-        }
-        if (dark) {
-          ctx.fillRect(margin + c * scale, margin + r * scale, scale - 1, scale - 1);
-        }
-      }
-    }
-
-    ctx.fillStyle = '#164B36';
-    ctx.font = 'bold 13px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(cleanCode, canvas.width / 2, grid * scale + margin + 18);
-    ctx.fillStyle = '#23865B';
-    ctx.font = '600 10px sans-serif';
-    ctx.fillText('SMP NEGERI 3 PONTIANAK', canvas.width / 2, grid * scale + margin + 32);
-
-    setQrDataUrl(canvas.toDataURL('image/png'));
-  }, [code]);
-
-  const handleDownloadPNG = () => {
-    if (!qrDataUrl) return;
-    const link = document.createElement('a');
-    link.href = qrDataUrl;
-    link.download = `QR-${code || 'TANAMAN'}-MSBSPANTA.png`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   return (
     <div className="flex flex-col items-center gap-2">
-      <div className="bg-white p-2.5 rounded-2xl border-2 border-[#A8C7A0] shadow-sm inline-flex flex-col items-center">
-        {qrDataUrl ? (
-          <img
-            src={qrDataUrl}
-            alt={`QR Code ${plantName}`}
-            style={{ width: size, height: 'auto' }}
-            className="rounded-lg"
-          />
-        ) : (
-          <div style={{ width: size, height: size }} className="bg-[#F7F5EC] animate-pulse rounded-lg" />
-        )}
+      <div className="p-2.5 bg-white rounded-2xl border border-[#A8C7A0] shadow-sm">
+        <img
+          src={qrImgUrl}
+          alt={`QR Code ${plantName}`}
+          width={size}
+          height={size}
+          className="rounded-lg block"
+        />
       </div>
-
-      {showDownload && qrDataUrl && (
+      <span className="text-[11px] font-mono font-bold text-[#164B36] bg-[#F7F5EC] px-2.5 py-0.5 rounded-full border border-[#A8C7A0]/60">
+        {cleanCode}
+      </span>
+      <a
+        href={plantUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[10px] text-[#23865B] underline break-all max-w-[220px]"
+      >
+        {plantUrl}
+      </a>
+      {showDownload && (
         <button
           type="button"
-          onClick={handleDownloadPNG}
-          className="inline-flex items-center gap-1.5 bg-[#164B36] hover:bg-[#23865B] text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-colors shadow-sm"
+          onClick={handleDownloadQR}
+          className="mt-1 inline-flex items-center gap-1.5 bg-[#164B36] hover:bg-[#23865B] text-white text-[11px] font-bold px-3.5 py-2 rounded-xl transition-colors"
         >
           <Download className="w-3.5 h-3.5" />
           <span>Unduh QR PNG</span>
