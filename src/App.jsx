@@ -515,7 +515,7 @@ export default function App() {
   // ============================================================================
   const handleAdminAuth = (e) => {
     e.preventDefault();
-    if (adminPassword === 'MSBSPANTA' || adminPassword === 'admin123') {
+    if (adminPassword.trim() === 'MSBSPANTA') {
       setIsAdmin(true);
       setShowAdminLogin(false);
       setActivePage('admin');
@@ -523,7 +523,7 @@ export default function App() {
       setAdminLoginError('');
       showToast('Login Berhasil', 'Selamat datang di Dashboard Administrator SMPN 3 Pontianak.');
     } else {
-      setAdminLoginError('Kata sandi administrator salah. Gunakan kode akses guru: MSBSPANTA');
+      setAdminLoginError('Kode akses administrator salah. Silakan periksa kembali.');
     }
   };
 
@@ -531,12 +531,7 @@ export default function App() {
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = () => {
-      if (typeof reader.result === 'string') {
-        setPlantForm(prev => ({ ...prev, image: reader.result }));
-        showToast('Foto Dimuat', 'Foto tanaman berhasil diunggah ke pratinjau.');
-      }
-    };
+    reader.onload = () => { const img = new Image(); img.onload = () => { const canvas = document.createElement("canvas"); const maxW = 800; const scale = img.width > maxW ? maxW / img.width : 1; canvas.width = img.width * scale; canvas.height = img.height * scale; canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height); const compressed = canvas.toDataURL("image/jpeg", 0.75); setPlantForm(prev => ({ ...prev, image: compressed })); showToast("Foto Siap", "Foto berhasil dikompresi dan dimuat ke pratinjau."); }; img.src = reader.result; };
     reader.readAsDataURL(file);
   };
 
