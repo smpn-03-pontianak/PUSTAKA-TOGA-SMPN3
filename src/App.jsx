@@ -785,16 +785,24 @@ export default function App() {
               <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5">
                 <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
                   <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
-                  <span>Discover the Green World</span>
+                  <span>Taman TOGA MSB FKIP UNTAN</span>
                 </div>
 
                 <div className="space-y-2.5">
                   <h1 className="text-2xl font-extrabold text-[#B83B66] leading-snug tracking-tight">
-                    KENALI TANAMAN, JAGA KEHIDUPAN!
+                    Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
                   </h1>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed">
-                    Jelajahi keanekaragaman tanaman di lingkungan SMP Negeri 3 Pontianak. Pindai QR Code, kenali jenis tanaman, dan temukan informasi menarik di balik setiap tumbuhan.
-                  </p>
+                  <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed">
+                    <p>
+                      Alam menyimpan begitu banyak keajaiban yang sering kali belum kita ketahui. Di balik hijaunya dedaunan dan beragam bentuk tanaman, tersimpan pengetahuan, keunikan, serta manfaat yang menarik untuk dipelajari.
+                    </p>
+                    <p>
+                      Melalui website ini, mari bersama-sama menjelajahi kekayaan tanaman obat keluarga (TOGA), mengenal berbagai jenis tanaman, memahami manfaatnya, dan menemukan fakta unik di balik setiap tumbuhan.
+                    </p>
+                    <p className="font-semibold text-[#B83B66]">
+                      Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
+                    </p>
+                  </div>
                 </div>
 
                 <BotanicalIllustration />
