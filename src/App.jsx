@@ -193,7 +193,9 @@ const SmartPlantQRWidget = ({ code, plantName = 'Tanaman', size = 140, showDownl
   const [qrDataUrl, setQrDataUrl] = useState('');
 
   useEffect(() => {
-    const cleanCode = (code || 'SPN3-PLANT').trim().toUpperCase();
+    const rawInput = (code || 'SPN3-PLANT').trim().toUpperCase();
+    const urlMatch = String(rawInput).match(/[?&]plant=([^&]+)/i);
+    const cleanCode = urlMatch ? decodeURIComponent(urlMatch[1]).trim().toUpperCase() : rawInput;
     const grid = 21;
     let seed = 0;
     for (let i = 0; i < cleanCode.length; i++) {
@@ -346,6 +348,20 @@ export default function App() {
   // Navigasi Halaman ('beranda' | 'koleksi' | 'aktivitas' | 'tentang' | 'scan' | 'admin')
   const [activePage, setActivePage] = useState('beranda');
   const [selectedPlant, setSelectedPlant] = useState(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const plantParam = params.get("plant");
+    if (plantParam && plants.length > 0) {
+      const found = plants.find(
+        p => p.code?.toUpperCase() === plantParam.trim().toUpperCase() || p.id === plantParam.trim()
+      );
+      if (found) {
+        setSelectedPlant(found);
+        setActivePage("koleksi");
+      }
+    }
+  }, [plants]);
 
   // Filter, Pencarian, dan Pengurutan Koleksi
   const [searchQuery, setSearchQuery] = useState('');
