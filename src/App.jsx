@@ -400,7 +400,7 @@ const HeroPhotoSlider = () => {
   const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % photos.length);
 
   return (
-    <div className="relative w-full h-64 sm:h-72  sm:h-64 sm:h-72  rounded-3xl overflow-hidden border border-[#FFC0CB]/80 shadow-sm bg-[#FFF5F7] group">
+    <div className="relative w-full h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  sm:h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  rounded-3xl overflow-hidden border border-[#FFC0CB]/80 shadow-sm bg-[#FFF5F7] group">
       {photos.map((photo, idx) => (
         <img
           key={photo + idx}
@@ -412,7 +412,7 @@ const HeroPhotoSlider = () => {
         />
       ))}
 
-      <div className="absolute inset-x-0 bottom-0 h-64 sm:h-72  bg-gradient-to-t from-black/55 via-black/20 to-transparent z-20 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  bg-gradient-to-t from-black/55 via-black/20 to-transparent z-20 pointer-events-none" />
 
       <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#B83B66] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#FFC0CB]">
         Galeri Taman Toga SMPN 3
@@ -424,7 +424,7 @@ const HeroPhotoSlider = () => {
             type="button"
             onClick={prevSlide}
             aria-label="Foto sebelumnya"
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-64 sm:h-72  rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
           >
             ‹
           </button>
@@ -432,7 +432,7 @@ const HeroPhotoSlider = () => {
             type="button"
             onClick={nextSlide}
             aria-label="Foto berikutnya"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-64 sm:h-72  rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
           >
             ›
           </button>
@@ -444,7 +444,7 @@ const HeroPhotoSlider = () => {
                 type="button"
                 onClick={() => setCurrentIdx(idx)}
                 aria-label={`Pilih foto ${idx + 1}`}
-                className={`h-64 sm:h-72 .5 rounded-full transition-all ${
+                className={`h-72 sm:h-80 ] sm:h-72 sm:h-80 ] .5 rounded-full transition-all ${
                   idx === currentIdx ? "w-5 bg-[#FFC0CB]" : "w-1.5 bg-white/75"
                 }`}
               />
@@ -826,7 +826,7 @@ export default function App() {
       `}</style>
 
       {/* Bingkai Utama Model Portrait */}
-      <div className="w-full max-w-[480px] min-h-screen bg-[#FFF5F7] shadow-2xl border-x border-[#FFC0CB]/60 flex flex-col relative pb-24">
+      <div className="w-full max-w-[480px] md:max-w-none min-h-screen bg-[#FFF5F7] shadow-2xl md:shadow-none border-x md:border-x-0 border-[#FFC0CB]/60 flex flex-col relative pb-24 md:pb-8">
 
         {/* NOTIFIKASI TOAST PORTRAIT */}
         {notification && (
@@ -871,6 +871,31 @@ export default function App() {
               </div>
             </div>
 
+            
+            <nav className="hidden md:flex items-center gap-1.5">
+              {[
+                { id: "beranda", label: "Beranda" },
+                { id: "koleksi", label: "Koleksi" },
+                { id: "scan", label: "Scan QR" },
+                { id: "aktivitas", label: "Aktivitas" },
+                { id: "tentang", label: "Tentang" }
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActivePage(item.id);
+                    setSelectedPlant(null);
+                  }}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                    activePage === item.id
+                      ? "bg-[#B83B66] text-white shadow-xs"
+                      : "text-[#4A2532] hover:bg-[#FFF5F7] hover:text-[#B83B66]"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
             <div className="flex items-center gap-2">
               {isAdmin ? (
                 <button
@@ -899,14 +924,14 @@ export default function App() {
         </header>
 
         {/* KONTEN UTAMA PORTRAIT */}
-        <main className="flex-1 px-4 py-5 space-y-6">
+        <main className="flex-1 px-4 py-5 space-y-6 w-full md:max-w-6xl md:mx-auto md:px-6">
 
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-7 items-center">
                 {/* Sebelah Kiri: Penjelasan */}
-                <div className="md:col-span-6 order-2 md:order-1">
+                <div className="md:col-span-5 order-2 md:order-1">
                   <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5">
                 <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
                   <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
@@ -953,7 +978,7 @@ export default function App() {
                 </div>
 
                 {/* Sebelah Kanan: Foto Slide Utuh */}
-                <div className="md:col-span-6 order-1 md:order-2 w-full">
+                <div className="md:col-span-7 order-1 md:order-2 w-full">
                   <HeroPhotoSlider />
                 </div>
               </div>
@@ -1183,7 +1208,7 @@ export default function App() {
                       <p className="text-xs text-[#4A2532]/75 mt-1">Coba kata kunci atau kategori lainnya.</p>
                     </div>
                   ) : (
-                    <div className="grid grid-cols-2 gap-3.5">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-5">
                       {filteredAndSortedPlants.map(plant => (
                         <div
                           key={plant.id}
@@ -1861,7 +1886,7 @@ export default function App() {
         </main>
 
         {/* BOTTOM NAVIGATION BAR PORTRAIT */}
-        <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-[480px] bg-white/95 backdrop-blur-md border-t border-[#FFC0CB]/70 px-2 py-2 shadow-[0_-4px_20px_rgba(22,75,54,0.08)]">
+        <nav className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-[480px] md:max-w-6xl bg-white/95 backdrop-blur-md border-t border-[#FFC0CB]/70 px-2 py-2 shadow-[0_-4px_20px_rgba(22,75,54,0.08)]">
           <div className="grid grid-cols-5 items-center">
             <button
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
