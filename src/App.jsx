@@ -400,19 +400,19 @@ const HeroPhotoSlider = () => {
   const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % photos.length);
 
   return (
-    <div className="relative w-full h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  sm:h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  rounded-3xl overflow-hidden border border-[#FFC0CB]/80 shadow-sm bg-[#FFF5F7] group">
+    <div className="relative w-full h-64 sm:h-72 md:h-[380px] sm:h-64 sm:h-72 md:h-[380px] rounded-3xl overflow-hidden border border-[#FFC0CB]/80 shadow-sm bg-[#FFF5F7] group">
       {photos.map((photo, idx) => (
         <img
           key={photo + idx}
           src={`${import.meta.env.BASE_URL}${photo}?v=1794565952752`}
           alt={`Dokumentasi Taman Toga SMPN 3 - ${idx + 1}`}
-          className={`absolute inset-0 w-full h-full object-contain bg-[#2D151E] transition-opacity duration-700 ${
+          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${
             idx === currentIdx ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         />
       ))}
 
-      <div className="absolute inset-x-0 bottom-0 h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  bg-gradient-to-t from-black/55 via-black/20 to-transparent z-20 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 via-black/20 to-transparent z-20 pointer-events-none" />
 
       <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#B83B66] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#FFC0CB]">
         Galeri Taman Toga SMPN 3
@@ -424,7 +424,7 @@ const HeroPhotoSlider = () => {
             type="button"
             onClick={prevSlide}
             aria-label="Foto sebelumnya"
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
           >
             ‹
           </button>
@@ -432,7 +432,7 @@ const HeroPhotoSlider = () => {
             type="button"
             onClick={nextSlide}
             aria-label="Foto berikutnya"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-72 sm:h-80 ] sm:h-72 sm:h-80 ]  rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow text-xs font-bold"
           >
             ›
           </button>
@@ -444,7 +444,7 @@ const HeroPhotoSlider = () => {
                 type="button"
                 onClick={() => setCurrentIdx(idx)}
                 aria-label={`Pilih foto ${idx + 1}`}
-                className={`h-72 sm:h-80 ] sm:h-72 sm:h-80 ] .5 rounded-full transition-all ${
+                className={`h-1.5 rounded-full transition-all ${
                   idx === currentIdx ? "w-5 bg-[#FFC0CB]" : "w-1.5 bg-white/75"
                 }`}
               />
