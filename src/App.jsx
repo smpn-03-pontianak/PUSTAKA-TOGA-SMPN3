@@ -907,6 +907,42 @@ export default function App() {
         .animate-scan-line {
           animation: scanLine 2.4s ease-in-out infinite;
         }
+        
+        @keyframes contentRevealUp {
+          0% { opacity: 0; transform: translateY(18px) scale(0.985); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes headerSlideDown {
+          0% { opacity: 0; transform: translateY(-12px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-header-enter {
+          animation: headerSlideDown 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        .animate-page-enter > section,
+        .animate-page-enter > div {
+          opacity: 0;
+          animation: contentRevealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .animate-page-enter > section:nth-child(1),
+        .animate-page-enter > div:nth-child(1) { animation-delay: 0.08s; }
+        .animate-page-enter > section:nth-child(2),
+        .animate-page-enter > div:nth-child(2) { animation-delay: 0.18s; }
+        .animate-page-enter > section:nth-child(3),
+        .animate-page-enter > div:nth-child(3) { animation-delay: 0.28s; }
+        .animate-page-enter > section:nth-child(4),
+        .animate-page-enter > div:nth-child(4) { animation-delay: 0.38s; }
+        .animate-page-enter > section:nth-child(5),
+        .animate-page-enter > div:nth-child(5) { animation-delay: 0.48s; }
+        .animate-page-enter h1,
+        .animate-page-enter h2,
+        .animate-page-enter h3,
+        .animate-page-enter p,
+        .animate-page-enter img,
+        .animate-page-enter button {
+          animation: contentRevealUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+          animation-delay: 0.14s;
+        }
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
@@ -940,7 +976,7 @@ export default function App() {
         )}
 
         {/* HEADER PORTRAIT */}
-        <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#FFC0CB]/60 px-4 py-3.5 shadow-sm">
+        <header className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#FFC0CB]/60 px-4 py-3.5 shadow-sm ${!showSplash ? "animate-header-enter" : "opacity-0"}`}>
           <div className="flex items-center justify-between gap-2">
             <div
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
@@ -1016,7 +1052,7 @@ export default function App() {
         </header>
 
         {/* KONTEN UTAMA PORTRAIT */}
-        <main className="flex-1 px-4 py-5 space-y-6 w-full md:max-w-6xl md:mx-auto md:px-6">
+        <main key={`${activePage}-${selectedPlant?.id || "list"}-${showSplash ? "wait" : "ready"}`} className={`flex-1 px-4 py-5 space-y-6 w-full md:max-w-6xl md:mx-auto md:px-6 ${!showSplash ? "animate-page-enter" : "opacity-0"}`}>
 
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
