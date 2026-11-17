@@ -2014,10 +2014,10 @@ export default function App() {
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3">
                     {[
                       {
-                        name: "Kartika Sari",
-                        prodi: "Program Studi Pendidikan Fisika",
-                        photo: "anggota-4.jpg",
-                        initials: "KS"
+                        name: "Aisyiyah Baroqah Qodariah",
+                        prodi: "Program Studi Pendidikan Seni",
+                        photo: "anggota-12.jpg",
+                        initials: "AB"
                       },
                       {
                         name: "Niko Demus Misel",
@@ -2062,10 +2062,10 @@ export default function App() {
                         initials: "ER"
                       },
                       {
-                        name: "Aisyiyah Baroqah Qodariah",
-                        prodi: "Program Studi Pendidikan Seni",
-                        photo: "anggota-12.jpg",
-                        initials: "AB"
+                        name: "Kartika Sari",
+                        prodi: "Program Studi Pendidikan Fisika",
+                        photo: "anggota-4.jpg",
+                        initials: "KS"
                       }
                     ].map((member, idx) => (
                       <div
