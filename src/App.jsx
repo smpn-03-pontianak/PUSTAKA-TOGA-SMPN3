@@ -1084,15 +1084,9 @@ export default function App() {
                   </div>
 
                   {/* Kanan: Slide Foto Sejajar Teks */}
-                  <div className="md:col-span-6 w-full">
+                  <div className="md:col-span-6 w-full space-y-4">
                     <HeroPhotoSlider />
-                  </div>
-                </div>
-                </div>
-
-                <BotanicalIllustration />
-
-                <div className="grid grid-cols-2 gap-3 pt-1">
+                    <div className="grid grid-cols-2 gap-3 pt-1">
                   <button
                     onClick={() => setActivePage('koleksi')}
                     className="flex items-center justify-center gap-1.5 bg-[#B83B66] hover:bg-[#E76F95] text-white font-bold py-3.5 px-3 rounded-2xl text-xs shadow-sm transition-all"
@@ -1109,40 +1103,7 @@ export default function App() {
                     <span>Scan QR Code</span>
                   </button>
                 </div>
-              </section>
-
-              {/* Statistik Koleksi */}
-              <section className="bg-[#B83B66] text-white rounded-3xl p-5 space-y-4 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFC0CB]">
-                      Inventaris Hijau Sekolah
-                    </span>
-                    <h2 className="text-lg font-extrabold">Koleksi Terdata</h2>
-                  </div>
-                  <button
-                    onClick={() => setActivePage('koleksi')}
-                    className="bg-[#E76F95] text-white text-xs font-bold px-3.5 py-2 rounded-xl"
-                  >
-                    Lihat Semua
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-white/10 rounded-2xl p-3.5 border border-white/15">
-                    <div className="text-2xl font-extrabold text-[#FFC0CB]">{plants.length}</div>
-                    <div className="text-[11px] font-medium mt-0.5">Spesies Tanaman</div>
-                  </div>
-                  <div className="bg-white/10 rounded-2xl p-3.5 border border-white/15">
-                    <div className="text-2xl font-extrabold text-[#FFC0CB]">
-                      {new Set(plants.map(p => p.category)).size}
-                    </div>
-                    <div className="text-[11px] font-medium mt-0.5">Kategori Utama</div>
-                  </div>
-                </div>
-              </section>
-
-              {/* Panduan Penggunaan */}
+                    {/* Panduan Penggunaan */}
               <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/60 space-y-4">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#E76F95]">
@@ -1191,6 +1152,47 @@ export default function App() {
                   </div>
                 </div>
               </section>
+                  </div>
+                </div>
+                </div>
+
+                <BotanicalIllustration />
+
+                
+              </section>
+
+              {/* Statistik Koleksi */}
+              <section className="bg-[#B83B66] text-white rounded-3xl p-5 space-y-4 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFC0CB]">
+                      Inventaris Hijau Sekolah
+                    </span>
+                    <h2 className="text-lg font-extrabold">Koleksi Terdata</h2>
+                  </div>
+                  <button
+                    onClick={() => setActivePage('koleksi')}
+                    className="bg-[#E76F95] text-white text-xs font-bold px-3.5 py-2 rounded-xl"
+                  >
+                    Lihat Semua
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white/10 rounded-2xl p-3.5 border border-white/15">
+                    <div className="text-2xl font-extrabold text-[#FFC0CB]">{plants.length}</div>
+                    <div className="text-[11px] font-medium mt-0.5">Spesies Tanaman</div>
+                  </div>
+                  <div className="bg-white/10 rounded-2xl p-3.5 border border-white/15">
+                    <div className="text-2xl font-extrabold text-[#FFC0CB]">
+                      {new Set(plants.map(p => p.category)).size}
+                    </div>
+                    <div className="text-[11px] font-medium mt-0.5">Kategori Utama</div>
+                  </div>
+                </div>
+              </section>
+
+              
 
               {/* Tanaman Pilihan */}
               <section className="space-y-3">
