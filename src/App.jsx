@@ -2039,7 +2039,7 @@ export default function App() {
                     {[
                       {
                         name: "Aisyiyah Baroqah Qodariah",
-                        prodi: "Program Studi Pendidikan Seni",
+                        prodi: "Program Studi Seni dan Pertunjukan",
                         photo: "anggota-12.jpg",
                         initials: "AB"
                       },
