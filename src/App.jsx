@@ -1057,103 +1057,109 @@ export default function App() {
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
             <div className="space-y-6">
-              <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-center">
-                  {/* Kiri: Judul & Paragraf Sambutan */}
+              <section className="bg-white rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-6">
+                {/* Baris 1: Galeri Foto Utama */}
+                <div className="w-full">
+                  <HeroPhotoSlider />
+                </div>
+
+                {/* Baris 2: Teks Sambutan (Kiri) sejajar dengan Tombol Aksi & Panduan Penggunaan (Kanan) */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-start">
+                  {/* Kolom Kiri: Judul & Paragraf Sambutan */}
                   <div className="md:col-span-6 space-y-3">
                     <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
-                  <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
-                  <span>Taman TOGA MSB FKIP UNTAN</span>
-                </div>
+                      <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
+                      <span>Taman TOGA MSB FKIP UNTAN</span>
+                    </div>
 
-                <div className="space-y-2.5">
-                  <h1 className="text-2xl font-extrabold text-[#B83B66] leading-snug tracking-tight">
-                    🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
-                  </h1>
-                  <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed">
-                    <p>
-                      Alam menyimpan begitu banyak keajaiban yang sering kali belum kita ketahui. Di balik hijaunya dedaunan dan beragam bentuk tanaman, tersimpan pengetahuan, keunikan, serta manfaat yang menarik untuk dipelajari.
-                    </p>
-                    <p>
-                      Melalui website ini, mari bersama-sama menjelajahi kekayaan tanaman obat keluarga (TOGA), mengenal berbagai jenis tanaman, memahami manfaatnya, dan menemukan fakta unik di balik setiap tumbuhan.
-                    </p>
-                    <p className="font-semibold text-[#B83B66]">
-                      Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
-                    </p>
-                  </div>
+                    <div className="space-y-2.5">
+                      <h1 className="text-xl md:text-2xl font-extrabold text-[#B83B66] leading-snug tracking-tight">
+                        🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
+                      </h1>
+                      <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed">
+                        <p>
+                          Alam menyimpan begitu banyak keajaiban yang sering kali belum kita ketahui. Di balik hijaunya dedaunan dan beragam bentuk tanaman, tersimpan pengetahuan, keunikan, serta manfaat yang menarik untuk dipelajari.
+                        </p>
+                        <p>
+                          Melalui website ini, mari bersama-sama menjelajahi kekayaan tanaman obat keluarga (TOGA), mengenal berbagai jenis tanaman, memahami manfaatnya, dan menemukan fakta unik di balik setiap tumbuhan.
+                        </p>
+                        <p className="font-semibold text-[#B83B66]">
+                          Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
+                        </p>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Kanan: Slide Foto Sejajar Teks */}
+                  {/* Kolom Kanan (Sejajar di Samping Teks): Tombol Aksi & Panduan Penggunaan */}
                   <div className="md:col-span-6 w-full space-y-4">
-                    <HeroPhotoSlider />
-                    <div className="grid grid-cols-2 gap-3 pt-1">
-                  <button
-                    onClick={() => setActivePage('koleksi')}
-                    className="flex items-center justify-center gap-1.5 bg-[#B83B66] hover:bg-[#E76F95] text-white font-bold py-3.5 px-3 rounded-2xl text-xs shadow-sm transition-all"
-                  >
-                    <span>Jelajahi Tanaman</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        onClick={() => setActivePage('koleksi')}
+                        className="flex items-center justify-center gap-1.5 bg-[#B83B66] hover:bg-[#E76F95] text-white font-bold py-3.5 px-3 rounded-2xl text-xs shadow-sm transition-all"
+                      >
+                        <span>Jelajahi Tanaman</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
 
-                  <button
-                    onClick={() => setActivePage('scan')}
-                    className="flex items-center justify-center gap-1.5 bg-[#FFF5F7] hover:bg-[#FFC0CB]/40 text-[#B83B66] font-bold py-3.5 px-3 rounded-2xl text-xs border-2 border-[#B83B66] transition-all"
-                  >
-                    <QrCode className="w-4 h-4 text-[#E76F95]" />
-                    <span>Scan QR Code</span>
-                  </button>
-                </div>
+                      <button
+                        onClick={() => setActivePage('scan')}
+                        className="flex items-center justify-center gap-1.5 bg-[#FFF5F7] hover:bg-[#FFC0CB]/40 text-[#B83B66] font-bold py-3.5 px-3 rounded-2xl text-xs border-2 border-[#B83B66] transition-all"
+                      >
+                        <QrCode className="w-4 h-4 text-[#E76F95]" />
+                        <span>Scan QR Code</span>
+                      </button>
+                    </div>
+
                     {/* Panduan Penggunaan */}
-              <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/60 space-y-4">
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#E76F95]">
-                    Panduan Penggunaan
-                  </span>
-                  <h2 className="text-lg font-extrabold text-[#B83B66]">
-                    Cara Menggunakan PUSTAKA TOGA SMPN 3
-                  </h2>
-                </div>
+                    <div className="bg-[#FFF5F7]/60 rounded-3xl p-4 md:p-5 border border-[#FFC0CB]/70 space-y-3.5">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#E76F95]">
+                          Panduan Penggunaan
+                        </span>
+                        <h2 className="text-base md:text-lg font-extrabold text-[#B83B66]">
+                          Cara Menggunakan PUSTAKA TOGA SMPN 3
+                        </h2>
+                      </div>
 
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3 bg-[#FFF5F7] p-3.5 rounded-2xl border border-[#FFC0CB]/60">
-                    <div className="w-7 h-7 rounded-xl bg-[#B83B66] text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
-                      1
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-xs text-[#B83B66]">Temukan Label QR Code</h3>
-                      <p className="text-[11px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
-                        Cari papan label QR Code yang terpasang di dekat tanaman di lingkungan SMPN 3 Pontianak.
-                      </p>
-                    </div>
-                  </div>
+                      <div className="space-y-2.5">
+                        <div className="flex items-start gap-3 bg-white p-3 rounded-2xl border border-[#FFC0CB]/60">
+                          <div className="w-7 h-7 rounded-xl bg-[#B83B66] text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
+                            1
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xs text-[#B83B66]">Temukan Label QR Code</h3>
+                            <p className="text-[11px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
+                              Cari papan label QR Code yang terpasang di dekat tanaman di lingkungan SMPN 3 Pontianak.
+                            </p>
+                          </div>
+                        </div>
 
-                  <div className="flex items-start gap-3 bg-[#FFF5F7] p-3.5 rounded-2xl border border-[#FFC0CB]/60">
-                    <div className="w-7 h-7 rounded-xl bg-[#E76F95] text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
-                      2
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-xs text-[#B83B66]">Pindai Menggunakan Smartphone</h3>
-                      <p className="text-[11px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
-                        Tekan tombol Scan QR di menu bawah dan arahkan kamera HP ke kode QR tanaman.
-                      </p>
-                    </div>
-                  </div>
+                        <div className="flex items-start gap-3 bg-white p-3 rounded-2xl border border-[#FFC0CB]/60">
+                          <div className="w-7 h-7 rounded-xl bg-[#E76F95] text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
+                            2
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xs text-[#B83B66]">Pindai Menggunakan Smartphone</h3>
+                            <p className="text-[11px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
+                              Tekan tombol Scan QR di menu bawah dan arahkan kamera HP ke kode QR tanaman.
+                            </p>
+                          </div>
+                        </div>
 
-                  <div className="flex items-start gap-3 bg-[#FFF5F7] p-3.5 rounded-2xl border border-[#FFC0CB]/60">
-                    <div className="w-7 h-7 rounded-xl bg-[#B83B66] text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
-                      3
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-xs text-[#B83B66]">Pelajari & Jaga Tanaman</h3>
-                      <p className="text-[11px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
-                        Baca informasi morfologi, habitat, manfaat, dan cara merawat tanaman tersebut.
-                      </p>
+                        <div className="flex items-start gap-3 bg-white p-3 rounded-2xl border border-[#FFC0CB]/60">
+                          <div className="w-7 h-7 rounded-xl bg-[#B83B66] text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
+                            3
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xs text-[#B83B66]">Pelajari &amp; Jaga Tanaman</h3>
+                            <p className="text-[11px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
+                              Baca informasi morfologi, habitat, manfaat, dan cara merawat tanaman tersebut.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </section>
-                  </div>
-                </div>
                 </div>
 
                 <BotanicalIllustration />
