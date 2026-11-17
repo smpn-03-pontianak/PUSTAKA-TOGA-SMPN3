@@ -385,16 +385,35 @@ const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
 };
 
 const HeroPhotoSlider = () => {
-  const photos = ["1.jpeg", "22.jpeg", "33.jpeg", "hero-toga.jpeg"];
+
+const photos = ["1.jpeg", "22.jpeg", "33.jpeg", "hero-toga.jpeg"];
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (photos.length <= 1) return;
+    setProgress(0);
+    const duration = 4000;
+    const stepTime = 40;
+    const increment = (stepTime / duration) * 100;
+
     const timer = setInterval(() => {
-      setCurrentIdx((idx) => (idx + 1) % photos.length);
-    }, 4000);
+      setProgress((prev) => {
+        if (prev + increment >= 100) {
+          setCurrentIdx((idx) => (idx + 1) % photos.length);
+          return 0;
+        }
+        return prev + increment;
+      });
+    }, stepTime);
+
     return () => clearInterval(timer);
-  }, [photos.length]);
+  }, [currentIdx, photos.length]);
+
+  const handleManualSlide = (newIdx) => {
+    setCurrentIdx(newIdx);
+    setProgress(0);
+  };
 
   return (
     <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[#FFC0CB] shadow-sm bg-[#FFF5F7] group">
@@ -409,15 +428,17 @@ const HeroPhotoSlider = () => {
         />
       ))}
 
-      <div className="absolute top-2.5 right-2.5 z-10 bg-black/55 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/20">
-        {currentIdx + 1}/{photos.length}
+      <div className="absolute top-2.5 right-2.5 z-10 bg-black/55 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/20">
+        <span>{currentIdx + 1}/{photos.length}</span>
+        <span className="text-[#FFC0CB]">•</span>
+        <span className="tabular-nums text-[#FFE4EC]">{Math.min(100, Math.round(progress))}%</span>
       </div>
 
       {photos.length > 1 && (
         <>
           <button
             type="button"
-            onClick={() => setCurrentIdx((currentIdx - 1 + photos.length) % photos.length)}
+            onClick={() => handleManualSlide((currentIdx - 1 + photos.length) % photos.length)}
             aria-label="Foto sebelumnya"
             className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity text-xs font-extrabold"
           >
@@ -425,7 +446,7 @@ const HeroPhotoSlider = () => {
           </button>
           <button
             type="button"
-            onClick={() => setCurrentIdx((currentIdx + 1) % photos.length)}
+            onClick={() => handleManualSlide((currentIdx + 1) % photos.length)}
             aria-label="Foto berikutnya"
             className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity text-xs font-extrabold"
           >
@@ -434,19 +455,25 @@ const HeroPhotoSlider = () => {
         </>
       )}
 
-      <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/55 via-black/20 to-transparent pt-5 pb-2.5 px-3">
+      <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/60 via-black/25 to-transparent pt-5 pb-2 px-3 space-y-1.5">
         <div className="flex items-center justify-center gap-1.5">
           {photos.map((_, idx) => (
             <button
               key={idx}
               type="button"
-              onClick={() => setCurrentIdx(idx)}
+              onClick={() => handleManualSlide(idx)}
               aria-label={`Pilih foto ${idx + 1}`}
               className={`h-1.5 rounded-full transition-all ${
                 idx === currentIdx ? "w-5 bg-white" : "w-1.5 bg-white/60 hover:bg-white/90"
               }`}
             />
           ))}
+        </div>
+        <div className="w-full h-1.5 bg-white/30 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-[#FFC0CB] via-[#E76F95] to-white transition-all duration-75 ease-linear rounded-full"
+            style={{ width: `${Math.min(100, Math.round(progress))}%` }}
+          />
         </div>
       </div>
     </div>
@@ -456,57 +483,32 @@ const HeroPhotoSlider = () => {
 const NonTeachingAutoSlider = () => {
   const slides = [
     {
-      src: "aktivitas-1-1.jpg",
+      src: "1.jpeg",
       stage: "Tahap 01 • Persetujuan Kepala Sekolah",
-      title: "Koordinasi Awal & Pemaparan Program Kerja",
+      title: "Koordinasi Awal & Persetujuan Program MSB",
       caption: "Audiensi bersama Kepala Sekolah SMP Negeri 3 Pontianak dan Guru Pendamping untuk memperoleh persetujuan pelaksanaan program TOGA."
     },
     {
-      src: "aktivitas-1-2.jpg",
-      stage: "Tahap 01 • Persetujuan Kepala Sekolah",
-      title: "Observasi Awal Lingkungan Sekolah",
-      caption: "Peninjauan area taman sekolah bersama guru pendamping untuk memetakan potensi pengembangan Taman TOGA."
-    },
-    {
-      src: "aktivitas-2-1.jpg",
+      src: "22.jpeg",
       stage: "Tahap 02 • Pemetaan & Penataan Taman TOGA",
-      title: "Pembersihan & Pengolahan Lahan Taman",
-      caption: "Gotong royong mahasiswa MSB membersihkan area taman dan menggemburkan media tanam."
+      title: "Revitalisasi Lahan & Penataan Tanaman Obat",
+      caption: "Pembersihan area taman, pengolahan media tanam, serta penataan koleksi Tanaman Obat Keluarga (TOGA) di lingkungan sekolah."
     },
     {
-      src: "aktivitas-2-2.jpg",
-      stage: "Tahap 02 • Pemetaan & Penataan Taman TOGA",
-      title: "Penanaman & Penataan Koleksi Tanaman Obat",
-      caption: "Penanaman bibit Tanaman Obat Keluarga (TOGA) serta penataan tata letak tanaman di lingkungan sekolah."
-    },
-    {
-      src: "aktivitas-3-1.jpg",
+      src: "33.jpeg",
       stage: "Tahap 03 • Pengembangan Pustaka Digital & Label QR",
-      title: "Inventarisasi Data Botani & Pembuatan QR Code",
-      caption: "Penyusunan data ilmiah, morfologi, manfaat, dan perawatan tanaman ke dalam website PUSTAKA TOGA SMPN 3."
+      title: "Inventarisasi Botani & Pemasangan Label QR Code",
+      caption: "Penyusunan basis data ilmiah ke dalam website PUSTAKA TOGA SMPN 3 disertai pemasangan papan label QR Code di setiap titik tanaman."
     },
     {
-      src: "aktivitas-3-2.jpg",
-      stage: "Tahap 03 • Pengembangan Pustaka Digital & Label QR",
-      title: "Pemasangan Papan Label QR Code",
-      caption: "Pemasangan papan nama tanaman berbasis QR Code di area Taman TOGA SMP Negeri 3 Pontianak."
-    },
-    {
-      src: "aktivitas-4-1.jpg",
-      stage: "Tahap 04 • Sosialisasi & Literasi Hijau",
-      title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Siswa",
-      caption: "Pendampingan siswa memindai label QR Code menggunakan smartphone untuk mempelajari tanaman obat di sekolah."
-    },
-    {
-      src: "aktivitas-4-2.jpg",
-      stage: "Tahap 04 • Penyelesaian & Penyerahan Produk",
-      title: "Dokumentasi Akhir Kegiatan Non-Mengajar MSB",
-      caption: "Penyelesaian seluruh rangkaian kegiatan non-mengajar mahasiswa MSB FKIP UNTAN bersama warga SMP Negeri 3 Pontianak."
+      src: "hero-toga.jpeg",
+      stage: "Tahap 04 • Sosialisasi & Literasi Hijau Warga Sekolah",
+      title: "Pemanfaatan Taman TOGA Digital di SMPN 3 Pontianak",
+      caption: "Pendampingan siswa dan warga sekolah memanfaatkan label QR Code sebagai media belajar interaktif untuk menumbuhkan kepedulian lingkungan."
     }
   ];
 
   const [idx, setIdx] = useState(0);
-  const [failedPhotos, setFailedPhotos] = useState({});
 
   useEffect(() => {
     if (slides.length <= 1) return;
@@ -517,32 +519,15 @@ const NonTeachingAutoSlider = () => {
   }, [slides.length]);
 
   const currentItem = slides[idx];
-  const isFailed = failedPhotos[currentItem.src];
 
   return (
     <div className="space-y-3">
       <div className="relative w-full aspect-[16/9] md:aspect-[21/10] rounded-2xl overflow-hidden border border-[#FFC0CB] bg-gradient-to-br from-[#FFF5F7] to-[#FFE4EC] shadow-xs group">
-        {!isFailed ? (
-          <img
-            src={`${import.meta.env.BASE_URL}${currentItem.src}`}
-            alt={currentItem.title}
-            onError={() => setFailedPhotos((prev) => ({ ...prev, [currentItem.src]: true }))}
-            className="w-full h-full object-cover transition-all duration-500"
-          />
-        ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-2">
-            <Sprout className="w-9 h-9 text-[#E76F95]" />
-            <span className="inline-block bg-white border border-[#FFC0CB] text-[#B83B66] text-[10px] font-bold px-3 py-0.5 rounded-full">
-              {currentItem.stage}
-            </span>
-            <p className="text-sm font-extrabold text-[#B83B66]">
-              {currentItem.title}
-            </p>
-            <p className="text-[11px] text-[#4A2532]/75 max-w-md">
-              Slot foto <strong>{currentItem.src}</strong> — unggah file foto ke folder <code>public/</code> untuk menampilkan dokumentasi kegiatan ini.
-            </p>
-          </div>
-        )}
+        <img
+          src={`${import.meta.env.BASE_URL}${currentItem.src}`}
+          alt={currentItem.title}
+          className="w-full h-full object-cover transition-all duration-500"
+        />
 
         <div className="absolute top-3 left-3 z-10 bg-white/95 backdrop-blur-xs text-[#B83B66] border border-[#FFC0CB] text-[10px] font-extrabold px-3 py-1 rounded-full shadow-xs">
           {currentItem.stage}
@@ -595,78 +580,6 @@ const NonTeachingAutoSlider = () => {
           </button>
         ))}
       </div>
-    </div>
-  );
-};
-
-const WelcomeSplash = ({ onFinish }) => {
-  const [closing, setClosing] = useState(false);
-
-  useEffect(() => {
-    const closeTimer = setTimeout(() => setClosing(true), 1600);
-    const finishTimer = setTimeout(() => onFinish(), 2200);
-    return () => {
-      clearTimeout(closeTimer);
-      clearTimeout(finishTimer);
-    };
-  }, [onFinish]);
-
-  const handleSkip = () => {
-    setClosing(true);
-    setTimeout(() => onFinish(), 450);
-  };
-
-  return (
-    <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#FFF5F7] via-[#FFE4EC] to-[#FFC0CB]/60 px-6 text-center transition-all duration-700 ${
-        closing ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
-      }`}
-    >
-      <div className="relative flex flex-col items-center max-w-md animate-[fadeInUp_0.8s_ease-out]">
-        {/* Lingkaran Ikon Daun Berdenyut Lembut */}
-        <div className="w-24 h-24 rounded-3xl bg-white shadow-lg border border-[#FFC0CB] flex items-center justify-center p-2.5 mb-5 animate-bounce overflow-hidden">
-          <img
-            src={`${import.meta.env.BASE_URL}logo-toga.png?v=2`}
-            alt="Logo Pustaka TOGA SMPN 3"
-            className="w-full h-full object-contain"
-          />
-        </div>
-
-        <span className="inline-flex items-center gap-1.5 bg-white/80 border border-[#FFC0CB] px-3.5 py-1 rounded-full text-xs font-bold text-[#B83B66] mb-3 shadow-2xs">
-          🌿 Selamat Datang di
-        </span>
-
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#B83B66] tracking-tight leading-snug mb-2">
-          PUSTAKA TOGA SMPN 3
-        </h1>
-        <p className="text-xs sm:text-sm font-medium text-[#4A2532]/80 mb-6">
-          Edukasi Digital Tanaman Obat Keluarga • SMP Negeri 3 Pontianak
-        </p>
-
-        {/* Bilah Progres Animasi */}
-        <div className="w-48 h-1.5 bg-white/80 rounded-full overflow-hidden border border-[#FFC0CB]/60 mb-5">
-          <div className="h-full bg-gradient-to-r from-[#E76F95] to-[#B83B66] rounded-full animate-[progressFill_1.7s_ease-in-out_forwards]" />
-        </div>
-
-        <button
-          type="button"
-          onClick={handleSkip}
-          className="text-[11px] font-bold text-[#B83B66]/80 hover:text-[#B83B66] underline underline-offset-4 transition-colors"
-        >
-          Masuk Sekarang →
-        </button>
-      </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(18px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes progressFill {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-      `}</style>
     </div>
   );
 };
