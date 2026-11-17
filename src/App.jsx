@@ -929,11 +929,11 @@ export default function App() {
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
             <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-7 items-center">
-                {/* Sebelah Kiri: Penjelasan */}
-                <div className="md:col-span-5 order-2 md:order-1">
-                  <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5">
-                <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
+              <section className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 shadow-sm space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-center">
+                  {/* Kiri: Judul & Paragraf Sambutan */}
+                  <div className="md:col-span-6 space-y-3">
+                    <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
                   <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
                   <span>Taman TOGA MSB FKIP UNTAN</span>
                 </div>
@@ -953,6 +953,13 @@ export default function App() {
                       Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
                     </p>
                   </div>
+                  </div>
+
+                  {/* Kanan: Slide Foto Sejajar Teks */}
+                  <div className="md:col-span-6 w-full">
+                    <HeroPhotoSlider />
+                  </div>
+                </div>
                 </div>
 
                 <BotanicalIllustration />
@@ -975,13 +982,6 @@ export default function App() {
                   </button>
                 </div>
               </section>
-                </div>
-
-                {/* Sebelah Kanan: Foto Slide Utuh */}
-                <div className="md:col-span-7 order-1 md:order-2 w-full">
-                  <HeroPhotoSlider />
-                </div>
-              </div>
 
               {/* Statistik Koleksi */}
               <section className="bg-[#B83B66] text-white rounded-3xl p-5 space-y-4 shadow-sm">
