@@ -946,11 +946,12 @@ export default function App() {
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
               className="flex items-center gap-2.5 cursor-pointer"
             >
-              <div className="w-10 h-10 rounded-2xl bg-[#B83B66] flex items-center justify-center text-white shadow-sm relative flex-shrink-0">
-                <Leaf className="w-5 h-5 text-[#FFC0CB]" />
-                <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-md bg-[#E76F95] border-2 border-white flex items-center justify-center text-[8px] font-extrabold">
-                  3
-                </span>
+              <div className="w-11 h-11 rounded-2xl bg-white border border-[#FFC0CB] flex items-center justify-center p-1 shadow-sm relative flex-shrink-0 overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}logo-toga.png?v=3`}
+                  alt="Logo Pustaka TOGA SMPN 3"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <span className="font-extrabold text-sm tracking-tight text-[#B83B66] block leading-tight">
