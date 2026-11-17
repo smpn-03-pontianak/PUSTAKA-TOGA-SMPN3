@@ -1203,14 +1203,38 @@ export default function App() {
           {activePage === 'beranda' && (
             <div className="space-y-6">
               <section className="bg-white rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-5">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+                <style>{`
+  @keyframes heroSmoothIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.985);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .anim-hero-col-1 {
+    opacity: 0;
+    animation: heroSmoothIn 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+  }
+  .anim-hero-col-2 {
+    opacity: 0;
+    animation: heroSmoothIn 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+  }
+  .anim-hero-col-3 {
+    opacity: 0;
+    animation: heroSmoothIn 1.0s cubic-bezier(0.22, 1, 0.36, 1) 1.3s forwards;
+  }
+`}</style>
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
                   {/* Kolom 1 (Kiri): Slide Foto */}
-                  <div className="lg:col-span-4 w-full">
+                  <div className="anim-hero-col-1 lg:col-span-4 w-full">
                     <HeroPhotoSlider />
                   </div>
 
                   {/* Kolom 2 (Tengah): Paragraf Penjelasan Rata Kanan-Kiri */}
-                  <div className="lg:col-span-4 space-y-3">
+                  <div className="anim-hero-col-2 lg:col-span-4 space-y-3">
                     <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
                       <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
                       <span>Taman TOGA MSB FKIP UNTAN</span>
@@ -1235,7 +1259,7 @@ export default function App() {
                   </div>
 
                   {/* Kolom 3 (Kanan - Mengisi Space Kosong di Sebelahnya): Panduan Penggunaan lalu Tombol Aksi */}
-                  <div className="lg:col-span-4 w-full space-y-3.5">
+                  <div className="anim-hero-col-3 lg:col-span-4 w-full space-y-3.5">
                     {/* Panduan Penggunaan */}
                     <div className="bg-[#FFF5F7]/70 rounded-3xl p-4 border border-[#FFC0CB]/70 space-y-3">
                       <div>
