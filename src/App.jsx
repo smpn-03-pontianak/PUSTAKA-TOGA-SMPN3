@@ -535,49 +535,49 @@ const WelcomeSplash = ({ onFinish }) => {
 const NonTeachingAutoSlider = () => {
   const slides = [
     {
-      src: "1.jpeg",
+      src: "aktivitas-1.jpeg",
       stage: "Tahap 01 • Persetujuan Kepala Sekolah",
       title: "Koordinasi Awal & Pemaparan Program Kerja",
       caption: "Audiensi bersama Kepala Sekolah SMP Negeri 3 Pontianak dan Guru Pendamping untuk memperoleh persetujuan pelaksanaan program TOGA."
     },
     {
-      src: "22.jpeg",
+      src: "aktivitas-2.jpeg",
       stage: "Tahap 01 • Persetujuan Kepala Sekolah",
       title: "Observasi Awal Lingkungan Sekolah",
       caption: "Peninjauan area taman sekolah bersama guru pendamping untuk memetakan potensi pengembangan Taman TOGA."
     },
     {
-      src: "33.jpeg",
+      src: "aktivitas-3.jpeg",
       stage: "Tahap 02 • Pemetaan & Penataan Taman TOGA",
       title: "Pembersihan & Pengolahan Lahan Taman",
       caption: "Gotong royong mahasiswa MSB membersihkan area taman dan menggemburkan media tanam."
     },
     {
-      src: "hero-toga.jpeg",
+      src: "aktivitas-4.jpeg",
       stage: "Tahap 02 • Pemetaan & Penataan Taman TOGA",
       title: "Penanaman & Penataan Koleksi Tanaman Obat",
       caption: "Penanaman bibit Tanaman Obat Keluarga (TOGA) serta penataan tata letak tanaman di lingkungan sekolah."
     },
     {
-      src: "1.jpeg",
+      src: "aktivitas-5.jpeg",
       stage: "Tahap 03 • Pengembangan Pustaka Digital & Label QR",
       title: "Inventarisasi Data Botani & Pembuatan QR Code",
       caption: "Penyusunan data ilmiah, morfologi, manfaat, dan perawatan tanaman ke dalam website PUSTAKA TOGA SMPN 3."
     },
     {
-      src: "22.jpeg",
+      src: "aktivitas-6.jpeg",
       stage: "Tahap 03 • Pengembangan Pustaka Digital & Label QR",
       title: "Pemasangan Papan Label QR Code",
       caption: "Pemasangan papan nama tanaman berbasis QR Code di area Taman TOGA SMP Negeri 3 Pontianak."
     },
     {
-      src: "33.jpeg",
+      src: "aktivitas-7.jpeg",
       stage: "Tahap 04 • Sosialisasi & Literasi Hijau",
       title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Siswa",
       caption: "Pendampingan siswa memindai label QR Code menggunakan smartphone untuk mempelajari tanaman obat di sekolah."
     },
     {
-      src: "hero-toga.jpeg",
+      src: "aktivitas-8.jpeg",
       stage: "Tahap 04 • Penyelesaian & Penyerahan Produk",
       title: "Dokumentasi Akhir Kegiatan Non-Mengajar MSB",
       caption: "Penyelesaian seluruh rangkaian kegiatan non-mengajar mahasiswa MSB FKIP UNTAN bersama warga SMP Negeri 3 Pontianak."
@@ -585,6 +585,7 @@ const NonTeachingAutoSlider = () => {
   ];
 
   const [idx, setIdx] = useState(0);
+  const [missingFiles, setMissingFiles] = useState({});
 
   useEffect(() => {
     if (slides.length <= 1) return;
@@ -595,15 +596,31 @@ const NonTeachingAutoSlider = () => {
   }, [slides.length]);
 
   const currentItem = slides[idx];
+  const isMissing = missingFiles[currentItem.src];
 
   return (
     <div className="space-y-3">
       <div className="relative w-full aspect-[16/9] md:aspect-[21/10] rounded-2xl overflow-hidden border border-[#FFC0CB] bg-gradient-to-br from-[#FFF5F7] to-[#FFE4EC] shadow-xs group">
-        <img
-          src={`${import.meta.env.BASE_URL}${currentItem.src}`}
-          alt={currentItem.title}
-          className="w-full h-full object-cover transition-all duration-500"
-        />
+        {!isMissing ? (
+          <img
+            src={`${import.meta.env.BASE_URL}${currentItem.src}`}
+            alt={currentItem.title}
+            onError={() => setMissingFiles((prev) => ({ ...prev, [currentItem.src]: true }))}
+            className="w-full h-full object-cover transition-all duration-500"
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-2 pb-16">
+            <div className="w-11 h-11 rounded-2xl bg-white border border-[#FFC0CB] flex items-center justify-center shadow-2xs">
+              <Sprout className="w-6 h-6 text-[#E76F95]" />
+            </div>
+            <p className="text-xs md:text-sm font-extrabold text-[#B83B66]">
+              Dokumentasi Foto Belum Diunggah
+            </p>
+            <p className="text-[11px] text-[#4A2532]/75 max-w-md">
+              Kode file: <code className="bg-white px-2 py-0.5 rounded border border-[#FFC0CB] font-bold text-[#B83B66]">{currentItem.src}</code> (folder <code>public/</code>)
+            </p>
+          </div>
+        )}
 
         <div className="absolute top-3 left-3 z-10 bg-white/95 text-[#B83B66] border border-[#FFC0CB] text-[10px] font-extrabold px-3 py-1 rounded-full shadow-xs">
           {currentItem.stage}
