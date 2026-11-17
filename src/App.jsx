@@ -909,39 +909,39 @@ export default function App() {
         }
         
         @keyframes contentRevealUp {
-          0% { opacity: 0; transform: translateY(18px) scale(0.985); }
-          100% { opacity: 1; transform: translateY(0) scale(1); }
+          0% { opacity: 0; transform: translateX(48px); }
+          100% { opacity: 1; transform: translateX(0); }
         }
         @keyframes headerSlideDown {
-          0% { opacity: 0; transform: translateY(-12px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% { opacity: 0; transform: translateX(32px); }
+          100% { opacity: 1; transform: translateX(0); }
         }
         .animate-header-enter {
-          animation: headerSlideDown 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+          animation: headerSlideDown 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
         .animate-page-enter > section,
         .animate-page-enter > div {
           opacity: 0;
-          animation: contentRevealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: contentRevealUp 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .animate-page-enter > section:nth-child(1),
-        .animate-page-enter > div:nth-child(1) { animation-delay: 0.08s; }
+        .animate-page-enter > div:nth-child(1) { animation-delay: 0.12s; }
         .animate-page-enter > section:nth-child(2),
-        .animate-page-enter > div:nth-child(2) { animation-delay: 0.18s; }
+        .animate-page-enter > div:nth-child(2) { animation-delay: 0.28s; }
         .animate-page-enter > section:nth-child(3),
-        .animate-page-enter > div:nth-child(3) { animation-delay: 0.28s; }
+        .animate-page-enter > div:nth-child(3) { animation-delay: 0.44s; }
         .animate-page-enter > section:nth-child(4),
-        .animate-page-enter > div:nth-child(4) { animation-delay: 0.38s; }
+        .animate-page-enter > div:nth-child(4) { animation-delay: 0.60s; }
         .animate-page-enter > section:nth-child(5),
-        .animate-page-enter > div:nth-child(5) { animation-delay: 0.48s; }
+        .animate-page-enter > div:nth-child(5) { animation-delay: 0.76s; }
         .animate-page-enter h1,
         .animate-page-enter h2,
         .animate-page-enter h3,
         .animate-page-enter p,
         .animate-page-enter img,
         .animate-page-enter button {
-          animation: contentRevealUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
-          animation-delay: 0.14s;
+          animation: contentRevealUp 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+          animation-delay: 0.22s;
         }
         .no-scrollbar::-webkit-scrollbar {
           display: none;
@@ -953,7 +953,7 @@ export default function App() {
       `}</style>
 
       {/* Bingkai Utama Model Portrait */}
-      <div className="w-full max-w-[480px] md:max-w-none min-h-screen bg-[#FFF5F7] shadow-2xl md:shadow-none border-x md:border-x-0 border-[#FFC0CB]/60 flex flex-col relative pb-24 md:pb-8">
+      <div className="w-full max-w-[480px] md:max-w-none min-h-screen bg-[#FFF5F7] shadow-2xl md:shadow-none border-x md:border-x-0 border-[#FFC0CB]/60 flex flex-col relative pb-24 md:pb-8 overflow-x-hidden">
 
         {/* NOTIFIKASI TOAST PORTRAIT */}
         {notification && (
