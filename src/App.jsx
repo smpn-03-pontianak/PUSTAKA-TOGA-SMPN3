@@ -400,19 +400,23 @@ const HeroPhotoSlider = () => {
   const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % photos.length);
 
   return (
-    <div className="relative w-full h-64 sm:h-72 md:h-[380px] sm:h-64 sm:h-72 md:h-[380px] rounded-3xl overflow-hidden border border-[#FFC0CB]/80 shadow-sm bg-[#FFF5F7] group">
+    <div className="relative w-full rounded-2xl overflow-hidden border border-[#FFC0CB]/80 shadow-sm bg-[#FFF5F7] group">
       {photos.map((photo, idx) => (
-        <img
+        <div
           key={photo + idx}
-          src={`${import.meta.env.BASE_URL}${photo}?v=1794565952752`}
-          alt={`Dokumentasi Taman Toga SMPN 3 - ${idx + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${
-            idx === currentIdx ? "opacity-100 z-10" : "opacity-0 z-0"
+          className={`w-full transition-opacity duration-700 ${
+            idx === currentIdx ? "relative opacity-100 z-10" : "absolute inset-0 opacity-0 z-0 pointer-events-none"
           }`}
-        />
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}${photo}?v=1794565952752`}
+            alt={`Dokumentasi Taman Toga SMPN 3 - ${idx + 1}`}
+            className="w-full h-auto max-h-[520px] object-contain mx-auto block"
+          />
+        </div>
       ))}
 
-      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 via-black/20 to-transparent z-20 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/45 via-black/15 to-transparent z-20 pointer-events-none" />
 
       <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#B83B66] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#FFC0CB]">
         Galeri Taman Toga SMPN 3
