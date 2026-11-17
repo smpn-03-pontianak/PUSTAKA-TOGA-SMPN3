@@ -1235,10 +1235,7 @@ export default function App() {
 
                   {/* Kolom 2 (Tengah): Paragraf Penjelasan Rata Kanan-Kiri */}
                   <div className="anim-hero-col-2 lg:col-span-4 space-y-3">
-                    <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
-                      <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
-                      <span>Taman TOGA MSB FKIP UNTAN</span>
-                    </div>
+                    
 
                     <div className="space-y-2.5">
                       <h1 className="text-xl font-extrabold text-[#B83B66] leading-snug tracking-tight">
@@ -1264,6 +1261,9 @@ export default function App() {
                         <span>→</span>
                       </button>
                     </div>
+                    <div className="pt-2">
+                      
+                    </div>
                       </div>
                     </div>
                   </div>
@@ -1282,22 +1282,10 @@ export default function App() {
                       </div>
 
                       <div className="space-y-2">
-                        <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#FFC0CB]/60">
-                          <div className="w-6 h-6 rounded-lg bg-[#B83B66] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
-                            1
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-[11px] text-[#B83B66]">Temukan Label QR Code</h3>
-                            <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
-                              Cari papan label QR Code yang terpasang di dekat tanaman di lingkungan SMPN 3 Pontianak.
-                            </p>
-                          </div>
-                        </div>
+                        
 
                         <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#FFC0CB]/60">
-                          <div className="w-6 h-6 rounded-lg bg-[#E76F95] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
-                            2
-                          </div>
+                          
                           <div>
                             <h3 className="font-bold text-[11px] text-[#B83B66]">Pindai Menggunakan Smartphone</h3>
                             <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
