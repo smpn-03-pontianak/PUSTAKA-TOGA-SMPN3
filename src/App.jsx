@@ -1955,7 +1955,7 @@ export default function App() {
                     {[
                       {
                         name: "Fatur Rahman",
-                        prodi: "Program Studi Pendidikan PPKN",
+                        prodi: "Program Studi Pendidikan Kewarganegaraan (PKN)",
                         role: "Ketua Kelompok & Pengembang Utama",
                         photo: "anggota-1.jpg",
                         initials: "FR"
