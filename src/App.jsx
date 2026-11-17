@@ -387,32 +387,14 @@ const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
 const HeroPhotoSlider = () => {
   const photos = ["1.jpeg", "22.jpeg", "33.jpeg", "hero-toga.jpeg"];
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (photos.length <= 1) return;
-    setProgress(0);
-    const duration = 4000;
-    const stepTime = 40;
-    const increment = (stepTime / duration) * 100;
-
     const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev + increment >= 100) {
-          setCurrentIdx((idx) => (idx + 1) % photos.length);
-          return 0;
-        }
-        return prev + increment;
-      });
-    }, stepTime);
-
+      setCurrentIdx((idx) => (idx + 1) % photos.length);
+    }, 4000);
     return () => clearInterval(timer);
-  }, [currentIdx, photos.length]);
-
-  const handleManualSlide = (newIdx) => {
-    setCurrentIdx(newIdx);
-    setProgress(0);
-  };
+  }, [photos.length]);
 
   return (
     <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[#FFC0CB] shadow-sm bg-[#FFF5F7] group">
@@ -427,17 +409,15 @@ const HeroPhotoSlider = () => {
         />
       ))}
 
-      <div className="absolute top-2.5 right-2.5 z-10 bg-black/55 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/20">
-        <span>{currentIdx + 1}/{photos.length}</span>
-        <span className="text-[#FFC0CB]">•</span>
-        <span className="tabular-nums text-[#FFE4EC]">{Math.min(100, Math.round(progress))}%</span>
+      <div className="absolute top-2.5 right-2.5 z-10 bg-black/55 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/20">
+        {currentIdx + 1}/{photos.length}
       </div>
 
       {photos.length > 1 && (
         <>
           <button
             type="button"
-            onClick={() => handleManualSlide((currentIdx - 1 + photos.length) % photos.length)}
+            onClick={() => setCurrentIdx((currentIdx - 1 + photos.length) % photos.length)}
             aria-label="Foto sebelumnya"
             className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity text-xs font-extrabold"
           >
@@ -445,7 +425,7 @@ const HeroPhotoSlider = () => {
           </button>
           <button
             type="button"
-            onClick={() => handleManualSlide((currentIdx + 1) % photos.length)}
+            onClick={() => setCurrentIdx((currentIdx + 1) % photos.length)}
             aria-label="Foto berikutnya"
             className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#B83B66] flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity text-xs font-extrabold"
           >
@@ -454,25 +434,19 @@ const HeroPhotoSlider = () => {
         </>
       )}
 
-      <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/60 via-black/25 to-transparent pt-5 pb-2 px-3 space-y-1.5">
+      <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/55 via-black/20 to-transparent pt-5 pb-2.5 px-3">
         <div className="flex items-center justify-center gap-1.5">
           {photos.map((_, idx) => (
             <button
               key={idx}
               type="button"
-              onClick={() => handleManualSlide(idx)}
+              onClick={() => setCurrentIdx(idx)}
               aria-label={`Pilih foto ${idx + 1}`}
               className={`h-1.5 rounded-full transition-all ${
                 idx === currentIdx ? "w-5 bg-white" : "w-1.5 bg-white/60 hover:bg-white/90"
               }`}
             />
           ))}
-        </div>
-        <div className="w-full h-1.5 bg-white/30 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-[#FFC0CB] via-[#E76F95] to-white transition-all duration-75 ease-linear rounded-full"
-            style={{ width: `${Math.min(100, Math.round(progress))}%` }}
-          />
         </div>
       </div>
     </div>
@@ -532,28 +506,15 @@ const NonTeachingAutoSlider = () => {
   ];
 
   const [idx, setIdx] = useState(0);
-  const [progress, setProgress] = useState(0);
   const [failedPhotos, setFailedPhotos] = useState({});
 
   useEffect(() => {
     if (slides.length <= 1) return;
-    setProgress(0);
-    const duration = 4500;
-    const stepTime = 45;
-    const increment = (stepTime / duration) * 100;
-
     const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev + increment >= 100) {
-          setIdx((current) => (current + 1) % slides.length);
-          return 0;
-        }
-        return prev + increment;
-      });
-    }, stepTime);
-
+      setIdx((current) => (current + 1) % slides.length);
+    }, 4500);
     return () => clearInterval(timer);
-  }, [idx, slides.length]);
+  }, [slides.length]);
 
   const currentItem = slides[idx];
   const isFailed = failedPhotos[currentItem.src];
@@ -587,15 +548,13 @@ const NonTeachingAutoSlider = () => {
           {currentItem.stage}
         </div>
 
-        <div className="absolute top-3 right-3 z-10 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5">
-          <span>{idx + 1} / {slides.length}</span>
-          <span className="text-[#FFC0CB]">•</span>
-          <span className="tabular-nums text-[#FFE4EC]">{Math.min(100, Math.round(progress))}%</span>
+        <div className="absolute top-3 right-3 z-10 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+          {idx + 1} / {slides.length}
         </div>
 
         <button
           type="button"
-          onClick={() => { setIdx((idx - 1 + slides.length) % slides.length); setProgress(0); }}
+          onClick={() => setIdx((idx - 1 + slides.length) % slides.length)}
           aria-label="Slide sebelumnya"
           className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#B83B66] flex items-center justify-center shadow-sm text-sm font-extrabold"
         >
@@ -603,29 +562,20 @@ const NonTeachingAutoSlider = () => {
         </button>
         <button
           type="button"
-          onClick={() => { setIdx((idx + 1) % slides.length); setProgress(0); }}
+          onClick={() => setIdx((idx + 1) % slides.length)}
           aria-label="Slide berikutnya"
           className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#B83B66] flex items-center justify-center shadow-sm text-sm font-extrabold"
         >
           ›
         </button>
 
-        <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 via-black/45 to-transparent pt-8 pb-2.5 px-4 space-y-2">
-          <div className="space-y-0.5">
-            <h3 className="text-xs md:text-sm font-extrabold text-white leading-snug">
-              {currentItem.title}
-            </h3>
-            <p className="text-[11px] text-white/90 leading-snug line-clamp-2">
-              {currentItem.caption}
-            </p>
-          </div>
-
-          <div className="w-full h-1.5 bg-white/30 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-[#FFC0CB] via-[#E76F95] to-white transition-all duration-75 ease-linear rounded-full"
-              style={{ width: `${Math.min(100, Math.round(progress))}%` }}
-            />
-          </div>
+        <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 via-black/45 to-transparent pt-8 pb-3 px-4 space-y-1">
+          <h3 className="text-xs md:text-sm font-extrabold text-white leading-snug">
+            {currentItem.title}
+          </h3>
+          <p className="text-[11px] text-white/90 leading-snug line-clamp-2">
+            {currentItem.caption}
+          </p>
         </div>
       </div>
 
@@ -634,7 +584,7 @@ const NonTeachingAutoSlider = () => {
           <button
             key={sIdx}
             type="button"
-            onClick={() => { setIdx(sIdx); setProgress(0); }}
+            onClick={() => setIdx(sIdx)}
             className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all border ${
               sIdx === idx
                 ? "bg-[#B83B66] text-white border-[#B83B66]"
