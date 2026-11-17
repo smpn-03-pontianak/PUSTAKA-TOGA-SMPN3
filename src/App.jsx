@@ -976,7 +976,7 @@ export default function App() {
         )}
 
         {/* HEADER PORTRAIT */}
-        <header className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#FFC0CB]/60 px-4 py-3.5 shadow-sm ${!showSplash ? "animate-header-enter" : "opacity-0"}`}>
+        <header className={`sticky top-0 z-40 bg-gradient-to-r from-[#B83B66] via-[#C84B77] to-[#E76F95] border-b border-[#FFC0CB]/40 px-4 py-3.5 shadow-md text-white ${!showSplash ? "animate-header-enter" : "opacity-0"}`}>
           <div className="flex items-center justify-between gap-2">
             <div
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
@@ -990,10 +990,10 @@ export default function App() {
                 />
               </div>
               <div>
-                <span className="font-extrabold text-sm tracking-tight text-[#B83B66] block leading-tight">
+                <span className="font-extrabold text-sm tracking-tight text-white block leading-tight drop-shadow-xs">
                   PUSTAKA TOGA SMPN 3
                 </span>
-                <span className="text-[10px] font-bold text-[#E76F95] tracking-wide block">
+                <span className="text-[10px] font-bold text-[#FFE4EC] tracking-wide block">
                   SMP NEGERI 3 PONTIANAK
                 </span>
               </div>
@@ -1016,8 +1016,8 @@ export default function App() {
                   }}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                     activePage === item.id
-                      ? "bg-[#B83B66] text-white shadow-xs"
-                      : "text-[#4A2532] hover:bg-[#FFF5F7] hover:text-[#B83B66]"
+                      ? "bg-white text-[#B83B66] shadow-xs shadow-xs"
+                      : "text-white/90 hover:text-white hover:bg-white/15 hover:text-[#B83B66]"
                   }`}
                 >
                   {item.label}
@@ -1030,7 +1030,7 @@ export default function App() {
                   onClick={() => { setActivePage('admin'); setSelectedPlant(null); }}
                   className={`inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold border transition-all ${
                     activePage === 'admin'
-                      ? 'bg-[#B83B66] text-white border-[#B83B66]'
+                      ? 'bg-white text-[#B83B66] shadow-xs border-[#B83B66]'
                       : 'bg-[#FFF5F7] text-[#B83B66] border-[#FFC0CB]'
                   }`}
                 >
