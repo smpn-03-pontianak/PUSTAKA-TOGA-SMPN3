@@ -487,7 +487,7 @@ const WelcomeSplash = ({ onFinish }) => {
         {/* Lingkaran Ikon Daun Berdenyut Lembut */}
         <div className="w-24 h-24 rounded-3xl bg-white shadow-lg border border-[#FFC0CB] flex items-center justify-center p-2.5 mb-5 animate-bounce overflow-hidden">
           <img
-            src={`${import.meta.env.BASE_URL}logo-toga.png`}
+            src={`${import.meta.env.BASE_URL}logo-toga.png?v=2`}
             alt="Logo Pustaka TOGA SMPN 3"
             className="w-full h-full object-contain"
           />
