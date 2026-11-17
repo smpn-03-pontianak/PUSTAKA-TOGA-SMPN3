@@ -485,8 +485,12 @@ const WelcomeSplash = ({ onFinish }) => {
     >
       <div className="relative flex flex-col items-center max-w-md animate-[fadeInUp_0.8s_ease-out]">
         {/* Lingkaran Ikon Daun Berdenyut Lembut */}
-        <div className="w-20 h-20 rounded-3xl bg-white shadow-lg border border-[#FFC0CB] flex items-center justify-center mb-5 animate-bounce">
-          <Sprout className="w-10 h-10 text-[#B83B66]" />
+        <div className="w-24 h-24 rounded-3xl bg-white shadow-lg border border-[#FFC0CB] flex items-center justify-center p-2.5 mb-5 animate-bounce overflow-hidden">
+          <img
+            src={`${import.meta.env.BASE_URL}logo-toga.png`}
+            alt="Logo Pustaka TOGA SMPN 3"
+            className="w-full h-full object-contain"
+          />
         </div>
 
         <span className="inline-flex items-center gap-1.5 bg-white/80 border border-[#FFC0CB] px-3.5 py-1 rounded-full text-xs font-bold text-[#B83B66] mb-3 shadow-2xs">
