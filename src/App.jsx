@@ -1089,26 +1089,8 @@ export default function App() {
                     <HeroPhotoSlider />
                   </div>
 
-                  {/* Kolom 3 (Kanan - Mengisi Space Kosong di Sebelahnya): Tombol Aksi & Panduan Penggunaan */}
+                  {/* Kolom 3 (Kanan - Mengisi Space Kosong di Sebelahnya): Panduan Penggunaan lalu Tombol Aksi */}
                   <div className="lg:col-span-4 w-full space-y-3.5">
-                    <div className="grid grid-cols-2 gap-2.5">
-                      <button
-                        onClick={() => setActivePage('koleksi')}
-                        className="flex items-center justify-center gap-1.5 bg-[#B83B66] hover:bg-[#E76F95] text-white font-bold py-3 px-2.5 rounded-2xl text-xs shadow-sm transition-all"
-                      >
-                        <span>Jelajahi Tanaman</span>
-                        <ChevronRight className="w-4 h-4 flex-shrink-0" />
-                      </button>
-
-                      <button
-                        onClick={() => setActivePage('scan')}
-                        className="flex items-center justify-center gap-1.5 bg-[#FFF5F7] hover:bg-[#FFC0CB]/40 text-[#B83B66] font-bold py-3 px-2.5 rounded-2xl text-xs border-2 border-[#B83B66] transition-all"
-                      >
-                        <QrCode className="w-4 h-4 text-[#E76F95] flex-shrink-0" />
-                        <span>Scan QR Code</span>
-                      </button>
-                    </div>
-
                     {/* Panduan Penggunaan */}
                     <div className="bg-[#FFF5F7]/70 rounded-3xl p-4 border border-[#FFC0CB]/70 space-y-3">
                       <div>
@@ -1157,6 +1139,25 @@ export default function App() {
                           </div>
                         </div>
                       </div>
+                    </div>
+
+                    {/* Tombol Jelajahi Tanaman & Scan QR Code */}
+                    <div className="grid grid-cols-2 gap-2.5">
+                      <button
+                        onClick={() => setActivePage('koleksi')}
+                        className="flex items-center justify-center gap-1.5 bg-[#B83B66] hover:bg-[#E76F95] text-white font-bold py-3 px-2.5 rounded-2xl text-xs shadow-sm transition-all"
+                      >
+                        <span>Jelajahi Tanaman</span>
+                        <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                      </button>
+
+                      <button
+                        onClick={() => setActivePage('scan')}
+                        className="flex items-center justify-center gap-1.5 bg-[#FFF5F7] hover:bg-[#FFC0CB]/40 text-[#B83B66] font-bold py-3 px-2.5 rounded-2xl text-xs border-2 border-[#B83B66] transition-all"
+                      >
+                        <QrCode className="w-4 h-4 text-[#E76F95] flex-shrink-0" />
+                        <span>Scan QR Code</span>
+                      </button>
                     </div>
                   </div>
                 </div>
