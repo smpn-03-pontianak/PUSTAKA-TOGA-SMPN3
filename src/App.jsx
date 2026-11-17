@@ -1254,6 +1254,16 @@ export default function App() {
                         <p className="font-semibold text-[#B83B66]">
                           Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
                         </p>
+                    <div className="pt-2">
+                      <button
+                        type="button"
+                        onClick={() => setActivePage('tanaman')}
+                        className="bg-white text-[#B83B66] font-bold px-4 py-2 rounded-xl text-xs"
+                      >
+                        <span>Jelajahi Tanaman</span>
+                        <span>→</span>
+                      </button>
+                    </div>
                       </div>
                     </div>
                   </div>
@@ -1296,17 +1306,7 @@ export default function App() {
                           </div>
                         </div>
 
-                        <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#FFC0CB]/60">
-                          <div className="w-6 h-6 rounded-lg bg-[#B83B66] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
-                            3
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-[11px] text-[#B83B66]">Pelajari &amp; Jaga Tanaman</h3>
-                            <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
-                              Baca informasi morfologi, habitat, manfaat, dan cara merawat tanaman tersebut.
-                            </p>
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>
 
