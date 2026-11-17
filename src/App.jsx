@@ -1257,7 +1257,7 @@ export default function App() {
                     <div className="pt-2">
                       <button
                         type="button"
-                        onClick={() => setActivePage('tanaman')}
+                        onClick={() => setActivePage('koleksi')}
                         className="bg-white text-[#B83B66] font-bold px-4 py-2 rounded-xl text-xs"
                       >
                         <span>Jelajahi Tanaman</span>
@@ -1312,13 +1312,7 @@ export default function App() {
 
                     {/* Tombol Jelajahi Tanaman & Scan QR Code */}
                     <div className="grid grid-cols-2 gap-2.5">
-                      <button
-                        onClick={() => setActivePage('koleksi')}
-                        className="flex items-center justify-center gap-1.5 bg-[#B83B66] hover:bg-[#E76F95] text-white font-bold py-3 px-2.5 rounded-2xl text-xs shadow-sm transition-all"
-                      >
-                        <span>Jelajahi Tanaman</span>
-                        <ChevronRight className="w-4 h-4 flex-shrink-0" />
-                      </button>
+                      
 
                       <button
                         onClick={() => setActivePage('scan')}
