@@ -460,7 +460,89 @@ const HeroPhotoSlider = () => {
   );
 };
 
+const WelcomeSplash = ({ onFinish }) => {
+  const [closing, setClosing] = useState(false);
+
+  useEffect(() => {
+    const closeTimer = setTimeout(() => setClosing(true), 1600);
+    const finishTimer = setTimeout(() => onFinish(), 2200);
+    return () => {
+      clearTimeout(closeTimer);
+      clearTimeout(finishTimer);
+    };
+  }, [onFinish]);
+
+  const handleSkip = () => {
+    setClosing(true);
+    setTimeout(() => onFinish(), 450);
+  };
+
+  return (
+    <div
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#FFF5F7] via-[#FFE4EC] to-[#FFC0CB]/60 px-6 text-center transition-all duration-700 ${
+        closing ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
+      }`}
+    >
+      <div className="relative flex flex-col items-center max-w-md animate-[fadeInUp_0.8s_ease-out]">
+        {/* Lingkaran Ikon Daun Berdenyut Lembut */}
+        <div className="w-20 h-20 rounded-3xl bg-white shadow-lg border border-[#FFC0CB] flex items-center justify-center mb-5 animate-bounce">
+          <Sprout className="w-10 h-10 text-[#B83B66]" />
+        </div>
+
+        <span className="inline-flex items-center gap-1.5 bg-white/80 border border-[#FFC0CB] px-3.5 py-1 rounded-full text-xs font-bold text-[#B83B66] mb-3 shadow-2xs">
+          🌿 Selamat Datang di
+        </span>
+
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#B83B66] tracking-tight leading-snug mb-2">
+          PUSTAKA TOGA SMPN 3
+        </h1>
+        <p className="text-xs sm:text-sm font-medium text-[#4A2532]/80 mb-6">
+          Edukasi Digital Tanaman Obat Keluarga • SMP Negeri 3 Pontianak
+        </p>
+
+        {/* Bilah Progres Animasi */}
+        <div className="w-48 h-1.5 bg-white/80 rounded-full overflow-hidden border border-[#FFC0CB]/60 mb-5">
+          <div className="h-full bg-gradient-to-r from-[#E76F95] to-[#B83B66] rounded-full animate-[progressFill_1.7s_ease-in-out_forwards]" />
+        </div>
+
+        <button
+          type="button"
+          onClick={handleSkip}
+          className="text-[11px] font-bold text-[#B83B66]/80 hover:text-[#B83B66] underline underline-offset-4 transition-colors"
+        >
+          Masuk Sekarang →
+        </button>
+      </div>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(18px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes progressFill {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      `}</style>
+    </div>
+  );
+};
+
 export default function App() {
+  const [showSplash, setShowSplash] = useState(() => {
+    try {
+      return !sessionStorage.getItem("toga_smpn3_intro_seen");
+    } catch {
+      return true;
+    }
+  });
+
+  const handleFinishSplash = () => {
+    setShowSplash(false);
+    try {
+      sessionStorage.setItem("toga_smpn3_intro_seen", "1");
+    } catch {}
+  };
   const [firebaseUser, setFirebaseUser] = useState(null);
   const [plants, setPlants] = useState(INITIAL_PLANTS);
 
@@ -810,6 +892,7 @@ export default function App() {
       style={{ fontFamily: "'Plus Jakarta Sans', 'Poppins', sans-serif" }}
       className="min-h-screen bg-[#E7ECE4] text-[#4A2532] flex justify-center selection:bg-[#FFC0CB] selection:text-[#B83B66]"
     >
+      {showSplash && <WelcomeSplash onFinish={handleFinishSplash} />}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
         @keyframes scanLine {
