@@ -1693,49 +1693,243 @@ export default function App() {
 
           {/* 5. HALAMAN TENTANG KAMI */}
           {activePage === 'tentang' && (
-            <div className="space-y-4">
-              <div className="bg-white rounded-3xl p-5 border border-[#FFC0CB]/70 space-y-3">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#E76F95]">
-                  Profil Media Edukasi Digital
-                </span>
-                <h1 className="text-xl font-extrabold text-[#B83B66]">
+            <div className="space-y-5">
+              {/* 1. Profil Website & Program MSB FKIP UNTAN */}
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-3.5">
+                <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
+                  <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
+                  <span>Magang Sekolah Berdampak (MSB) • FKIP UNTAN</span>
+                </div>
+
+                <h1 className="text-xl md:text-2xl font-extrabold text-[#B83B66] leading-snug">
                   Tentang PUSTAKA TOGA SMPN 3
                 </h1>
                 <p className="text-xs font-bold text-[#E76F95]">
                   SMP Negeri 3 Pontianak • Kota Pontianak, Kalimantan Barat
                 </p>
-                <p className="text-xs text-[#4A2532]/90 leading-relaxed">
-                  <strong>PUSTAKA TOGA SMPN 3 – Discover the Green World</strong> merupakan media informasi digital berbasis web untuk memperkenalkan keanekaragaman tanaman di lingkungan <strong>SMP Negeri 3 Pontianak</strong> menggunakan teknologi QR Code.
-                </p>
+
+                <div className="space-y-2.5 text-xs text-[#4A2532]/90 leading-relaxed text-justify">
+                  <p>
+                    <strong>PUSTAKA TOGA SMPN 3 – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP Negeri 3 Pontianak</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
+                  </p>
+                  <p>
+                    Website ini dikembangkan sebagai produk inovatif luaran kegiatan non-mengajar dalam program <strong>Magang Sekolah Berdampak (MSB)</strong> dari <strong>Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura (UNTAN)</strong>. Program MSB merupakan bagian dari Pembelajaran Luar Kampus (PLK) Merdeka Belajar–Kampus Merdeka (MBKM) yang memberdayakan mahasiswa untuk berkolaborasi langsung bersama sekolah mitra dalam menghadirkan solusi nyata bagi pengembangan pembelajaran maupun program unggulan sekolah.
+                  </p>
+                </div>
               </div>
 
-              <div className="space-y-3">
-                <div className="bg-white p-4 rounded-2xl border border-[#FFC0CB]/60 space-y-1">
-                  <h2 className="font-extrabold text-sm text-[#B83B66]">Tujuan Pembuatan Website</h2>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed">
-                    Menyediakan sumber belajar botani digital yang praktis dan mudah diakses langsung dari smartphone murid, guru, maupun pengunjung sekolah.
+              {/* 2. Tujuan Pembuatan Website */}
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-4">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#E76F95]">
+                    Latar Belakang &amp; Sasaran
+                  </span>
+                  <h2 className="text-lg font-extrabold text-[#B83B66]">
+                    Tujuan Pembuatan Website
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div className="bg-[#FFF5F7] p-4 rounded-2xl border border-[#FFC0CB]/60 space-y-1">
+                    <h3 className="font-extrabold text-xs text-[#B83B66]">
+                      1. Mendukung Program Unggulan Sekolah Mitra
+                    </h3>
+                    <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                      Menguatkan pelaksanaan program <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong> melalui digitalisasi inventaris tanaman obat yang terdata rapi di lingkungan SMP Negeri 3 Pontianak.
+                    </p>
+                  </div>
+
+                  <div className="bg-[#FFF5F7] p-4 rounded-2xl border border-[#FFC0CB]/60 space-y-1">
+                    <h3 className="font-extrabold text-xs text-[#B83B66]">
+                      2. Adaptasi Teknologi QR Code dalam Edukasi
+                    </h3>
+                    <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                      Mengatasi keterbatasan ruang pada papan nama tanaman fisik dengan menyajikan informasi lengkap mulai dari identitas ilmiah, morfologi, khasiat, hingga panduan perawatan cukup dengan memindai label QR Code.
+                    </p>
+                  </div>
+
+                  <div className="bg-[#FFF5F7] p-4 rounded-2xl border border-[#FFC0CB]/60 space-y-1">
+                    <h3 className="font-extrabold text-xs text-[#B83B66]">
+                      3. Media Pembelajaran Kontekstual
+                    </h3>
+                    <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                      Menyediakan sumber belajar botani digital yang interaktif dan mudah diakses melalui smartphone siswa maupun guru dalam kegiatan intrakurikuler dan kokurikuler.
+                    </p>
+                  </div>
+
+                  <div className="bg-[#FFF5F7] p-4 rounded-2xl border border-[#FFC0CB]/60 space-y-1">
+                    <h3 className="font-extrabold text-xs text-[#B83B66]">
+                      4. Menumbuhkan Kepedulian Lingkungan
+                    </h3>
+                    <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                      Mendorong warga sekolah untuk mengenal, merawat, dan melestarikan keanekaragaman hayati serta tanaman berkhasiat obat di lingkungan sekolah secara berkelanjutan.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. Tim Mahasiswa MSB FKIP UNTAN (12 Anggota) */}
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-5">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#E76F95]">
+                    Tim Pengembang &amp; Pelaksana Program
+                  </span>
+                  <h2 className="text-lg font-extrabold text-[#B83B66]">
+                    Mahasiswa Magang Sekolah Berdampak (MSB) FKIP UNTAN
+                  </h2>
+                  <p className="text-xs text-[#4A2532]/80 leading-relaxed">
+                    Kelompok mahasiswa lintas program studi FKIP Universitas Tanjungpura yang bertugas di SMP Negeri 3 Pontianak.
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-[#FFC0CB]/60 space-y-1">
-                  <h2 className="font-extrabold text-sm text-[#B83B66]">Manfaat QR Code dalam Edukasi</h2>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed">
-                    Mengatasi keterbatasan ruang pada papan nama tanaman fisik dengan menyajikan informasi lengkap mulai dari morfologi hingga perawatan tanaman.
-                  </p>
+                {/* Sorotan: Ketua Kelompok & Pengembang Utama Website */}
+                <div className="space-y-2.5">
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#B83B66]">
+                    Ketua Kelompok &amp; Pengembang Utama Website
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                    {[
+                      {
+                        name: "Fatur Rahman",
+                        prodi: "Program Studi Pendidikan PPKN",
+                        role: "Ketua Kelompok & Pengembang Utama",
+                        photo: "anggota-1.jpg",
+                        initials: "FR"
+                      },
+                      {
+                        name: "Nurhayani",
+                        prodi: "Program Studi Pendidikan IPS",
+                        role: "Pengembang Utama Website",
+                        photo: "anggota-2.jpg",
+                        initials: "NH"
+                      },
+                      {
+                        name: "Anita",
+                        prodi: "Program Studi Pendidikan Matematika",
+                        role: "Pengembang Utama Website",
+                        photo: "anggota-3.jpg",
+                        initials: "AN"
+                      }
+                    ].map((member, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-gradient-to-b from-[#FFF5F7] to-white rounded-2xl p-4 border-2 border-[#E76F95]/50 shadow-xs flex flex-col items-center text-center space-y-2.5"
+                      >
+                        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#B83B66] bg-gradient-to-br from-[#B83B66] to-[#E76F95] flex items-center justify-center shadow-xs relative">
+                          <span className="text-white font-extrabold text-base tracking-wide">
+                            {member.initials}
+                          </span>
+                          <img
+                            src={`${import.meta.env.BASE_URL}${member.photo}`}
+                            alt={member.name}
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            className="w-full h-full object-cover absolute inset-0"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="inline-block bg-[#B83B66] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">
+                            {member.role}
+                          </span>
+                          <h3 className="font-extrabold text-sm text-[#4A2532] leading-snug">
+                            {member.name}
+                          </h3>
+                          <p className="text-[11px] font-medium text-[#B83B66]">
+                            {member.prodi}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-[#FFC0CB]/60 space-y-1">
-                  <h2 className="font-extrabold text-sm text-[#B83B66]">Teknologi & Pendidikan Lingkungan</h2>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed">
-                    Memanfaatkan teknologi digital yang akrab dengan generasi muda untuk mendorong pengamatan langsung terhadap tumbuhan di sekitar sekolah.
-                  </p>
-                </div>
-
-                <div className="bg-white p-4 rounded-2xl border border-[#FFC0CB]/60 space-y-1">
-                  <h2 className="font-extrabold text-sm text-[#B83B66]">Harapan Kepedulian Lingkungan</h2>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed">
-                    Menumbuhkan kesadaran dan rasa memiliki warga sekolah untuk merawat serta menjaga kelestarian lingkungan hijau SMP Negeri 3 Pontianak.
-                  </p>
+                {/* Daftar 9 Anggota Kelompok Lainnya */}
+                <div className="space-y-2.5 pt-1">
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#B83B66]">
+                    Anggota Kelompok MSB FKIP UNTAN
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3">
+                    {[
+                      {
+                        name: "Kartika Sari",
+                        prodi: "Program Studi Pendidikan Fisika",
+                        photo: "anggota-4.jpg",
+                        initials: "KS"
+                      },
+                      {
+                        name: "Niko Demus Misel",
+                        prodi: "Program Studi Pendidikan Matematika",
+                        photo: "anggota-5.jpg",
+                        initials: "ND"
+                      },
+                      {
+                        name: "Meisya Nazirra Paraswati",
+                        prodi: "Program Studi Pendidikan Jasmani & Kesehatan",
+                        photo: "anggota-6.jpg",
+                        initials: "MN"
+                      },
+                      {
+                        name: "Roihan Alfarisi",
+                        prodi: "Program Studi Pendidikan Bahasa Indonesia",
+                        photo: "anggota-7.jpg",
+                        initials: "RA"
+                      },
+                      {
+                        name: "Fitri Febriani Firdaus",
+                        prodi: "Program Studi Pendidikan Bahasa Inggris",
+                        photo: "anggota-8.jpg",
+                        initials: "FF"
+                      },
+                      {
+                        name: "Nuriva Adha",
+                        prodi: "Program Studi Pendidikan Bahasa Inggris",
+                        photo: "anggota-9.jpg",
+                        initials: "NA"
+                      },
+                      {
+                        name: "Nabila Verbrianti",
+                        prodi: "Program Studi Bimbingan dan Konseling",
+                        photo: "anggota-10.jpg",
+                        initials: "NV"
+                      },
+                      {
+                        name: "Egyta Ramadhani",
+                        prodi: "Program Studi Pendidikan Biologi",
+                        photo: "anggota-11.jpg",
+                        initials: "ER"
+                      },
+                      {
+                        name: "Aisyiyah Baroqah Qodariah",
+                        prodi: "Program Studi Pendidikan Seni",
+                        photo: "anggota-12.jpg",
+                        initials: "AB"
+                      }
+                    ].map((member, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-[#FFF5F7]/70 rounded-2xl p-3.5 border border-[#FFC0CB]/70 flex flex-col items-center text-center space-y-2"
+                      >
+                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#E76F95] bg-gradient-to-br from-[#E76F95] to-[#B83B66] flex items-center justify-center shadow-xs relative">
+                          <span className="text-white font-extrabold text-sm">
+                            {member.initials}
+                          </span>
+                          <img
+                            src={`${import.meta.env.BASE_URL}${member.photo}`}
+                            alt={member.name}
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            className="w-full h-full object-cover absolute inset-0"
+                          />
+                        </div>
+                        <div className="space-y-0.5">
+                          <h3 className="font-extrabold text-xs text-[#4A2532] leading-snug">
+                            {member.name}
+                          </h3>
+                          <p className="text-[10px] font-medium text-[#B83B66]/90 leading-tight">
+                            {member.prodi}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
