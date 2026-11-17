@@ -1059,7 +1059,12 @@ export default function App() {
             <div className="space-y-6">
               <section className="bg-white rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-5">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-                  {/* Kolom 1 (Kiri): Paragraf Pembuka */}
+                  {/* Kolom 1 (Kiri): Slide Foto */}
+                  <div className="lg:col-span-4 w-full">
+                    <HeroPhotoSlider />
+                  </div>
+
+                  {/* Kolom 2 (Tengah): Paragraf Penjelasan Rata Kanan-Kiri */}
                   <div className="lg:col-span-4 space-y-3">
                     <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
                       <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
@@ -1070,7 +1075,7 @@ export default function App() {
                       <h1 className="text-xl font-extrabold text-[#B83B66] leading-snug tracking-tight">
                         🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
                       </h1>
-                      <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed">
+                      <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed text-justify">
                         <p>
                           Alam menyimpan begitu banyak keajaiban yang sering kali belum kita ketahui. Di balik hijaunya dedaunan dan beragam bentuk tanaman, tersimpan pengetahuan, keunikan, serta manfaat yang menarik untuk dipelajari.
                         </p>
@@ -1082,11 +1087,6 @@ export default function App() {
                         </p>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Kolom 2 (Tengah): Slide Foto Sejajar Paragraf Pembuka */}
-                  <div className="lg:col-span-4 w-full">
-                    <HeroPhotoSlider />
                   </div>
 
                   {/* Kolom 3 (Kanan - Mengisi Space Kosong di Sebelahnya): Panduan Penggunaan lalu Tombol Aksi */}
