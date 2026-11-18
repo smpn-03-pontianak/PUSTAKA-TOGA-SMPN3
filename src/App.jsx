@@ -2065,21 +2065,21 @@ export default function App() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                     {[
                       {
-                        name: "Fatur Rahman",
+                        name: "Fatur Rahman", nim: "F1221231020",
                         prodi: "Program Studi Pendidikan Kewarganegaraan (PKN)",
                         role: "Ketua Kelompok & Pengembang Utama",
                         photo: "anggota-1.jpg",
                         initials: "FR"
                       },
                       {
-                        name: "Nurhayani",
+                        name: "Nurhayani", nim: "F1261231001",
                         prodi: "Program Studi Pendidikan IPS",
                         role: "Pengembang Utama Website",
                         photo: "anggota-2.jpg",
                         initials: "NH"
                       },
                       {
-                        name: "Anita",
+                        name: "Anita", nim: "F1041231055",
                         prodi: "Program Studi Pendidikan Matematika",
                         role: "Pengembang Utama Website",
                         photo: "anggota-3.jpg",
@@ -2108,6 +2108,7 @@ export default function App() {
                           <h3 className="font-extrabold text-sm text-[#4A2532] leading-snug">
                             {member.name}
                           </h3>
+                        {member.nim && <p className="text-[11px] font-mono font-bold text-[#7C4700] tracking-wide">NIM. {member.nim}</p>}
                           <p className="text-[11px] font-medium text-[#1E293B]">
                             {member.prodi}
                           </p>
@@ -2125,55 +2126,55 @@ export default function App() {
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3">
                     {[
                       {
-                        name: "Aisyiyah Baroqah Qodariah",
+                        name: "Aisyiyah Baroqah Qodariah", nim: "F1111231026",
                         prodi: "Program Studi Seni dan Pertunjukan",
                         photo: "anggota-12.jpg",
                         initials: "AB"
                       },
                       {
-                        name: "Niko Demus Misel",
+                        name: "Niko Demus Misel", nim: "F1042231018",
                         prodi: "Program Studi Pendidikan Matematika",
                         photo: "anggota-5.jpg",
                         initials: "ND"
                       },
                       {
-                        name: "Meisya Nazirra Paraswati",
+                        name: "Meisya Nazirra Paraswati", nim: "F1101231042",
                         prodi: "Program Studi Pendidikan Jasmani & Kesehatan",
                         photo: "anggota-6.jpg",
                         initials: "MN"
                       },
                       {
-                        name: "Roihan Alfarisi",
+                        name: "Roihan Alfarisi", nim: "F1012231007",
                         prodi: "Program Studi Pendidikan Bahasa Indonesia",
                         photo: "anggota-7.jpg",
                         initials: "RA"
                       },
                       {
-                        name: "Fitri Febriani Firdaus",
+                        name: "Fitri Febriani Firdaus", nim: "F1021231031",
                         prodi: "Program Studi Pendidikan Bahasa Inggris",
                         photo: "anggota-8.jpg",
                         initials: "FF"
                       },
                       {
-                        name: "Nuriva Adha",
+                        name: "Nuriva Adha", nim: "F1021231046",
                         prodi: "Program Studi Pendidikan Bahasa Inggris",
                         photo: "anggota-9.jpg",
                         initials: "NA"
                       },
                       {
-                        name: "Nabila Verbrianti",
+                        name: "Nabila Verbrianti", nim: "F1141231006",
                         prodi: "Program Studi Bimbingan dan Konseling",
                         photo: "anggota-10.jpg",
                         initials: "NV"
                       },
                       {
-                        name: "Egyta Ramadhani",
+                        name: "Egyta Ramadhani", nim: "F1071231056",
                         prodi: "Program Studi Pendidikan Biologi",
                         photo: "anggota-11.jpg",
                         initials: "ER"
                       },
                       {
-                        name: "Kartika Sari",
+                        name: "Kartika Sari", nim: "F1051231036",
                         prodi: "Program Studi Pendidikan Fisika",
                         photo: "anggota-4.jpg",
                         initials: "KS"
@@ -2198,6 +2199,7 @@ export default function App() {
                           <h3 className="font-extrabold text-xs text-[#4A2532] leading-snug">
                             {member.name}
                           </h3>
+                        {member.nim && <p className="text-[11px] font-mono font-bold text-[#7C4700] tracking-wide">NIM. {member.nim}</p>}
                           <p className="text-[10px] font-medium text-[#1E293B]/90 leading-tight">
                             {member.prodi}
                           </p>
