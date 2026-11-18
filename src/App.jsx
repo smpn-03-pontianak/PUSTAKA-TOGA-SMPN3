@@ -2128,7 +2128,7 @@ export default function App() {
                       {
                         name: "Aisyiyah Baroqah Qodariah", nim: "F1111231026",
                         prodi: "Program Studi Seni dan Pertunjukan",
-                        photo: "anggota-12.jpg",
+                        photo: "aisyiyah baroqah qodariah.jpeg",
                         initials: "AB"
                       },
                       {
@@ -2170,7 +2170,7 @@ export default function App() {
                       {
                         name: "Egyta Ramadhani", nim: "F1071231056",
                         prodi: "Program Studi Pendidikan Biologi",
-                        photo: "anggota-11.jpg",
+                        photo: "egyta ramadhani.jpg",
                         initials: "ER"
                       },
                       {
