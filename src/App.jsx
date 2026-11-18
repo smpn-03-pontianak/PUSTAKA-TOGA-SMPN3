@@ -244,14 +244,14 @@ const BotanicalIllustration = () => (
     className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
     style={{ backgroundImage: "url('./background-beranda.jpeg')" }}
   />
-  {/* Lapisan Gradasi Lembut agar Teks Tetap Kontras & Jelas Terbaca */}
+  {/* Gradasi Putih-Soft Pink Lembut agar Teks Tetap Jelas Terbaca */}
   <div
     aria-hidden="true"
-    className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/86 to-[#FFF5F7]/90 backdrop-blur-[1px] pointer-events-none"
+    className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/84 to-[#FFF5F7]/88 backdrop-blur-[1px] pointer-events-none"
   />
 
-      <div data-placeholder="taman-toga" className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-900 flex flex-col items-center justify-center p-4 text-center pb-24">
-        <div className="relative z-10 px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
+  <div data-placeholder="taman-toga" className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-900 flex flex-col items-center justify-center p-4 text-center pb-24">
+        <div className="relative z-10 relative z-10 px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
           <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
             File Foto
           </p>
@@ -260,8 +260,8 @@ const BotanicalIllustration = () => (
           </p>
         </div>
       </div>
-      <div className="relative z-10 absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-      <div className="relative z-10 absolute bottom-0 inset-x-0 p-4 text-white space-y-1">
+      <div className="relative z-10 relative z-10 absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+      <div className="relative z-10 relative z-10 absolute bottom-0 inset-x-0 p-4 text-white space-y-1">
         <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
           Produk 01
         </span>
