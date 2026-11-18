@@ -213,19 +213,8 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
 
   return (
     <div className="w-full space-y-3 pt-1">
-  <style>{`
-    @keyframes bentoReveal {
-      0% { opacity: 0; transform: translateY(16px) scale(0.985); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    .bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards; }
-    .bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards; }
-    .bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }
-    .bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }
-  `}</style>
-
+  <style>{"@keyframes bentoReveal {\n  0% { opacity: 0; transform: translateY(16px) scale(0.985); }\n  100% { opacity: 1; transform: translateY(0) scale(1); }\n}\n.bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards; }\n.bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards; }\n.bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }\n.bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }"}</style>
   <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
-    {/* Kartu 1: Foto Vertikal Tinggi di Sisi Kiri */}
     <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[340px] shadow-xs group bento-box-1 bg-emerald-950">
       <img
         src="./aktivitas-1.jpeg"
@@ -240,10 +229,7 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
         </p>
       </div>
     </div>
-
-    {/* Kolom Kanan: 1 Foto Lebar di Atas + 2 Foto Berdampingan di Bawah */}
     <div className="md:col-span-7 flex flex-col gap-3.5">
-      {/* Kartu 2: Foto Horizontal Lebar di Kanan Atas */}
       <div className="relative rounded-2xl overflow-hidden min-h-[160px] sm:min-h-[175px] shadow-xs group bento-box-2 bg-emerald-900">
         <img
           src="./aktivitas-2.jpeg"
@@ -258,13 +244,8 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
           </p>
         </div>
       </div>
-
-      {/* Kartu 3 & 4: Dua Foto Berdampingan di Kanan Bawah */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1">
-        <div
-          onClick={() => typeof setShowScanner === "function" ? setShowScanner(true) : setActivePage("tanaman")}
-          className="cursor-pointer relative rounded-2xl overflow-hidden min-h-[150px] shadow-xs group bento-box-3 bg-emerald-900"
-        >
+        <div className="relative rounded-2xl overflow-hidden min-h-[150px] shadow-xs group bento-box-3 bg-emerald-900">
           <img
             src="./aktivitas-3.jpeg"
             alt="Pindai Label QR Tanaman"
@@ -278,11 +259,7 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
             </p>
           </div>
         </div>
-
-        <div
-          onClick={() => setActivePage("tanaman")}
-          className="cursor-pointer relative rounded-2xl overflow-hidden min-h-[150px] shadow-xs group bento-box-4 bg-emerald-900"
-        >
+        <div className="relative rounded-2xl overflow-hidden min-h-[150px] shadow-xs group bento-box-4 bg-emerald-900">
           <img
             src="./aktivitas-4.jpeg"
             alt="Katalog Tanaman Obat Keluarga"
