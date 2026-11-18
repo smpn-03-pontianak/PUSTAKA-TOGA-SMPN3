@@ -223,7 +223,7 @@ const BotanicalIllustration = () => (
 
   {/* Judul Terpusat Dua Warna seperti Referensi */}
   <div className="text-center max-w-2xl mx-auto px-2 space-y-1.5 bento-heading">
-    <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-0.5 rounded-full">
+    <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-amber-900 bg-amber-50 border border-amber-200/80 px-3 py-0.5 rounded-full">
       Karya &amp; Inovasi Mahasiswa
     </span>
     <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 leading-snug">
@@ -1321,7 +1321,7 @@ export default function App() {
                     </div>
 
                     <div className="space-y-2.5">
-                      <h1 className="text-xl font-extrabold text-[#1B4332] leading-snug tracking-tight">
+                      <h1 className="text-xl font-extrabold text-[#5C3A21] leading-snug tracking-tight">
                         🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
                       </h1>
                       <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed text-justify">
