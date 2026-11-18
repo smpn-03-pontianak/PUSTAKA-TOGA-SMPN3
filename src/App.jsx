@@ -247,7 +247,7 @@ const BotanicalIllustration = () => (
   {/* Gradasi Putih-Soft Pink Lembut agar Teks Tetap Jelas Terbaca */}
   <div
     aria-hidden="true"
-    className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/84 to-[#E8F3EE]/88 backdrop-blur-[1px] pointer-events-none"
+    className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/84 to-[#FCF7F0]/88 backdrop-blur-[1px] pointer-events-none"
   />
 
   <div data-placeholder="taman-toga" className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-900 flex flex-col items-center justify-center p-4 text-center pb-24">
@@ -420,20 +420,20 @@ const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
   return (
     <div className="space-y-1">
       {label && <label className="text-[11px] font-bold text-[#1E293B] block">{label}</label>}
-      <div className="rounded-xl border border-[#B7E4C7] bg-[#E8F3EE] overflow-hidden">
-        <div className="flex flex-wrap items-center gap-1 p-1.5 bg-white border-b border-[#B7E4C7]/70 text-[11px]">
-          <button type="button" onClick={() => execCmd("bold")} className="px-2 py-0.5 rounded hover:bg-[#E8F3EE] font-extrabold text-[#1E293B] border border-[#B7E4C7]/60">B</button>
-          <button type="button" onClick={() => execCmd("italic")} className="px-2 py-0.5 rounded hover:bg-[#E8F3EE] italic font-semibold text-[#1E293B] border border-[#B7E4C7]/60">I</button>
-          <button type="button" onClick={() => execCmd("underline")} className="px-2 py-0.5 rounded hover:bg-[#E8F3EE] underline font-semibold text-[#1E293B] border border-[#B7E4C7]/60">U</button>
-          <button type="button" onClick={() => execCmd("insertOrderedList")} className="px-2 py-0.5 rounded hover:bg-[#E8F3EE] font-bold text-[#1E293B] border border-[#B7E4C7]/60">1. List</button>
-          <button type="button" onClick={() => execCmd("justifyLeft")} className="px-2 py-0.5 rounded hover:bg-[#E8F3EE] text-[#4A2532] border border-[#B7E4C7]/60">Kiri</button>
-          <button type="button" onClick={() => execCmd("justifyCenter")} className="px-2 py-0.5 rounded hover:bg-[#E8F3EE] text-[#4A2532] border border-[#B7E4C7]/60">Tengah</button>
-          <button type="button" onClick={() => execCmd("justifyRight")} className="px-2 py-0.5 rounded hover:bg-[#E8F3EE] text-[#4A2532] border border-[#B7E4C7]/60">Kanan</button>
-          <button type="button" onClick={() => execCmd("justifyFull")} className="px-2 py-0.5 rounded hover:bg-[#E8F3EE] text-[#4A2532] border border-[#B7E4C7]/60">Kanan-Kiri</button>
+      <div className="rounded-xl border border-[#E3CCA8] bg-[#FCF7F0] overflow-hidden">
+        <div className="flex flex-wrap items-center gap-1 p-1.5 bg-white border-b border-[#E3CCA8]/70 text-[11px]">
+          <button type="button" onClick={() => execCmd("bold")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-extrabold text-[#1E293B] border border-[#E3CCA8]/60">B</button>
+          <button type="button" onClick={() => execCmd("italic")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] italic font-semibold text-[#1E293B] border border-[#E3CCA8]/60">I</button>
+          <button type="button" onClick={() => execCmd("underline")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] underline font-semibold text-[#1E293B] border border-[#E3CCA8]/60">U</button>
+          <button type="button" onClick={() => execCmd("insertOrderedList")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-bold text-[#1E293B] border border-[#E3CCA8]/60">1. List</button>
+          <button type="button" onClick={() => execCmd("justifyLeft")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kiri</button>
+          <button type="button" onClick={() => execCmd("justifyCenter")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Tengah</button>
+          <button type="button" onClick={() => execCmd("justifyRight")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kanan</button>
+          <button type="button" onClick={() => execCmd("justifyFull")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kanan-Kiri</button>
           <select
             onChange={(e) => { if (e.target.value) execCmd("fontName", e.target.value); }}
             defaultValue=""
-            className="ml-auto px-2 py-0.5 rounded bg-[#E8F3EE] border border-[#B7E4C7] text-[10px] font-bold text-[#1E293B] outline-none"
+            className="ml-auto px-2 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] text-[10px] font-bold text-[#1E293B] outline-none"
           >
             <option value="" disabled>Pilih Font</option>
             <option value="Plus Jakarta Sans, sans-serif">Sans Modern</option>
@@ -447,7 +447,7 @@ const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
           contentEditable
           onInput={(e) => onChange(e.currentTarget.innerHTML)}
           style={{ minHeight }}
-          className="rich-botanical p-3 text-xs text-[#4A2532] leading-relaxed outline-none bg-[#E8F3EE]"
+          className="rich-botanical p-3 text-xs text-[#4A2532] leading-relaxed outline-none bg-[#FCF7F0]"
         />
       </div>
     </div>
@@ -470,7 +470,7 @@ const HeroPhotoSlider = () => {
   const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % photos.length);
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden border border-[#B7E4C7]/80 shadow-sm bg-[#E8F3EE] group">
+    <div className="relative w-full rounded-2xl overflow-hidden border border-[#E3CCA8]/80 shadow-sm bg-[#FCF7F0] group">
       {photos.map((photo, idx) => (
         <div
           key={photo + idx}
@@ -488,7 +488,7 @@ const HeroPhotoSlider = () => {
 
       <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/45 via-black/15 to-transparent z-20 pointer-events-none" />
 
-      <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#1E293B] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#B7E4C7]">
+      <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#1E293B] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#E3CCA8]">
         Galeri Taman Toga SMPN 3
       </div>
 
@@ -519,7 +519,7 @@ const HeroPhotoSlider = () => {
                 onClick={() => setCurrentIdx(idx)}
                 aria-label={`Pilih foto ${idx + 1}`}
                 className={`h-1.5 rounded-full transition-all ${
-                  idx === currentIdx ? "w-5 bg-[#B7E4C7]" : "w-1.5 bg-white/75"
+                  idx === currentIdx ? "w-5 bg-[#E3CCA8]" : "w-1.5 bg-white/75"
                 }`}
               />
             ))}
@@ -549,13 +549,13 @@ const WelcomeSplash = ({ onFinish }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#E8F3EE] via-[#E8F3EE] to-[#B7E4C7]/60 px-6 text-center transition-all duration-700 ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#FCF7F0] via-[#F3E4CE] to-[#E3CCA8]/60 px-6 text-center transition-all duration-700 ${
         closing ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
     >
       <div className="relative flex flex-col items-center max-w-md animate-[fadeInUp_0.8s_ease-out]">
         {/* Lingkaran Ikon Daun Berdenyut Lembut */}
-        <div className="w-24 h-24 rounded-3xl bg-white shadow-lg border border-[#B7E4C7] flex items-center justify-center p-2.5 mb-5 animate-bounce overflow-hidden">
+        <div className="w-24 h-24 rounded-3xl bg-white shadow-lg border border-[#E3CCA8] flex items-center justify-center p-2.5 mb-5 animate-bounce overflow-hidden">
           <img
             src={`${import.meta.env.BASE_URL}logo-toga.png?v=2`}
             alt="Logo Pustaka TOGA SMPN 3"
@@ -563,7 +563,7 @@ const WelcomeSplash = ({ onFinish }) => {
           />
         </div>
 
-        <span className="inline-flex items-center gap-1.5 bg-white/80 border border-[#B7E4C7] px-3.5 py-1 rounded-full text-xs font-bold text-[#1E293B] mb-3 shadow-2xs">
+        <span className="inline-flex items-center gap-1.5 bg-white/80 border border-[#E3CCA8] px-3.5 py-1 rounded-full text-xs font-bold text-[#1E293B] mb-3 shadow-2xs">
           🌿 Selamat Datang di
         </span>
 
@@ -575,8 +575,8 @@ const WelcomeSplash = ({ onFinish }) => {
         </p>
 
         {/* Bilah Progres Animasi */}
-        <div className="w-48 h-1.5 bg-white/80 rounded-full overflow-hidden border border-[#B7E4C7]/60 mb-5">
-          <div className="h-full bg-gradient-to-r from-[#2D6A4F] to-[#2D6A4F] rounded-full animate-[progressFill_1.7s_ease-in-out_forwards]" />
+        <div className="w-48 h-1.5 bg-white/80 rounded-full overflow-hidden border border-[#E3CCA8]/60 mb-5">
+          <div className="h-full bg-gradient-to-r from-[#A3620A] to-[#7C4700] rounded-full animate-[progressFill_1.7s_ease-in-out_forwards]" />
         </div>
 
         <button
@@ -670,7 +670,7 @@ const NonTeachingAutoSlider = () => {
 
   return (
     <div className="space-y-3">
-      <div className="relative w-full aspect-[16/9] md:aspect-[21/10] rounded-2xl overflow-hidden border border-[#B7E4C7] bg-gradient-to-br from-[#E8F3EE] to-[#E8F3EE] shadow-xs group">
+      <div className="relative w-full aspect-[16/9] md:aspect-[21/10] rounded-2xl overflow-hidden border border-[#E3CCA8] bg-gradient-to-br from-[#FCF7F0] to-[#F3E4CE] shadow-xs group">
         {!isMissing ? (
           <img
             src={`${import.meta.env.BASE_URL}${currentItem.src}`}
@@ -680,19 +680,19 @@ const NonTeachingAutoSlider = () => {
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-2 pb-16">
-            <div className="w-11 h-11 rounded-2xl bg-white border border-[#B7E4C7] flex items-center justify-center shadow-2xs">
+            <div className="w-11 h-11 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center shadow-2xs">
               <Sprout className="w-6 h-6 text-[#1E293B]" />
             </div>
             <p className="text-xs md:text-sm font-extrabold text-[#1E293B]">
               Dokumentasi Foto Belum Diunggah
             </p>
             <p className="text-[11px] text-[#4A2532]/75 max-w-md">
-              Kode file: <code className="bg-white px-2 py-0.5 rounded border border-[#B7E4C7] font-bold text-[#1E293B]">{currentItem.src}</code> (folder <code>public/</code>)
+              Kode file: <code className="bg-white px-2 py-0.5 rounded border border-[#E3CCA8] font-bold text-[#1E293B]">{currentItem.src}</code> (folder <code>public/</code>)
             </p>
           </div>
         )}
 
-        <div className="absolute top-3 left-3 z-10 bg-white/95 text-[#1E293B] border border-[#B7E4C7] text-[10px] font-extrabold px-3 py-1 rounded-full shadow-xs">
+        <div className="absolute top-3 left-3 z-10 bg-white/95 text-[#1E293B] border border-[#E3CCA8] text-[10px] font-extrabold px-3 py-1 rounded-full shadow-xs">
           {currentItem.stage}
         </div>
 
@@ -735,8 +735,8 @@ const NonTeachingAutoSlider = () => {
             onClick={() => setIdx(sIdx)}
             className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all border ${
               sIdx === idx
-                ? "bg-gradient-to-r from-[#1B4332] via-[#2D6A4F] to-[#40916C] text-white border-[#2D6A4F]"
-                : "bg-[#E8F3EE] text-[#1E293B] border-[#B7E4C7] hover:bg-[#B7E4C7]/40"
+                ? "bg-gradient-to-r from-[#5A3200] via-[#7C4700] to-[#A66308] text-white border-[#7C4700]"
+                : "bg-[#FCF7F0] text-[#1E293B] border-[#E3CCA8] hover:bg-[#E3CCA8]/40"
             }`}
           >
             {sIdx + 1}. {s.title.split(" ").slice(0, 2).join(" ")}
@@ -1109,7 +1109,7 @@ export default function App() {
   return (
     <div
       style={{ fontFamily: "'Plus Jakarta Sans', 'Poppins', sans-serif" }}
-      className="min-h-screen bg-[#E8F3EE] text-[#4A2532] flex justify-center selection:bg-[#B7E4C7] selection:text-[#1E293B]"
+      className="min-h-screen bg-[#E7ECE4] text-[#4A2532] flex justify-center selection:bg-[#E3CCA8] selection:text-[#1E293B]"
     >
       {showSplash && <WelcomeSplash onFinish={handleFinishSplash} />}
       <style>{`
@@ -1168,7 +1168,7 @@ export default function App() {
       `}</style>
 
       {/* Bingkai Utama Model Portrait */}
-      <div className="w-full max-w-[480px] md:max-w-none min-h-screen bg-[#E8F3EE] shadow-2xl md:shadow-none border-x md:border-x-0 border-[#B7E4C7]/60 flex flex-col relative pb-24 md:pb-8 overflow-x-hidden">
+      <div className="w-full max-w-[480px] md:max-w-none min-h-screen bg-[#FCF7F0] shadow-2xl md:shadow-none border-x md:border-x-0 border-[#E3CCA8]/60 flex flex-col relative pb-24 md:pb-8 overflow-x-hidden">
 
         {/* NOTIFIKASI TOAST PORTRAIT */}
         {notification && (
@@ -1176,11 +1176,11 @@ export default function App() {
             <div className={`flex items-start gap-3 p-3.5 rounded-2xl shadow-xl border ${
               notification.type === 'error'
                 ? 'bg-red-50 border-red-300 text-red-900'
-                : 'bg-[#2D6A4F] border-[#B7E4C7] text-white'
+                : 'bg-[#7C4700] border-[#E3CCA8] text-white'
             }`}>
               {notification.type === 'error'
                 ? <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                : <CheckCircle2 className="w-5 h-5 text-[#B7E4C7] flex-shrink-0 mt-0.5" />
+                : <CheckCircle2 className="w-5 h-5 text-[#E3CCA8] flex-shrink-0 mt-0.5" />
               }
               <div>
                 <h4 className="font-bold text-xs">{notification.title}</h4>
@@ -1191,13 +1191,13 @@ export default function App() {
         )}
 
         {/* HEADER PORTRAIT */}
-        <header className={`sticky top-0 z-40 bg-gradient-to-r from-[#2D6A4F] via-[#2D6A4F] to-[#2D6A4F] border-b border-[#B7E4C7]/40 px-4 py-3.5 shadow-md text-white ${!showSplash ? "animate-header-enter" : "opacity-0"}`}>
+        <header className={`sticky top-0 z-40 bg-gradient-to-r from-[#7C4700] via-[#2D6A4F] to-[#A3620A] border-b border-[#E3CCA8]/40 px-4 py-3.5 shadow-md text-white ${!showSplash ? "animate-header-enter" : "opacity-0"}`}>
           <div className="flex items-center justify-between gap-2">
             <div
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
               className="flex items-center gap-2.5 cursor-pointer"
             >
-              <div className="w-11 h-11 rounded-2xl bg-white border border-[#B7E4C7] flex items-center justify-center p-1 shadow-sm relative flex-shrink-0 overflow-hidden">
+              <div className="w-11 h-11 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center p-1 shadow-sm relative flex-shrink-0 overflow-hidden">
                 <img
                   src={`${import.meta.env.BASE_URL}logo-toga.png?v=3`}
                   alt="Logo Pustaka TOGA SMPN 3"
@@ -1208,7 +1208,7 @@ export default function App() {
                 <span className="font-extrabold text-sm tracking-tight text-white block leading-tight drop-shadow-xs">
                   PUSTAKA TOGA SMPN 3
                 </span>
-                <span className="text-[10px] font-bold text-[#E8F3EE] tracking-wide block">
+                <span className="text-[10px] font-bold text-[#F3E4CE] tracking-wide block">
                   SMP NEGERI 3 PONTIANAK
                 </span>
               </div>
@@ -1245,8 +1245,8 @@ export default function App() {
                   onClick={() => { setActivePage('admin'); setSelectedPlant(null); }}
                   className={`inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold border transition-all ${
                     activePage === 'admin'
-                      ? 'bg-white text-[#1E293B] shadow-xs border-[#2D6A4F]'
-                      : 'bg-[#E8F3EE] text-[#1E293B] border-[#B7E4C7]'
+                      ? 'bg-white text-[#1E293B] shadow-xs border-[#7C4700]'
+                      : 'bg-[#FCF7F0] text-[#1E293B] border-[#E3CCA8]'
                   }`}
                 >
                   <ShieldCheck className="w-3.5 h-3.5 text-[#1E293B]" />
@@ -1256,7 +1256,7 @@ export default function App() {
                 <button
                   onClick={() => setShowAdminLogin(true)}
                   title="Login Administrator / Guru"
-                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#E8F3EE] hover:bg-[#B7E4C7]/30 text-[#1E293B] border border-[#B7E4C7]/70 text-xs font-bold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FCF7F0] hover:bg-[#E3CCA8]/30 text-[#1E293B] border border-[#E3CCA8]/70 text-xs font-bold transition-colors"
                 >
                   <Lock className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Admin</span>
@@ -1272,7 +1272,7 @@ export default function App() {
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
             <div className="space-y-6">
-              <section className="overflow-hidden relative  rounded-3xl p-5 md:p-6 border border-[#B7E4C7]/70 shadow-sm space-y-5">
+              <section className="overflow-hidden relative  rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-5">
                 {/* Latar Belakang Foto & Gradasi Kartu Utama Beranda */}
                 <div
                   aria-hidden="true"
@@ -1281,7 +1281,7 @@ export default function App() {
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-r from-white/88 via-[#E8F3EE]/82 to-[#E8F3EE]/86 backdrop-blur-[1px] pointer-events-none"
+                  className="absolute inset-0 bg-gradient-to-r from-white/88 via-[#FCF7F0]/82 to-[#F3E4CE]/86 backdrop-blur-[1px] pointer-events-none"
                 />
                 <style>{`
   @keyframes heroSmoothIn {
@@ -1315,7 +1315,7 @@ export default function App() {
 
                   {/* Kolom 2 (Tengah): Paragraf Penjelasan Rata Kanan-Kiri */}
                   <div className="anim-hero-col-2 lg:col-span-4 space-y-3">
-                    <div className="inline-flex items-center gap-1.5 bg-[#E8F3EE] border border-[#B7E4C7] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
+                    <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
                       <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
                       <span>Taman TOGA MSB FKIP UNTAN</span>
                     </div>
@@ -1351,7 +1351,7 @@ export default function App() {
                   {/* Kolom 3 (Kanan - Mengisi Space Kosong di Sebelahnya): Panduan Penggunaan lalu Tombol Aksi */}
                   <div className="anim-hero-col-3 lg:col-span-4 w-full space-y-3.5">
                     {/* Panduan Penggunaan */}
-                    <div className="bg-[#E8F3EE]/70 rounded-3xl p-4 border border-[#B7E4C7]/70 space-y-3">
+                    <div className="bg-[#FCF7F0]/70 rounded-3xl p-4 border border-[#E3CCA8]/70 space-y-3">
                       <div>
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                           Panduan Penggunaan
@@ -1362,8 +1362,8 @@ export default function App() {
                       </div>
 
                       <div className="space-y-2">
-                        <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#B7E4C7]/60">
-                          <div className="w-6 h-6 rounded-lg bg-[#2D6A4F] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
+                        <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#E3CCA8]/60">
+                          <div className="w-6 h-6 rounded-lg bg-[#7C4700] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
                             1
                           </div>
                           <div>
@@ -1374,8 +1374,8 @@ export default function App() {
                           </div>
                         </div>
 
-                        <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#B7E4C7]/60">
-                          <div className="w-6 h-6 rounded-lg bg-[#2D6A4F] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
+                        <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#E3CCA8]/60">
+                          <div className="w-6 h-6 rounded-lg bg-[#A3620A] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
                             2
                           </div>
                           <div>
@@ -1385,8 +1385,8 @@ export default function App() {
                             </p>
                           </div>
                         </div>
-<div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#B7E4C7]/60">
-                          <div className="w-6 h-6 rounded-lg bg-[#2D6A4F] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
+<div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#E3CCA8]/60">
+                          <div className="w-6 h-6 rounded-lg bg-[#A3620A] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
                             3
                           </div>
                           <div>
@@ -1407,7 +1407,7 @@ export default function App() {
 
                       <button
                         onClick={() => setActivePage('scan')}
-                        className="flex items-center justify-center gap-1.5 bg-[#E8F3EE] hover:bg-[#B7E4C7]/40 text-[#1E293B] font-bold py-3 px-2.5 rounded-2xl text-xs border-2 border-[#2D6A4F] transition-all"
+                        className="flex items-center justify-center gap-1.5 bg-[#FCF7F0] hover:bg-[#E3CCA8]/40 text-[#1E293B] font-bold py-3 px-2.5 rounded-2xl text-xs border-2 border-[#7C4700] transition-all"
                       >
                         <QrCode className="w-4 h-4 text-[#1E293B] flex-shrink-0" />
                         <span>Scan QR Code</span>
@@ -1422,17 +1422,17 @@ export default function App() {
               </section>
 
               {/* Statistik Koleksi */}
-              <section className="bg-[#2D6A4F] text-white rounded-3xl p-5 space-y-4 shadow-sm">
+              <section className="bg-[#7C4700] text-white rounded-3xl p-5 space-y-4 shadow-sm">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#B7E4C7]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#E3CCA8]">
                       Inventaris Hijau Sekolah
                     </span>
                     <h2 className="text-lg font-extrabold">Koleksi Terdata</h2>
                   </div>
                   <button
                     onClick={() => setActivePage('koleksi')}
-                    className="bg-[#2D6A4F] text-white text-xs font-bold px-3.5 py-2 rounded-xl"
+                    className="bg-[#A3620A] text-white text-xs font-bold px-3.5 py-2 rounded-xl"
                   >
                     Lihat Semua
                   </button>
@@ -1440,11 +1440,11 @@ export default function App() {
 
                 <div className="grid grid-cols-2 gap-3">
                   <div className="bg-white/10 rounded-2xl p-3.5 border border-white/15">
-                    <div className="text-2xl font-extrabold text-[#B7E4C7]">{plants.length}</div>
+                    <div className="text-2xl font-extrabold text-[#E3CCA8]">{plants.length}</div>
                     <div className="text-[11px] font-medium mt-0.5">Spesies Tanaman</div>
                   </div>
                   <div className="bg-white/10 rounded-2xl p-3.5 border border-white/15">
-                    <div className="text-2xl font-extrabold text-[#B7E4C7]">
+                    <div className="text-2xl font-extrabold text-[#E3CCA8]">
                       {new Set(plants.map(p => p.category)).size}
                     </div>
                     <div className="text-[11px] font-medium mt-0.5">Kategori Utama</div>
@@ -1478,12 +1478,12 @@ export default function App() {
                     <div
                       key={plant.id}
                       onClick={() => { setSelectedPlant(plant); setActivePage('koleksi'); }}
-                      className="w-56 flex-shrink-0 bg-white rounded-3xl overflow-hidden border border-[#B7E4C7]/70 shadow-sm cursor-pointer flex flex-col justify-between"
+                      className="w-56 flex-shrink-0 bg-white rounded-3xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm cursor-pointer flex flex-col justify-between"
                     >
                       <div>
-                        <div className="relative h-36 bg-[#E8F3EE]">
+                        <div className="relative h-36 bg-[#FCF7F0]">
                           <img src={plant.image} alt={plant.name} className="w-full h-full object-cover" />
-                          <span className="absolute top-2.5 left-2.5 bg-[#2D6A4F]/90 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full">
+                          <span className="absolute top-2.5 left-2.5 bg-[#7C4700]/90 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full">
                             {plant.category}
                           </span>
                         </div>
@@ -1503,9 +1503,9 @@ export default function App() {
               </section>
 
               {/* Fakta Menarik */}
-              <section className="bg-white rounded-3xl p-5 border border-[#B7E4C7]/70 space-y-3">
+              <section className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1 bg-[#E8F3EE] text-[#1E293B] border border-[#B7E4C7] text-[11px] font-bold px-2.5 py-1 rounded-full">
+                  <span className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] border border-[#E3CCA8] text-[11px] font-bold px-2.5 py-1 rounded-full">
                     <Sparkles className="w-3 h-3 text-[#1E293B]" /> Fakta Menarik
                   </span>
                   <button
@@ -1524,7 +1524,7 @@ export default function App() {
               </section>
 
               {/* Ajakan Menjaga Lingkungan */}
-              <section className="bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F] text-white rounded-3xl p-5 space-y-3">
+              <section className="bg-gradient-to-br from-[#A3620A] to-[#7C4700] text-white rounded-3xl p-5 space-y-3">
                 <h3 className="text-base font-extrabold">Mari Jaga Lingkungan Sekolah Kita!</h3>
                 <p className="text-xs text-white/90 leading-relaxed">
                   Setiap tanaman di SMP Negeri 3 Pontianak berperan penting menyediakan udara bersih dan keteduhan. Rawat tanaman di sekitar kelasmu dan jangan merusak tumbuhan.
@@ -1544,7 +1544,7 @@ export default function App() {
             <div>
               {!selectedPlant ? (
                 <div className="space-y-4">
-                  <div className="bg-white rounded-3xl p-4 border border-[#B7E4C7]/70 shadow-sm space-y-3.5">
+                  <div className="bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 shadow-sm space-y-3.5">
                     <div className="flex items-center justify-between">
                       <div>
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
@@ -1557,7 +1557,7 @@ export default function App() {
 
                       <button
                         onClick={() => setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')}
-                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] text-[11px] font-bold text-[#1E293B]"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-[11px] font-bold text-[#1E293B]"
                       >
                         <ArrowUpDown className="w-3.5 h-3.5 text-[#1E293B]" />
                         <span>{sortOrder === 'asc' ? 'A–Z' : 'Z–A'}</span>
@@ -1571,7 +1571,7 @@ export default function App() {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Cari nama tanaman atau nama ilmiah..."
-                        className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] focus:border-[#2D6A4F] outline-none text-xs"
+                        className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] focus:border-[#7C4700] outline-none text-xs"
                       />
                     </div>
 
@@ -1582,8 +1582,8 @@ export default function App() {
                           onClick={() => setSelectedCategory(cat)}
                           className={`flex-shrink-0 px-3 py-1.5 rounded-xl text-[11px] font-bold transition-all ${
                             selectedCategory === cat
-                              ? 'bg-[#2D6A4F] text-white'
-                              : 'bg-[#E8F3EE] text-[#4A2532] border border-[#B7E4C7]/60'
+                              ? 'bg-[#7C4700] text-white'
+                              : 'bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60'
                           }`}
                         >
                           {cat}
@@ -1593,7 +1593,7 @@ export default function App() {
                   </div>
 
                   {filteredAndSortedPlants.length === 0 ? (
-                    <div className="bg-white rounded-3xl p-8 text-center border border-[#B7E4C7]">
+                    <div className="bg-white rounded-3xl p-8 text-center border border-[#E3CCA8]">
                       <p className="text-sm font-bold text-[#1E293B]">Tanaman tidak ditemukan.</p>
                       <p className="text-xs text-[#4A2532]/75 mt-1">Coba kata kunci atau kategori lainnya.</p>
                     </div>
@@ -1603,16 +1603,16 @@ export default function App() {
                         <div
                           key={plant.id}
                           onClick={() => setSelectedPlant(plant)}
-                          className="bg-white rounded-3xl overflow-hidden border border-[#B7E4C7]/70 hover:border-[#2D6A4F] shadow-sm transition-all cursor-pointer flex flex-col justify-between"
+                          className="bg-white rounded-3xl overflow-hidden border border-[#E3CCA8]/70 hover:border-[#A3620A] shadow-sm transition-all cursor-pointer flex flex-col justify-between"
                         >
                           <div>
-                            <div className="relative aspect-[4/3] bg-[#E8F3EE]">
+                            <div className="relative aspect-[4/3] bg-[#FCF7F0]">
                               <img
                                 src={plant.image}
                                 alt={plant.name}
                                 className="w-full h-full object-cover"
                               />
-                              <span className="absolute top-2 left-2 bg-[#2D6A4F]/90 text-white text-[9px] font-semibold px-2 py-0.5 rounded-full">
+                              <span className="absolute top-2 left-2 bg-[#7C4700]/90 text-white text-[9px] font-semibold px-2 py-0.5 rounded-full">
                                 {plant.category}
                               </span>
                             </div>
@@ -1629,7 +1629,7 @@ export default function App() {
                           <div className="px-3 pb-3">
                             <button
                               type="button"
-                              className="w-full py-2 px-2 rounded-xl bg-[#E8F3EE] text-[#1E293B] font-bold text-[11px] flex items-center justify-center gap-1 border border-[#B7E4C7]"
+                              className="w-full py-2 px-2 rounded-xl bg-[#FCF7F0] text-[#1E293B] font-bold text-[11px] flex items-center justify-center gap-1 border border-[#E3CCA8]"
                             >
                               <span>Lihat Info</span>
                               <ChevronRight className="w-3.5 h-3.5" />
@@ -1644,20 +1644,20 @@ export default function App() {
                 <div className="space-y-4">
                   <button
                     onClick={() => setSelectedPlant(null)}
-                    className="inline-flex items-center gap-1.5 bg-white text-[#1E293B] font-bold px-3.5 py-2 rounded-xl border border-[#B7E4C7] text-xs shadow-sm"
+                    className="inline-flex items-center gap-1.5 bg-white text-[#1E293B] font-bold px-3.5 py-2 rounded-xl border border-[#E3CCA8] text-xs shadow-sm"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     <span>Kembali ke Koleksi</span>
                   </button>
 
-                  <div className="bg-white rounded-3xl overflow-hidden border border-[#B7E4C7]/70 shadow-sm">
-                    <div className="aspect-[4/3] bg-[#E8F3EE] relative">
+                  <div className="bg-white rounded-3xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm">
+                    <div className="aspect-[4/3] bg-[#FCF7F0] relative">
                       <img
                         src={selectedPlant.image}
                         alt={selectedPlant.name}
                         className="w-full h-full object-cover"
                       />
-                      <span className="absolute top-3 left-3 bg-[#2D6A4F]/90 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      <span className="absolute top-3 left-3 bg-[#7C4700]/90 text-white text-xs font-bold px-3 py-1 rounded-full">
                         {selectedPlant.category}
                       </span>
                     </div>
@@ -1681,7 +1681,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-3xl p-5 border border-[#B7E4C7]/70 space-y-3.5">
+                  <div className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 space-y-3.5">
                     <div className="flex items-center gap-2 text-[#1E293B]">
                       <Layers className="w-4 h-4 text-[#1E293B]" />
                       <h3 className="font-extrabold text-sm">Ciri Morfologi & Bagian Tumbuhan</h3>
@@ -1700,10 +1700,10 @@ export default function App() {
                         const imgVal = selectedPlant.partsImages?.[item.key];
                         if (!textVal && !imgVal) return null;
                         return (
-                          <div key={item.key} className="bg-[#E8F3EE] p-3.5 rounded-2xl border border-[#B7E4C7]/60">
+                          <div key={item.key} className="bg-[#FCF7F0] p-3.5 rounded-2xl border border-[#E3CCA8]/60">
                             <div className={imgVal ? "flex items-start gap-3.5" : ""}>
                               {imgVal && (
-                                <div className="w-24 sm:w-28 aspect-[3/4] rounded-xl overflow-hidden border border-[#B7E4C7] bg-white flex-shrink-0 shadow-xs">
+                                <div className="w-24 sm:w-28 aspect-[3/4] rounded-xl overflow-hidden border border-[#E3CCA8] bg-white flex-shrink-0 shadow-xs">
                                   <img src={imgVal} alt={item.title} className="w-full h-full object-cover" />
                                 </div>
                               )}
@@ -1720,7 +1720,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-3xl p-5 border border-[#B7E4C7]/70 space-y-4">
+                  <div className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 space-y-4">
                     <div className="space-y-1">
                       <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
                         <MapPin className="w-4 h-4 text-[#1E293B]" /> Habitat & Lokasi di Sekolah
@@ -1728,7 +1728,7 @@ export default function App() {
                       <RichTextContent content={selectedPlant.habitat} defaultAlign="text-justify" />
                     </div>
 
-                    <hr className="border-[#B7E4C7]/40" />
+                    <hr className="border-[#E3CCA8]/40" />
 
                     <div className="space-y-1">
                       <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
@@ -1737,7 +1737,7 @@ export default function App() {
                       <RichTextContent content={selectedPlant.benefits} defaultAlign="text-justify" />
                     </div>
 
-                    <hr className="border-[#B7E4C7]/40" />
+                    <hr className="border-[#E3CCA8]/40" />
 
                     <div className="space-y-1">
                       <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
@@ -1747,14 +1747,14 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="bg-[#2D6A4F] text-white rounded-3xl p-5 space-y-1.5">
-                    <h3 className="font-extrabold text-xs text-[#B7E4C7] flex items-center gap-1.5">
+                  <div className="bg-[#7C4700] text-white rounded-3xl p-5 space-y-1.5">
+                    <h3 className="font-extrabold text-xs text-[#E3CCA8] flex items-center gap-1.5">
                       <Sparkles className="w-4 h-4" /> Fakta Menarik Tanaman
                     </h3>
                     <div className="text-white/95"><RichTextContent content={selectedPlant.funFact} defaultAlign="text-justify" /></div>
                   </div>
 
-                  <div className="bg-white rounded-3xl p-5 border border-[#B7E4C7]/70 flex flex-col items-center text-center space-y-2">
+                  <div className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 flex flex-col items-center text-center space-y-2">
                     <p className="text-xs font-extrabold text-[#1E293B]">QR Code Tanaman</p>
                     <SmartPlantQRWidget
                       code={selectedPlant.code}
@@ -1772,7 +1772,7 @@ export default function App() {
           {activePage === 'scan' && (
             <div className="space-y-5">
               <div className="text-center space-y-1.5">
-                <span className="inline-block bg-white border border-[#B7E4C7] text-[#1E293B] text-[11px] font-bold px-3 py-1 rounded-full">
+                <span className="inline-block bg-white border border-[#E3CCA8] text-[#1E293B] text-[11px] font-bold px-3 py-1 rounded-full">
                   Pemindai QR SMPN 3 Pontianak
                 </span>
                 <h1 className="text-xl font-extrabold text-[#1E293B]">
@@ -1783,25 +1783,25 @@ export default function App() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-3xl p-4 border border-[#B7E4C7]/70 shadow-sm space-y-3.5">
-                <div className="relative aspect-square rounded-2xl bg-[#2D6A4F] overflow-hidden flex items-center justify-center border-2 border-[#2D6A4F]">
+              <div className="bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 shadow-sm space-y-3.5">
+                <div className="relative aspect-square rounded-2xl bg-[#7C4700] overflow-hidden flex items-center justify-center border-2 border-[#A3620A]">
                   {cameraActive ? (
                     <>
                       <video ref={videoRef} autoPlay playsInline className="w-full h-full object-cover" />
-                      <div className="absolute inset-8 border-2 border-[#B7E4C7] rounded-2xl pointer-events-none overflow-hidden">
-                        <div className="w-full h-0.5 bg-[#B7E4C7] shadow-[0_0_12px_#B7E4C7] animate-scan-line" />
+                      <div className="absolute inset-8 border-2 border-[#E3CCA8] rounded-2xl pointer-events-none overflow-hidden">
+                        <div className="w-full h-0.5 bg-[#E3CCA8] shadow-[0_0_12px_#E3CCA8] animate-scan-line" />
                       </div>
-                      <span className="absolute bottom-3 bg-[#2D6A4F]/85 text-white text-[11px] font-semibold px-3 py-1 rounded-full">
+                      <span className="absolute bottom-3 bg-[#7C4700]/85 text-white text-[11px] font-semibold px-3 py-1 rounded-full">
                         Arahkan kamera ke QR Code...
                       </span>
                     </>
                   ) : (
                     <div className="text-center p-5 space-y-2.5">
-                      <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#B7E4C7] flex items-center justify-center mx-auto">
+                      <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#E3CCA8] flex items-center justify-center mx-auto">
                         <Camera className="w-7 h-7" />
                       </div>
                       <p className="text-white text-sm font-bold">Kamera Siap Memindai</p>
-                      <p className="text-[#B7E4C7] text-[11px] leading-relaxed">
+                      <p className="text-[#E3CCA8] text-[11px] leading-relaxed">
                         Tekan tombol di bawah untuk mengaktifkan kamera smartphone.
                       </p>
                     </div>
@@ -1809,7 +1809,7 @@ export default function App() {
                 </div>
 
                 {scanError && (
-                  <p className="text-[11px] text-slate-900 bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                  <p className="text-[11px] text-slate-900 bg-amber-50 p-3 rounded-xl border border-amber-200">
                     {scanError}
                   </p>
                 )}
@@ -1817,7 +1817,7 @@ export default function App() {
                 {!cameraActive ? (
                   <button
                     onClick={startCamera}
-                    className="w-full flex items-center justify-center gap-2 bg-[#2D6A4F] hover:bg-[#2D6A4F] text-white font-bold py-3.5 rounded-2xl text-xs transition-colors"
+                    className="w-full flex items-center justify-center gap-2 bg-[#7C4700] hover:bg-[#A3620A] text-white font-bold py-3.5 rounded-2xl text-xs transition-colors"
                   >
                     <Camera className="w-4 h-4" />
                     <span>Aktifkan Kamera</span>
@@ -1832,7 +1832,7 @@ export default function App() {
                 )}
               </div>
 
-              <div className="bg-white rounded-3xl p-4 border border-[#B7E4C7]/70 space-y-3">
+              <div className="bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 space-y-3">
                 <div className="flex items-center gap-2 text-[#1E293B]">
                   <Keyboard className="w-4 h-4 text-[#1E293B]" />
                   <h2 className="font-extrabold text-sm">Input Kode QR Manual</h2>
@@ -1844,11 +1844,11 @@ export default function App() {
                     onChange={(e) => setManualCode(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleOpenPlantByCode(manualCode)}
                     placeholder="Contoh: SPN3-LIDAHBUAYA"
-                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] outline-none text-xs font-semibold"
+                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] outline-none text-xs font-semibold"
                   />
                   <button
                     onClick={() => handleOpenPlantByCode(manualCode)}
-                    className="bg-[#2D6A4F] text-white font-bold px-4 py-2.5 rounded-xl text-xs"
+                    className="bg-[#A3620A] text-white font-bold px-4 py-2.5 rounded-xl text-xs"
                   >
                     Buka
                   </button>
@@ -1861,7 +1861,7 @@ export default function App() {
                       <button
                         key={p.id}
                         onClick={() => handleOpenPlantByCode(p.code)}
-                        className="text-[10px] font-semibold bg-[#E8F3EE] hover:bg-[#2D6A4F] text-white hover:text-white px-2.5 py-1.5 rounded-lg border border-[#B7E4C7] transition-colors"
+                        className="text-[10px] font-semibold bg-[#FCF7F0] hover:bg-[#7C4700] text-white hover:text-white px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] transition-colors"
                       >
                         {p.code}
                       </button>
@@ -1876,8 +1876,8 @@ export default function App() {
           {activePage === 'aktivitas' && (
             <div className="space-y-5">
               {/* Header & Narasi Pengantar Halaman Aktivitas */}
-              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#B7E4C7]/70 shadow-sm space-y-3.5">
-                <div className="inline-flex items-center gap-1.5 bg-[#E8F3EE] border border-[#B7E4C7] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-3.5">
+                <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
                   <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Kegiatan Non-Mengajar MSB • FKIP UNTAN</span>
                 </div>
@@ -1896,7 +1896,7 @@ export default function App() {
 
               {/* 4 Tahapan Pelaksanaan Program Non-Mengajar MSB */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#B7E4C7]/70 shadow-xs space-y-1.5">
+                <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/70 shadow-xs space-y-1.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 01 • Koordinasi &amp; Perizinan
                   </span>
@@ -1908,7 +1908,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#B7E4C7]/70 shadow-xs space-y-1.5">
+                <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/70 shadow-xs space-y-1.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 02 • Observasi &amp; Revitalisasi Taman
                   </span>
@@ -1920,7 +1920,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#B7E4C7]/70 shadow-xs space-y-1.5">
+                <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/70 shadow-xs space-y-1.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 03 • Inovasi &amp; Digitalisasi QR Code
                   </span>
@@ -1932,7 +1932,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#B7E4C7]/70 shadow-xs space-y-1.5">
+                <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/70 shadow-xs space-y-1.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 04 • Edukasi &amp; Pemanfaatan Produk
                   </span>
@@ -1946,7 +1946,7 @@ export default function App() {
               </div>
 
               {/* Galeri 8 Slide Foto Pengerjaan Kegiatan Non-Mengajar */}
-              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#B7E4C7]/70 shadow-sm space-y-4">
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-4">
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Dokumentasi Kronologis • 8 Tahap Pengerjaan
@@ -1968,8 +1968,8 @@ export default function App() {
           {activePage === 'tentang' && (
             <div className="space-y-5">
               {/* 1. Profil Website & Program MSB FKIP UNTAN */}
-              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#B7E4C7]/70 shadow-sm space-y-3.5">
-                <div className="inline-flex items-center gap-1.5 bg-[#E8F3EE] border border-[#B7E4C7] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-3.5">
+                <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
                   <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Magang Sekolah Berdampak (MSB) • FKIP UNTAN</span>
                 </div>
@@ -1992,7 +1992,7 @@ export default function App() {
               </div>
 
               {/* 2. Tujuan Pembuatan Website */}
-              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#B7E4C7]/70 shadow-sm space-y-4">
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-4">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Latar Belakang &amp; Sasaran
@@ -2003,7 +2003,7 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div className="bg-[#E8F3EE] p-4 rounded-2xl border border-[#B7E4C7]/60 space-y-1">
+                  <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/60 space-y-1">
                     <h3 className="font-extrabold text-xs text-[#1E293B]">
                       1. Mendukung Program Unggulan Sekolah Mitra
                     </h3>
@@ -2012,7 +2012,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="bg-[#E8F3EE] p-4 rounded-2xl border border-[#B7E4C7]/60 space-y-1">
+                  <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/60 space-y-1">
                     <h3 className="font-extrabold text-xs text-[#1E293B]">
                       2. Adaptasi Teknologi QR Code dalam Edukasi
                     </h3>
@@ -2021,7 +2021,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="bg-[#E8F3EE] p-4 rounded-2xl border border-[#B7E4C7]/60 space-y-1">
+                  <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/60 space-y-1">
                     <h3 className="font-extrabold text-xs text-[#1E293B]">
                       3. Media Pembelajaran Kontekstual
                     </h3>
@@ -2030,7 +2030,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="bg-[#E8F3EE] p-4 rounded-2xl border border-[#B7E4C7]/60 space-y-1">
+                  <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/60 space-y-1">
                     <h3 className="font-extrabold text-xs text-[#1E293B]">
                       4. Menumbuhkan Kepedulian Lingkungan
                     </h3>
@@ -2042,7 +2042,7 @@ export default function App() {
               </div>
 
               {/* 3. Tim Mahasiswa MSB FKIP UNTAN (12 Anggota) */}
-              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#B7E4C7]/70 shadow-sm space-y-5">
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-5">
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tim Pengembang &amp; Pelaksana Program
@@ -2086,9 +2086,9 @@ export default function App() {
                     ].map((member, idx) => (
                       <div
                         key={idx}
-                        className="bg-gradient-to-b from-[#E8F3EE] to-white rounded-2xl p-4 border-2 border-[#2D6A4F]/50 shadow-xs flex flex-col items-center text-center space-y-2.5"
+                        className="bg-gradient-to-b from-[#FCF7F0] to-white rounded-2xl p-4 border-2 border-[#A3620A]/50 shadow-xs flex flex-col items-center text-center space-y-2.5"
                       >
-                        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#2D6A4F] bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F] flex items-center justify-center shadow-xs relative">
+                        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#7C4700] bg-gradient-to-br from-[#7C4700] to-[#A3620A] flex items-center justify-center shadow-xs relative">
                           <span className="text-white font-extrabold text-base tracking-wide">
                             {member.initials}
                           </span>
@@ -2100,7 +2100,7 @@ export default function App() {
                           />
                         </div>
                         <div className="space-y-1">
-                          <span className="inline-block bg-[#2D6A4F] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">
+                          <span className="inline-block bg-[#7C4700] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">
                             {member.role}
                           </span>
                           <h3 className="font-extrabold text-sm text-[#4A2532] leading-snug">
@@ -2179,9 +2179,9 @@ export default function App() {
                     ].map((member, idx) => (
                       <div
                         key={idx}
-                        className="bg-[#E8F3EE]/70 rounded-2xl p-3.5 border border-[#B7E4C7]/70 flex flex-col items-center text-center space-y-2"
+                        className="bg-[#FCF7F0]/70 rounded-2xl p-3.5 border border-[#E3CCA8]/70 flex flex-col items-center text-center space-y-2"
                       >
-                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#2D6A4F] bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F] flex items-center justify-center shadow-xs relative">
+                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#A3620A] bg-gradient-to-br from-[#A3620A] to-[#7C4700] flex items-center justify-center shadow-xs relative">
                           <span className="text-white font-extrabold text-sm">
                             {member.initials}
                           </span>
@@ -2211,9 +2211,9 @@ export default function App() {
           {/* 6. DASHBOARD ADMINISTRATOR */}
           {activePage === 'admin' && isAdmin && (
             <div className="space-y-5">
-              <div className="bg-[#2D6A4F] text-white rounded-3xl p-5 flex items-center justify-between gap-3">
+              <div className="bg-[#7C4700] text-white rounded-3xl p-5 flex items-center justify-between gap-3">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#B7E4C7]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#E3CCA8]">
                     Panel Pengelolaan
                   </span>
                   <h1 className="text-lg font-extrabold">Dashboard Admin</h1>
@@ -2227,7 +2227,7 @@ export default function App() {
                 </button>
               </div>
 
-              <form onSubmit={handleSavePlant} className="bg-white rounded-3xl p-5 border border-[#B7E4C7] shadow-sm space-y-3.5">
+              <form onSubmit={handleSavePlant} className="bg-white rounded-3xl p-5 border border-[#E3CCA8] shadow-sm space-y-3.5">
                 <h2 className="text-base font-extrabold text-[#1E293B]">
                   {editingPlantId ? `Edit Tanaman (${plantForm.name})` : '+ Tambah Tanaman Baru'}
                 </h2>
@@ -2240,7 +2240,7 @@ export default function App() {
                     value={plantForm.name}
                     onChange={e => setPlantForm({ ...plantForm, name: e.target.value })}
                     placeholder="Contoh: Sirih Gading"
-                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] text-xs"
+                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-xs"
                   />
                 </div>
 
@@ -2253,7 +2253,7 @@ export default function App() {
                       value={plantForm.code}
                       onChange={e => setPlantForm({ ...plantForm, code: e.target.value })}
                       placeholder="SPN3-SIRIH"
-                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] text-xs uppercase font-mono"
+                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-xs uppercase font-mono"
                     />
                   </div>
                   <div>
@@ -2261,7 +2261,7 @@ export default function App() {
                     <select
                       value={plantForm.category}
                       onChange={e => setPlantForm({ ...plantForm, category: e.target.value })}
-                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] text-xs font-semibold"
+                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-xs font-semibold"
                     >
                       <option>Tanaman hias</option>
                       <option>Tanaman obat</option>
@@ -2280,14 +2280,14 @@ export default function App() {
                     value={plantForm.scientificName}
                     onChange={e => setPlantForm({ ...plantForm, scientificName: e.target.value })}
                     placeholder="Epipremnum aureum"
-                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] text-xs italic"
+                    className="w-full mt-1 px-3.5 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-xs italic"
                   />
                 </div>
 
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-bold text-[#1E293B] block">Foto Tanaman</label>
                   <div className="flex gap-2">
-                    <label className="inline-flex items-center gap-1.5 bg-[#E8F3EE] text-[#1E293B] font-bold px-3 py-2 rounded-xl border border-[#B7E4C7] text-[11px] cursor-pointer flex-shrink-0">
+                    <label className="inline-flex items-center gap-1.5 bg-[#FCF7F0] text-[#1E293B] font-bold px-3 py-2 rounded-xl border border-[#E3CCA8] text-[11px] cursor-pointer flex-shrink-0">
                       <ImageIcon className="w-3.5 h-3.5 text-[#1E293B]" />
                       <span>Unggah</span>
                       <input type="file" accept="image/*" onChange={handleImageFileUpload} className="hidden" />
@@ -2297,7 +2297,7 @@ export default function App() {
                       value={plantForm.image}
                       onChange={e => setPlantForm({ ...plantForm, image: e.target.value })}
                       placeholder="Atau URL foto..."
-                      className="flex-1 px-3 py-2 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] text-xs"
+                      className="flex-1 px-3 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-xs"
                     />
                   </div>
                 </div>
@@ -2313,8 +2313,8 @@ export default function App() {
                   <div>
                     <label className="text-[11px] font-bold text-[#1E293B]">Bentuk Daun</label>
                     <AdminRichEditor label="" value={plantForm.daun} onChange={(val) => setPlantForm(prev => ({ ...prev, daun: val }))} minHeight="72px" />
-                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#B7E4C7]/70">
-                    <label className="inline-flex items-center gap-1 bg-[#E8F3EE] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#B7E4C7] text-[10px] cursor-pointer flex-shrink-0">
+                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#E3CCA8]/70">
+                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
                       <ImageIcon className="w-3 h-3 text-[#1E293B]" />
                       <span>Foto Daun</span>
                       <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("daun", e)} className="hidden" />
@@ -2324,18 +2324,18 @@ export default function App() {
                       value={plantForm.daunImage || ""}
                       onChange={(e) => setPlantForm(prev => ({ ...prev, daunImage: e.target.value }))}
                       placeholder="Atau URL foto daun..."
-                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#E8F3EE] border border-[#B7E4C7]/60 text-[11px]"
+                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#FCF7F0] border border-[#E3CCA8]/60 text-[11px]"
                     />
                     {plantForm.daunImage && (
-                      <img src={plantForm.daunImage} alt="Preview daun" className="w-9 h-11 rounded-lg object-cover border border-[#B7E4C7] flex-shrink-0" />
+                      <img src={plantForm.daunImage} alt="Preview daun" className="w-9 h-11 rounded-lg object-cover border border-[#E3CCA8] flex-shrink-0" />
                     )}
                   </div>
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#1E293B]">Batang</label>
                     <AdminRichEditor label="" value={plantForm.batang} onChange={(val) => setPlantForm(prev => ({ ...prev, batang: val }))} minHeight="72px" />
-                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#B7E4C7]/70">
-                    <label className="inline-flex items-center gap-1 bg-[#E8F3EE] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#B7E4C7] text-[10px] cursor-pointer flex-shrink-0">
+                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#E3CCA8]/70">
+                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
                       <ImageIcon className="w-3 h-3 text-[#1E293B]" />
                       <span>Foto Batang</span>
                       <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("batang", e)} className="hidden" />
@@ -2345,18 +2345,18 @@ export default function App() {
                       value={plantForm.batangImage || ""}
                       onChange={(e) => setPlantForm(prev => ({ ...prev, batangImage: e.target.value }))}
                       placeholder="Atau URL foto batang..."
-                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#E8F3EE] border border-[#B7E4C7]/60 text-[11px]"
+                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#FCF7F0] border border-[#E3CCA8]/60 text-[11px]"
                     />
                     {plantForm.batangImage && (
-                      <img src={plantForm.batangImage} alt="Preview batang" className="w-9 h-11 rounded-lg object-cover border border-[#B7E4C7] flex-shrink-0" />
+                      <img src={plantForm.batangImage} alt="Preview batang" className="w-9 h-11 rounded-lg object-cover border border-[#E3CCA8] flex-shrink-0" />
                     )}
                   </div>
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#1E293B]">Akar</label>
                     <AdminRichEditor label="" value={plantForm.akar} onChange={(val) => setPlantForm(prev => ({ ...prev, akar: val }))} minHeight="72px" />
-                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#B7E4C7]/70">
-                    <label className="inline-flex items-center gap-1 bg-[#E8F3EE] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#B7E4C7] text-[10px] cursor-pointer flex-shrink-0">
+                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#E3CCA8]/70">
+                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
                       <ImageIcon className="w-3 h-3 text-[#1E293B]" />
                       <span>Foto Akar</span>
                       <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("akar", e)} className="hidden" />
@@ -2366,18 +2366,18 @@ export default function App() {
                       value={plantForm.akarImage || ""}
                       onChange={(e) => setPlantForm(prev => ({ ...prev, akarImage: e.target.value }))}
                       placeholder="Atau URL foto akar..."
-                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#E8F3EE] border border-[#B7E4C7]/60 text-[11px]"
+                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#FCF7F0] border border-[#E3CCA8]/60 text-[11px]"
                     />
                     {plantForm.akarImage && (
-                      <img src={plantForm.akarImage} alt="Preview akar" className="w-9 h-11 rounded-lg object-cover border border-[#B7E4C7] flex-shrink-0" />
+                      <img src={plantForm.akarImage} alt="Preview akar" className="w-9 h-11 rounded-lg object-cover border border-[#E3CCA8] flex-shrink-0" />
                     )}
                   </div>
                   </div>
                   <div>
                     <label className="text-[11px] font-bold text-[#1E293B]">Bunga / Buah</label>
                     <AdminRichEditor label="" value={plantForm.bunga} onChange={(val) => setPlantForm(prev => ({ ...prev, bunga: val }))} minHeight="72px" />
-                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#B7E4C7]/70">
-                    <label className="inline-flex items-center gap-1 bg-[#E8F3EE] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#B7E4C7] text-[10px] cursor-pointer flex-shrink-0">
+                  <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#E3CCA8]/70">
+                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
                       <ImageIcon className="w-3 h-3 text-[#1E293B]" />
                       <span>Foto Bunga</span>
                       <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("bunga", e)} className="hidden" />
@@ -2387,10 +2387,10 @@ export default function App() {
                       value={plantForm.bungaImage || ""}
                       onChange={(e) => setPlantForm(prev => ({ ...prev, bungaImage: e.target.value }))}
                       placeholder="Atau URL foto bunga..."
-                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#E8F3EE] border border-[#B7E4C7]/60 text-[11px]"
+                      className="flex-1 px-2.5 py-1 rounded-lg bg-[#FCF7F0] border border-[#E3CCA8]/60 text-[11px]"
                     />
                     {plantForm.bungaImage && (
-                      <img src={plantForm.bungaImage} alt="Preview bunga" className="w-9 h-11 rounded-lg object-cover border border-[#B7E4C7] flex-shrink-0" />
+                      <img src={plantForm.bungaImage} alt="Preview bunga" className="w-9 h-11 rounded-lg object-cover border border-[#E3CCA8] flex-shrink-0" />
                     )}
                   </div>
                   </div>
@@ -2417,7 +2417,7 @@ export default function App() {
                 </div>
 
                 {plantForm.code && (
-                  <div className="bg-[#E8F3EE] p-4 rounded-2xl border border-[#B7E4C7] flex flex-col items-center text-center gap-2">
+                  <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8] flex flex-col items-center text-center gap-2">
                     <p className="text-xs font-extrabold text-[#1E293B]">QR Code Otomatis</p>
                     <SmartPlantQRWidget
                       code={plantForm.code.toUpperCase()}
@@ -2431,7 +2431,7 @@ export default function App() {
                 <div className="flex gap-2 pt-1">
                   <button
                     type="submit"
-                    className="flex-1 bg-[#2D6A4F] text-white font-bold py-3 rounded-2xl text-xs"
+                    className="flex-1 bg-[#7C4700] text-white font-bold py-3 rounded-2xl text-xs"
                   >
                     {editingPlantId ? 'Simpan Perubahan' : 'Simpan Tanaman & QR'}
                   </button>
@@ -2439,7 +2439,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => { setEditingPlantId(null); setPlantForm(emptyPlantForm); }}
-                      className="px-4 py-3 rounded-2xl bg-[#E8F3EE] border border-[#B7E4C7] text-xs font-bold"
+                      className="px-4 py-3 rounded-2xl bg-[#FCF7F0] border border-[#E3CCA8] text-xs font-bold"
                     >
                       Batal
                     </button>
@@ -2452,9 +2452,9 @@ export default function App() {
                   Koleksi Tersimpan ({plants.length})
                 </h2>
                 {plants.map(p => (
-                  <div key={p.id} className="bg-white rounded-2xl p-3.5 border border-[#B7E4C7]/70 flex items-center justify-between gap-3">
+                  <div key={p.id} className="bg-white rounded-2xl p-3.5 border border-[#E3CCA8]/70 flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3 min-w-0">
-                      <img src={p.image} alt={p.name} className="w-12 h-12 rounded-xl object-cover border border-[#B7E4C7] flex-shrink-0" />
+                      <img src={p.image} alt={p.name} className="w-12 h-12 rounded-xl object-cover border border-[#E3CCA8] flex-shrink-0" />
                       <div className="min-w-0">
                         <h3 className="font-extrabold text-xs text-[#1E293B] truncate">{p.name}</h3>
                         <p className="text-[10px] font-mono text-[#1E293B] font-bold">{p.code}</p>
@@ -2464,13 +2464,13 @@ export default function App() {
                     <div className="flex items-center gap-1.5 flex-shrink-0">
                       <button
                         onClick={() => { setSelectedPlant(p); setActivePage('koleksi'); }}
-                        className="p-2 rounded-xl bg-[#E8F3EE] text-[#1E293B]"
+                        className="p-2 rounded-xl bg-[#FCF7F0] text-[#1E293B]"
                       >
                         <Eye className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => handleStartEditPlant(p)}
-                        className="p-2 rounded-xl bg-emerald-50 text-[#1E293B]"
+                        className="p-2 rounded-xl bg-amber-50 text-[#1E293B]"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
                       </button>
@@ -2489,7 +2489,7 @@ export default function App() {
         </main>
 
         {/* BOTTOM NAVIGATION BAR PORTRAIT */}
-        <nav className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-[480px] md:max-w-6xl bg-white/95 backdrop-blur-md border-t border-[#B7E4C7]/70 px-2 py-2 shadow-[0_-4px_20px_rgba(22,75,54,0.08)]">
+        <nav className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-[480px] md:max-w-6xl bg-white/95 backdrop-blur-md border-t border-[#E3CCA8]/70 px-2 py-2 shadow-[0_-4px_20px_rgba(22,75,54,0.08)]">
           <div className="grid grid-cols-5 items-center">
             <button
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
@@ -2514,10 +2514,10 @@ export default function App() {
             <div className="flex flex-col items-center justify-center -mt-6">
               <button
                 onClick={() => { setActivePage('scan'); setSelectedPlant(null); }}
-                className="w-14 h-14 rounded-2xl bg-[#2D6A4F] hover:bg-[#2D6A4F] text-white flex items-center justify-center shadow-lg border-4 border-[#E8F3EE] transition-transform active:scale-95"
+                className="w-14 h-14 rounded-2xl bg-[#7C4700] hover:bg-[#A3620A] text-white flex items-center justify-center shadow-lg border-4 border-[#FCF7F0] transition-transform active:scale-95"
                 title="Scan QR Code"
               >
-                <QrCode className="w-6 h-6 text-[#B7E4C7]" />
+                <QrCode className="w-6 h-6 text-[#E3CCA8]" />
               </button>
               <span className="text-[10px] font-extrabold text-[#1E293B] mt-1">Scan QR</span>
             </div>
@@ -2547,7 +2547,7 @@ export default function App() {
         {/* MODAL LOGIN ADMINISTRATOR */}
         {showAdminLogin && (
           <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-white rounded-3xl max-w-[400px] w-full p-6 border border-[#B7E4C7] shadow-xl space-y-4">
+            <div className="bg-white rounded-3xl max-w-[400px] w-full p-6 border border-[#E3CCA8] shadow-xl space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-[#1E293B]">
                   <Lock className="w-4 h-4 text-[#1E293B]" />
@@ -2577,13 +2577,13 @@ export default function App() {
                     value={adminPassword}
                     onChange={(e) => setAdminPassword(e.target.value)}
                     placeholder="Masukkan kata sandi..."
-                    className="w-full mt-1 px-3.5 py-2.5 rounded-xl bg-[#E8F3EE] border border-[#B7E4C7] text-sm"
+                    className="w-full mt-1 px-3.5 py-2.5 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-sm"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#2D6A4F] hover:bg-[#2D6A4F] text-white font-bold py-3 rounded-xl text-xs transition-colors"
+                  className="w-full bg-[#7C4700] hover:bg-[#A3620A] text-white font-bold py-3 rounded-xl text-xs transition-colors"
                 >
                   Masuk ke Dashboard
                 </button>
