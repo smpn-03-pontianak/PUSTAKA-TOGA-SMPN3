@@ -211,8 +211,14 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
     }
   };
 
-  return (
-    <div className="w-full space-y-3 pt-1">
+  return null;
+};
+
+// ============================================================================
+// 4. KOMPONEN ILUSTRASI BOTANI MODERN (MODEL PORTRAIT)
+// ============================================================================
+const BotanicalIllustration = () => (
+  <div className="w-full space-y-3 pt-1">
   <style>{"@keyframes bentoReveal {\n  0% { opacity: 0; transform: translateY(16px) scale(0.985); }\n  100% { opacity: 1; transform: translateY(0) scale(1); }\n}\n.bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards; }\n.bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards; }\n.bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }\n.bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }"}</style>
   <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
     <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[340px] shadow-xs group bento-box-1 bg-emerald-950">
@@ -277,51 +283,6 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
     </div>
   </div>
 </div>
-  );
-};
-
-// ============================================================================
-// 4. KOMPONEN ILUSTRASI BOTANI MODERN (MODEL PORTRAIT)
-// ============================================================================
-const BotanicalIllustration = () => (
-  <div className="relative w-full mx-auto">
-    <div className="bg-[#FFF5F7] border border-[#FFC0CB] rounded-3xl p-3.5 shadow-sm">
-      <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-white">
-        <img
-          src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=80"
-          alt="Keanekaragaman Tanaman Hijau SMP Negeri 3 Pontianak"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#B83B66]/85 via-transparent to-transparent" />
-        <div className="absolute bottom-3 left-3.5 right-3.5 flex items-center justify-between text-white">
-          <div>
-            <span className="text-[10px] uppercase tracking-wider font-bold text-[#FFC0CB]">
-              Edukasi Digital Lingkungan
-            </span>
-            <p className="text-xs font-bold">Taman & Kebun Edukasi Sekolah</p>
-          </div>
-          <div className="w-9 h-9 rounded-xl bg-white text-[#B83B66] flex items-center justify-center shadow">
-            <QrCode className="w-5 h-5" />
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-3 flex items-center justify-between gap-2 bg-white/85 backdrop-blur-sm px-3.5 py-2.5 rounded-2xl border border-[#FFC0CB]/60">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-[#E76F95] text-white flex items-center justify-center flex-shrink-0">
-            <Smartphone className="w-4 h-4" />
-          </div>
-          <div>
-            <p className="text-xs font-bold text-[#B83B66]">Pindai Label QR Tanaman</p>
-            <p className="text-[10px] text-[#4A2532]/75">Akses info botani langsung dari HP</p>
-          </div>
-        </div>
-        <span className="text-[10px] font-bold text-[#E76F95] bg-[#FFF5F7] px-2 py-1 rounded-lg border border-[#FFC0CB] flex-shrink-0">
-          Instan
-        </span>
-      </div>
-    </div>
-  </div>
 );
 
 // ============================================================================
