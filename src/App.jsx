@@ -212,38 +212,94 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
   };
 
   return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="p-2.5 bg-white rounded-2xl border border-[#FFC0CB] shadow-sm">
-        <img
-          src={qrImgUrl}
-          alt={`QR Code ${plantName}`}
-          width={size}
-          height={size}
-          className="rounded-lg block"
-        />
+    <div className="w-full space-y-3">
+  <style>{`
+    @keyframes bentoReveal {
+      0% { opacity: 0; transform: translateY(16px) scale(0.985); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards; }
+    .bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards; }
+    .bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }
+    .bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }
+  `}</style>
+
+  <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
+    {/* Kartu 1: Foto Vertikal Tinggi di Sisi Kiri */}
+    <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[340px] shadow-xs group bento-box-1 bg-emerald-950">
+      <img
+        src="./aktivitas-1.jpeg"
+        alt="Keanekaragaman Tanaman Hijau SMP Negeri 3 Pontianak"
+        onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-28 h-28 object-contain m-auto opacity-80"; }}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 p-4 text-white">
+        <p className="text-xs font-semibold leading-relaxed text-white/95">
+          Keanekaragaman Tanaman Hijau SMP Negeri 3 Pontianak
+        </p>
       </div>
-      <span className="text-[11px] font-mono font-bold text-[#B83B66] bg-[#FFF5F7] px-2.5 py-0.5 rounded-full border border-[#FFC0CB]/60">
-        {cleanCode}
-      </span>
-      <a
-        href={plantUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[10px] text-[#E76F95] underline break-all max-w-[220px]"
-      >
-        {plantUrl}
-      </a>
-      {showDownload && (
-        <button
-          type="button"
-          onClick={handleDownloadQR}
-          className="mt-1 inline-flex items-center gap-1.5 bg-[#B83B66] hover:bg-[#E76F95] text-white text-[11px] font-bold px-3.5 py-2 rounded-xl transition-colors"
-        >
-          <Download className="w-3.5 h-3.5" />
-          <span>Unduh QR PNG</span>
-        </button>
-      )}
     </div>
+
+    {/* Kolom Kanan: 1 Foto Lebar di Atas + 2 Foto Berdampingan di Bawah */}
+    <div className="md:col-span-7 flex flex-col gap-3.5">
+      {/* Kartu 2: Foto Horizontal Lebar di Kanan Atas */}
+      <div className="relative rounded-2xl overflow-hidden min-h-[160px] sm:min-h-[175px] shadow-xs group bento-box-2 bg-emerald-900">
+        <img
+          src="./aktivitas-2.jpeg"
+          alt="Edukasi Digital Lingkungan & Taman Sekolah"
+          onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-20 h-20 object-contain m-auto opacity-80"; }}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 p-4 text-white">
+          <p className="text-xs font-semibold leading-relaxed text-white/95">
+            Edukasi Digital Lingkungan — Taman &amp; Kebun Edukasi Sekolah
+          </p>
+        </div>
+      </div>
+
+      {/* Kartu 3 & 4: Dua Foto Berdampingan di Kanan Bawah */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1">
+        <div
+          onClick={() => typeof setShowScanner === "function" ? setShowScanner(true) : setActivePage("tanaman")}
+          className="cursor-pointer relative rounded-2xl overflow-hidden min-h-[150px] shadow-xs group bento-box-3 bg-emerald-900"
+        >
+          <img
+            src="./aktivitas-3.jpeg"
+            alt="Pindai Label QR Tanaman"
+            onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-16 h-16 object-contain m-auto opacity-80"; }}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white">
+            <p className="text-[11px] sm:text-xs font-semibold leading-snug text-white/95">
+              Pindai Label QR Tanaman — Akses info botani langsung dari HP
+            </p>
+          </div>
+        </div>
+
+        <div
+          onClick={() => setActivePage("tanaman")}
+          className="cursor-pointer relative rounded-2xl overflow-hidden min-h-[150px] shadow-xs group bento-box-4 bg-emerald-900"
+        >
+          <img
+            src="./aktivitas-4.jpeg"
+            alt="Katalog Tanaman Obat Keluarga"
+            onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-16 h-16 object-contain m-auto opacity-80"; }}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white">
+            <p className="text-[11px] sm:text-xs font-semibold leading-snug text-white/95">
+              Jelajahi koleksi tanaman obat keluarga (TOGA) &amp; manfaatnya
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   );
 };
 
@@ -1302,6 +1358,17 @@ export default function App() {
                             <h3 className="font-bold text-[11px] text-[#B83B66]">Pindai Menggunakan Smartphone</h3>
                             <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
                               Tekan tombol Scan QR di menu bawah dan arahkan kamera HP ke kode QR tanaman.
+                            </p>
+                          </div>
+                        </div>
+<div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#FFC0CB]/60">
+                          <div className="w-6 h-6 rounded-lg bg-[#E76F95] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
+                            3
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-[11px] text-[#B83B66]">Pelajari Informasi Tanaman</h3>
+                            <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
+                              Baca profil lengkap tanaman mulai dari klasifikasi ilmiah, morfologi, manfaat kesehatan, hingga cara perawatannya.
                             </p>
                           </div>
                         </div>
