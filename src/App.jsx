@@ -1202,133 +1202,115 @@ export default function App() {
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
             <div className="space-y-6">
-              <section className="bg-white rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-5">
+              
                 <style>{`
-  @keyframes heroSmoothIn {
+  @keyframes bentoFadeUp {
     0% {
       opacity: 0;
-      transform: translateY(20px) scale(0.985);
+      transform: translateY(22px) scale(0.985);
     }
     100% {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
   }
-  .anim-hero-col-1 {
-    opacity: 0;
-    animation: heroSmoothIn 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
-  }
-  .anim-hero-col-2 {
-    opacity: 0;
-    animation: heroSmoothIn 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
-  }
-  .anim-hero-col-3 {
-    opacity: 0;
-    animation: heroSmoothIn 1.0s cubic-bezier(0.22, 1, 0.36, 1) 1.3s forwards;
-  }
+  .bento-title { opacity: 0; animation: bentoFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; }
+  .bento-card-1 { opacity: 0; animation: bentoFadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards; }
+  .bento-card-2 { opacity: 0; animation: bentoFadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards; }
+  .bento-card-3 { opacity: 0; animation: bentoFadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards; }
+  .bento-card-4 { opacity: 0; animation: bentoFadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) 1.10s forwards; }
 `}</style>
-<div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-                  {/* Kolom 1 (Kiri): Slide Foto */}
-                  <div className="anim-hero-col-1 lg:col-span-4 w-full">
-                    <HeroPhotoSlider />
+                <section className="space-y-6 pt-1 pb-2">
+                  {/* Judul Besar Terpusat Dua Warna */}
+                  <div className="text-center max-w-3xl mx-auto px-2 space-y-2 bento-title">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-snug">
+                      Menjelajahi Keanekaragaman{" "}
+                      <span className="text-slate-400 font-bold">
+                        Tanaman Hijau &amp; Edukasi Digital SMP Negeri 3 Pontianak
+                      </span>
+                    </h1>
                   </div>
 
-                  {/* Kolom 2 (Tengah): Paragraf Penjelasan Rata Kanan-Kiri */}
-                  <div className="anim-hero-col-2 lg:col-span-4 space-y-3">
-                    <div className="inline-flex items-center gap-1.5 bg-[#FFF5F7] border border-[#FFC0CB] px-3 py-1 rounded-full text-[11px] font-bold text-[#B83B66]">
-                      <Sprout className="w-3.5 h-3.5 text-[#E76F95]" />
-                      <span>Taman TOGA MSB FKIP UNTAN</span>
-                    </div>
-
-                    <div className="space-y-2.5">
-                      <h1 className="text-xl font-extrabold text-[#B83B66] leading-snug tracking-tight">
-                        🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
-                      </h1>
-                      <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed text-justify">
-                        <p>
-                          Alam menyimpan begitu banyak keajaiban yang sering kali belum kita ketahui. Di balik hijaunya dedaunan dan beragam bentuk tanaman, tersimpan pengetahuan, keunikan, serta manfaat yang menarik untuk dipelajari.
+                  {/* Bento Grid 4 Kartu Foto dengan Teks Overlay di Bagian Bawah */}
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+                    {/* Kartu Kiri Tinggi (1 Foto Vertikal) */}
+                    <div className="lg:col-span-5 relative rounded-2xl overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-[430px] shadow-sm group bento-card-1 bg-emerald-950">
+                      <img
+                        src="./aktivitas-1.jpeg"
+                        alt="Keanekaragaman Tanaman Hijau SMP Negeri 3 Pontianak"
+                        onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-32 h-32 object-contain m-auto opacity-80"; }}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                      <div className="absolute bottom-0 inset-x-0 p-5 text-white">
+                        <p className="text-xs sm:text-sm font-medium leading-relaxed text-white/95">
+                          Keanekaragaman Tanaman Hijau SMP Negeri 3 Pontianak sebagai sarana edukasi lingkungan sekolah yang asri.
                         </p>
-                        <p>
-                          Melalui website ini, mari bersama-sama menjelajahi kekayaan tanaman obat keluarga (TOGA), mengenal berbagai jenis tanaman, memahami manfaatnya, dan menemukan fakta unik di balik setiap tumbuhan.
-                        </p>
-                        <p className="font-semibold text-[#B83B66]">
-                          Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
-                        </p>
-                    <div className="pt-2">
-                      <button
-                        type="button"
-                        onClick={() => setActivePage('koleksi')}
-                        className="bg-white text-[#B83B66] font-bold px-4 py-2 rounded-xl text-xs"
-                      >
-                        <span>Jelajahi Tanaman</span>
-                        <span>→</span>
-                      </button>
-                    </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Kolom 3 (Kanan - Mengisi Space Kosong di Sebelahnya): Panduan Penggunaan lalu Tombol Aksi */}
-                  <div className="anim-hero-col-3 lg:col-span-4 w-full space-y-3.5">
-                    {/* Panduan Penggunaan */}
-                    <div className="bg-[#FFF5F7]/70 rounded-3xl p-4 border border-[#FFC0CB]/70 space-y-3">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#E76F95]">
-                          Panduan Penggunaan
-                        </span>
-                        <h2 className="text-sm font-extrabold text-[#B83B66]">
-                          Cara Menggunakan PUSTAKA TOGA SMPN 3
-                        </h2>
+                    {/* Kolom Kanan (1 Kartu Lebar Atas + 2 Kartu Bawah) */}
+                    <div className="lg:col-span-7 flex flex-col gap-4">
+                      {/* Kartu Kanan Atas Lebar */}
+                      <div className="relative rounded-2xl overflow-hidden min-h-[200px] sm:min-h-[215px] shadow-sm group bento-card-2 bg-emerald-900">
+                        <img
+                          src="./aktivitas-2.jpeg"
+                          alt="Edukasi Digital Lingkungan & Taman Sekolah"
+                          onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-24 h-24 object-contain m-auto opacity-80"; }}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                        <div className="absolute bottom-0 inset-x-0 p-5 text-white">
+                          <p className="text-xs sm:text-sm font-medium leading-relaxed text-white/95">
+                            Edukasi Digital Lingkungan melalui penataan Taman &amp; Kebun Edukasi Sekolah yang interaktif dan informatif.
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="space-y-2">
-                        <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#FFC0CB]/60">
-                          <div className="w-6 h-6 rounded-lg bg-[#B83B66] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
-                            1
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-[11px] text-[#B83B66]">Temukan Label QR Code</h3>
-                            <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
-                              Cari papan label QR Code yang terpasang di dekat tanaman di lingkungan SMPN 3 Pontianak.
+                      {/* 2 Kartu Kanan Bawah Berdampingan */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+                        {/* Kartu Kanan Bawah 1 (Bisa diklik untuk langsung Scan QR) */}
+                        <div
+                          onClick={() => typeof setShowScanner === "function" ? setShowScanner(true) : setActivePage("tanaman")}
+                          className="cursor-pointer relative rounded-2xl overflow-hidden min-h-[185px] sm:min-h-[195px] shadow-sm group bento-card-3 bg-emerald-900"
+                        >
+                          <img
+                            src="./aktivitas-3.jpeg"
+                            alt="Pindai Label QR Tanaman"
+                            onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-20 h-20 object-contain m-auto opacity-80"; }}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+                          <div className="absolute bottom-0 inset-x-0 p-4 text-white">
+                            <p className="text-xs font-medium leading-relaxed text-white/95">
+                              Pindai Label QR Tanaman untuk mengakses informasi botani langsung dari HP Anda.
                             </p>
                           </div>
                         </div>
 
-                        <div className="flex items-start gap-2.5 bg-white p-2.5 rounded-2xl border border-[#FFC0CB]/60">
-                          <div className="w-6 h-6 rounded-lg bg-[#E76F95] text-white font-bold text-[11px] flex items-center justify-center flex-shrink-0">
-                            2
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-[11px] text-[#B83B66]">Pindai Menggunakan Smartphone</h3>
-                            <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
-                              Tekan tombol Scan QR di menu bawah dan arahkan kamera HP ke kode QR tanaman.
+                        {/* Kartu Kanan Bawah 2 (Bisa diklik untuk Jelajahi Katalog) */}
+                        <div
+                          onClick={() => setActivePage("tanaman")}
+                          className="cursor-pointer relative rounded-2xl overflow-hidden min-h-[185px] sm:min-h-[195px] shadow-sm group bento-card-4 bg-emerald-900"
+                        >
+                          <img
+                            src="./aktivitas-4.jpeg"
+                            alt="Koleksi Tanaman Obat Keluarga"
+                            onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-20 h-20 object-contain m-auto opacity-80"; }}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+                          <div className="absolute bottom-0 inset-x-0 p-4 text-white">
+                            <p className="text-xs font-medium leading-relaxed text-white/95">
+                              Kenali klasifikasi ilmiah, morfologi, serta manfaat kesehatan berbagai tanaman TOGA.
                             </p>
                           </div>
                         </div>
-
-                        
                       </div>
                     </div>
-
-                    {/* Tombol Jelajahi Tanaman & Scan QR Code */}
-                    <div className="grid grid-cols-2 gap-2.5">
-                      
-
-                      <button
-                        onClick={() => setActivePage('scan')}
-                        className="flex items-center justify-center gap-1.5 bg-[#FFF5F7] hover:bg-[#FFC0CB]/40 text-[#B83B66] font-bold py-3 px-2.5 rounded-2xl text-xs border-2 border-[#B83B66] transition-all"
-                      >
-                        <QrCode className="w-4 h-4 text-[#E76F95] flex-shrink-0" />
-                        <span>Scan QR Code</span>
-                      </button>
-                    </div>
                   </div>
-                </div>
+                </section>
 
-                <BotanicalIllustration />
-
-                
-              </section>
 
               {/* Statistik Koleksi */}
               <section className="bg-[#B83B66] text-white rounded-3xl p-5 space-y-4 shadow-sm">
