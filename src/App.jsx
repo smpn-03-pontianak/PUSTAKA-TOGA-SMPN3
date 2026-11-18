@@ -2082,7 +2082,7 @@ export default function App() {
                         name: "Anita", nim: "F1041231055",
                         prodi: "Program Studi Pendidikan Matematika",
                         role: "Pengembang Utama Website",
-                        photo: "anggota-3.jpg",
+                        photo: "anita.jpeg",
                         initials: "AN"
                       }
                     ].map((member, idx) => (
@@ -2134,19 +2134,19 @@ export default function App() {
                       {
                         name: "Niko Demus Misel", nim: "F1042231018",
                         prodi: "Program Studi Pendidikan Matematika",
-                        photo: "anggota-5.jpg",
+                        photo: "niko demus misel.jpeg",
                         initials: "ND"
                       },
                       {
                         name: "Meisya Nazirra Paraswati", nim: "F1101231042",
                         prodi: "Program Studi Pendidikan Jasmani & Kesehatan",
-                        photo: "anggota-6.jpg",
+                        photo: "meisya nazirra paraswati.jpg",
                         initials: "MN"
                       },
                       {
                         name: "Roihan Alfarisi", nim: "F1012231007",
                         prodi: "Program Studi Pendidikan Bahasa Indonesia",
-                        photo: "anggota-7.jpg",
+                        photo: "roihan alfarisi.jpeg",
                         initials: "RA"
                       },
                       {
@@ -2158,7 +2158,7 @@ export default function App() {
                       {
                         name: "Nuriva Adha", nim: "F1021231046",
                         prodi: "Program Studi Pendidikan Bahasa Inggris",
-                        photo: "anggota-9.jpg",
+                        photo: "nuriva adha.jpeg",
                         initials: "NA"
                       },
                       {
