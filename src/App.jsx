@@ -1906,51 +1906,51 @@ export default function App() {
               </div>
 
               {/* 4 Tahapan Pelaksanaan Program Non-Mengajar MSB */}
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.65)]">
                 <div className="bg-white/68 hover:bg-white/78 backdrop-blur-xl backdrop-saturate-150 p-4 md:p-5 rounded-2xl border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all space-y-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white">
                     Tahap 01 • Koordinasi &amp; Perizinan
                   </span>
-                  <h2 className="font-extrabold text-sm text-[#1E293B]">
+                  <h2 className="font-extrabold text-sm text-white">
                     Persetujuan Kepala Sekolah
                   </h2>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                  <p className="text-xs text-white leading-relaxed text-justify">
                     Mahasiswa MSB melakukan observasi awal kebutuhan sekolah, memaparkan rencana kegiatan non-mengajar, serta memperoleh persetujuan resmi dari Kepala Sekolah SMP Negeri 3 Pontianak dan Dosen Pembimbing Lapangan sebelum pelaksanaan program.
                   </p>
                 </div>
 
                 <div className="bg-white/68 hover:bg-white/78 backdrop-blur-xl backdrop-saturate-150 p-4 md:p-5 rounded-2xl border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all space-y-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white">
                     Tahap 02 • Observasi &amp; Revitalisasi Taman
                   </span>
-                  <h2 className="font-extrabold text-sm text-[#1E293B]">
+                  <h2 className="font-extrabold text-sm text-white">
                     Pemetaan &amp; Penataan Taman TOGA
                   </h2>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                  <p className="text-xs text-white leading-relaxed text-justify">
                     Pembersihan lahan, penataan tata letak tanaman, penggemburan media tanam, penanaman bibit baru, serta inventarisasi spesies Tanaman Obat Keluarga (TOGA) di lingkungan sekolah.
                   </p>
                 </div>
 
                 <div className="bg-white/68 hover:bg-white/78 backdrop-blur-xl backdrop-saturate-150 p-4 md:p-5 rounded-2xl border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all space-y-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white">
                     Tahap 03 • Inovasi &amp; Digitalisasi QR Code
                   </span>
-                  <h2 className="font-extrabold text-sm text-[#1E293B]">
+                  <h2 className="font-extrabold text-sm text-white">
                     Pengembangan Pustaka Digital &amp; Label QR
                   </h2>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                  <p className="text-xs text-white leading-relaxed text-justify">
                     Penyusunan basis data ilmiah (morfologi, klasifikasi, manfaat, dan perawatan) ke dalam website PUSTAKA TOGA SMPN 3, disertai pencetakan dan pemasangan papan label QR Code di setiap titik tanaman.
                   </p>
                 </div>
 
                 <div className="bg-white/68 hover:bg-white/78 backdrop-blur-xl backdrop-saturate-150 p-4 md:p-5 rounded-2xl border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all space-y-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white">
                     Tahap 04 • Edukasi &amp; Pemanfaatan Produk
                   </span>
-                  <h2 className="font-extrabold text-sm text-[#1E293B]">
+                  <h2 className="font-extrabold text-sm text-white">
                     Sosialisasi &amp; Literasi Hijau Warga Sekolah
                   </h2>
-                  <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                  <p className="text-xs text-white leading-relaxed text-justify">
                     Pendampingan siswa dan guru dalam memindai label QR Code secara langsung di area taman sekolah sebagai media belajar interaktif untuk menumbuhkan kepedulian lingkungan.
                   </p>
                 </div>
