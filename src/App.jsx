@@ -218,64 +218,112 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
 // 4. KOMPONEN ILUSTRASI BOTANI MODERN (MODEL PORTRAIT)
 // ============================================================================
 const BotanicalIllustration = () => (
-  <div className="w-full space-y-3 pt-1">
-  <style>{"@keyframes bentoReveal {\n  0% { opacity: 0; transform: translateY(16px) scale(0.985); }\n  100% { opacity: 1; transform: translateY(0) scale(1); }\n}\n.bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards; }\n.bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards; }\n.bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }\n.bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }"}</style>
+  <div className="w-full space-y-5 pt-3 pb-2">
+  <style>{"@keyframes bentoReveal {\n  0% { opacity: 0; transform: translateY(18px) scale(0.985); }\n  100% { opacity: 1; transform: translateY(0) scale(1); }\n}\n.bento-heading { opacity: 0; animation: bentoReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; }\n.bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; }\n.bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; }\n.bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }\n.bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }"}</style>
+
+  {/* Judul Terpusat Dua Warna seperti Referensi */}
+  <div className="text-center max-w-2xl mx-auto px-2 space-y-1.5 bento-heading">
+    <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-0.5 rounded-full">
+      Karya &amp; Inovasi Mahasiswa
+    </span>
+    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 leading-snug">
+      Hasil Produk Program MSB{" "}
+      <span className="text-slate-400 font-bold">
+        FKIP UNTAN di SMP Negeri 3 Pontianak
+      </span>
+    </h2>
+  </div>
+
+  {/* Bento Grid 4 Produk */}
   <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
-    <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[340px] shadow-xs group bento-box-1 bg-emerald-950">
+    {/* Produk 1 (Kiri Vertikal Tinggi): Taman Toga */}
+    <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[350px] shadow-xs group bento-box-1 bg-emerald-950">
       <img
-        src="./aktivitas-1.jpeg"
-        alt="Keanekaragaman Tanaman Hijau SMP Negeri 3 Pontianak"
-        onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-28 h-28 object-contain m-auto opacity-80"; }}
+        src="./produk-taman-toga.jpeg"
+        alt="1. Taman Toga"
+        onError={(e) => { e.currentTarget.src = "./aktivitas-1.jpeg"; }}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 p-4 text-white">
-        <p className="text-xs font-semibold leading-relaxed text-white/95">
-          Keanekaragaman Tanaman Hijau SMP Negeri 3 Pontianak
+      <div className="absolute bottom-0 inset-x-0 p-4 text-white space-y-1">
+        <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
+          Produk 01
+        </span>
+        <h3 className="text-sm sm:text-base font-bold leading-snug text-white">
+          Taman Toga
+        </h3>
+        <p className="text-xs leading-relaxed text-white/85">
+          Penataan kebun edukasi Tanaman Obat Keluarga (TOGA) yang asri dan tertata di lingkungan SMP Negeri 3 Pontianak.
         </p>
       </div>
     </div>
+
+    {/* Kolom Kanan (Produk 2 Atas + Produk 3 & 4 Bawah) */}
     <div className="md:col-span-7 flex flex-col gap-3.5">
-      <div className="relative rounded-2xl overflow-hidden min-h-[160px] sm:min-h-[175px] shadow-xs group bento-box-2 bg-emerald-900">
+      {/* Produk 2 (Kanan Atas Lebar): Flip Book */}
+      <div className="relative rounded-2xl overflow-hidden min-h-[165px] sm:min-h-[180px] shadow-xs group bento-box-2 bg-emerald-900">
         <img
-          src="./aktivitas-2.jpeg"
-          alt="Edukasi Digital Lingkungan & Taman Sekolah"
-          onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-20 h-20 object-contain m-auto opacity-80"; }}
+          src="./produk-flip-book.jpeg"
+          alt="2. Flip Book"
+          onError={(e) => { e.currentTarget.src = "./aktivitas-2.jpeg"; }}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-        <div className="absolute bottom-0 inset-x-0 p-4 text-white">
-          <p className="text-xs font-semibold leading-relaxed text-white/95">
-            Edukasi Digital Lingkungan — Taman &amp; Kebun Edukasi Sekolah
+        <div className="absolute bottom-0 inset-x-0 p-4 text-white space-y-1">
+          <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
+            Produk 02
+          </span>
+          <h3 className="text-sm sm:text-base font-bold leading-snug text-white">
+            Flip Book
+          </h3>
+          <p className="text-xs leading-relaxed text-white/85">
+            Buku digital interaktif sebagai panduan praktis mengenal jenis, klasifikasi, dan manfaat tanaman obat keluarga.
           </p>
         </div>
       </div>
+
+      {/* Produk 3 & 4 (Kanan Bawah Berdampingan) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1">
-        <div className="relative rounded-2xl overflow-hidden min-h-[150px] shadow-xs group bento-box-3 bg-emerald-900">
+        {/* Produk 3: Eco Enzym */}
+        <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-3 bg-emerald-900">
           <img
-            src="./aktivitas-3.jpeg"
-            alt="Pindai Label QR Tanaman"
-            onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-16 h-16 object-contain m-auto opacity-80"; }}
+            src="./produk-eco-enzym.jpeg"
+            alt="3. Eco Enzym"
+            onError={(e) => { e.currentTarget.src = "./aktivitas-3.jpeg"; }}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white">
-            <p className="text-[11px] sm:text-xs font-semibold leading-snug text-white/95">
-              Pindai Label QR Tanaman — Akses info botani langsung dari HP
+          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5">
+            <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
+              Produk 03
+            </span>
+            <h3 className="text-xs sm:text-sm font-bold leading-snug text-white">
+              Eco Enzym
+            </h3>
+            <p className="text-[11px] leading-snug text-white/85">
+              Inovasi pengolahan limbah organik menjadi cairan serbaguna ramah lingkungan.
             </p>
           </div>
         </div>
-        <div className="relative rounded-2xl overflow-hidden min-h-[150px] shadow-xs group bento-box-4 bg-emerald-900">
+
+        {/* Produk 4: Website-Pustaka TOGA */}
+        <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-4 bg-emerald-900">
           <img
-            src="./aktivitas-4.jpeg"
-            alt="Katalog Tanaman Obat Keluarga"
-            onError={(e) => { e.currentTarget.src = "./logo-toga.png"; e.currentTarget.className = "w-16 h-16 object-contain m-auto opacity-80"; }}
+            src="./produk-website-pustaka.jpeg"
+            alt="4. Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak"
+            onError={(e) => { e.currentTarget.src = "./aktivitas-4.jpeg"; }}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white">
-            <p className="text-[11px] sm:text-xs font-semibold leading-snug text-white/95">
-              Jelajahi koleksi tanaman obat keluarga (TOGA) &amp; manfaatnya
+          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5">
+            <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
+              Produk 04
+            </span>
+            <h3 className="text-xs sm:text-sm font-bold leading-snug text-white">
+              Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak
+            </h3>
+            <p className="text-[11px] leading-snug text-white/85">
+              Platform edukasi digital terintegrasi label QR Code tanaman.
             </p>
           </div>
         </div>
