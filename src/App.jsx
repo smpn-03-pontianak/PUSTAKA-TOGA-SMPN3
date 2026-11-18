@@ -2090,7 +2090,7 @@ export default function App() {
                         key={idx}
                         className="bg-gradient-to-b from-[#FCF7F0] to-white rounded-2xl p-4 border-2 border-[#A3620A]/50 shadow-xs flex flex-col items-center text-center space-y-2.5"
                       >
-                        <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#7C4700] bg-gradient-to-br from-[#7C4700] to-[#A3620A] flex items-center justify-center shadow-xs relative">
+                        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#7C4700] bg-gradient-to-br from-[#7C4700] to-[#A3620A] flex items-center justify-center shadow-xs relative">
                           <span className="text-white font-extrabold text-base tracking-wide">
                             {member.initials}
                           </span>
@@ -2184,7 +2184,7 @@ export default function App() {
                         key={idx}
                         className="bg-[#FCF7F0]/70 rounded-2xl p-3.5 border border-[#E3CCA8]/70 flex flex-col items-center text-center space-y-2"
                       >
-                        <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#A3620A] bg-gradient-to-br from-[#A3620A] to-[#7C4700] flex items-center justify-center shadow-xs relative">
+                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#A3620A] bg-gradient-to-br from-[#A3620A] to-[#7C4700] flex items-center justify-center shadow-xs relative">
                           <span className="text-white font-extrabold text-sm">
                             {member.initials}
                           </span>
