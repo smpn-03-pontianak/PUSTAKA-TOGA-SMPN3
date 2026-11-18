@@ -2072,10 +2072,10 @@ export default function App() {
                         initials: "FR"
                       },
                       {
-                        name: "Nurhayani", photo: "/nurhayani.jpeg", image: "/nurhayani.jpeg", nim: "F1261231001",
+                        name: "Nurhayani", nim: "F1261231001",
                         prodi: "Program Studi Pendidikan IPS",
                         role: "Pengembang Utama Website",
-                        photo: "anggota-2.jpg",
+                        photo: "nurhayani.jpeg",
                         initials: "NH"
                       },
                       {
