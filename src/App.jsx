@@ -1883,7 +1883,7 @@ export default function App() {
                   alt="Background Aktivitas Program TOGA SMPN 3"
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/55 backdrop-blur-[2px]" />
+                
                 <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#D4A373]/15 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Header & Narasi Pengantar Halaman Aktivitas */}
