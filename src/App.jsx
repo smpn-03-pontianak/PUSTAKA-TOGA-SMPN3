@@ -212,7 +212,7 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
   };
 
   return (
-    <div className="w-full space-y-3">
+    <div className="w-full space-y-3 pt-1">
   <style>{`
     @keyframes bentoReveal {
       0% { opacity: 0; transform: translateY(16px) scale(0.985); }
