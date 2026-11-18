@@ -1887,15 +1887,15 @@ export default function App() {
                 <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#D4A373]/15 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Header & Narasi Pengantar Halaman Aktivitas */}
-              <div className="relative z-10 bg-white/70 backdrop-blur-xl backdrop-saturate-150 rounded-3xl p-5 md:p-7 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.18)] space-y-3.5">
-                <div className="inline-flex items-center gap-1.5 bg-white/65 backdrop-blur-md border border-white/70 px-3.5 py-1 rounded-full text-[11px] font-bold text-[#1E293B] shadow-xs">
-                  <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
+              <div className="relative z-10 bg-white/15 backdrop-blur-xl backdrop-saturate-150 rounded-3xl p-5 md:p-7 border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.22)] space-y-3.5 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.65)]">
+                <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md border border-white/45 px-3.5 py-1 rounded-full text-[11px] font-bold text-white shadow-xs">
+                  <Sprout className="w-3.5 h-3.5 text-white" />
                   <span>Kegiatan Non-Mengajar MSB • FKIP UNTAN</span>
                 </div>
-                <h1 className="text-xl md:text-2xl font-extrabold text-[#1E293B]">
+                <h1 className="text-xl md:text-2xl font-extrabold text-white">
                   Aktivitas Program TOGA SMPN 3
                 </h1>
-                <div className="space-y-2.5 text-xs text-[#4A2532]/90 leading-relaxed text-justify">
+                <div className="space-y-2.5 text-xs text-white leading-relaxed text-justify">
                   <p>
                     Halaman ini mendokumentasikan rangkaian <strong>Kegiatan Non-Mengajar</strong> yang dilaksanakan oleh mahasiswa <strong>Magang Sekolah Berdampak (MSB) Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura</strong> selama bertugas di <strong>SMP Negeri 3 Pontianak</strong>. Sebagai bagian dari program Pembelajaran Luar Kampus (PLK), kegiatan non-mengajar ini dirancang secara kolaboratif bersama Kepala Sekolah, Guru Pendamping, dan Dosen Pembimbing Lapangan untuk menjawab kebutuhan nyata di lingkungan sekolah. Fokus utamanya adalah menghadirkan inovasi produk berbasis adaptasi teknologi informasi yang mendukung keberlanjutan program unggulan sekolah mitra, khususnya <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong>.
                   </p>
