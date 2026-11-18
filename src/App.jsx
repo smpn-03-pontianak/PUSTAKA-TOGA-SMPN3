@@ -1272,7 +1272,17 @@ export default function App() {
           {/* 1. HALAMAN BERANDA */}
           {activePage === 'beranda' && (
             <div className="space-y-6">
-              <section className="bg-white rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-5">
+              <section className="overflow-hidden relative  rounded-3xl p-5 md:p-6 border border-[#FFC0CB]/70 shadow-sm space-y-5">
+                {/* Latar Belakang Foto & Gradasi Kartu Utama Beranda */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+                  style={{ backgroundImage: `url(${import.meta.env.BASE_URL}background-beranda.jpeg)` }}
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/78 to-[#FFF5F7]/84 backdrop-blur-[1px] pointer-events-none"
+                />
                 <style>{`
   @keyframes heroSmoothIn {
     0% {
@@ -1297,7 +1307,7 @@ export default function App() {
     animation: heroSmoothIn 1.0s cubic-bezier(0.22, 1, 0.36, 1) 1.3s forwards;
   }
 `}</style>
-<div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+<div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
                   {/* Kolom 1 (Kiri): Slide Foto */}
                   <div className="anim-hero-col-1 lg:col-span-4 w-full">
                     <HeroPhotoSlider />
