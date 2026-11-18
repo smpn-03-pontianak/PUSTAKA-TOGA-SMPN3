@@ -1877,13 +1877,18 @@ export default function App() {
           {/* 4. HALAMAN AKTIVITAS */}
           {activePage === 'aktivitas' && (
             <div className="space-y-5">
-              <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#3D2616] via-[#2C3A24] to-[#1B4332] p-5 md:p-8 shadow-xl border border-[#8C6D46]/40 space-y-6">
-                <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#52B788]/15 rounded-full blur-3xl pointer-events-none" />
+              <section className="relative overflow-hidden rounded-3xl p-5 md:p-8 shadow-2xl border border-white/30 space-y-6">
+                <img
+                  src={`${import.meta.env.BASE_URL}background aktivitas.jpeg`}
+                  alt="Background Aktivitas Program TOGA SMPN 3"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/55 backdrop-blur-[2px]" />
                 <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#D4A373]/15 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Header & Narasi Pengantar Halaman Aktivitas */}
-              <div className="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl p-5 md:p-7 border border-[#E3CCA8]/80 shadow-md space-y-3.5">
-                <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
+              <div className="relative z-10 bg-white/70 backdrop-blur-xl backdrop-saturate-150 rounded-3xl p-5 md:p-7 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.18)] space-y-3.5">
+                <div className="inline-flex items-center gap-1.5 bg-white/65 backdrop-blur-md border border-white/70 px-3.5 py-1 rounded-full text-[11px] font-bold text-[#1E293B] shadow-xs">
                   <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Kegiatan Non-Mengajar MSB • FKIP UNTAN</span>
                 </div>
@@ -1902,7 +1907,7 @@ export default function App() {
 
               {/* 4 Tahapan Pelaksanaan Program Non-Mengajar MSB */}
               <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-[#FCF7F0]/95 backdrop-blur-sm p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/80 shadow-sm hover:shadow-md transition-shadow space-y-1.5">
+                <div className="bg-white/68 hover:bg-white/78 backdrop-blur-xl backdrop-saturate-150 p-4 md:p-5 rounded-2xl border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all space-y-1.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 01 • Koordinasi &amp; Perizinan
                   </span>
@@ -1914,7 +1919,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="bg-[#FCF7F0]/95 backdrop-blur-sm p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/80 shadow-sm hover:shadow-md transition-shadow space-y-1.5">
+                <div className="bg-white/68 hover:bg-white/78 backdrop-blur-xl backdrop-saturate-150 p-4 md:p-5 rounded-2xl border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all space-y-1.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 02 • Observasi &amp; Revitalisasi Taman
                   </span>
@@ -1926,7 +1931,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="bg-[#FCF7F0]/95 backdrop-blur-sm p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/80 shadow-sm hover:shadow-md transition-shadow space-y-1.5">
+                <div className="bg-white/68 hover:bg-white/78 backdrop-blur-xl backdrop-saturate-150 p-4 md:p-5 rounded-2xl border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all space-y-1.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 03 • Inovasi &amp; Digitalisasi QR Code
                   </span>
@@ -1938,7 +1943,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="bg-[#FCF7F0]/95 backdrop-blur-sm p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/80 shadow-sm hover:shadow-md transition-shadow space-y-1.5">
+                <div className="bg-white/68 hover:bg-white/78 backdrop-blur-xl backdrop-saturate-150 p-4 md:p-5 rounded-2xl border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all space-y-1.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 04 • Edukasi &amp; Pemanfaatan Produk
                   </span>
