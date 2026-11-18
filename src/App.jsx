@@ -1325,12 +1325,14 @@ export default function App() {
                         🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
                       </h1>
                       <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed text-justify">
-                        <p>
+                      <div className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl p-4 shadow-sm space-y-2.5">
+                        <p className="font-bold text-slate-950 leading-relaxed">
                           Alam menyimpan begitu banyak keajaiban yang sering kali belum kita ketahui. Di balik hijaunya dedaunan dan beragam bentuk tanaman, tersimpan pengetahuan, keunikan, serta manfaat yang menarik untuk dipelajari.
                         </p>
-                        <p>
+                        <p className="font-bold text-slate-950 leading-relaxed">
                           Melalui website ini, mari bersama-sama menjelajahi kekayaan tanaman obat keluarga (TOGA), mengenal berbagai jenis tanaman, memahami manfaatnya, dan menemukan fakta unik di balik setiap tumbuhan.
                         </p>
+                      </div>
                         <p className="font-semibold text-[#1E293B]">
                           Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
                         </p>
