@@ -419,13 +419,13 @@ const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
 
   return (
     <div className="space-y-1">
-      {label && <label className="text-[11px] font-bold text-[#7C4700] block">{label}</label>}
+      {label && <label className="text-[11px] font-bold text-[#1E293B] block">{label}</label>}
       <div className="rounded-xl border border-[#E3CCA8] bg-[#FCF7F0] overflow-hidden">
         <div className="flex flex-wrap items-center gap-1 p-1.5 bg-white border-b border-[#E3CCA8]/70 text-[11px]">
-          <button type="button" onClick={() => execCmd("bold")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-extrabold text-[#7C4700] border border-[#E3CCA8]/60">B</button>
-          <button type="button" onClick={() => execCmd("italic")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] italic font-semibold text-[#7C4700] border border-[#E3CCA8]/60">I</button>
-          <button type="button" onClick={() => execCmd("underline")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] underline font-semibold text-[#7C4700] border border-[#E3CCA8]/60">U</button>
-          <button type="button" onClick={() => execCmd("insertOrderedList")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-bold text-[#7C4700] border border-[#E3CCA8]/60">1. List</button>
+          <button type="button" onClick={() => execCmd("bold")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-extrabold text-[#1E293B] border border-[#E3CCA8]/60">B</button>
+          <button type="button" onClick={() => execCmd("italic")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] italic font-semibold text-[#1E293B] border border-[#E3CCA8]/60">I</button>
+          <button type="button" onClick={() => execCmd("underline")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] underline font-semibold text-[#1E293B] border border-[#E3CCA8]/60">U</button>
+          <button type="button" onClick={() => execCmd("insertOrderedList")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-bold text-[#1E293B] border border-[#E3CCA8]/60">1. List</button>
           <button type="button" onClick={() => execCmd("justifyLeft")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kiri</button>
           <button type="button" onClick={() => execCmd("justifyCenter")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Tengah</button>
           <button type="button" onClick={() => execCmd("justifyRight")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kanan</button>
@@ -433,7 +433,7 @@ const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
           <select
             onChange={(e) => { if (e.target.value) execCmd("fontName", e.target.value); }}
             defaultValue=""
-            className="ml-auto px-2 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] text-[10px] font-bold text-[#7C4700] outline-none"
+            className="ml-auto px-2 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] text-[10px] font-bold text-[#1E293B] outline-none"
           >
             <option value="" disabled>Pilih Font</option>
             <option value="Plus Jakarta Sans, sans-serif">Sans Modern</option>
@@ -488,7 +488,7 @@ const HeroPhotoSlider = () => {
 
       <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/45 via-black/15 to-transparent z-20 pointer-events-none" />
 
-      <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#7C4700] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#E3CCA8]">
+      <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#1E293B] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#E3CCA8]">
         Galeri Taman Toga SMPN 3
       </div>
 
@@ -498,7 +498,7 @@ const HeroPhotoSlider = () => {
             type="button"
             onClick={prevSlide}
             aria-label="Foto sebelumnya"
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#7C4700] flex items-center justify-center shadow text-xs font-bold"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#1E293B] flex items-center justify-center shadow text-xs font-bold"
           >
             ‹
           </button>
@@ -506,7 +506,7 @@ const HeroPhotoSlider = () => {
             type="button"
             onClick={nextSlide}
             aria-label="Foto berikutnya"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#7C4700] flex items-center justify-center shadow text-xs font-bold"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#1E293B] flex items-center justify-center shadow text-xs font-bold"
           >
             ›
           </button>
@@ -563,11 +563,11 @@ const WelcomeSplash = ({ onFinish }) => {
           />
         </div>
 
-        <span className="inline-flex items-center gap-1.5 bg-white/80 border border-[#E3CCA8] px-3.5 py-1 rounded-full text-xs font-bold text-[#7C4700] mb-3 shadow-2xs">
+        <span className="inline-flex items-center gap-1.5 bg-white/80 border border-[#E3CCA8] px-3.5 py-1 rounded-full text-xs font-bold text-[#1E293B] mb-3 shadow-2xs">
           🌿 Selamat Datang di
         </span>
 
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#7C4700] tracking-tight leading-snug mb-2">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1E293B] tracking-tight leading-snug mb-2">
           PUSTAKA TOGA SMPN 3
         </h1>
         <p className="text-xs sm:text-sm font-medium text-[#4A2532]/80 mb-6">
@@ -582,7 +582,7 @@ const WelcomeSplash = ({ onFinish }) => {
         <button
           type="button"
           onClick={handleSkip}
-          className="text-[11px] font-bold text-[#7C4700]/80 hover:text-[#7C4700] underline underline-offset-4 transition-colors"
+          className="text-[11px] font-bold text-[#1E293B]/80 hover:text-[#1E293B] underline underline-offset-4 transition-colors"
         >
           Masuk Sekarang →
         </button>
@@ -681,18 +681,18 @@ const NonTeachingAutoSlider = () => {
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-2 pb-16">
             <div className="w-11 h-11 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center shadow-2xs">
-              <Sprout className="w-6 h-6 text-[#A3620A]" />
+              <Sprout className="w-6 h-6 text-[#1E293B]" />
             </div>
-            <p className="text-xs md:text-sm font-extrabold text-[#7C4700]">
+            <p className="text-xs md:text-sm font-extrabold text-[#1E293B]">
               Dokumentasi Foto Belum Diunggah
             </p>
             <p className="text-[11px] text-[#4A2532]/75 max-w-md">
-              Kode file: <code className="bg-white px-2 py-0.5 rounded border border-[#E3CCA8] font-bold text-[#7C4700]">{currentItem.src}</code> (folder <code>public/</code>)
+              Kode file: <code className="bg-white px-2 py-0.5 rounded border border-[#E3CCA8] font-bold text-[#1E293B]">{currentItem.src}</code> (folder <code>public/</code>)
             </p>
           </div>
         )}
 
-        <div className="absolute top-3 left-3 z-10 bg-white/95 text-[#7C4700] border border-[#E3CCA8] text-[10px] font-extrabold px-3 py-1 rounded-full shadow-xs">
+        <div className="absolute top-3 left-3 z-10 bg-white/95 text-[#1E293B] border border-[#E3CCA8] text-[10px] font-extrabold px-3 py-1 rounded-full shadow-xs">
           {currentItem.stage}
         </div>
 
@@ -704,7 +704,7 @@ const NonTeachingAutoSlider = () => {
           type="button"
           onClick={() => setIdx((idx - 1 + slides.length) % slides.length)}
           aria-label="Slide sebelumnya"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#7C4700] flex items-center justify-center shadow-sm text-sm font-extrabold"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold"
         >
           ‹
         </button>
@@ -712,7 +712,7 @@ const NonTeachingAutoSlider = () => {
           type="button"
           onClick={() => setIdx((idx + 1) % slides.length)}
           aria-label="Slide berikutnya"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#7C4700] flex items-center justify-center shadow-sm text-sm font-extrabold"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold"
         >
           ›
         </button>
@@ -736,7 +736,7 @@ const NonTeachingAutoSlider = () => {
             className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all border ${
               sIdx === idx
                 ? "bg-gradient-to-r from-[#5A3200] via-[#7C4700] to-[#A66308] text-white border-[#7C4700]"
-                : "bg-[#FCF7F0] text-[#7C4700] border-[#E3CCA8] hover:bg-[#E3CCA8]/40"
+                : "bg-[#FCF7F0] text-[#1E293B] border-[#E3CCA8] hover:bg-[#E3CCA8]/40"
             }`}
           >
             {sIdx + 1}. {s.title.split(" ").slice(0, 2).join(" ")}
@@ -1109,7 +1109,7 @@ export default function App() {
   return (
     <div
       style={{ fontFamily: "'Plus Jakarta Sans', 'Poppins', sans-serif" }}
-      className="min-h-screen bg-[#E7ECE4] text-[#4A2532] flex justify-center selection:bg-[#E3CCA8] selection:text-[#7C4700]"
+      className="min-h-screen bg-[#E7ECE4] text-[#4A2532] flex justify-center selection:bg-[#E3CCA8] selection:text-[#1E293B]"
     >
       {showSplash && <WelcomeSplash onFinish={handleFinishSplash} />}
       <style>{`
@@ -1231,8 +1231,8 @@ export default function App() {
                   }}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                     activePage === item.id
-                      ? "bg-white text-[#7C4700] shadow-xs shadow-xs"
-                      : "text-white/90 hover:text-white hover:bg-white/15 hover:text-[#7C4700]"
+                      ? "bg-white text-[#1E293B] shadow-xs shadow-xs"
+                      : "text-white/90 hover:text-white hover:bg-white/15 hover:text-[#1E293B]"
                   }`}
                 >
                   {item.label}
@@ -1245,20 +1245,20 @@ export default function App() {
                   onClick={() => { setActivePage('admin'); setSelectedPlant(null); }}
                   className={`inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold border transition-all ${
                     activePage === 'admin'
-                      ? 'bg-white text-[#7C4700] shadow-xs border-[#7C4700]'
-                      : 'bg-[#FCF7F0] text-[#7C4700] border-[#E3CCA8]'
+                      ? 'bg-white text-[#1E293B] shadow-xs border-[#7C4700]'
+                      : 'bg-[#FCF7F0] text-[#1E293B] border-[#E3CCA8]'
                   }`}
                 >
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#A3620A]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Admin</span>
                 </button>
               ) : (
                 <button
                   onClick={() => setShowAdminLogin(true)}
                   title="Login Administrator / Guru"
-                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FCF7F0] hover:bg-[#E3CCA8]/30 text-[#7C4700] border border-[#E3CCA8]/70 text-xs font-bold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FCF7F0] hover:bg-[#E3CCA8]/30 text-[#1E293B] border border-[#E3CCA8]/70 text-xs font-bold transition-colors"
                 >
-                  <Lock className="w-3.5 h-3.5 text-[#A3620A]" />
+                  <Lock className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Admin</span>
                 </button>
               )}
@@ -1315,13 +1315,13 @@ export default function App() {
 
                   {/* Kolom 2 (Tengah): Paragraf Penjelasan Rata Kanan-Kiri */}
                   <div className="anim-hero-col-2 lg:col-span-4 space-y-3">
-                    <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#7C4700]">
-                      <Sprout className="w-3.5 h-3.5 text-[#A3620A]" />
+                    <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
+                      <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
                       <span>Taman TOGA MSB FKIP UNTAN</span>
                     </div>
 
                     <div className="space-y-2.5">
-                      <h1 className="text-xl font-extrabold text-[#7C4700] leading-snug tracking-tight">
+                      <h1 className="text-xl font-extrabold text-[#1E293B] leading-snug tracking-tight">
                         🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
                       </h1>
                       <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -1331,14 +1331,14 @@ export default function App() {
                         <p>
                           Melalui website ini, mari bersama-sama menjelajahi kekayaan tanaman obat keluarga (TOGA), mengenal berbagai jenis tanaman, memahami manfaatnya, dan menemukan fakta unik di balik setiap tumbuhan.
                         </p>
-                        <p className="font-semibold text-[#7C4700]">
+                        <p className="font-semibold text-[#1E293B]">
                           Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
                         </p>
                     <div className="pt-2">
                       <button
                         type="button"
                         onClick={() => setActivePage('koleksi')}
-                        className="bg-white text-[#7C4700] font-bold px-4 py-2 rounded-xl text-xs"
+                        className="bg-white text-[#1E293B] font-bold px-4 py-2 rounded-xl text-xs"
                       >
                         <span>Jelajahi Tanaman</span>
                         <span>→</span>
@@ -1353,10 +1353,10 @@ export default function App() {
                     {/* Panduan Penggunaan */}
                     <div className="bg-[#FCF7F0]/70 rounded-3xl p-4 border border-[#E3CCA8]/70 space-y-3">
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                           Panduan Penggunaan
                         </span>
-                        <h2 className="text-sm font-extrabold text-[#7C4700]">
+                        <h2 className="text-sm font-extrabold text-[#1E293B]">
                           Cara Menggunakan PUSTAKA TOGA SMPN 3
                         </h2>
                       </div>
@@ -1367,7 +1367,7 @@ export default function App() {
                             1
                           </div>
                           <div>
-                            <h3 className="font-bold text-[11px] text-[#7C4700]">Temukan Label QR Code</h3>
+                            <h3 className="font-bold text-[11px] text-[#1E293B]">Temukan Label QR Code</h3>
                             <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
                               Cari papan label QR Code yang terpasang di dekat tanaman di lingkungan SMPN 3 Pontianak.
                             </p>
@@ -1379,7 +1379,7 @@ export default function App() {
                             2
                           </div>
                           <div>
-                            <h3 className="font-bold text-[11px] text-[#7C4700]">Pindai Menggunakan Smartphone</h3>
+                            <h3 className="font-bold text-[11px] text-[#1E293B]">Pindai Menggunakan Smartphone</h3>
                             <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
                               Tekan tombol Scan QR di menu bawah dan arahkan kamera HP ke kode QR tanaman.
                             </p>
@@ -1390,7 +1390,7 @@ export default function App() {
                             3
                           </div>
                           <div>
-                            <h3 className="font-bold text-[11px] text-[#7C4700]">Pelajari Informasi Tanaman</h3>
+                            <h3 className="font-bold text-[11px] text-[#1E293B]">Pelajari Informasi Tanaman</h3>
                             <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
                               Baca profil lengkap tanaman mulai dari klasifikasi ilmiah, morfologi, manfaat kesehatan, hingga cara perawatannya.
                             </p>
@@ -1407,9 +1407,9 @@ export default function App() {
 
                       <button
                         onClick={() => setActivePage('scan')}
-                        className="flex items-center justify-center gap-1.5 bg-[#FCF7F0] hover:bg-[#E3CCA8]/40 text-[#7C4700] font-bold py-3 px-2.5 rounded-2xl text-xs border-2 border-[#7C4700] transition-all"
+                        className="flex items-center justify-center gap-1.5 bg-[#FCF7F0] hover:bg-[#E3CCA8]/40 text-[#1E293B] font-bold py-3 px-2.5 rounded-2xl text-xs border-2 border-[#7C4700] transition-all"
                       >
-                        <QrCode className="w-4 h-4 text-[#A3620A] flex-shrink-0" />
+                        <QrCode className="w-4 h-4 text-[#1E293B] flex-shrink-0" />
                         <span>Scan QR Code</span>
                       </button>
                     </div>
@@ -1458,16 +1458,16 @@ export default function App() {
               <section className="space-y-3">
                 <div className="flex items-center justify-between px-1">
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                       Sorotan Flora Sekolah
                     </span>
-                    <h2 className="text-lg font-extrabold text-[#7C4700]">
+                    <h2 className="text-lg font-extrabold text-[#1E293B]">
                       Tanaman Pilihan
                     </h2>
                   </div>
                   <button
                     onClick={() => setActivePage('koleksi')}
-                    className="text-xs font-bold text-[#A3620A]"
+                    className="text-xs font-bold text-[#1E293B]"
                   >
                     Semua →
                   </button>
@@ -1488,12 +1488,12 @@ export default function App() {
                           </span>
                         </div>
                         <div className="p-3.5">
-                          <h3 className="text-sm font-extrabold text-[#7C4700] line-clamp-1">{plant.name}</h3>
-                          <p className="text-[11px] italic text-[#A3620A] line-clamp-1 mt-0.5">{plant.scientificName}</p>
+                          <h3 className="text-sm font-extrabold text-[#1E293B] line-clamp-1">{plant.name}</h3>
+                          <p className="text-[11px] italic text-[#1E293B] line-clamp-1 mt-0.5">{plant.scientificName}</p>
                         </div>
                       </div>
                       <div className="px-3.5 pb-3.5">
-                        <span className="text-[11px] font-bold text-[#7C4700] flex items-center gap-1">
+                        <span className="text-[11px] font-bold text-[#1E293B] flex items-center gap-1">
                           Lihat Informasi <ChevronRight className="w-3.5 h-3.5" />
                         </span>
                       </div>
@@ -1505,17 +1505,17 @@ export default function App() {
               {/* Fakta Menarik */}
               <section className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#7C4700] border border-[#E3CCA8] text-[11px] font-bold px-2.5 py-1 rounded-full">
-                    <Sparkles className="w-3 h-3 text-[#A3620A]" /> Fakta Menarik
+                  <span className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] border border-[#E3CCA8] text-[11px] font-bold px-2.5 py-1 rounded-full">
+                    <Sparkles className="w-3 h-3 text-[#1E293B]" /> Fakta Menarik
                   </span>
                   <button
                     onClick={() => setFactIndex((factIndex + 1) % PLANT_FACTS.length)}
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#A3620A]"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#1E293B]"
                   >
                     <RefreshCw className="w-3 h-3" /> Ganti Fakta
                   </button>
                 </div>
-                <h3 className="text-base font-extrabold text-[#7C4700]">
+                <h3 className="text-base font-extrabold text-[#1E293B]">
                   {PLANT_FACTS[factIndex].title}
                 </h3>
                 <p className="text-xs text-[#4A2532]/85 leading-relaxed">
@@ -1531,7 +1531,7 @@ export default function App() {
                 </p>
                 <button
                   onClick={() => setActivePage('aktivitas')}
-                  className="bg-white text-[#7C4700] font-bold px-4 py-2 rounded-xl text-xs"
+                  className="bg-white text-[#1E293B] font-bold px-4 py-2 rounded-xl text-xs"
                 >
                   Lihat Aktivitas Sekolah →
                 </button>
@@ -1547,25 +1547,25 @@ export default function App() {
                   <div className="bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 shadow-sm space-y-3.5">
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                           Direktori Botani
                         </span>
-                        <h1 className="text-xl font-extrabold text-[#7C4700]">
+                        <h1 className="text-xl font-extrabold text-[#1E293B]">
                           Koleksi Tanaman
                         </h1>
                       </div>
 
                       <button
                         onClick={() => setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')}
-                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-[11px] font-bold text-[#7C4700]"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] text-[11px] font-bold text-[#1E293B]"
                       >
-                        <ArrowUpDown className="w-3.5 h-3.5 text-[#A3620A]" />
+                        <ArrowUpDown className="w-3.5 h-3.5 text-[#1E293B]" />
                         <span>{sortOrder === 'asc' ? 'A–Z' : 'Z–A'}</span>
                       </button>
                     </div>
 
                     <div className="relative">
-                      <Search className="w-4 h-4 text-[#A3620A] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                      <Search className="w-4 h-4 text-[#1E293B] absolute left-3.5 top-1/2 -translate-y-1/2" />
                       <input
                         type="text"
                         value={searchQuery}
@@ -1594,7 +1594,7 @@ export default function App() {
 
                   {filteredAndSortedPlants.length === 0 ? (
                     <div className="bg-white rounded-3xl p-8 text-center border border-[#E3CCA8]">
-                      <p className="text-sm font-bold text-[#7C4700]">Tanaman tidak ditemukan.</p>
+                      <p className="text-sm font-bold text-[#1E293B]">Tanaman tidak ditemukan.</p>
                       <p className="text-xs text-[#4A2532]/75 mt-1">Coba kata kunci atau kategori lainnya.</p>
                     </div>
                   ) : (
@@ -1617,10 +1617,10 @@ export default function App() {
                               </span>
                             </div>
                             <div className="p-3">
-                              <h3 className="text-xs font-extrabold text-[#7C4700] line-clamp-2 leading-snug">
+                              <h3 className="text-xs font-extrabold text-[#1E293B] line-clamp-2 leading-snug">
                                 {plant.name}
                               </h3>
-                              <p className="text-[10px] italic text-[#A3620A] mt-0.5 line-clamp-1">
+                              <p className="text-[10px] italic text-[#1E293B] mt-0.5 line-clamp-1">
                                 {plant.scientificName}
                               </p>
                             </div>
@@ -1629,7 +1629,7 @@ export default function App() {
                           <div className="px-3 pb-3">
                             <button
                               type="button"
-                              className="w-full py-2 px-2 rounded-xl bg-[#FCF7F0] text-[#7C4700] font-bold text-[11px] flex items-center justify-center gap-1 border border-[#E3CCA8]"
+                              className="w-full py-2 px-2 rounded-xl bg-[#FCF7F0] text-[#1E293B] font-bold text-[11px] flex items-center justify-center gap-1 border border-[#E3CCA8]"
                             >
                               <span>Lihat Info</span>
                               <ChevronRight className="w-3.5 h-3.5" />
@@ -1644,7 +1644,7 @@ export default function App() {
                 <div className="space-y-4">
                   <button
                     onClick={() => setSelectedPlant(null)}
-                    className="inline-flex items-center gap-1.5 bg-white text-[#7C4700] font-bold px-3.5 py-2 rounded-xl border border-[#E3CCA8] text-xs shadow-sm"
+                    className="inline-flex items-center gap-1.5 bg-white text-[#1E293B] font-bold px-3.5 py-2 rounded-xl border border-[#E3CCA8] text-xs shadow-sm"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     <span>Kembali ke Koleksi</span>
@@ -1664,16 +1664,16 @@ export default function App() {
 
                     <div className="p-5 space-y-3">
                       <div>
-                        <h1 className="text-2xl font-extrabold text-[#7C4700]">
+                        <h1 className="text-2xl font-extrabold text-[#1E293B]">
                           {selectedPlant.name}
                         </h1>
-                        <p className="text-xs italic font-semibold text-[#A3620A] mt-0.5">
+                        <p className="text-xs italic font-semibold text-[#1E293B] mt-0.5">
                           {selectedPlant.scientificName}
                         </p>
                       </div>
 
                       <div className="pt-1">
-                        <h2 className="text-[11px] font-bold uppercase tracking-wider text-[#A3620A] mb-1">
+                        <h2 className="text-[11px] font-bold uppercase tracking-wider text-[#1E293B] mb-1">
                           Deskripsi Tanaman
                         </h2>
                         <RichTextContent content={selectedPlant.description} defaultAlign="text-justify" />
@@ -1682,8 +1682,8 @@ export default function App() {
                   </div>
 
                   <div className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 space-y-3.5">
-                    <div className="flex items-center gap-2 text-[#7C4700]">
-                      <Layers className="w-4 h-4 text-[#A3620A]" />
+                    <div className="flex items-center gap-2 text-[#1E293B]">
+                      <Layers className="w-4 h-4 text-[#1E293B]" />
                       <h3 className="font-extrabold text-sm">Ciri Morfologi & Bagian Tumbuhan</h3>
                     </div>
                     <RichTextContent content={selectedPlant.morphology} defaultAlign="text-justify" />
@@ -1708,7 +1708,7 @@ export default function App() {
                                 </div>
                               )}
                               <div className="flex-1 min-w-0">
-                                <span className="text-xs font-extrabold text-[#7C4700] block mb-1">{item.title}</span>
+                                <span className="text-xs font-extrabold text-[#1E293B] block mb-1">{item.title}</span>
                                 <div className="text-[#4A2532]/85">
                                   <RichTextContent content={textVal} defaultAlign="text-justify" />
                                 </div>
@@ -1722,8 +1722,8 @@ export default function App() {
 
                   <div className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 space-y-4">
                     <div className="space-y-1">
-                      <h3 className="font-extrabold text-xs text-[#7C4700] flex items-center gap-1.5">
-                        <MapPin className="w-4 h-4 text-[#A3620A]" /> Habitat & Lokasi di Sekolah
+                      <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
+                        <MapPin className="w-4 h-4 text-[#1E293B]" /> Habitat & Lokasi di Sekolah
                       </h3>
                       <RichTextContent content={selectedPlant.habitat} defaultAlign="text-justify" />
                     </div>
@@ -1731,8 +1731,8 @@ export default function App() {
                     <hr className="border-[#E3CCA8]/40" />
 
                     <div className="space-y-1">
-                      <h3 className="font-extrabold text-xs text-[#7C4700] flex items-center gap-1.5">
-                        <BookOpen className="w-4 h-4 text-[#A3620A]" /> Manfaat Tanaman
+                      <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
+                        <BookOpen className="w-4 h-4 text-[#1E293B]" /> Manfaat Tanaman
                       </h3>
                       <RichTextContent content={selectedPlant.benefits} defaultAlign="text-justify" />
                     </div>
@@ -1740,8 +1740,8 @@ export default function App() {
                     <hr className="border-[#E3CCA8]/40" />
 
                     <div className="space-y-1">
-                      <h3 className="font-extrabold text-xs text-[#7C4700] flex items-center gap-1.5">
-                        <Droplets className="w-4 h-4 text-[#A3620A]" /> Cara Perawatan
+                      <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
+                        <Droplets className="w-4 h-4 text-[#1E293B]" /> Cara Perawatan
                       </h3>
                       <RichTextContent content={selectedPlant.care} defaultAlign="text-justify" />
                     </div>
@@ -1755,7 +1755,7 @@ export default function App() {
                   </div>
 
                   <div className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 flex flex-col items-center text-center space-y-2">
-                    <p className="text-xs font-extrabold text-[#7C4700]">QR Code Tanaman</p>
+                    <p className="text-xs font-extrabold text-[#1E293B]">QR Code Tanaman</p>
                     <SmartPlantQRWidget
                       code={selectedPlant.code}
                       plantName={selectedPlant.name}
@@ -1772,10 +1772,10 @@ export default function App() {
           {activePage === 'scan' && (
             <div className="space-y-5">
               <div className="text-center space-y-1.5">
-                <span className="inline-block bg-white border border-[#E3CCA8] text-[#7C4700] text-[11px] font-bold px-3 py-1 rounded-full">
+                <span className="inline-block bg-white border border-[#E3CCA8] text-[#1E293B] text-[11px] font-bold px-3 py-1 rounded-full">
                   Pemindai QR SMPN 3 Pontianak
                 </span>
-                <h1 className="text-xl font-extrabold text-[#7C4700]">
+                <h1 className="text-xl font-extrabold text-[#1E293B]">
                   Scan QR Code Tanaman
                 </h1>
                 <p className="text-xs text-[#4A2532]/80">
@@ -1809,7 +1809,7 @@ export default function App() {
                 </div>
 
                 {scanError && (
-                  <p className="text-[11px] text-amber-900 bg-amber-50 p-3 rounded-xl border border-amber-200">
+                  <p className="text-[11px] text-slate-900 bg-amber-50 p-3 rounded-xl border border-amber-200">
                     {scanError}
                   </p>
                 )}
@@ -1833,8 +1833,8 @@ export default function App() {
               </div>
 
               <div className="bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 space-y-3">
-                <div className="flex items-center gap-2 text-[#7C4700]">
-                  <Keyboard className="w-4 h-4 text-[#A3620A]" />
+                <div className="flex items-center gap-2 text-[#1E293B]">
+                  <Keyboard className="w-4 h-4 text-[#1E293B]" />
                   <h2 className="font-extrabold text-sm">Input Kode QR Manual</h2>
                 </div>
                 <div className="flex gap-2">
@@ -1861,7 +1861,7 @@ export default function App() {
                       <button
                         key={p.id}
                         onClick={() => handleOpenPlantByCode(p.code)}
-                        className="text-[10px] font-semibold bg-[#FCF7F0] hover:bg-[#7C4700] text-[#7C4700] hover:text-white px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] transition-colors"
+                        className="text-[10px] font-semibold bg-[#FCF7F0] hover:bg-[#7C4700] text-white hover:text-white px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] transition-colors"
                       >
                         {p.code}
                       </button>
@@ -1877,11 +1877,11 @@ export default function App() {
             <div className="space-y-5">
               {/* Header & Narasi Pengantar Halaman Aktivitas */}
               <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-3.5">
-                <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#7C4700]">
-                  <Sprout className="w-3.5 h-3.5 text-[#A3620A]" />
+                <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
+                  <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Kegiatan Non-Mengajar MSB • FKIP UNTAN</span>
                 </div>
-                <h1 className="text-xl md:text-2xl font-extrabold text-[#7C4700]">
+                <h1 className="text-xl md:text-2xl font-extrabold text-[#1E293B]">
                   Aktivitas Program TOGA SMPN 3
                 </h1>
                 <div className="space-y-2.5 text-xs text-[#4A2532]/90 leading-relaxed text-justify">
@@ -1897,10 +1897,10 @@ export default function App() {
               {/* 4 Tahapan Pelaksanaan Program Non-Mengajar MSB */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                 <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/70 shadow-xs space-y-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 01 • Koordinasi &amp; Perizinan
                   </span>
-                  <h2 className="font-extrabold text-sm text-[#7C4700]">
+                  <h2 className="font-extrabold text-sm text-[#1E293B]">
                     Persetujuan Kepala Sekolah
                   </h2>
                   <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -1909,10 +1909,10 @@ export default function App() {
                 </div>
 
                 <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/70 shadow-xs space-y-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 02 • Observasi &amp; Revitalisasi Taman
                   </span>
-                  <h2 className="font-extrabold text-sm text-[#7C4700]">
+                  <h2 className="font-extrabold text-sm text-[#1E293B]">
                     Pemetaan &amp; Penataan Taman TOGA
                   </h2>
                   <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -1921,10 +1921,10 @@ export default function App() {
                 </div>
 
                 <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/70 shadow-xs space-y-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 03 • Inovasi &amp; Digitalisasi QR Code
                   </span>
-                  <h2 className="font-extrabold text-sm text-[#7C4700]">
+                  <h2 className="font-extrabold text-sm text-[#1E293B]">
                     Pengembangan Pustaka Digital &amp; Label QR
                   </h2>
                   <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -1933,10 +1933,10 @@ export default function App() {
                 </div>
 
                 <div className="bg-white p-4 md:p-5 rounded-2xl border border-[#E3CCA8]/70 shadow-xs space-y-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tahap 04 • Edukasi &amp; Pemanfaatan Produk
                   </span>
-                  <h2 className="font-extrabold text-sm text-[#7C4700]">
+                  <h2 className="font-extrabold text-sm text-[#1E293B]">
                     Sosialisasi &amp; Literasi Hijau Warga Sekolah
                   </h2>
                   <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -1948,10 +1948,10 @@ export default function App() {
               {/* Galeri 8 Slide Foto Pengerjaan Kegiatan Non-Mengajar */}
               <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-4">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Dokumentasi Kronologis • 8 Tahap Pengerjaan
                   </span>
-                  <h2 className="text-lg font-extrabold text-[#7C4700]">
+                  <h2 className="text-lg font-extrabold text-[#1E293B]">
                     Galeri Kegiatan Non-Mengajar MSB
                   </h2>
                   <p className="text-xs text-[#4A2532]/80 leading-relaxed">
@@ -1969,15 +1969,15 @@ export default function App() {
             <div className="space-y-5">
               {/* 1. Profil Website & Program MSB FKIP UNTAN */}
               <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-3.5">
-                <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#7C4700]">
-                  <Sprout className="w-3.5 h-3.5 text-[#A3620A]" />
+                <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
+                  <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Magang Sekolah Berdampak (MSB) • FKIP UNTAN</span>
                 </div>
 
-                <h1 className="text-xl md:text-2xl font-extrabold text-[#7C4700] leading-snug">
+                <h1 className="text-xl md:text-2xl font-extrabold text-[#1E293B] leading-snug">
                   Tentang PUSTAKA TOGA SMPN 3
                 </h1>
-                <p className="text-xs font-bold text-[#A3620A]">
+                <p className="text-xs font-bold text-[#1E293B]">
                   SMP Negeri 3 Pontianak • Kota Pontianak, Kalimantan Barat
                 </p>
 
@@ -1994,17 +1994,17 @@ export default function App() {
               {/* 2. Tujuan Pembuatan Website */}
               <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-4">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Latar Belakang &amp; Sasaran
                   </span>
-                  <h2 className="text-lg font-extrabold text-[#7C4700]">
+                  <h2 className="text-lg font-extrabold text-[#1E293B]">
                     Tujuan Pembuatan Website
                   </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/60 space-y-1">
-                    <h3 className="font-extrabold text-xs text-[#7C4700]">
+                    <h3 className="font-extrabold text-xs text-[#1E293B]">
                       1. Mendukung Program Unggulan Sekolah Mitra
                     </h3>
                     <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -2013,7 +2013,7 @@ export default function App() {
                   </div>
 
                   <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/60 space-y-1">
-                    <h3 className="font-extrabold text-xs text-[#7C4700]">
+                    <h3 className="font-extrabold text-xs text-[#1E293B]">
                       2. Adaptasi Teknologi QR Code dalam Edukasi
                     </h3>
                     <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -2022,7 +2022,7 @@ export default function App() {
                   </div>
 
                   <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/60 space-y-1">
-                    <h3 className="font-extrabold text-xs text-[#7C4700]">
+                    <h3 className="font-extrabold text-xs text-[#1E293B]">
                       3. Media Pembelajaran Kontekstual
                     </h3>
                     <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -2031,7 +2031,7 @@ export default function App() {
                   </div>
 
                   <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/60 space-y-1">
-                    <h3 className="font-extrabold text-xs text-[#7C4700]">
+                    <h3 className="font-extrabold text-xs text-[#1E293B]">
                       4. Menumbuhkan Kepedulian Lingkungan
                     </h3>
                     <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
@@ -2044,10 +2044,10 @@ export default function App() {
               {/* 3. Tim Mahasiswa MSB FKIP UNTAN (12 Anggota) */}
               <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-5">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3620A]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
                     Tim Pengembang &amp; Pelaksana Program
                   </span>
-                  <h2 className="text-lg font-extrabold text-[#7C4700]">
+                  <h2 className="text-lg font-extrabold text-[#1E293B]">
                     Mahasiswa Magang Sekolah Berdampak (MSB) FKIP UNTAN
                   </h2>
                   <p className="text-xs text-[#4A2532]/80 leading-relaxed">
@@ -2057,7 +2057,7 @@ export default function App() {
 
                 {/* Sorotan: Ketua Kelompok & Pengembang Utama Website */}
                 <div className="space-y-2.5">
-                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#7C4700]">
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#1E293B]">
                     Ketua Kelompok &amp; Pengembang Utama Website
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
@@ -2106,7 +2106,7 @@ export default function App() {
                           <h3 className="font-extrabold text-sm text-[#4A2532] leading-snug">
                             {member.name}
                           </h3>
-                          <p className="text-[11px] font-medium text-[#7C4700]">
+                          <p className="text-[11px] font-medium text-[#1E293B]">
                             {member.prodi}
                           </p>
                         </div>
@@ -2117,7 +2117,7 @@ export default function App() {
 
                 {/* Daftar 9 Anggota Kelompok Lainnya */}
                 <div className="space-y-2.5 pt-1">
-                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#7C4700]">
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#1E293B]">
                     Anggota Kelompok MSB FKIP UNTAN
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3">
@@ -2196,7 +2196,7 @@ export default function App() {
                           <h3 className="font-extrabold text-xs text-[#4A2532] leading-snug">
                             {member.name}
                           </h3>
-                          <p className="text-[10px] font-medium text-[#7C4700]/90 leading-tight">
+                          <p className="text-[10px] font-medium text-[#1E293B]/90 leading-tight">
                             {member.prodi}
                           </p>
                         </div>
@@ -2228,12 +2228,12 @@ export default function App() {
               </div>
 
               <form onSubmit={handleSavePlant} className="bg-white rounded-3xl p-5 border border-[#E3CCA8] shadow-sm space-y-3.5">
-                <h2 className="text-base font-extrabold text-[#7C4700]">
+                <h2 className="text-base font-extrabold text-[#1E293B]">
                   {editingPlantId ? `Edit Tanaman (${plantForm.name})` : '+ Tambah Tanaman Baru'}
                 </h2>
 
                 <div>
-                  <label className="text-[11px] font-bold text-[#7C4700]">Nama Lokal Tanaman *</label>
+                  <label className="text-[11px] font-bold text-[#1E293B]">Nama Lokal Tanaman *</label>
                   <input
                     required
                     type="text"
@@ -2246,7 +2246,7 @@ export default function App() {
 
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label className="text-[11px] font-bold text-[#7C4700]">Kode Unik QR *</label>
+                    <label className="text-[11px] font-bold text-[#1E293B]">Kode Unik QR *</label>
                     <input
                       required
                       type="text"
@@ -2257,7 +2257,7 @@ export default function App() {
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] font-bold text-[#7C4700]">Kategori</label>
+                    <label className="text-[11px] font-bold text-[#1E293B]">Kategori</label>
                     <select
                       value={plantForm.category}
                       onChange={e => setPlantForm({ ...plantForm, category: e.target.value })}
@@ -2273,7 +2273,7 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-[#7C4700]">Nama Ilmiah *</label>
+                  <label className="text-[11px] font-bold text-[#1E293B]">Nama Ilmiah *</label>
                   <input
                     required
                     type="text"
@@ -2285,10 +2285,10 @@ export default function App() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold text-[#7C4700] block">Foto Tanaman</label>
+                  <label className="text-[11px] font-bold text-[#1E293B] block">Foto Tanaman</label>
                   <div className="flex gap-2">
-                    <label className="inline-flex items-center gap-1.5 bg-[#FCF7F0] text-[#7C4700] font-bold px-3 py-2 rounded-xl border border-[#E3CCA8] text-[11px] cursor-pointer flex-shrink-0">
-                      <ImageIcon className="w-3.5 h-3.5 text-[#A3620A]" />
+                    <label className="inline-flex items-center gap-1.5 bg-[#FCF7F0] text-[#1E293B] font-bold px-3 py-2 rounded-xl border border-[#E3CCA8] text-[11px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3.5 h-3.5 text-[#1E293B]" />
                       <span>Unggah</span>
                       <input type="file" accept="image/*" onChange={handleImageFileUpload} className="hidden" />
                     </label>
@@ -2305,17 +2305,17 @@ export default function App() {
                 <AdminRichEditor label="Deskripsi Tanaman" value={plantForm.description} onChange={(val) => setPlantForm(prev => ({ ...prev, description: val }))} />
 
                 <div>
-                  <label className="text-[11px] font-bold text-[#7C4700]">Ciri Morfologi Umum</label>
+                  <label className="text-[11px] font-bold text-[#1E293B]">Ciri Morfologi Umum</label>
                   <AdminRichEditor label="" value={plantForm.morphology} onChange={(val) => setPlantForm(prev => ({ ...prev, morphology: val }))} minHeight="72px" />
                 </div>
 
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label className="text-[11px] font-bold text-[#7C4700]">Bentuk Daun</label>
+                    <label className="text-[11px] font-bold text-[#1E293B]">Bentuk Daun</label>
                     <AdminRichEditor label="" value={plantForm.daun} onChange={(val) => setPlantForm(prev => ({ ...prev, daun: val }))} minHeight="72px" />
                   <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#E3CCA8]/70">
-                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#7C4700] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
-                      <ImageIcon className="w-3 h-3 text-[#A3620A]" />
+                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3 h-3 text-[#1E293B]" />
                       <span>Foto Daun</span>
                       <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("daun", e)} className="hidden" />
                     </label>
@@ -2332,11 +2332,11 @@ export default function App() {
                   </div>
                   </div>
                   <div>
-                    <label className="text-[11px] font-bold text-[#7C4700]">Batang</label>
+                    <label className="text-[11px] font-bold text-[#1E293B]">Batang</label>
                     <AdminRichEditor label="" value={plantForm.batang} onChange={(val) => setPlantForm(prev => ({ ...prev, batang: val }))} minHeight="72px" />
                   <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#E3CCA8]/70">
-                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#7C4700] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
-                      <ImageIcon className="w-3 h-3 text-[#A3620A]" />
+                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3 h-3 text-[#1E293B]" />
                       <span>Foto Batang</span>
                       <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("batang", e)} className="hidden" />
                     </label>
@@ -2353,11 +2353,11 @@ export default function App() {
                   </div>
                   </div>
                   <div>
-                    <label className="text-[11px] font-bold text-[#7C4700]">Akar</label>
+                    <label className="text-[11px] font-bold text-[#1E293B]">Akar</label>
                     <AdminRichEditor label="" value={plantForm.akar} onChange={(val) => setPlantForm(prev => ({ ...prev, akar: val }))} minHeight="72px" />
                   <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#E3CCA8]/70">
-                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#7C4700] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
-                      <ImageIcon className="w-3 h-3 text-[#A3620A]" />
+                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3 h-3 text-[#1E293B]" />
                       <span>Foto Akar</span>
                       <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("akar", e)} className="hidden" />
                     </label>
@@ -2374,11 +2374,11 @@ export default function App() {
                   </div>
                   </div>
                   <div>
-                    <label className="text-[11px] font-bold text-[#7C4700]">Bunga / Buah</label>
+                    <label className="text-[11px] font-bold text-[#1E293B]">Bunga / Buah</label>
                     <AdminRichEditor label="" value={plantForm.bunga} onChange={(val) => setPlantForm(prev => ({ ...prev, bunga: val }))} minHeight="72px" />
                   <div className="flex items-center gap-2 mt-1.5 bg-white p-2 rounded-xl border border-[#E3CCA8]/70">
-                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#7C4700] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
-                      <ImageIcon className="w-3 h-3 text-[#A3620A]" />
+                    <label className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] font-bold px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] text-[10px] cursor-pointer flex-shrink-0">
+                      <ImageIcon className="w-3 h-3 text-[#1E293B]" />
                       <span>Foto Bunga</span>
                       <input type="file" accept="image/*" onChange={(e) => handlePartImageUpload("bunga", e)} className="hidden" />
                     </label>
@@ -2397,28 +2397,28 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-[#7C4700]">Habitat / Lokasi di Sekolah</label>
+                  <label className="text-[11px] font-bold text-[#1E293B]">Habitat / Lokasi di Sekolah</label>
                   <AdminRichEditor label="" value={plantForm.habitat} onChange={(val) => setPlantForm(prev => ({ ...prev, habitat: val }))} minHeight="72px" />
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-[#7C4700]">Manfaat Tanaman</label>
+                  <label className="text-[11px] font-bold text-[#1E293B]">Manfaat Tanaman</label>
                   <AdminRichEditor label="" value={plantForm.benefits} onChange={(val) => setPlantForm(prev => ({ ...prev, benefits: val }))} minHeight="72px" />
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-[#7C4700]">Cara Perawatan</label>
+                  <label className="text-[11px] font-bold text-[#1E293B]">Cara Perawatan</label>
                   <AdminRichEditor label="" value={plantForm.care} onChange={(val) => setPlantForm(prev => ({ ...prev, care: val }))} minHeight="72px" />
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-[#7C4700]">Fakta Menarik</label>
+                  <label className="text-[11px] font-bold text-[#1E293B]">Fakta Menarik</label>
                   <AdminRichEditor label="" value={plantForm.funFact} onChange={(val) => setPlantForm(prev => ({ ...prev, funFact: val }))} minHeight="72px" />
                 </div>
 
                 {plantForm.code && (
                   <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8] flex flex-col items-center text-center gap-2">
-                    <p className="text-xs font-extrabold text-[#7C4700]">QR Code Otomatis</p>
+                    <p className="text-xs font-extrabold text-[#1E293B]">QR Code Otomatis</p>
                     <SmartPlantQRWidget
                       code={plantForm.code.toUpperCase()}
                       plantName={plantForm.name || 'Tanaman'}
@@ -2448,7 +2448,7 @@ export default function App() {
               </form>
 
               <div className="space-y-2.5">
-                <h2 className="text-sm font-extrabold text-[#7C4700] px-1">
+                <h2 className="text-sm font-extrabold text-[#1E293B] px-1">
                   Koleksi Tersimpan ({plants.length})
                 </h2>
                 {plants.map(p => (
@@ -2456,21 +2456,21 @@ export default function App() {
                     <div className="flex items-center gap-3 min-w-0">
                       <img src={p.image} alt={p.name} className="w-12 h-12 rounded-xl object-cover border border-[#E3CCA8] flex-shrink-0" />
                       <div className="min-w-0">
-                        <h3 className="font-extrabold text-xs text-[#7C4700] truncate">{p.name}</h3>
-                        <p className="text-[10px] font-mono text-[#A3620A] font-bold">{p.code}</p>
+                        <h3 className="font-extrabold text-xs text-[#1E293B] truncate">{p.name}</h3>
+                        <p className="text-[10px] font-mono text-[#1E293B] font-bold">{p.code}</p>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-1.5 flex-shrink-0">
                       <button
                         onClick={() => { setSelectedPlant(p); setActivePage('koleksi'); }}
-                        className="p-2 rounded-xl bg-[#FCF7F0] text-[#7C4700]"
+                        className="p-2 rounded-xl bg-[#FCF7F0] text-[#1E293B]"
                       >
                         <Eye className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => handleStartEditPlant(p)}
-                        className="p-2 rounded-xl bg-amber-50 text-[#A3620A]"
+                        className="p-2 rounded-xl bg-amber-50 text-[#1E293B]"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
                       </button>
@@ -2494,20 +2494,20 @@ export default function App() {
             <button
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
               className={`flex flex-col items-center justify-center py-1 gap-1 rounded-xl transition-colors ${
-                activePage === 'beranda' ? 'text-[#7C4700] font-extrabold' : 'text-[#4A2532]/60 font-medium'
+                activePage === 'beranda' ? 'text-[#1E293B] font-extrabold' : 'text-[#4A2532]/60 font-medium'
               }`}
             >
-              <Sprout className={`w-5 h-5 ${activePage === 'beranda' ? 'text-[#A3620A]' : ''}`} />
+              <Sprout className={`w-5 h-5 ${activePage === 'beranda' ? 'text-[#1E293B]' : ''}`} />
               <span className="text-[10px]">Beranda</span>
             </button>
 
             <button
               onClick={() => { setActivePage('koleksi'); setSelectedPlant(null); }}
               className={`flex flex-col items-center justify-center py-1 gap-1 rounded-xl transition-colors ${
-                activePage === 'koleksi' ? 'text-[#7C4700] font-extrabold' : 'text-[#4A2532]/60 font-medium'
+                activePage === 'koleksi' ? 'text-[#1E293B] font-extrabold' : 'text-[#4A2532]/60 font-medium'
               }`}
             >
-              <Leaf className={`w-5 h-5 ${activePage === 'koleksi' ? 'text-[#A3620A]' : ''}`} />
+              <Leaf className={`w-5 h-5 ${activePage === 'koleksi' ? 'text-[#1E293B]' : ''}`} />
               <span className="text-[10px]">Koleksi</span>
             </button>
 
@@ -2519,26 +2519,26 @@ export default function App() {
               >
                 <QrCode className="w-6 h-6 text-[#E3CCA8]" />
               </button>
-              <span className="text-[10px] font-extrabold text-[#7C4700] mt-1">Scan QR</span>
+              <span className="text-[10px] font-extrabold text-[#1E293B] mt-1">Scan QR</span>
             </div>
 
             <button
               onClick={() => { setActivePage('aktivitas'); setSelectedPlant(null); }}
               className={`flex flex-col items-center justify-center py-1 gap-1 rounded-xl transition-colors ${
-                activePage === 'aktivitas' ? 'text-[#7C4700] font-extrabold' : 'text-[#4A2532]/60 font-medium'
+                activePage === 'aktivitas' ? 'text-[#1E293B] font-extrabold' : 'text-[#4A2532]/60 font-medium'
               }`}
             >
-              <BookOpen className={`w-5 h-5 ${activePage === 'aktivitas' ? 'text-[#A3620A]' : ''}`} />
+              <BookOpen className={`w-5 h-5 ${activePage === 'aktivitas' ? 'text-[#1E293B]' : ''}`} />
               <span className="text-[10px]">Aktivitas</span>
             </button>
 
             <button
               onClick={() => { setActivePage('tentang'); setSelectedPlant(null); }}
               className={`flex flex-col items-center justify-center py-1 gap-1 rounded-xl transition-colors ${
-                activePage === 'tentang' ? 'text-[#7C4700] font-extrabold' : 'text-[#4A2532]/60 font-medium'
+                activePage === 'tentang' ? 'text-[#1E293B] font-extrabold' : 'text-[#4A2532]/60 font-medium'
               }`}
             >
-              <Info className={`w-5 h-5 ${activePage === 'tentang' ? 'text-[#A3620A]' : ''}`} />
+              <Info className={`w-5 h-5 ${activePage === 'tentang' ? 'text-[#1E293B]' : ''}`} />
               <span className="text-[10px]">Tentang</span>
             </button>
           </div>
@@ -2549,8 +2549,8 @@ export default function App() {
           <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
             <div className="bg-white rounded-3xl max-w-[400px] w-full p-6 border border-[#E3CCA8] shadow-xl space-y-4">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-[#7C4700]">
-                  <Lock className="w-4 h-4 text-[#A3620A]" />
+                <div className="flex items-center gap-2 text-[#1E293B]">
+                  <Lock className="w-4 h-4 text-[#1E293B]" />
                   <h2 className="text-base font-extrabold">Login Administrator</h2>
                 </div>
                 <button onClick={() => setShowAdminLogin(false)} className="text-sm font-bold text-[#4A2532]/60">
@@ -2570,7 +2570,7 @@ export default function App() {
 
               <form onSubmit={handleAdminAuth} className="space-y-3.5">
                 <div>
-                  <label className="text-xs font-bold text-[#7C4700]">Kode Akses</label>
+                  <label className="text-xs font-bold text-[#1E293B]">Kode Akses</label>
                   <input
                     type="password"
                     required
