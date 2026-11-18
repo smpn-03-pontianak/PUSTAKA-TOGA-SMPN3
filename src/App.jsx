@@ -1191,13 +1191,13 @@ export default function App() {
         )}
 
         {/* HEADER PORTRAIT */}
-        <header className={`sticky top-0 z-40 bg-gradient-to-r from-[#1B4332] via-[#2D6A4F] to-[#40916C] border-b border-[#B7E4C7]/40 px-4 py-3.5 shadow-md text-white ${!showSplash ? "animate-header-enter" : "opacity-0"}`}>
+        <header className={`sticky top-0 z-40 bg-gradient-to-r from-[#7C4700] via-[#2D6A4F] to-[#A3620A] border-b border-[#E3CCA8]/40 px-4 py-3.5 shadow-md text-white ${!showSplash ? "animate-header-enter" : "opacity-0"}`}>
           <div className="flex items-center justify-between gap-2">
             <div
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
               className="flex items-center gap-2.5 cursor-pointer"
             >
-              <div className="w-11 h-11 rounded-2xl bg-white border border-[#B7E4C7] flex items-center justify-center p-1 shadow-sm relative flex-shrink-0 overflow-hidden">
+              <div className="w-11 h-11 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center p-1 shadow-sm relative flex-shrink-0 overflow-hidden">
                 <img
                   src={`${import.meta.env.BASE_URL}logo-toga.png?v=3`}
                   alt="Logo Pustaka TOGA SMPN 3"
@@ -1208,7 +1208,7 @@ export default function App() {
                 <span className="font-extrabold text-sm tracking-tight text-white block leading-tight drop-shadow-xs">
                   PUSTAKA TOGA SMPN 3
                 </span>
-                <span className="text-[10px] font-bold text-[#D8F3DC] tracking-wide block">
+                <span className="text-[10px] font-bold text-[#F3E4CE] tracking-wide block">
                   SMP NEGERI 3 PONTIANAK
                 </span>
               </div>
@@ -1246,7 +1246,7 @@ export default function App() {
                   className={`inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold border transition-all ${
                     activePage === 'admin'
                       ? 'bg-white text-[#1E293B] shadow-xs border-[#2D6A4F]'
-                      : 'bg-[#FCF7F0] text-[#1E293B] border-[#B7E4C7]'
+                      : 'bg-[#FCF7F0] text-[#1E293B] border-[#E3CCA8]'
                   }`}
                 >
                   <ShieldCheck className="w-3.5 h-3.5 text-[#1E293B]" />
@@ -1256,7 +1256,7 @@ export default function App() {
                 <button
                   onClick={() => setShowAdminLogin(true)}
                   title="Login Administrator / Guru"
-                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FCF7F0] hover:bg-[#B7E4C7]/30 text-[#1E293B] border border-[#B7E4C7]/70 text-xs font-bold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FCF7F0] hover:bg-[#E3CCA8]/30 text-[#1E293B] border border-[#E3CCA8]/70 text-xs font-bold transition-colors"
                 >
                   <Lock className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>Admin</span>
