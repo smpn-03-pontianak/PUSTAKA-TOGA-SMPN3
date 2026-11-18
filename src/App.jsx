@@ -238,13 +238,16 @@ const BotanicalIllustration = () => (
   <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
     {/* Produk 1 (Kiri Vertikal Tinggi): Taman Toga */}
     <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[350px] shadow-xs group bento-box-1 bg-emerald-950">
-      <img
-        src="./hero-toga.jpeg"
-        alt="1. Taman Toga"
-        loading="lazy"
-        decoding="async"
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-      />
+      <div data-placeholder="taman-toga" className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-900 flex flex-col items-center justify-center p-4 text-center pb-24">
+        <div className="px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
+          <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
+            File Foto
+          </p>
+          <p className="text-xs sm:text-sm font-mono font-bold text-white break-words">
+            taman-toga
+          </p>
+        </div>
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
       <div className="absolute bottom-0 inset-x-0 p-4 text-white space-y-1">
         <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
@@ -263,12 +266,16 @@ const BotanicalIllustration = () => (
     <div className="md:col-span-7 flex flex-col gap-3.5">
       {/* Produk 2 (Kanan Atas Lebar): Flip Book */}
       <div className="relative rounded-2xl overflow-hidden min-h-[165px] sm:min-h-[180px] shadow-xs group bento-box-2 bg-emerald-900">
-        <img
-          src="./produk-flip-book.jpeg"
-          alt="2. Flip Book"
-          onError={(e) => { e.currentTarget.src = "./aktivitas-2.jpeg"; }}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-        />
+        <div data-placeholder="Flip-Book" className="absolute inset-0 bg-gradient-to-br from-teal-950 via-emerald-900 to-cyan-900 flex flex-col items-center justify-center p-4 text-center pb-24">
+        <div className="px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
+          <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
+            File Foto
+          </p>
+          <p className="text-xs sm:text-sm font-mono font-bold text-white break-words">
+            Flip-Book
+          </p>
+        </div>
+      </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
         <div className="absolute bottom-0 inset-x-0 p-4 text-white space-y-1">
           <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
@@ -287,12 +294,16 @@ const BotanicalIllustration = () => (
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1">
         {/* Produk 3: Eco Enzym */}
         <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-3 bg-emerald-900">
-          <img
-            src="./produk-eco-enzym.jpeg"
-            alt="3. Eco Enzym"
-            onError={(e) => { e.currentTarget.src = "./aktivitas-3.jpeg"; }}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
+          <div data-placeholder="Eco-Enzym" className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-green-900 to-emerald-800 flex flex-col items-center justify-center p-4 text-center pb-24">
+        <div className="px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
+          <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
+            File Foto
+          </p>
+          <p className="text-xs sm:text-sm font-mono font-bold text-white break-words">
+            Eco-Enzym
+          </p>
+        </div>
+      </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
           <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5">
             <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
@@ -309,12 +320,16 @@ const BotanicalIllustration = () => (
 
         {/* Produk 4: Website-Pustaka TOGA */}
         <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-4 bg-emerald-900">
-          <img
-            src="./produk-website-pustaka.jpeg"
-            alt="4. Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak"
-            onError={(e) => { e.currentTarget.src = "./aktivitas-4.jpeg"; }}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
+          <div data-placeholder="Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak" className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-950 to-teal-950 flex flex-col items-center justify-center p-4 text-center pb-24">
+        <div className="px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
+          <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
+            File Foto
+          </p>
+          <p className="text-xs sm:text-sm font-mono font-bold text-white break-words">
+            Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak
+          </p>
+        </div>
+      </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
           <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5">
             <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
