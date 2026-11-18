@@ -239,8 +239,7 @@ const BotanicalIllustration = () => (
     {/* Produk 1 (Kiri Vertikal Tinggi): Taman Toga */}
     <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[350px] shadow-xs group bento-box-1 bg-emerald-950">
       <img
-        src="./produk-taman-toga.jpeg"
-        alt="1. Taman Toga"
+        src="./hero-toga.jpeg" loading="lazy" decoding="async" alt="1. Taman Toga"
         onError={(e) => { e.currentTarget.src = "./aktivitas-1.jpeg"; }}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
       />
