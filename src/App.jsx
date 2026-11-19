@@ -335,7 +335,7 @@ const BotanicalIllustration = () => (
 );
 
 // ============================================================================
-// 5. APLIKASI UTAMA: PUSTAKA TOGA SMPN 3 – SMP NEGERI 3 KOTA PONTIANAK (MODEL PORTRAIT)
+// 5. APLIKASI UTAMA: PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – SMP NEGERI 3 KOTA PONTIANAK (MODEL PORTRAIT)
 // ============================================================================
 
 const RichTextContent = ({ content, defaultAlign = "text-justify" }) => {
@@ -541,7 +541,7 @@ const WelcomeSplash = ({ onFinish }) => {
         </span>
 
         <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1E293B] tracking-tight leading-snug mb-2">
-          PUSTAKA TOGA SMPN 3
+          PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
         </h1>
         <p className="text-xs sm:text-sm font-medium text-[#4A2532]/80 mb-6">
           Edukasi Digital Tanaman Obat Keluarga • SMP NEGERI 3 KOTA PONTIANAK
@@ -736,7 +736,7 @@ const NonTeachingAutoSlider = () => {
       stage: "Tahap 04 • Penyelesaian & Penyerahan Produk",
       title: "Dokumentasi Akhir Kegiatan Non-Mengajar MSB",
       points: [
-        "Serah terima produk inovasi digital PUSTAKA TOGA SMPN 3 beserta area taman yang telah direvitalisasi kepada pihak sekolah.",
+        "Serah terima produk inovasi digital PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK beserta area taman yang telah direvitalisasi kepada pihak sekolah.",
         "Evaluasi keberlanjutan pemeliharaan taman dan pemanfaatan katalog digital bersama guru pendamping.",
         "Dokumentasi bersama jajaran pimpinan sekolah, guru, dan tim mahasiswa MSB FKIP UNTAN."
       ],
@@ -1241,7 +1241,7 @@ export default function App() {
               </div>
               <div>
                 <span className="font-extrabold text-sm tracking-tight text-white block leading-tight drop-shadow-xs">
-                  PUSTAKA TOGA SMPN 3
+                  PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
                 </span>
                 <span className="text-[10px] font-bold text-[#F3E4CE] tracking-wide block">
                   SMP NEGERI 3 KOTA PONTIANAK
@@ -1394,7 +1394,7 @@ export default function App() {
                           Panduan Penggunaan
                         </span>
                         <h2 className="text-sm font-extrabold text-[#1E293B]">
-                          Cara Menggunakan PUSTAKA TOGA SMPN 3
+                          Cara Menggunakan PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
                         </h2>
                       </div>
 
@@ -1933,7 +1933,7 @@ export default function App() {
                     Halaman ini mendokumentasikan rangkaian <strong>Kegiatan Non-Mengajar</strong> yang dilaksanakan oleh mahasiswa <strong>Magang Sekolah Berdampak (MSB) Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura</strong> selama bertugas di <strong>SMP NEGERI 3 KOTA PONTIANAK</strong>. Sebagai bagian dari program Pembelajaran Luar Kampus (PLK), kegiatan non-mengajar ini dirancang secara kolaboratif bersama Kepala Sekolah, Guru Pendamping, dan Dosen Pembimbing Lapangan untuk menjawab kebutuhan nyata di lingkungan sekolah. Fokus utamanya adalah menghadirkan inovasi produk berbasis adaptasi teknologi informasi yang mendukung keberlanjutan program unggulan sekolah mitra, khususnya <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong>.
                   </p>
                   <p>
-                    Dalam pelaksanaannya, tim mahasiswa MSB memadukan upaya pelestarian lingkungan fisik dengan pengembangan media edukasi digital yang mudah diakses oleh seluruh warga sekolah. Langkah ini diawali dengan penataan ulang dan revitalisasi area Taman Tanaman Obat Keluarga (TOGA) agar tertata rapi, sehat, dan kaya akan ragam spesies berkhasiat. Selanjutnya, setiap koleksi tanaman diinventarisasi secara ilmiah dan diintegrasikan ke dalam katalog digital <strong>PUSTAKA TOGA SMPN 3</strong> melalui pemasangan label <strong>QR Code</strong>, sehingga siswa maupun guru dapat menjadikan area taman sebagai ruang belajar kontekstual yang interaktif dan berkelanjutan.
+                    Dalam pelaksanaannya, tim mahasiswa MSB memadukan upaya pelestarian lingkungan fisik dengan pengembangan media edukasi digital yang mudah diakses oleh seluruh warga sekolah. Langkah ini diawali dengan penataan ulang dan revitalisasi area Taman Tanaman Obat Keluarga (TOGA) agar tertata rapi, sehat, dan kaya akan ragam spesies berkhasiat. Selanjutnya, setiap koleksi tanaman diinventarisasi secara ilmiah dan diintegrasikan ke dalam katalog digital <strong>PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK</strong> melalui pemasangan label <strong>QR Code</strong>, sehingga siswa maupun guru dapat menjadikan area taman sebagai ruang belajar kontekstual yang interaktif dan berkelanjutan.
                   </p>
                 </div>
               </div>
@@ -1972,7 +1972,7 @@ export default function App() {
                     Pengembangan Pustaka Digital &amp; Label QR
                   </h2>
                   <p className="text-xs text-white leading-relaxed text-justify">
-                    Penyusunan basis data ilmiah (morfologi, klasifikasi, manfaat, dan perawatan) ke dalam website PUSTAKA TOGA SMPN 3, disertai pencetakan dan pemasangan papan label QR Code di setiap titik tanaman.
+                    Penyusunan basis data ilmiah (morfologi, klasifikasi, manfaat, dan perawatan) ke dalam website PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK, disertai pencetakan dan pemasangan papan label QR Code di setiap titik tanaman.
                   </p>
                 </div>
 
@@ -2020,7 +2020,7 @@ export default function App() {
                 </div>
 
                 <h1 className="text-xl md:text-2xl font-extrabold text-[#1E293B] leading-snug">
-                  Tentang PUSTAKA TOGA SMPN 3
+                  Tentang PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
                 </h1>
                 <p className="text-xs font-bold text-[#1E293B]">
                   SMP NEGERI 3 KOTA PONTIANAK • Kota Pontianak, Kalimantan Barat
@@ -2028,7 +2028,7 @@ export default function App() {
 
                 <div className="space-y-2.5 text-xs text-[#4A2532]/90 leading-relaxed text-justify">
                   <p>
-                    <strong>PUSTAKA TOGA SMPN 3 – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP NEGERI 3 KOTA PONTIANAK</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
+                    <strong>PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP NEGERI 3 KOTA PONTIANAK</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
                   </p>
                   <p>
                     Website ini dikembangkan sebagai produk inovatif luaran kegiatan non-mengajar dalam program <strong>Magang Sekolah Berdampak (MSB)</strong> dari <strong>Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura (UNTAN)</strong>. Program MSB merupakan bagian dari Pembelajaran Luar Kampus (PLK) Merdeka Belajar–Kampus Merdeka (MBKM) yang memberdayakan mahasiswa untuk berkolaborasi langsung bersama sekolah mitra dalam menghadirkan solusi nyata bagi pengembangan pembelajaran maupun program unggulan sekolah.
