@@ -345,7 +345,7 @@ const RichTextContent = ({ content, defaultAlign = "text-justify" }) => {
   if (hasHtml) {
     return (
       <div
-        className={`rich-botanical text-xs text-[#4A2532]/90 leading-relaxed ${defaultAlign}`}
+        className={`rich-botanical text-xs text-slate-800 leading-relaxed ${defaultAlign}`}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     );
@@ -356,7 +356,7 @@ const RichTextContent = ({ content, defaultAlign = "text-justify" }) => {
 
   if (isNumberedList) {
     return (
-      <ol className={`list-decimal pl-5 space-y-1.5 text-xs text-[#4A2532]/90 leading-relaxed ${defaultAlign}`}>
+      <ol className={`list-decimal pl-5 space-y-1.5 text-xs text-slate-800 leading-relaxed ${defaultAlign}`}>
         {lines.map((line, i) => (
           <li key={i} className="pl-1">
             {line.replace(/^\d+[.)]\s+/, "")}
@@ -367,7 +367,7 @@ const RichTextContent = ({ content, defaultAlign = "text-justify" }) => {
   }
 
   return (
-    <div className={`space-y-1.5 text-xs text-[#4A2532]/90 leading-relaxed ${defaultAlign}`}>
+    <div className={`space-y-1.5 text-xs text-slate-800 leading-relaxed ${defaultAlign}`}>
       {lines.map((line, i) => (
         <p key={i}>{line}</p>
       ))}
@@ -1713,7 +1713,7 @@ export default function App() {
                         <h2 className="text-[11px] font-bold uppercase tracking-wider text-[#1E293B] mb-1">
                           Deskripsi Tanaman
                         </h2>
-                        <RichTextContent content={selectedPlant.description} defaultAlign="text-justify" />
+                        <div className="text-slate-900 [&_p]:text-slate-900 [&_li]:text-slate-900 [&_span]:text-slate-900"><RichTextContent content={selectedPlant.description} defaultAlign="text-justify" /></div>
                       </div>
                     </div>
                   </div>
@@ -1723,7 +1723,7 @@ export default function App() {
                       <Layers className="w-4 h-4 text-[#1E293B]" />
                       <h3 className="font-extrabold text-sm">Ciri Morfologi & Bagian Tumbuhan</h3>
                     </div>
-                    <RichTextContent content={selectedPlant.morphology} defaultAlign="text-justify" />
+                    <div className="text-slate-900 [&_p]:text-slate-900 [&_li]:text-slate-900 [&_span]:text-slate-900"><RichTextContent content={selectedPlant.morphology} defaultAlign="text-justify" /></div>
 
                     <div className="space-y-3 pt-1">
                       {[
@@ -1746,9 +1746,7 @@ export default function App() {
                               )}
                               <div className="flex-1 min-w-0">
                                 <span className="text-xs font-extrabold text-[#1E293B] block mb-1">{item.title}</span>
-                                <div className="text-[#4A2532]/85">
-                                  <RichTextContent content={textVal} defaultAlign="text-justify" />
-                                </div>
+                                <div className="text-slate-900 [&_p]:text-slate-900 [&_li]:text-slate-900 [&_span]:text-slate-900"><RichTextContent content={textVal} defaultAlign="text-justify" /></div>
                               </div>
                             </div>
                           </div>
@@ -1762,7 +1760,7 @@ export default function App() {
                       <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
                         <MapPin className="w-4 h-4 text-[#1E293B]" /> Habitat & Lokasi di Sekolah
                       </h3>
-                      <RichTextContent content={selectedPlant.habitat} defaultAlign="text-justify" />
+                      <div className="text-slate-900 [&_p]:text-slate-900 [&_li]:text-slate-900 [&_span]:text-slate-900"><RichTextContent content={selectedPlant.habitat} defaultAlign="text-justify" /></div>
                     </div>
 
                     <hr className="border-[#E3CCA8]/40" />
@@ -1771,7 +1769,7 @@ export default function App() {
                       <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
                         <BookOpen className="w-4 h-4 text-[#1E293B]" /> Manfaat Tanaman
                       </h3>
-                      <RichTextContent content={selectedPlant.benefits} defaultAlign="text-justify" />
+                      <div className="text-slate-900 [&_p]:text-slate-900 [&_li]:text-slate-900 [&_span]:text-slate-900"><RichTextContent content={selectedPlant.benefits} defaultAlign="text-justify" /></div>
                     </div>
 
                     <hr className="border-[#E3CCA8]/40" />
@@ -1780,7 +1778,7 @@ export default function App() {
                       <h3 className="font-extrabold text-xs text-[#1E293B] flex items-center gap-1.5">
                         <Droplets className="w-4 h-4 text-[#1E293B]" /> Cara Perawatan
                       </h3>
-                      <RichTextContent content={selectedPlant.care} defaultAlign="text-justify" />
+                      <div className="text-slate-900 [&_p]:text-slate-900 [&_li]:text-slate-900 [&_span]:text-slate-900"><RichTextContent content={selectedPlant.care} defaultAlign="text-justify" /></div>
                     </div>
                   </div>
 
@@ -1788,7 +1786,7 @@ export default function App() {
                     <h3 className="font-extrabold text-xs text-[#E3CCA8] flex items-center gap-1.5">
                       <Sparkles className="w-4 h-4" /> Fakta Menarik Tanaman
                     </h3>
-                    <div className="text-white/95"><RichTextContent content={selectedPlant.funFact} defaultAlign="text-justify" /></div>
+                    <div className="text-white [&_p]:text-white [&_li]:text-white [&_span]:text-white"><RichTextContent content={selectedPlant.funFact} defaultAlign="text-justify" /></div>
                   </div>
 
                   <div className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 flex flex-col items-center text-center space-y-2">
