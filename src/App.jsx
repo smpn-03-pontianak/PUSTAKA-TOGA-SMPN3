@@ -289,18 +289,13 @@ const BotanicalIllustration = () => (
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1">
         {/* Produk 3: Eco Enzym */}
         <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-3 bg-emerald-900">
-          <div data-placeholder="Eco-Enzym" className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-green-900 to-emerald-800 flex flex-col items-center justify-center p-4 text-center pb-24">
-        <div className="px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
-          <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
-            File Foto
-          </p>
-          <p className="text-xs sm:text-sm font-mono font-bold text-white break-words">
-            Eco-Enzym
-          </p>
-        </div>
-      </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5">
+          <img
+            src={`${import.meta.env.BASE_URL}Eco-Enzym.jpeg`}
+            alt="Eco Enzym SMP Negeri 3 Pontianak"
+            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5 z-10">
             <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
               Produk 03
             </span>
@@ -315,18 +310,13 @@ const BotanicalIllustration = () => (
 
         {/* Produk 4: Website-Pustaka TOGA */}
         <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-4 bg-emerald-900">
-          <div data-placeholder="Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak" className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-950 to-teal-950 flex flex-col items-center justify-center p-4 text-center pb-24">
-        <div className="px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
-          <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
-            File Foto
-          </p>
-          <p className="text-xs sm:text-sm font-mono font-bold text-white break-words">
-            Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak
-          </p>
-        </div>
-      </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5">
+          <img
+            src={`${import.meta.env.BASE_URL}${encodeURIComponent("Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak.jpeg")}`}
+            alt="Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak"
+            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5 z-10">
             <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
               Produk 04
             </span>
