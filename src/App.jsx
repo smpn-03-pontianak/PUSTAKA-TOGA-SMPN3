@@ -1244,7 +1244,7 @@ export default function App() {
                   PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
                 </span>
                 <span className="text-[10px] font-bold text-[#F3E4CE] tracking-wide block">
-                  SMP NEGERI 3 KOTA PONTIANAK
+                  MSB FKIP UNTAN 2026
                 </span>
               </div>
             </div>
