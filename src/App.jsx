@@ -2170,7 +2170,7 @@ export default function App() {
                             src={`${import.meta.env.BASE_URL}${member.photo}`}
                             alt={member.name}
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                            className={`w-full h-full object-cover absolute inset-0 transition-transform duration-300 ${/nurhayani|aisyiyah|niko|roihan|egyta/i.test(member.name) ? "scale-[1.38] object-center origin-center" : ""}`}
+                            className="w-full h-full object-cover object-top absolute inset-0 transition-transform duration-300 group-hover:scale-105"
                           />
                         </div>
                         <div className="space-y-1">
@@ -2264,7 +2264,7 @@ export default function App() {
                             src={`${import.meta.env.BASE_URL}${member.photo}`}
                             alt={member.name}
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                            className={`w-full h-full object-cover absolute inset-0 transition-transform duration-300 ${/nurhayani|aisyiyah|niko|roihan|egyta/i.test(member.name) ? "scale-[1.38] object-center origin-center" : ""}`}
+                            className="w-full h-full object-cover object-top absolute inset-0 transition-transform duration-300 group-hover:scale-105"
                           />
                         </div>
                         <div className="space-y-0.5">
@@ -2590,7 +2590,7 @@ export default function App() {
             <div className="flex flex-col items-center justify-center -mt-6">
               <button
                 onClick={() => { setActivePage('scan'); setSelectedPlant(null); }}
-                className="w-14 h-14 rounded-2xl bg-[#7C4700] hover:bg-[#A3620A] text-white flex items-center justify-center shadow-lg border-4 border-[#FCF7F0] transition-transform active:scale-95"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#7C4700] hover:bg-[#A3620A] text-white flex items-center justify-center shadow-lg border-4 border-[#FCF7F0] transition-transform active:scale-95"
                 title="Scan QR Code"
               >
                 <QrCode className="w-6 h-6 text-[#E3CCA8]" />
