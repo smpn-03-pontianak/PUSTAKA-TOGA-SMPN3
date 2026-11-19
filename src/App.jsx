@@ -250,17 +250,19 @@ const BotanicalIllustration = () => (
   <div className="w-full space-y-5 pt-3 pb-2">
   <style>{"@keyframes bentoReveal {\n  0% { opacity: 0; transform: translateY(18px) scale(0.985); }\n  100% { opacity: 1; transform: translateY(0) scale(1); }\n}\n.bento-heading { opacity: 0; animation: bentoReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; }\n.bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; }\n.bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; }\n.bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }\n.bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }"}</style>
 
-  {/* Judul Terpusat Dua Warna seperti Referensi */}
-  <div className="text-center max-w-2xl mx-auto px-2 space-y-1.5 bento-heading">
-    <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-0.5 rounded-full">
-      Karya &amp; Inovasi Mahasiswa
-    </span>
-    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 leading-snug">
-      Hasil Produk Program MSB{" "}
-      <span className="text-emerald-700 font-extrabold">
-        FKIP UNTAN di SMP NEGERI 3 KOTA PONTIANAK
+  {/* Judul Terpusat Dua Warna dalam Wadah Transparan */}
+  <div className="max-w-3xl mx-auto bento-heading">
+    <div className="bg-white/75 backdrop-blur-md border border-white/70 shadow-xs rounded-2xl px-4 py-4 sm:px-6 sm:py-5 text-center space-y-2">
+      <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/80 border border-emerald-300/70 px-3 py-0.5 rounded-full">
+        Karya &amp; Inovasi Mahasiswa
       </span>
-    </h2>
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 leading-snug">
+        Hasil Produk Program MSB{" "}
+        <span className="text-emerald-800 font-extrabold">
+          FKIP UNTAN di SMP NEGERI 3 KOTA PONTIANAK
+        </span>
+      </h2>
+    </div>
   </div>
 
   {/* Bento Grid 4 Produk */}
