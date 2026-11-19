@@ -2110,7 +2110,7 @@ export default function App() {
                       {
                         name: "Fatur Rahman", nim: "F1221231020",
                         prodi: "Program Studi Pendidikan Kewarganegaraan (PKN)",
-                        role: "Ketua Kelompok & Pengembang Utama",
+                        role: "Ketua Kelompok & Pengembang Utama Website",
                         photo: "anggota-1.jpg",
                         initials: "FR"
                       },
