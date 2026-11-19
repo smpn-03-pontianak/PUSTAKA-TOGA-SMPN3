@@ -40,7 +40,7 @@ const db = getFirestore(app);
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'pustaka-toga-smpn3';
 
 // ============================================================================
-// 2. DATA AWAL TANAMAN LINGKUNGAN SMP NEGERI 3 PONTIANAK
+// 2. DATA AWAL TANAMAN LINGKUNGAN SMP NEGERI 3 KOTA PONTIANAK
 // ============================================================================
 const INITIAL_PLANTS = [
   {
@@ -59,7 +59,7 @@ const INITIAL_PLANTS = [
       bunga: 'Tumbuh pada tangkai tegak menjulang dari tengah roset, berwarna kuning hingga jingga kemerahan.',
       buah: 'Berbentuk kapsul kecil berisi biji-biji ringan setelah penyerbukan bunga.'
     },
-    habitat: 'Tumbuh subur di tanah gembur berdrainase baik dengan paparan sinar matahari penuh di area apotek hidup SMP Negeri 3 Pontianak.',
+    habitat: 'Tumbuh subur di tanah gembur berdrainase baik dengan paparan sinar matahari penuh di area apotek hidup SMP NEGERI 3 KOTA PONTIANAK.',
     benefits: 'Menyejukkan luka bakar ringan, melembapkan kulit, bahan minuman segar khas Pontianak, serta membantu menyaring polutan udara.',
     care: 'Siram secukupnya 2–3 kali seminggu saat media tanam mulai kering. Hindari genangan air agar akar tidak membusuk.',
     funFact: 'Lidah buaya Pontianak terkenal memiliki ukuran pelepah yang lebih besar dibandingkan varietas dari daerah lain karena kecocokan iklim tropis khatulistiwa!'
@@ -80,7 +80,7 @@ const INITIAL_PLANTS = [
       bunga: 'Bunga majemuk kecil berwarna putih kekuningan dengan benang sari yang menonjol.',
       buah: 'Buah buni bulat kecil berwarna ungu kehitaman saat matang.'
     },
-    habitat: 'Tumbuh optimal di halaman depan dan sepanjang jalur pedestrian taman SMP Negeri 3 Pontianak dengan sinar matahari langsung.',
+    habitat: 'Tumbuh optimal di halaman depan dan sepanjang jalur pedestrian taman SMP NEGERI 3 KOTA PONTIANAK dengan sinar matahari langsung.',
     benefits: 'Memperindah tata ruang sekolah, menyerap karbon dioksida, serta membantu menahan erosi tanah di tepi taman.',
     care: 'Lakukan pemangkasan pucuk secara berkala setiap 1–2 bulan untuk merangsang tumbuhnya tunas merah baru yang lebat.',
     funFact: 'Warna merah pada daun muda Pucuk Merah berasal dari pigmen antosianin yang melindungi daun muda dari paparan sinar ultraviolet berlebih!'
@@ -101,7 +101,7 @@ const INITIAL_PLANTS = [
       bunga: 'Bunga kecil tersusun dalam bulir pendek berwarna putih kehijauan.',
       buah: 'Buah kecil berbentuk lonjong pipih dengan sedikit sayap tipis.'
     },
-    habitat: 'Area lapangan upacara dan tepi halaman parkir SMP Negeri 3 Pontianak sebagai pohon peneduh utama.',
+    habitat: 'Area lapangan upacara dan tepi halaman parkir SMP NEGERI 3 KOTA PONTIANAK sebagai pohon peneduh utama.',
     benefits: 'Menurunkan suhu udara di sekitar halaman sekolah, memberikan keteduhan alami, dan menyerap debu udara.',
     care: 'Pohon dewasa sangat mandiri; cukup bersihkan daun gugur di sekitar pangkal batang dan beri pupuk kompos 6 bulan sekali.',
     funFact: 'Pola percabangan bertingkat pada Ketapang Kencana membentuk susunan alami yang memaksimalkan penangkapan cahaya matahari!'
@@ -122,7 +122,7 @@ const INITIAL_PLANTS = [
       bunga: 'Muncul berkelompok pada ranting atau ketiak daun, berwarna putih kehijauan dengan banyak benang sari.',
       buah: 'Berbentuk lonceng atau gasing, kulit mengilap berwarna hijau kemerahan, daging buah renyah dan berair.'
     },
-    habitat: 'Kebun edukasi produktif SMP Negeri 3 Pontianak dengan penyinaran matahari penuh dan tanah subur.',
+    habitat: 'Kebun edukasi produktif SMP NEGERI 3 KOTA PONTIANAK dengan penyinaran matahari penuh dan tanah subur.',
     benefits: 'Menghasilkan buah sehat kaya vitamin C dan air, serta menjadi media belajar praktik budidaya tanaman buah bagi murid.',
     care: 'Siram teratur pada musim kemarau, berikan pupuk organik saat mulai berbunga, dan bungkus buah muda agar terhindar dari lalat buah.',
     funFact: 'Kandungan air dalam buah jambu air mencapai lebih dari 85%, menjadikannya salah satu buah paling menyegarkan di daerah tropis!'
@@ -143,7 +143,7 @@ const INITIAL_PLANTS = [
       bunga: 'Tumbuh pada tangkai tegak berisi bunga-bunga kecil putih kehijauan yang harum di malam hari.',
       buah: 'Buah buni bulat kecil berwarna jingga kemerahan.'
     },
-    habitat: 'Teras ruang kelas, taman selasar, dan sudut hijau SMP Negeri 3 Pontianak karena tahan tempat teduh maupun terang.',
+    habitat: 'Teras ruang kelas, taman selasar, dan sudut hijau SMP NEGERI 3 KOTA PONTIANAK karena tahan tempat teduh maupun terang.',
     benefits: 'Mampu menyerap berbagai polutan udara dalam ruangan dan menghasilkan oksigen bahkan pada malam hari.',
     care: 'Sangat hemat air; cukup disiram 1–2 kali seminggu dan bersihkan debu pada permukaan daun dengan kain lembap.',
     funFact: 'Berbeda dari kebanyakan tumbuhan, Lidah Mertua melakukan fotosintesis CAM sehingga melepaskan oksigen pada malam hari!'
@@ -164,7 +164,7 @@ const INITIAL_PLANTS = [
       bunga: 'Muncul langsung dari rimpang berupa tongkol bulat telur dengan kelopak kemerahan.',
       buah: 'Rimpang bawah tanah berkulit merah keunguan dengan rasa pedas kuat (bagian utama yang dimanfaatkan).'
     },
-    habitat: 'Bedengan tanaman toga (tanaman obat keluarga) SMP Negeri 3 Pontianak yang gembur dan kaya humus.',
+    habitat: 'Bedengan tanaman toga (tanaman obat keluarga) SMP NEGERI 3 KOTA PONTIANAK yang gembur dan kaya humus.',
     benefits: 'Menghangatkan tubuh, membantu meredakan batuk dan masuk angin, serta meningkatkan daya tahan tubuh secara alami.',
     care: 'Tanam pada tanah gembur yang tidak tergenang air, beri pupuk kompos secara berkala, dan panen setelah berumur 8–10 bulan.',
     funFact: 'Rasa pedas dan hangat pada Jahe Merah berasal dari senyawa alami bernama gingerol dan shogaol yang tinggi!'
@@ -229,7 +229,7 @@ const BotanicalIllustration = () => (
     <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 leading-snug">
       Hasil Produk Program MSB{" "}
       <span className="text-slate-400 font-bold">
-        FKIP UNTAN di SMP Negeri 3 Pontianak
+        FKIP UNTAN di SMP NEGERI 3 KOTA PONTIANAK
       </span>
     </h2>
   </div>
@@ -240,7 +240,7 @@ const BotanicalIllustration = () => (
     <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[350px] shadow-xs group bento-box-1 bg-emerald-950">
       <img
         src={`${import.meta.env.BASE_URL}taman-toga.jpeg`}
-        alt="Taman Toga SMP Negeri 3 Pontianak"
+        alt="Taman Toga SMP NEGERI 3 KOTA PONTIANAK"
         className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
@@ -252,7 +252,7 @@ const BotanicalIllustration = () => (
           Taman Toga
         </h3>
         <p className="text-xs leading-relaxed text-white/85">
-          Penataan kebun edukasi Tanaman Obat Keluarga (TOGA) yang asri dan tertata di lingkungan SMP Negeri 3 Pontianak.
+          Penataan kebun edukasi Tanaman Obat Keluarga (TOGA) yang asri dan tertata di lingkungan SMP NEGERI 3 KOTA PONTIANAK.
         </p>
       </div>
     </div>
@@ -291,7 +291,7 @@ const BotanicalIllustration = () => (
         <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-3 bg-emerald-900">
           <img
             src={`${import.meta.env.BASE_URL}Eco-Enzym.jpeg`}
-            alt="Eco Enzym SMP Negeri 3 Pontianak"
+            alt="Eco Enzym SMP NEGERI 3 KOTA PONTIANAK"
             className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
@@ -321,7 +321,7 @@ const BotanicalIllustration = () => (
               Produk 04
             </span>
             <h3 className="text-xs sm:text-sm font-bold leading-snug text-white">
-              Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak
+              Website-Pustaka TOGA SMP NEGERI 3 KOTA PONTIANAK
             </h3>
             <p className="text-[11px] leading-snug text-white/85">
               Platform edukasi digital terintegrasi label QR Code tanaman.
@@ -335,7 +335,7 @@ const BotanicalIllustration = () => (
 );
 
 // ============================================================================
-// 5. APLIKASI UTAMA: PUSTAKA TOGA SMPN 3 – SMP NEGERI 3 PONTIANAK (MODEL PORTRAIT)
+// 5. APLIKASI UTAMA: PUSTAKA TOGA SMPN 3 – SMP NEGERI 3 KOTA PONTIANAK (MODEL PORTRAIT)
 // ============================================================================
 
 const RichTextContent = ({ content, defaultAlign = "text-justify" }) => {
@@ -462,7 +462,7 @@ const HeroPhotoSlider = () => {
       <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/45 via-black/15 to-transparent z-20 pointer-events-none" />
 
       <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#1E293B] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#E3CCA8]">
-        Galeri Taman Toga SMPN 3
+        Galeri Taman Toga SMP NEGERI 3 KOTA PONTIANAK
       </div>
 
       {photos.length > 1 && (
@@ -544,7 +544,7 @@ const WelcomeSplash = ({ onFinish }) => {
           PUSTAKA TOGA SMPN 3
         </h1>
         <p className="text-xs sm:text-sm font-medium text-[#4A2532]/80 mb-6">
-          Edukasi Digital Tanaman Obat Keluarga • SMP Negeri 3 Pontianak
+          Edukasi Digital Tanaman Obat Keluarga • SMP NEGERI 3 KOTA PONTIANAK
         </p>
 
         {/* Bilah Progres Animasi */}
@@ -659,7 +659,7 @@ const NonTeachingAutoSlider = () => {
       stage: "Tahap 01 • Koordinasi & Perizinan",
       title: "Koordinasi Awal & Pemaparan Program Kerja",
       points: [
-        "Audiensi bersama Kepala Sekolah SMP Negeri 3 Pontianak dan Guru Pendamping untuk memperoleh persetujuan resmi pelaksanaan program TOGA.",
+        "Audiensi bersama Kepala Sekolah SMP NEGERI 3 KOTA PONTIANAK dan Guru Pendamping untuk memperoleh persetujuan resmi pelaksanaan program TOGA.",
         "Penyampaian rancangan kegiatan non-mengajar Mahasiswa MSB FKIP UNTAN yang selaras dengan program Sekolah Adiwiyata dan Sekolah Digital.",
         "Penyelarasan jadwal pelaksanaan serta titik lokasi pengembangan Taman TOGA di lingkungan sekolah."
       ],
@@ -715,7 +715,7 @@ const NonTeachingAutoSlider = () => {
       title: "Pemasangan Papan Label QR Code",
       points: [
         "Pencetakan papan nama tanaman tahan cuaca yang memuat nama spesies dan kode QR PUSTAKA TOGA.",
-        "Pemasangan papan label di setiap titik tanaman pada area Taman TOGA SMP Negeri 3 Pontianak.",
+        "Pemasangan papan label di setiap titik tanaman pada area Taman TOGA SMP NEGERI 3 KOTA PONTIANAK.",
         "Uji coba pemindaian langsung di lapangan menggunakan kamera ponsel untuk memastikan kecepatan akses halaman."
       ],
       photos: ["aktivitas-6.jpeg", "aktivitas-6b.jpeg", "aktivitas-6c.jpeg"]
@@ -1244,7 +1244,7 @@ export default function App() {
                   PUSTAKA TOGA SMPN 3
                 </span>
                 <span className="text-[10px] font-bold text-[#F3E4CE] tracking-wide block">
-                  SMP NEGERI 3 PONTIANAK
+                  SMP NEGERI 3 KOTA PONTIANAK
                 </span>
               </div>
             </div>
@@ -1564,7 +1564,7 @@ export default function App() {
               <section className="bg-gradient-to-br from-[#A3620A] to-[#7C4700] text-white rounded-3xl p-5 space-y-3">
                 <h3 className="text-base font-extrabold">Mari Jaga Lingkungan Sekolah Kita!</h3>
                 <p className="text-xs text-white/90 leading-relaxed">
-                  Setiap tanaman di SMP Negeri 3 Pontianak berperan penting menyediakan udara bersih dan keteduhan. Rawat tanaman di sekitar kelasmu dan jangan merusak tumbuhan.
+                  Setiap tanaman di SMP NEGERI 3 KOTA PONTIANAK berperan penting menyediakan udara bersih dan keteduhan. Rawat tanaman di sekitar kelasmu dan jangan merusak tumbuhan.
                 </p>
                 <button
                   onClick={() => setActivePage('aktivitas')}
@@ -1913,7 +1913,7 @@ export default function App() {
               <section className="relative overflow-hidden rounded-3xl p-5 md:p-8 shadow-2xl border border-white/30 space-y-6">
                 <img
                   src={`${import.meta.env.BASE_URL}background aktivitas.jpeg`}
-                  alt="Background Aktivitas Program TOGA SMPN 3"
+                  alt="Background Aktivitas Program TOGA SMP NEGERI 3 KOTA PONTIANAK"
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
                 
@@ -1926,11 +1926,11 @@ export default function App() {
                   <span>Kegiatan Non-Mengajar MSB • FKIP UNTAN</span>
                 </div>
                 <h1 className="text-xl md:text-2xl font-extrabold text-white">
-                  Aktivitas Program TOGA SMPN 3
+                  Aktivitas Program TOGA SMP NEGERI 3 KOTA PONTIANAK
                 </h1>
                 <div className="space-y-2.5 text-xs text-white leading-relaxed text-justify">
                   <p>
-                    Halaman ini mendokumentasikan rangkaian <strong>Kegiatan Non-Mengajar</strong> yang dilaksanakan oleh mahasiswa <strong>Magang Sekolah Berdampak (MSB) Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura</strong> selama bertugas di <strong>SMP Negeri 3 Pontianak</strong>. Sebagai bagian dari program Pembelajaran Luar Kampus (PLK), kegiatan non-mengajar ini dirancang secara kolaboratif bersama Kepala Sekolah, Guru Pendamping, dan Dosen Pembimbing Lapangan untuk menjawab kebutuhan nyata di lingkungan sekolah. Fokus utamanya adalah menghadirkan inovasi produk berbasis adaptasi teknologi informasi yang mendukung keberlanjutan program unggulan sekolah mitra, khususnya <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong>.
+                    Halaman ini mendokumentasikan rangkaian <strong>Kegiatan Non-Mengajar</strong> yang dilaksanakan oleh mahasiswa <strong>Magang Sekolah Berdampak (MSB) Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura</strong> selama bertugas di <strong>SMP NEGERI 3 KOTA PONTIANAK</strong>. Sebagai bagian dari program Pembelajaran Luar Kampus (PLK), kegiatan non-mengajar ini dirancang secara kolaboratif bersama Kepala Sekolah, Guru Pendamping, dan Dosen Pembimbing Lapangan untuk menjawab kebutuhan nyata di lingkungan sekolah. Fokus utamanya adalah menghadirkan inovasi produk berbasis adaptasi teknologi informasi yang mendukung keberlanjutan program unggulan sekolah mitra, khususnya <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong>.
                   </p>
                   <p>
                     Dalam pelaksanaannya, tim mahasiswa MSB memadukan upaya pelestarian lingkungan fisik dengan pengembangan media edukasi digital yang mudah diakses oleh seluruh warga sekolah. Langkah ini diawali dengan penataan ulang dan revitalisasi area Taman Tanaman Obat Keluarga (TOGA) agar tertata rapi, sehat, dan kaya akan ragam spesies berkhasiat. Selanjutnya, setiap koleksi tanaman diinventarisasi secara ilmiah dan diintegrasikan ke dalam katalog digital <strong>PUSTAKA TOGA SMPN 3</strong> melalui pemasangan label <strong>QR Code</strong>, sehingga siswa maupun guru dapat menjadikan area taman sebagai ruang belajar kontekstual yang interaktif dan berkelanjutan.
@@ -1948,7 +1948,7 @@ export default function App() {
                     Persetujuan Kepala Sekolah
                   </h2>
                   <p className="text-xs text-white leading-relaxed text-justify">
-                    Mahasiswa MSB melakukan observasi awal kebutuhan sekolah, memaparkan rencana kegiatan non-mengajar, serta memperoleh persetujuan resmi dari Kepala Sekolah SMP Negeri 3 Pontianak dan Dosen Pembimbing Lapangan sebelum pelaksanaan program.
+                    Mahasiswa MSB melakukan observasi awal kebutuhan sekolah, memaparkan rencana kegiatan non-mengajar, serta memperoleh persetujuan resmi dari Kepala Sekolah SMP NEGERI 3 KOTA PONTIANAK dan Dosen Pembimbing Lapangan sebelum pelaksanaan program.
                   </p>
                 </div>
 
@@ -2000,7 +2000,7 @@ export default function App() {
                     Galeri Kegiatan Non-Mengajar MSB
                   </h2>
                   <p className="text-xs text-[#4A2532]/80 leading-relaxed">
-                    Rangkaian dokumentasi foto pelaksanaan kegiatan non-mengajar mahasiswa MSB FKIP UNTAN dari tahap persetujuan awal hingga penyelesaian program di SMP Negeri 3 Pontianak.
+                    Rangkaian dokumentasi foto pelaksanaan kegiatan non-mengajar mahasiswa MSB FKIP UNTAN dari tahap persetujuan awal hingga penyelesaian program di SMP NEGERI 3 KOTA PONTIANAK.
                   </p>
                 </div>
 
@@ -2023,12 +2023,12 @@ export default function App() {
                   Tentang PUSTAKA TOGA SMPN 3
                 </h1>
                 <p className="text-xs font-bold text-[#1E293B]">
-                  SMP Negeri 3 Pontianak • Kota Pontianak, Kalimantan Barat
+                  SMP NEGERI 3 KOTA PONTIANAK • Kota Pontianak, Kalimantan Barat
                 </p>
 
                 <div className="space-y-2.5 text-xs text-[#4A2532]/90 leading-relaxed text-justify">
                   <p>
-                    <strong>PUSTAKA TOGA SMPN 3 – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP Negeri 3 Pontianak</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
+                    <strong>PUSTAKA TOGA SMPN 3 – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP NEGERI 3 KOTA PONTIANAK</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
                   </p>
                   <p>
                     Website ini dikembangkan sebagai produk inovatif luaran kegiatan non-mengajar dalam program <strong>Magang Sekolah Berdampak (MSB)</strong> dari <strong>Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura (UNTAN)</strong>. Program MSB merupakan bagian dari Pembelajaran Luar Kampus (PLK) Merdeka Belajar–Kampus Merdeka (MBKM) yang memberdayakan mahasiswa untuk berkolaborasi langsung bersama sekolah mitra dalam menghadirkan solusi nyata bagi pengembangan pembelajaran maupun program unggulan sekolah.
@@ -2053,7 +2053,7 @@ export default function App() {
                       1. Mendukung Program Unggulan Sekolah Mitra
                     </h3>
                     <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
-                      Menguatkan pelaksanaan program <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong> melalui digitalisasi inventaris tanaman obat yang terdata rapi di lingkungan SMP Negeri 3 Pontianak.
+                      Menguatkan pelaksanaan program <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong> melalui digitalisasi inventaris tanaman obat yang terdata rapi di lingkungan SMP NEGERI 3 KOTA PONTIANAK.
                     </p>
                   </div>
 
@@ -2096,7 +2096,7 @@ export default function App() {
                     Mahasiswa Magang Sekolah Berdampak (MSB) FKIP UNTAN
                   </h2>
                   <p className="text-xs text-[#4A2532]/80 leading-relaxed">
-                    Kelompok mahasiswa lintas program studi FKIP Universitas Tanjungpura yang bertugas di SMP Negeri 3 Pontianak.
+                    Kelompok mahasiswa lintas program studi FKIP Universitas Tanjungpura yang bertugas di SMP NEGERI 3 KOTA PONTIANAK.
                   </p>
                 </div>
 
@@ -2606,7 +2606,7 @@ export default function App() {
               </div>
 
               <p className="text-xs text-[#4A2532]/80 leading-relaxed">
-                Khusus guru pembina dan administrator SMP Negeri 3 Pontianak.
+                Khusus guru pembina dan administrator SMP NEGERI 3 KOTA PONTIANAK.
               </p>
 
               {adminLoginError && (
