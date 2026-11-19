@@ -1897,8 +1897,8 @@ export default function App() {
               </div>
 
               <div className="bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 space-y-3">
-                <div className="flex items-center gap-2 text-[#1E293B]">
-                  <Keyboard className="w-4 h-4 text-[#1E293B]" />
+                <div className="flex items-center gap-2 text-black">
+                  <Keyboard className="w-4 h-4 text-black" />
                   <h2 className="font-extrabold text-sm">Input Kode QR Manual</h2>
                 </div>
                 <div className="flex gap-2">
@@ -1912,20 +1912,20 @@ export default function App() {
                   />
                   <button
                     onClick={() => handleOpenPlantByCode(manualCode)}
-                    className="bg-[#A3620A] text-white font-bold px-4 py-2.5 rounded-xl text-xs"
+                    className="bg-[#A3620A] text-black font-bold px-4 py-2.5 rounded-xl text-xs"
                   >
                     Buka
                   </button>
                 </div>
 
                 <div className="pt-1">
-                  <p className="text-[11px] font-bold text-[#4A2532]/75 mb-2">Pilih Kode QR Terdaftar:</p>
+                  <p className="text-[11px] font-bold text-black mb-2">Pilih Kode QR Terdaftar:</p>
                   <div className="flex flex-wrap gap-1.5">
                     {plants.map(p => (
                       <button
                         key={p.id}
                         onClick={() => handleOpenPlantByCode(p.code)}
-                        className="text-[10px] font-semibold bg-[#FCF7F0] hover:bg-[#7C4700] text-white hover:text-white px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] transition-colors"
+                        className="text-[10px] font-semibold bg-[#FCF7F0] hover:bg-[#7C4700] text-black hover:text-black px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] transition-colors"
                       >
                         {p.code}
                       </button>
