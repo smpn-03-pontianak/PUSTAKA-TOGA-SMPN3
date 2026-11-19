@@ -211,7 +211,36 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
     }
   };
 
-  return null;
+  return (
+    <div className="inline-flex flex-col items-center gap-2.5 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs">
+      <div
+        className="bg-white p-1.5 rounded-xl border border-slate-100 flex items-center justify-center overflow-hidden"
+        style={{ width: size, height: size }}
+      >
+        <img
+          src={qrImgUrl}
+          alt={`QR Code ${plantName} (${cleanCode})`}
+          width={size}
+          height={size}
+          loading="lazy"
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <span className="text-[11px] font-mono font-bold tracking-wider text-slate-800 bg-slate-100 px-2.5 py-0.5 rounded-md">
+        {cleanCode}
+      </span>
+      {showDownload && (
+        <button
+          type="button"
+          onClick={handleDownloadQR}
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-emerald-700 hover:bg-emerald-800 active:scale-[0.98] px-3 py-1.5 rounded-xl transition cursor-pointer shadow-xs"
+        >
+          <Download className="w-3.5 h-3.5" />
+          Unduh QR Code
+        </button>
+      )}
+    </div>
+  );
 };
 
 // ============================================================================
