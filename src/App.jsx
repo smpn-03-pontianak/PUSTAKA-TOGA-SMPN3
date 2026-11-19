@@ -602,147 +602,209 @@ const WelcomeSplash = ({ onFinish }) => {
   );
 };
 
-const NonTeachingAutoSlider = () => {
-  const slides = [
-    {
-      src: "aktivitas-1.jpeg",
-      stage: "Tahap 01 • Persetujuan Kepala Sekolah",
-      title: "Koordinasi Awal & Pemaparan Program Kerja",
-      caption: "Audiensi bersama Kepala Sekolah SMP Negeri 3 Pontianak dan Guru Pendamping untuk memperoleh persetujuan pelaksanaan program TOGA."
-    },
-    {
-      src: "aktivitas-2.jpeg",
-      stage: "Tahap 01 • Persetujuan Kepala Sekolah",
-      title: "Observasi Awal Lingkungan Sekolah",
-      caption: "Peninjauan area taman sekolah bersama guru pendamping untuk memetakan potensi pengembangan Taman TOGA."
-    },
-    {
-      src: "aktivitas-3.jpeg",
-      stage: "Tahap 02 • Pemetaan & Penataan Taman TOGA",
-      title: "Pembersihan & Pengolahan Lahan Taman",
-      caption: "Gotong royong mahasiswa MSB membersihkan area taman dan menggemburkan media tanam."
-    },
-    {
-      src: "aktivitas-4.jpeg",
-      stage: "Tahap 02 • Pemetaan & Penataan Taman TOGA",
-      title: "Penanaman & Penataan Koleksi Tanaman Obat",
-      caption: "Penanaman bibit Tanaman Obat Keluarga (TOGA) serta penataan tata letak tanaman di lingkungan sekolah."
-    },
-    {
-      src: "aktivitas-5.jpeg",
-      stage: "Tahap 03 • Pengembangan Pustaka Digital & Label QR",
-      title: "Inventarisasi Data Botani & Pembuatan QR Code",
-      caption: "Penyusunan data ilmiah, morfologi, manfaat, dan perawatan tanaman ke dalam website PUSTAKA TOGA SMPN 3."
-    },
-    {
-      src: "aktivitas-6.jpeg",
-      stage: "Tahap 03 • Pengembangan Pustaka Digital & Label QR",
-      title: "Pemasangan Papan Label QR Code",
-      caption: "Pemasangan papan nama tanaman berbasis QR Code di area Taman TOGA SMP Negeri 3 Pontianak."
-    },
-    {
-      src: "aktivitas-7.jpeg",
-      stage: "Tahap 04 • Sosialisasi & Literasi Hijau",
-      title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Siswa",
-      caption: "Pendampingan siswa memindai label QR Code menggunakan smartphone untuk mempelajari tanaman obat di sekolah."
-    },
-    {
-      src: "aktivitas-8.jpeg",
-      stage: "Tahap 04 • Penyelesaian & Penyerahan Produk",
-      title: "Dokumentasi Akhir Kegiatan Non-Mengajar MSB",
-      caption: "Penyelesaian seluruh rangkaian kegiatan non-mengajar mahasiswa MSB FKIP UNTAN bersama warga SMP Negeri 3 Pontianak."
-    }
-  ];
-
+const PointPhotoSlider = ({ photos, altTitle }) => {
   const [idx, setIdx] = useState(0);
   const [missingFiles, setMissingFiles] = useState({});
 
   useEffect(() => {
-    if (slides.length <= 1) return;
+    if (!photos || photos.length <= 1) return;
     const timer = setInterval(() => {
-      setIdx((current) => (current + 1) % slides.length);
+      setIdx((current) => (current + 1) % photos.length);
     }, 4500);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [photos]);
 
-  const currentItem = slides[idx];
-  const isMissing = missingFiles[currentItem.src];
+  const currentSrc = photos[idx];
+  const isMissing = missingFiles[currentSrc];
 
   return (
-    <div className="space-y-3">
-      <div className="relative w-full aspect-[16/9] md:aspect-[21/10] rounded-2xl overflow-hidden border border-[#E3CCA8] bg-gradient-to-br from-[#FCF7F0] to-[#F3E4CE] shadow-xs group">
-        {!isMissing ? (
-          <img
-            src={`${import.meta.env.BASE_URL}${currentItem.src}`}
-            alt={currentItem.title}
-            onError={() => setMissingFiles((prev) => ({ ...prev, [currentItem.src]: true }))}
-            className="w-full h-full object-cover transition-all duration-500"
-          />
-        ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-2 pb-16">
-            <div className="w-11 h-11 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center shadow-2xs">
-              <Sprout className="w-6 h-6 text-[#1E293B]" />
-            </div>
-            <p className="text-xs md:text-sm font-extrabold text-[#1E293B]">
-              Dokumentasi Foto Belum Diunggah
-            </p>
-            <p className="text-[11px] text-[#4A2532]/75 max-w-md">
-              Kode file: <code className="bg-white px-2 py-0.5 rounded border border-[#E3CCA8] font-bold text-[#1E293B]">{currentItem.src}</code> (folder <code>public/</code>)
-            </p>
+    <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-[#E3CCA8] bg-gradient-to-br from-[#FCF7F0] to-[#F3E4CE] shadow-sm group">
+      {!isMissing ? (
+        <img
+          src={`${import.meta.env.BASE_URL}${currentSrc}`}
+          alt={`${altTitle} - Foto ${idx + 1}`}
+          onError={() => setMissingFiles((prev) => ({ ...prev, [currentSrc]: true }))}
+          className="w-full h-full object-cover transition-all duration-500"
+        />
+      ) : (
+        <div className="w-full h-full flex flex-col items-center justify-center p-5 text-center space-y-2">
+          <div className="w-10 h-10 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center shadow-2xs">
+            <Sprout className="w-5 h-5 text-[#1E293B]" />
           </div>
-        )}
-
-        <div className="absolute top-3 left-3 z-10 bg-white/95 text-[#1E293B] border border-[#E3CCA8] text-[10px] font-extrabold px-3 py-1 rounded-full shadow-xs">
-          {currentItem.stage}
-        </div>
-
-        <div className="absolute top-3 right-3 z-10 bg-black/60 text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
-          {idx + 1} / {slides.length}
-        </div>
-
-        <button
-          type="button"
-          onClick={() => setIdx((idx - 1 + slides.length) % slides.length)}
-          aria-label="Slide sebelumnya"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold"
-        >
-          ‹
-        </button>
-        <button
-          type="button"
-          onClick={() => setIdx((idx + 1) % slides.length)}
-          aria-label="Slide berikutnya"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold"
-        >
-          ›
-        </button>
-
-        <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 via-black/45 to-transparent pt-8 pb-3 px-4 space-y-1">
-          <h3 className="text-xs md:text-sm font-extrabold text-white leading-snug">
-            {currentItem.title}
-          </h3>
-          <p className="text-[11px] text-white/90 leading-snug line-clamp-2">
-            {currentItem.caption}
+          <p className="text-xs font-extrabold text-[#1E293B]">
+            Slide Foto Kegiatan ({idx + 1}/{photos.length})
+          </p>
+          <p className="text-[11px] text-[#4A2532]/75">
+            Unggah file <code className="bg-white px-2 py-0.5 rounded border border-[#E3CCA8] font-bold text-[#1E293B]">{currentSrc}</code> ke folder <code>public/</code>
           </p>
         </div>
+      )}
+
+      <div className="absolute top-2.5 right-2.5 z-10 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+        {idx + 1} / {photos.length}
       </div>
 
-      <div className="flex flex-wrap items-center gap-1.5">
-        {slides.map((s, sIdx) => (
+      {photos.length > 1 && (
+        <>
           <button
-            key={sIdx}
             type="button"
-            onClick={() => setIdx(sIdx)}
-            className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all border ${
-              sIdx === idx
-                ? "bg-gradient-to-r from-[#5A3200] via-[#7C4700] to-[#A66308] text-white border-[#7C4700]"
-                : "bg-[#FCF7F0] text-[#1E293B] border-[#E3CCA8] hover:bg-[#E3CCA8]/40"
-            }`}
+            onClick={() => setIdx((idx - 1 + photos.length) % photos.length)}
+            aria-label="Foto sebelumnya"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold transition-transform active:scale-95"
           >
-            {sIdx + 1}. {s.title.split(" ").slice(0, 2).join(" ")}
+            ‹
           </button>
-        ))}
-      </div>
+          <button
+            type="button"
+            onClick={() => setIdx((idx + 1) % photos.length)}
+            aria-label="Foto berikutnya"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold transition-transform active:scale-95"
+          >
+            ›
+          </button>
+          <div className="absolute bottom-2.5 inset-x-0 z-10 flex items-center justify-center gap-1.5">
+            {photos.map((_, pIdx) => (
+              <button
+                key={pIdx}
+                type="button"
+                onClick={() => setIdx(pIdx)}
+                aria-label={`Pilih foto ${pIdx + 1}`}
+                className={`h-1.5 rounded-full transition-all ${pIdx === idx ? "w-5 bg-white shadow-xs" : "w-1.5 bg-white/55 hover:bg-white/80"}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+const NonTeachingAutoSlider = () => {
+  const milestones = [
+    {
+      num: "1",
+      stage: "Tahap 01 • Koordinasi & Perizinan",
+      title: "Koordinasi Awal & Pemaparan Program Kerja",
+      points: [
+        "Audiensi bersama Kepala Sekolah SMP Negeri 3 Pontianak dan Guru Pendamping untuk memperoleh persetujuan resmi pelaksanaan program TOGA.",
+        "Penyampaian rancangan kegiatan non-mengajar Mahasiswa MSB FKIP UNTAN yang selaras dengan program Sekolah Adiwiyata dan Sekolah Digital.",
+        "Penyelarasan jadwal pelaksanaan serta titik lokasi pengembangan Taman TOGA di lingkungan sekolah."
+      ],
+      photos: ["aktivitas-1.jpeg", "aktivitas-1b.jpeg", "aktivitas-1c.jpeg"]
+    },
+    {
+      num: "2",
+      stage: "Tahap 01 • Koordinasi & Perizinan",
+      title: "Observasi Awal Lingkungan Sekolah",
+      points: [
+        "Peninjauan langsung kondisi eksisting area taman sekolah bersama guru pendamping.",
+        "Identifikasi jenis tanaman obat yang sudah tersedia serta pemetaan lahan potensial untuk penambahan koleksi baru.",
+        "Pencatatan kebutuhan media tanam, peralatan berkebun, dan papan informasi tanaman."
+      ],
+      photos: ["aktivitas-2.jpeg", "aktivitas-2b.jpeg", "aktivitas-2c.jpeg"]
+    },
+    {
+      num: "3",
+      stage: "Tahap 02 • Observasi & Revitalisasi Taman",
+      title: "Pembersihan & Pengolahan Lahan Taman",
+      points: [
+        "Gotong royong mahasiswa MSB membersihkan gulma, rumput liar, serta sampah organik di sekitar area Taman TOGA.",
+        "Penggemburan tanah dan pencampuran pupuk organik agar media tanam siap ditanami bibit baru.",
+        "Perapian batas petak taman supaya jalur pengamatan siswa tertata bersih dan nyaman."
+      ],
+      photos: ["aktivitas-3.jpeg", "aktivitas-3b.jpeg", "aktivitas-3c.jpeg"]
+    },
+    {
+      num: "4",
+      stage: "Tahap 02 • Observasi & Revitalisasi Taman",
+      title: "Penanaman & Penataan Koleksi Tanaman Obat",
+      points: [
+        "Penanaman ragam bibit Tanaman Obat Keluarga (TOGA) pilihan berdasarkan kebutuhan cahaya dan karakter pertumbuhannya.",
+        "Pengelompokan tata letak tanaman agar memudahkan proses perawatan berkala dan identifikasi spesies.",
+        "Penyiraman awal serta pemantauan kesegaran bibit pascapenanaman."
+      ],
+      photos: ["aktivitas-4.jpeg", "aktivitas-4b.jpeg", "aktivitas-4c.jpeg"]
+    },
+    {
+      num: "5",
+      stage: "Tahap 03 • Inovasi & Digitalisasi QR Code",
+      title: "Inventarisasi Data Botani & Pembuatan QR Code",
+      points: [
+        "Pendataan nama lokal, nama ilmiah, klasifikasi taksonomi, morfologi, manfaat kesehatan, dan cara perawatan tiap spesies.",
+        "Integrasi seluruh basis data ilmiah ke dalam platform katalog digital PUSTAKA TOGA SMPN 3.",
+        "Pembuatan dan pengujian kode QR unik yang terhubung langsung ke halaman profil masing-masing tanaman."
+      ],
+      photos: ["aktivitas-5.jpeg", "aktivitas-5b.jpeg", "aktivitas-5c.jpeg"]
+    },
+    {
+      num: "6",
+      stage: "Tahap 03 • Inovasi & Digitalisasi QR Code",
+      title: "Pemasangan Papan Label QR Code",
+      points: [
+        "Pencetakan papan nama tanaman tahan cuaca yang memuat nama spesies dan kode QR PUSTAKA TOGA.",
+        "Pemasangan papan label di setiap titik tanaman pada area Taman TOGA SMP Negeri 3 Pontianak.",
+        "Uji coba pemindaian langsung di lapangan menggunakan kamera ponsel untuk memastikan kecepatan akses halaman."
+      ],
+      photos: ["aktivitas-6.jpeg", "aktivitas-6b.jpeg", "aktivitas-6c.jpeg"]
+    },
+    {
+      num: "7",
+      stage: "Tahap 04 • Edukasi & Pemanfaatan Produk",
+      title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Siswa",
+      points: [
+        "Pendampingan siswa dan guru memindai label QR Code secara langsung di area Taman TOGA menggunakan smartphone.",
+        "Pengenalan cara membaca informasi botani dan khasiat tanaman obat sebagai media belajar kontekstual.",
+        "Menumbuhkan literasi hijau serta kepedulian warga sekolah terhadap pelestarian tanaman berkhasiat."
+      ],
+      photos: ["aktivitas-7.jpeg", "aktivitas-7b.jpeg", "aktivitas-7c.jpeg"]
+    },
+    {
+      num: "8",
+      stage: "Tahap 04 • Penyelesaian & Penyerahan Produk",
+      title: "Dokumentasi Akhir Kegiatan Non-Mengajar MSB",
+      points: [
+        "Serah terima produk inovasi digital PUSTAKA TOGA SMPN 3 beserta area taman yang telah direvitalisasi kepada pihak sekolah.",
+        "Evaluasi keberlanjutan pemeliharaan taman dan pemanfaatan katalog digital bersama guru pendamping.",
+        "Dokumentasi bersama jajaran pimpinan sekolah, guru, dan tim mahasiswa MSB FKIP UNTAN."
+      ],
+      photos: ["aktivitas-8.jpeg", "aktivitas-8b.jpeg", "aktivitas-8c.jpeg"]
+    }
+  ];
+
+  return (
+    <div className="divide-y divide-[#E3CCA8]/70">
+      {milestones.map((item, index) => {
+        const isEven = index % 2 === 1;
+        return (
+          <div
+            key={item.num}
+            className="py-6 first:pt-2 last:pb-2 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center"
+          >
+            {/* Kolom Penjelasan Poin */}
+            <div className={`lg:col-span-6 space-y-2.5 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+              <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0] border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
+                {item.stage}
+              </span>
+              <h3 className="text-base md:text-lg font-extrabold text-[#1E293B] leading-snug">
+                {item.num}. {item.title}
+              </h3>
+              <ul className="space-y-1.5 text-xs text-[#4A2532]/90 leading-relaxed">
+                {item.points.map((pt, ptIdx) => (
+                  <li key={ptIdx} className="flex items-start gap-2">
+                    <span className="text-[#7C4700] font-extrabold mt-0.5">–</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Kolom Slide Foto Kegiatan */}
+            <div className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+              <PointPhotoSlider photos={item.photos} altTitle={`${item.num}. ${item.title}`} />
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
