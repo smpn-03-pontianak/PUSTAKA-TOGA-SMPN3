@@ -257,7 +257,7 @@ const BotanicalIllustration = () => (
     </span>
     <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 leading-snug">
       Hasil Produk Program MSB{" "}
-      <span className="inline-block bg-emerald-950/90 text-[#FDE68A] px-2.5 py-0.5 rounded-lg shadow-xs">
+      <span className="text-[#FDE68A] font-extrabold drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
         FKIP UNTAN di SMP NEGERI 3 KOTA PONTIANAK
       </span>
     </h2>
