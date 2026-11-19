@@ -992,7 +992,7 @@ export default function App() {
       setActivePage('admin');
       setAdminPassword('');
       setAdminLoginError('');
-      showToast('Login Berhasil', 'Selamat datang di Dashboard Administrator SMPN 3 Pontianak.');
+      showToast('Login Berhasil', 'Selamat datang di Dashboard Administrator SMP NEGERI 3 KOTA PONTIANAK.');
     } else {
       setAdminLoginError('Kode akses administrator salah. Silakan periksa kembali.');
     }
@@ -1406,7 +1406,7 @@ export default function App() {
                           <div>
                             <h3 className="font-bold text-[11px] text-[#1E293B]">Temukan Label QR Code</h3>
                             <p className="text-[10px] text-[#4A2532]/80 mt-0.5 leading-relaxed">
-                              Cari papan label QR Code yang terpasang di dekat tanaman di lingkungan SMPN 3 Pontianak.
+                              Cari papan label QR Code yang terpasang di dekat tanaman di lingkungan SMP NEGERI 3 KOTA PONTIANAK.
                             </p>
                           </div>
                         </div>
@@ -1808,7 +1808,7 @@ export default function App() {
             <div className="space-y-5">
               <div className="text-center space-y-1.5">
                 <span className="inline-block bg-white border border-[#E3CCA8] text-[#1E293B] text-[11px] font-bold px-3 py-1 rounded-full">
-                  Pemindai QR SMPN 3 Pontianak
+                  Pemindai QR SMP NEGERI 3 KOTA PONTIANAK
                 </span>
                 <h1 className="text-xl font-extrabold text-[#1E293B]">
                   Scan QR Code Tanaman
