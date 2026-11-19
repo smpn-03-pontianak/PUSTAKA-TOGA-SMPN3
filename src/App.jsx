@@ -238,30 +238,13 @@ const BotanicalIllustration = () => (
   <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
     {/* Produk 1 (Kiri Vertikal Tinggi): Taman Toga */}
     <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[350px] shadow-xs group bento-box-1 bg-emerald-950">
-  {/* Foto Latar Belakang Kotak Utama Beranda */}
-  <div
-    aria-hidden="true"
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
-    style={{ backgroundImage: "url('./background-beranda.jpeg')" }}
-  />
-  {/* Gradasi Putih-Soft Pink Lembut agar Teks Tetap Jelas Terbaca */}
-  <div
-    aria-hidden="true"
-    className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/84 to-[#FCF7F0]/88 backdrop-blur-[1px] pointer-events-none"
-  />
-
-  <div data-placeholder="taman-toga" className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-900 flex flex-col items-center justify-center p-4 text-center pb-24">
-        <div className="relative z-10 relative z-10 relative z-10 px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
-          <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
-            File Foto
-          </p>
-          <p className="text-xs sm:text-sm font-mono font-bold text-white break-words">
-            taman-toga
-          </p>
-        </div>
-      </div>
-      <div className="relative z-10 relative z-10 relative z-10 absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-      <div className="relative z-10 relative z-10 relative z-10 absolute bottom-0 inset-x-0 p-4 text-white space-y-1">
+      <img
+        src={`${import.meta.env.BASE_URL}taman-toga.jpeg`}
+        alt="Taman Toga SMP Negeri 3 Pontianak"
+        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 p-4 text-white space-y-1 z-10">
         <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
           Produk 01
         </span>
