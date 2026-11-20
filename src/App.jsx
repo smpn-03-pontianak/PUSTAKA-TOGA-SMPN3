@@ -2108,9 +2108,18 @@ export default function App() {
           {/* 5. HALAMAN TENTANG KAMI */}
           {activePage === 'tentang' && (
             <div className="space-y-5">
-              {/* 1 & 2. Latar Belakang & Tujuan (Gaya Clean Zigzag seperti Jelajah Seru) */}
-              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-6">
-                <div className="border-b border-[#E3CCA8]/70 pb-4 flex flex-wrap items-center justify-between gap-2">
+              {/* 1 & 2. Latar Belakang & Tujuan (Foto Latar Belakang + Efek Glass seperti Jelajah Seru) */}
+              <div className="relative overflow-hidden rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/80 shadow-md space-y-5">
+                {/* Foto Latar Belakang Penuh */}
+                <img
+                  src={`${import.meta.env.BASE_URL}taman-toga.jpeg`}
+                  alt="Taman TOGA SMP NEGERI 3 KOTA PONTIANAK"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/30 pointer-events-none" />
+
+                {/* Header Latar Belakang (Efek Glass) */}
+                <div className="relative z-10 bg-white/80 backdrop-blur-md rounded-2xl p-4 border border-white/75 flex flex-wrap items-center justify-between gap-2 shadow-xs">
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#7C4700]">
                       Dokumentasi &amp; Dasar Pengembangan
@@ -2119,47 +2128,39 @@ export default function App() {
                       Latar Belakang
                     </h2>
                   </div>
-                  <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0] border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
+                  <div className="inline-flex items-center gap-1.5 bg-[#FCF7F0]/90 border border-[#E3CCA8] px-3 py-1 rounded-full text-[11px] font-bold text-[#1E293B]">
                     <Sprout className="w-3.5 h-3.5 text-[#1E293B]" />
                     <span>Magang Sekolah Berdampak (MSB) • FKIP UNTAN</span>
                   </div>
                 </div>
 
-                <div className="divide-y divide-[#E3CCA8]/70">
-                  {/* Poin 1: Tentang PUSTAKA TOGA (Zigzag: Teks Kiri, Foto Taman TOGA Kanan) */}
-                  <div className="pb-6 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
-                    <div className="lg:col-span-6 space-y-2.5 lg:order-1">
-                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0] border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
+                {/* Konten Utama & Tujuan (Efek Glass Bersih seperti Jelajah Seru) */}
+                <div className="relative z-10 bg-white/80 backdrop-blur-md rounded-2xl p-5 md:p-6 border border-white/75 shadow-xs divide-y divide-[#E3CCA8]/70 space-y-5">
+                  {/* Bagian 1: Tentang PUSTAKA TOGA */}
+                  <div className="space-y-3">
+                    <div>
+                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0]/90 border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
                         SMP NEGERI 3 KOTA PONTIANAK • Kalimantan Barat
                       </span>
-                      <h1 className="text-base md:text-lg font-extrabold text-[#1E293B] leading-snug">
+                      <h1 className="text-lg md:text-xl font-extrabold text-[#1E293B] leading-snug mt-1.5">
                         Tentang PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
                       </h1>
-                      <div className="space-y-2 text-xs text-[#4A2532]/90 leading-relaxed text-justify">
-                        <p>
-                          <strong>PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP NEGERI 3 KOTA PONTIANAK</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
-                        </p>
-                        <p>
-                          Website ini dikembangkan sebagai produk inovatif luaran kegiatan non-mengajar dalam program <strong>Magang Sekolah Berdampak (MSB)</strong> dari <strong>Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura (UNTAN)</strong>. Program MSB merupakan bagian dari Pembelajaran Luar Kampus (PLK) Merdeka Belajar–Kampus Merdeka (MBKM) yang memberdayakan mahasiswa untuk berkolaborasi langsung bersama sekolah mitra dalam menghadirkan solusi nyata bagi pengembangan pembelajaran maupun program unggulan sekolah.
-                        </p>
-                      </div>
                     </div>
 
-                    <div className="lg:col-span-6 lg:order-2">
-                      <div className="w-fit max-w-full mx-auto rounded-2xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm">
-                        <img
-                          src={`${import.meta.env.BASE_URL}taman-toga.jpeg`}
-                          alt="Taman TOGA SMP NEGERI 3 KOTA PONTIANAK"
-                          className="block w-auto h-auto max-w-full max-h-[360px]"
-                        />
-                      </div>
+                    <div className="space-y-2.5 text-xs text-[#1E293B] leading-relaxed text-justify">
+                      <p>
+                        <strong>PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP NEGERI 3 KOTA PONTIANAK</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
+                      </p>
+                      <p>
+                        Website ini dikembangkan sebagai produk inovatif luaran kegiatan non-mengajar dalam program <strong>Magang Sekolah Berdampak (MSB)</strong> dari <strong>Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura (UNTAN)</strong>. Program MSB merupakan bagian dari Pembelajaran Luar Kampus (PLK) Merdeka Belajar–Kampus Merdeka (MBKM) yang memberdayakan mahasiswa untuk berkolaborasi langsung bersama sekolah mitra dalam menghadirkan solusi nyata bagi pengembangan pembelajaran maupun program unggulan sekolah.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Poin 2: Latar Belakang & Sasaran / Tujuan Pembuatan Website (Clean List) */}
-                  <div className="pt-6 space-y-4">
+                  {/* Bagian 2: Tujuan Pembuatan Website (Clean Grid di dalam Glass Container) */}
+                  <div className="pt-5 space-y-4">
                     <div>
-                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0] border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
+                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0]/90 border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
                         Latar Belakang &amp; Sasaran
                       </span>
                       <h3 className="text-base md:text-lg font-extrabold text-[#1E293B] mt-1.5">
@@ -2172,7 +2173,7 @@ export default function App() {
                         <h4 className="font-extrabold text-xs md:text-sm text-[#1E293B]">
                           1. Mendukung Program Unggulan Sekolah Mitra
                         </h4>
-                        <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
+                        <p className="text-xs text-[#1E293B]/90 leading-relaxed text-justify">
                           Menguatkan pelaksanaan program <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong> melalui digitalisasi inventaris tanaman obat yang terdata rapi di lingkungan SMP NEGERI 3 KOTA PONTIANAK.
                         </p>
                       </div>
@@ -2181,7 +2182,7 @@ export default function App() {
                         <h4 className="font-extrabold text-xs md:text-sm text-[#1E293B]">
                           2. Adaptasi Teknologi QR Code dalam Edukasi
                         </h4>
-                        <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
+                        <p className="text-xs text-[#1E293B]/90 leading-relaxed text-justify">
                           Mengatasi keterbatasan ruang pada papan nama tanaman fisik dengan menyajikan informasi lengkap mulai dari identitas ilmiah, morfologi, khasiat, hingga panduan perawatan cukup dengan memindai label QR Code.
                         </p>
                       </div>
@@ -2190,7 +2191,7 @@ export default function App() {
                         <h4 className="font-extrabold text-xs md:text-sm text-[#1E293B]">
                           3. Media Pembelajaran Kontekstual
                         </h4>
-                        <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
+                        <p className="text-xs text-[#1E293B]/90 leading-relaxed text-justify">
                           Menyediakan sumber belajar botani digital yang interaktif dan mudah diakses melalui smartphone siswa maupun guru dalam kegiatan intrakurikuler dan kokurikuler.
                         </p>
                       </div>
@@ -2199,7 +2200,7 @@ export default function App() {
                         <h4 className="font-extrabold text-xs md:text-sm text-[#1E293B]">
                           4. Menumbuhkan Kepedulian Lingkungan
                         </h4>
-                        <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
+                        <p className="text-xs text-[#1E293B]/90 leading-relaxed text-justify">
                           Mendorong warga sekolah untuk mengenal, merawat, dan melestarikan keanekaragaman hayati serta tanaman berkhasiat obat di lingkungan sekolah secara berkelanjutan.
                         </p>
                       </div>
