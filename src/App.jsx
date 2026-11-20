@@ -1707,11 +1707,11 @@ export default function App() {
 
                               {/* Kolom Foto Tanaman */}
                               <div className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                                <div className="rounded-2xl overflow-hidden bg-[#FCF7F0] border border-[#E3CCA8]/70 shadow-sm flex items-center justify-center">
+                                <div className="w-fit max-w-full mx-auto rounded-2xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm">
                                   <img
                                     src={plant.image}
                                     alt={plant.name}
-                                    className="w-full h-auto max-h-[420px] object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                                    className="block w-auto h-auto max-w-full max-h-[380px] group-hover:scale-[1.02] transition-transform duration-500"
                                   />
                                 </div>
                               </div>
