@@ -1688,7 +1688,7 @@ export default function App() {
                                   </p>
                                 </div>
                                 <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify line-clamp-3">
-                                  {plant.description}
+                                  {String(plant.description || "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi, " ").replace(/\s+/g, " ").trim()}
                                 </p>
                                 <div className="pt-1">
                                   <button
