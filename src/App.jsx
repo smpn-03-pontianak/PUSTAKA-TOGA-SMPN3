@@ -2108,16 +2108,9 @@ export default function App() {
           {/* 5. HALAMAN TENTANG KAMI */}
           {activePage === 'tentang' && (
             <div className="space-y-5">
-              {/* 1 & 2. Kotak Tabel Utama: Latar Belakang (Profil Website & Tujuan) */}
-              <div className="relative overflow-hidden rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/80 shadow-md space-y-5">
-                <img
-                  src={`${import.meta.env.BASE_URL}taman-toga.jpeg`}
-                  alt="Latar Belakang Taman TOGA SMP NEGERI 3 KOTA PONTIANAK"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-black/25 pointer-events-none" />
-
-                <div className="relative z-10 bg-white/85 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/70 flex flex-wrap items-center justify-between gap-2 shadow-xs">
+              {/* 1 & 2. Latar Belakang & Tujuan (Gaya Clean Zigzag seperti Jelajah Seru) */}
+              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-6">
+                <div className="border-b border-[#E3CCA8]/70 pb-4 flex flex-wrap items-center justify-between gap-2">
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#7C4700]">
                       Dokumentasi &amp; Dasar Pengembangan
@@ -2132,43 +2125,51 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Tabel Terstruktur Latar Belakang & Tujuan */}
-                <div className="relative z-10 rounded-2xl border border-white/70 overflow-hidden divide-y divide-[#E3CCA8]/70 shadow-sm">
-                  {/* Baris 1: Profil Website */}
-                  <div className="p-4 md:p-5 bg-white/88 backdrop-blur-md space-y-3">
-                    <div>
-                      <h1 className="text-lg md:text-xl font-extrabold text-[#1E293B] leading-snug">
+                <div className="divide-y divide-[#E3CCA8]/70">
+                  {/* Poin 1: Tentang PUSTAKA TOGA (Zigzag: Teks Kiri, Foto Taman TOGA Kanan) */}
+                  <div className="pb-6 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
+                    <div className="lg:col-span-6 space-y-2.5 lg:order-1">
+                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0] border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
+                        SMP NEGERI 3 KOTA PONTIANAK • Kalimantan Barat
+                      </span>
+                      <h1 className="text-base md:text-lg font-extrabold text-[#1E293B] leading-snug">
                         Tentang PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
                       </h1>
-                      <p className="text-xs font-bold text-[#7C4700] mt-0.5">
-                        SMP NEGERI 3 KOTA PONTIANAK • Kota Pontianak, Kalimantan Barat
-                      </p>
+                      <div className="space-y-2 text-xs text-[#4A2532]/90 leading-relaxed text-justify">
+                        <p>
+                          <strong>PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP NEGERI 3 KOTA PONTIANAK</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
+                        </p>
+                        <p>
+                          Website ini dikembangkan sebagai produk inovatif luaran kegiatan non-mengajar dalam program <strong>Magang Sekolah Berdampak (MSB)</strong> dari <strong>Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura (UNTAN)</strong>. Program MSB merupakan bagian dari Pembelajaran Luar Kampus (PLK) Merdeka Belajar–Kampus Merdeka (MBKM) yang memberdayakan mahasiswa untuk berkolaborasi langsung bersama sekolah mitra dalam menghadirkan solusi nyata bagi pengembangan pembelajaran maupun program unggulan sekolah.
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="space-y-2.5 text-xs text-[#4A2532]/95 leading-relaxed text-justify">
-                      <p>
-                        <strong>PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP NEGERI 3 KOTA PONTIANAK</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
-                      </p>
-                      <p>
-                        Website ini dikembangkan sebagai produk inovatif luaran kegiatan non-mengajar dalam program <strong>Magang Sekolah Berdampak (MSB)</strong> dari <strong>Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Tanjungpura (UNTAN)</strong>. Program MSB merupakan bagian dari Pembelajaran Luar Kampus (PLK) Merdeka Belajar–Kampus Merdeka (MBKM) yang memberdayakan mahasiswa untuk berkolaborasi langsung bersama sekolah mitra dalam menghadirkan solusi nyata bagi pengembangan pembelajaran maupun program unggulan sekolah.
-                      </p>
+                    <div className="lg:col-span-6 lg:order-2">
+                      <div className="w-fit max-w-full mx-auto rounded-2xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm">
+                        <img
+                          src={`${import.meta.env.BASE_URL}taman-toga.jpeg`}
+                          alt="Taman TOGA SMP NEGERI 3 KOTA PONTIANAK"
+                          className="block w-auto h-auto max-w-full max-h-[360px]"
+                        />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Baris 2: Latar Belakang & Sasaran / Tujuan Pembuatan Website */}
-                  <div className="p-4 md:p-5 bg-white/90 backdrop-blur-md space-y-3.5">
+                  {/* Poin 2: Latar Belakang & Sasaran / Tujuan Pembuatan Website (Clean List) */}
+                  <div className="pt-6 space-y-4">
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#7C4700]">
+                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0] border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
                         Latar Belakang &amp; Sasaran
                       </span>
-                      <h3 className="text-base md:text-lg font-extrabold text-[#1E293B]">
+                      <h3 className="text-base md:text-lg font-extrabold text-[#1E293B] mt-1.5">
                         Tujuan Pembuatan Website
                       </h3>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div className="bg-[#FCF7F0]/95 p-4 rounded-2xl border border-[#E3CCA8]/80 space-y-1">
-                        <h4 className="font-extrabold text-xs text-[#1E293B]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                      <div className="space-y-1">
+                        <h4 className="font-extrabold text-xs md:text-sm text-[#1E293B]">
                           1. Mendukung Program Unggulan Sekolah Mitra
                         </h4>
                         <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
@@ -2176,8 +2177,8 @@ export default function App() {
                         </p>
                       </div>
 
-                      <div className="bg-[#FCF7F0]/95 p-4 rounded-2xl border border-[#E3CCA8]/80 space-y-1">
-                        <h4 className="font-extrabold text-xs text-[#1E293B]">
+                      <div className="space-y-1">
+                        <h4 className="font-extrabold text-xs md:text-sm text-[#1E293B]">
                           2. Adaptasi Teknologi QR Code dalam Edukasi
                         </h4>
                         <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
@@ -2185,8 +2186,8 @@ export default function App() {
                         </p>
                       </div>
 
-                      <div className="bg-[#FCF7F0]/95 p-4 rounded-2xl border border-[#E3CCA8]/80 space-y-1">
-                        <h4 className="font-extrabold text-xs text-[#1E293B]">
+                      <div className="space-y-1">
+                        <h4 className="font-extrabold text-xs md:text-sm text-[#1E293B]">
                           3. Media Pembelajaran Kontekstual
                         </h4>
                         <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
@@ -2194,8 +2195,8 @@ export default function App() {
                         </p>
                       </div>
 
-                      <div className="bg-[#FCF7F0]/95 p-4 rounded-2xl border border-[#E3CCA8]/80 space-y-1">
-                        <h4 className="font-extrabold text-xs text-[#1E293B]">
+                      <div className="space-y-1">
+                        <h4 className="font-extrabold text-xs md:text-sm text-[#1E293B]">
                           4. Menumbuhkan Kepedulian Lingkungan
                         </h4>
                         <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
