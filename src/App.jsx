@@ -1834,7 +1834,7 @@ export default function App() {
 
           {/* 3. HALAMAN SCAN QR CODE */}
           {activePage === 'scan' && (
-            <div className="space-y-5">
+            <div className="space-y-6">
               <div className="text-center space-y-1.5">
                 <span className="inline-block bg-white border border-[#E3CCA8] text-[#1E293B] text-[11px] font-bold px-3 py-1 rounded-full">
                   Pemindai QR SMP NEGERI 3 KOTA PONTIANAK
@@ -1843,37 +1843,38 @@ export default function App() {
                   Scan QR Code Tanaman
                 </h1>
                 <p className="text-xs text-[#4A2532]/80">
-                  Arahkan kamera HP ke kode QR pada label tanaman di sekolah.
+                  Arahkan kamera HP ke kode QR pada label tanaman di sekolah atau pilih dari daftar QR di bawah.
                 </p>
               </div>
 
-              <div className="bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 shadow-sm space-y-3.5">
-                <div className="relative aspect-square rounded-2xl bg-[#7C4700] overflow-hidden flex items-center justify-center border-2 border-[#A3620A]">
+              {/* Kotak Scanner Diperkecil & Terpusat */}
+              <div className="max-w-sm mx-auto bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 shadow-sm space-y-3">
+                <div className="relative w-52 h-52 mx-auto rounded-2xl bg-[#7C4700] overflow-hidden flex items-center justify-center border-2 border-[#A3620A] shadow-inner">
                   {cameraActive ? (
                     <>
                       <video ref={videoRef} autoPlay playsInline className="w-full h-full object-cover" />
-                      <div className="absolute inset-8 border-2 border-[#E3CCA8] rounded-2xl pointer-events-none overflow-hidden">
+                      <div className="absolute inset-5 border-2 border-[#E3CCA8] rounded-xl pointer-events-none overflow-hidden">
                         <div className="w-full h-0.5 bg-[#E3CCA8] shadow-[0_0_12px_#E3CCA8] animate-scan-line" />
                       </div>
-                      <span className="absolute bottom-3 bg-[#7C4700]/85 text-white text-[11px] font-semibold px-3 py-1 rounded-full">
-                        Arahkan kamera ke QR Code...
+                      <span className="absolute bottom-2 bg-[#7C4700]/90 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full">
+                        Memindai QR...
                       </span>
                     </>
                   ) : (
-                    <div className="text-center p-5 space-y-2.5">
-                      <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#E3CCA8] flex items-center justify-center mx-auto">
-                        <Camera className="w-7 h-7" />
+                    <div className="text-center p-3 space-y-2">
+                      <div className="w-11 h-11 rounded-xl bg-white/10 text-[#E3CCA8] flex items-center justify-center mx-auto">
+                        <Camera className="w-6 h-6" />
                       </div>
-                      <p className="text-white text-sm font-bold">Kamera Siap Memindai</p>
-                      <p className="text-[#E3CCA8] text-[11px] leading-relaxed">
-                        Tekan tombol di bawah untuk mengaktifkan kamera smartphone.
+                      <p className="text-white text-xs font-bold">Kamera Siap Memindai</p>
+                      <p className="text-[#E3CCA8] text-[10px] leading-snug">
+                        Tekan tombol di bawah untuk mengaktifkan kamera.
                       </p>
                     </div>
                   )}
                 </div>
 
                 {scanError && (
-                  <p className="text-[11px] text-slate-900 bg-amber-50 p-3 rounded-xl border border-amber-200">
+                  <p className="text-[11px] text-slate-900 bg-amber-50 p-2.5 rounded-xl border border-amber-200">
                     {scanError}
                   </p>
                 )}
@@ -1881,7 +1882,7 @@ export default function App() {
                 {!cameraActive ? (
                   <button
                     onClick={startCamera}
-                    className="w-full flex items-center justify-center gap-2 bg-[#7C4700] hover:bg-[#A3620A] text-white font-bold py-3.5 rounded-2xl text-xs transition-colors"
+                    className="w-full flex items-center justify-center gap-2 bg-[#7C4700] hover:bg-[#A3620A] text-white font-bold py-2.5 rounded-xl text-xs transition-colors"
                   >
                     <Camera className="w-4 h-4" />
                     <span>Aktifkan Kamera</span>
@@ -1889,48 +1890,98 @@ export default function App() {
                 ) : (
                   <button
                     onClick={stopCamera}
-                    className="w-full bg-red-600 text-white font-bold py-3.5 rounded-2xl text-xs"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl text-xs transition-colors"
                   >
                     Hentikan Kamera
                   </button>
                 )}
+
+                {/* Input Kode QR Manual */}
+                <div className="pt-2 border-t border-[#E3CCA8]/60 space-y-2">
+                  <div className="flex items-center gap-1.5 text-black">
+                    <Keyboard className="w-3.5 h-3.5 text-black" />
+                    <h2 className="font-extrabold text-xs">Input Kode QR Manual</h2>
+                  </div>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={manualCode}
+                      onChange={(e) => setManualCode(e.target.value)}
+                      onKeyDown={(e) => e.key === 'Enter' && handleOpenPlantByCode(manualCode)}
+                      placeholder="Contoh: SPN3-LIDAHBUAYA"
+                      className="flex-1 px-3 py-2 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] outline-none text-xs font-semibold"
+                    />
+                    <button
+                      onClick={() => handleOpenPlantByCode(manualCode)}
+                      className="bg-[#A3620A] hover:bg-[#7C4700] text-white font-bold px-3.5 py-2 rounded-xl text-xs transition-colors"
+                    >
+                      Buka
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-white rounded-3xl p-4 border border-[#E3CCA8]/70 space-y-3">
-                <div className="flex items-center gap-2 text-black">
-                  <Keyboard className="w-4 h-4 text-black" />
-                  <h2 className="font-extrabold text-sm">Input Kode QR Manual</h2>
-                </div>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    value={manualCode}
-                    onChange={(e) => setManualCode(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleOpenPlantByCode(manualCode)}
-                    placeholder="Contoh: SPN3-LIDAHBUAYA"
-                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] outline-none text-xs font-semibold"
-                  />
-                  <button
-                    onClick={() => handleOpenPlantByCode(manualCode)}
-                    className="bg-[#A3620A] text-black font-bold px-4 py-2.5 rounded-xl text-xs"
-                  >
-                    Buka
-                  </button>
+              {/* Katalog Semua QR Code Tanaman Terdata */}
+              <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[#E3CCA8]/60 pb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-[#FCF7F0] border border-[#E3CCA8] flex items-center justify-center text-[#7C4700]">
+                      <QrCode className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h2 className="font-extrabold text-sm sm:text-base text-[#1E293B]">
+                        Daftar Semua QR Code Tanaman Terdata
+                      </h2>
+                      <p className="text-[11px] text-slate-600">
+                        Total {plants.length} koleksi tanaman TOGA terdaftar • Pindai langsung atau klik buka profil
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="pt-1">
-                  <p className="text-[11px] font-bold text-black mb-2">Pilih Kode QR Terdaftar:</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {plants.map(p => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {plants.map((p, index) => (
+                    <div
+                      key={p.id}
+                      className="flex flex-col items-center text-center bg-[#FCF7F0]/70 hover:bg-[#FCF7F0] rounded-2xl p-4 border border-[#E3CCA8] transition-all shadow-sm hover:shadow-md space-y-2.5"
+                    >
+                      <div className="w-full flex items-center justify-between text-[10px] font-bold text-[#7C4700]">
+                        <span className="bg-white px-2 py-0.5 rounded-full border border-[#E3CCA8]">
+                          #{String(index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="font-mono bg-white px-2 py-0.5 rounded-full border border-[#E3CCA8]">
+                          {p.code}
+                        </span>
+                      </div>
+
+                      <div className="bg-white p-2.5 rounded-2xl border border-[#E3CCA8]/80 shadow-xs">
+                        <SmartPlantQRWidget
+                          code={p.code}
+                          plantName={p.name}
+                          size={120}
+                          showDownload={true}
+                        />
+                      </div>
+
+                      <div className="space-y-0.5 flex-1">
+                        <h3 className="font-extrabold text-xs sm:text-sm text-[#1E293B] line-clamp-1">
+                          {p.name}
+                        </h3>
+                        {p.scientificName && (
+                          <p className="text-[11px] italic text-slate-600 line-clamp-1">
+                            {p.scientificName}
+                          </p>
+                        )}
+                      </div>
+
                       <button
-                        key={p.id}
                         onClick={() => handleOpenPlantByCode(p.code)}
-                        className="text-[10px] font-semibold bg-[#FCF7F0] hover:bg-[#7C4700] text-black hover:text-black px-2.5 py-1.5 rounded-lg border border-[#E3CCA8] transition-colors"
+                        className="w-full bg-[#7C4700] hover:bg-[#A3620A] text-white font-bold py-2 px-3 rounded-xl text-[11px] transition-colors"
                       >
-                        {p.code}
+                        Buka Detail Tanaman
                       </button>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
