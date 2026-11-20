@@ -1617,7 +1617,7 @@ export default function App() {
                           Direktori Botani
                         </span>
                         <h1 className="text-xl font-extrabold text-[#1E293B]">
-                          Koleksi Tanaman
+                          Katalog TOGA
                         </h1>
                       </div>
 
@@ -1664,45 +1664,61 @@ export default function App() {
                       <p className="text-xs text-[#4A2532]/75 mt-1">Coba kata kunci atau kategori lainnya.</p>
                     </div>
                   ) : (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-5">
-                      {filteredAndSortedPlants.map(plant => (
-                        <div
-                          key={plant.id}
-                          onClick={() => setSelectedPlant(plant)}
-                          className="bg-white rounded-3xl overflow-hidden border border-[#E3CCA8]/70 hover:border-[#A3620A] shadow-sm transition-all cursor-pointer flex flex-col justify-between"
-                        >
-                          <div>
-                            <div className="relative aspect-[4/3] bg-[#FCF7F0]">
-                              <img
-                                src={plant.image}
-                                alt={plant.name}
-                                className="w-full h-full object-cover"
-                              />
-                              <span className="absolute top-2 left-2 bg-[#7C4700]/90 text-white text-[9px] font-semibold px-2 py-0.5 rounded-full">
-                                {plant.category}
-                              </span>
-                            </div>
-                            <div className="p-3">
-                              <h3 className="text-xs font-extrabold text-[#1E293B] line-clamp-2 leading-snug">
-                                {plant.name}
-                              </h3>
-                              <p className="text-[10px] italic text-[#1E293B] mt-0.5 line-clamp-1">
-                                {plant.scientificName}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="px-3 pb-3">
-                            <button
-                              type="button"
-                              className="w-full py-2 px-2 rounded-xl bg-[#FCF7F0] text-[#1E293B] font-bold text-[11px] flex items-center justify-center gap-1 border border-[#E3CCA8]"
+                    <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm">
+                      <div className="divide-y divide-[#E3CCA8]/70">
+                        {filteredAndSortedPlants.map((plant, index) => {
+                          const isEven = index % 2 === 1;
+                          return (
+                            <div
+                              key={plant.id}
+                              onClick={() => setSelectedPlant(plant)}
+                              className="py-6 first:pt-2 last:pb-2 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center cursor-pointer group"
                             >
-                              <span>Lihat Info</span>
-                              <ChevronRight className="w-3.5 h-3.5" />
-                            </button>
-                          </div>
-                        </div>
-                      ))}
+                              {/* Kolom Penjelasan Singkat Tanaman */}
+                              <div className={`lg:col-span-6 space-y-2.5 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                                <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0] border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
+                                  {plant.category}
+                                </span>
+                                <div>
+                                  <h3 className="text-base md:text-lg font-extrabold text-[#1E293B] group-hover:text-[#7C4700] transition-colors leading-snug">
+                                    {index + 1}. {plant.name}
+                                  </h3>
+                                  <p className="text-xs italic text-[#4A2532]/75 mt-0.5">
+                                    {plant.scientificName}
+                                  </p>
+                                </div>
+                                <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify line-clamp-3">
+                                  {plant.description}
+                                </p>
+                                <div className="pt-1">
+                                  <button
+                                    type="button"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setSelectedPlant(plant);
+                                    }}
+                                    className="inline-flex items-center gap-1.5 py-2 px-4 rounded-xl bg-[#FCF7F0] group-hover:bg-[#7C4700] text-[#1E293B] group-hover:text-white font-bold text-xs border border-[#E3CCA8] group-hover:border-[#7C4700] transition-all shadow-xs"
+                                  >
+                                    <span>Lihat Selengkapnya</span>
+                                    <ChevronRight className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </div>
+
+                              {/* Kolom Foto Tanaman */}
+                              <div className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#FCF7F0] border border-[#E3CCA8]/70 shadow-sm">
+                                  <img
+                                    src={plant.image}
+                                    alt={plant.name}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -1713,7 +1729,7 @@ export default function App() {
                     className="inline-flex items-center gap-1.5 bg-white text-[#1E293B] font-bold px-3.5 py-2 rounded-xl border border-[#E3CCA8] text-xs shadow-sm"
                   >
                     <ArrowLeft className="w-4 h-4" />
-                    <span>Kembali ke Koleksi</span>
+                    <span>Kembali ke Katalog TOGA</span>
                   </button>
 
                   <div className="bg-white rounded-3xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm">
