@@ -2221,7 +2221,7 @@ export default function App() {
                         name: "Anita", nim: "F1041231055",
                         prodi: "Program Studi Pendidikan Matematika",
                         role: "Pengembang Utama Website",
-                        photo: "anita.jpeg",
+                        photo: "anita.jpeg?v=2",
                         initials: "AN"
                       }
                     ].map((member, idx) => (
@@ -2315,7 +2315,7 @@ export default function App() {
                       {
                         name: "Kartika Sari", nim: "F1051231036",
                         prodi: "Program Studi Pendidikan Fisika",
-                        photo: "anggota-4.jpg",
+                        photo: "Kartika Sari.jpeg",
                         initials: "KS"
                       }
                     ].map((member, idx) => (
