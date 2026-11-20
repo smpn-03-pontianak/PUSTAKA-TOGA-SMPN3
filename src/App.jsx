@@ -2237,7 +2237,7 @@ export default function App() {
                             src={`${import.meta.env.BASE_URL}${member.photo}`}
                             alt={member.name}
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                            className={`w-full h-full object-cover absolute inset-0 transition-transform duration-300 ${/nurhayani|aisyiyah|niko|roihan|egyta/i.test(member.name) ? "scale-[1.38] object-center origin-center" : ""}`}
+                            className={`w-full h-full object-cover absolute inset-0 transition-transform duration-300 ${member.name === "Anita" ? "object-[center_15%]" : /nurhayani|aisyiyah|niko|roihan|egyta/i.test(member.name) ? "scale-[1.38] object-center origin-center" : ""}`}
                           />
                         </div>
                         <div className="space-y-1">
