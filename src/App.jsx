@@ -1285,7 +1285,7 @@ export default function App() {
                 { id: "koleksi", label: "Koleksi" },
                 { id: "scan", label: "Scan QR" },
                 { id: "aktivitas", label: "Aktivitas" },
-                { id: "tentang", label: "Tentang" }
+                { id: "tentang", label: "Profil Mahasiswa" }
               ].map((item) => (
                 <button
                   key={item.id}
@@ -2666,7 +2666,7 @@ export default function App() {
               }`}
             >
               <Info className={`w-5 h-5 ${activePage === 'tentang' ? 'text-[#1E293B]' : ''}`} />
-              <span className="text-[10px]">Tentang</span>
+              <span className="text-[10px] text-center leading-tight">Profil Mahasiswa</span>
             </button>
           </div>
         </nav>
