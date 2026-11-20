@@ -1642,7 +1642,7 @@ export default function App() {
                     </div>
 
                     <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-                      {['Semua', 'Tanaman hias', 'Tanaman obat', 'Tanaman buah', 'Tanaman pelindung', 'Tanaman lainnya'].map(cat => (
+                      {['Semua', 'Tanaman hias', 'Tanaman obat'].map(cat => (
                         <button
                           key={cat}
                           onClick={() => setSelectedCategory(cat)}
