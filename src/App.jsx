@@ -1568,11 +1568,11 @@ export default function App() {
                 </div>
               </section>
 
-              {/* Fakta Menarik */}
+              {/* Tahukah Kamu ? */}
               <section className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="inline-flex items-center gap-1 bg-[#FCF7F0] text-[#1E293B] border border-[#E3CCA8] text-[11px] font-bold px-2.5 py-1 rounded-full">
-                    <Sparkles className="w-3 h-3 text-[#1E293B]" /> Fakta Menarik
+                    <Sparkles className="w-3 h-3 text-[#1E293B]" /> Tahukah Kamu ?
                   </span>
                   <button
                     onClick={() => setFactIndex((factIndex + 1) % PLANT_FACTS.length)}
@@ -1829,7 +1829,7 @@ export default function App() {
 
                   <div className="bg-[#7C4700] text-white rounded-3xl p-5 space-y-1.5">
                     <h3 className="font-extrabold text-xs text-[#E3CCA8] flex items-center gap-1.5">
-                      <Sparkles className="w-4 h-4" /> Fakta Menarik Tanaman
+                      <Sparkles className="w-4 h-4" /> Tahukah Kamu ? Tanaman
                     </h3>
                     <div className="text-white [&_p]:text-white [&_li]:text-white [&_span]:text-white"><RichTextContent content={selectedPlant.funFact} defaultAlign="text-justify" /></div>
                   </div>
@@ -2582,7 +2582,7 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-[#1E293B]">Fakta Menarik</label>
+                  <label className="text-[11px] font-bold text-[#1E293B]">Tahukah Kamu ?</label>
                   <AdminRichEditor label="" value={plantForm.funFact} onChange={(val) => setPlantForm(prev => ({ ...prev, funFact: val }))} minHeight="72px" />
                 </div>
 
