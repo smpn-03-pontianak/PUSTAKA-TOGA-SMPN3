@@ -692,7 +692,7 @@ const NonTeachingAutoSlider = () => {
         "Penyampaian rancangan kegiatan non-mengajar Mahasiswa MSB FKIP UNTAN yang selaras dengan program Sekolah Adiwiyata dan Sekolah Digital.",
         "Penyelarasan jadwal pelaksanaan serta titik lokasi pengembangan Taman TOGA di lingkungan sekolah."
       ],
-      photos: ["aktivitas-1.jpeg", "aktivitas-1b.jpeg", "aktivitas-1c.jpeg"]
+      photos: ["aktivitas-1.jpeg", "aktivitas-1b.jpeg"]
     },
     {
       num: "2",
