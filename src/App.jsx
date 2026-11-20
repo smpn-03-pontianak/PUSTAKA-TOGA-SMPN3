@@ -2236,7 +2236,7 @@ export default function App() {
                       {
                         name: "Nabila Verbrianti", nim: "F1141231006",
                         prodi: "Program Studi Bimbingan dan Konseling",
-                        photo: "anggota-10.jpg",
+                        photo: "nabila.jpeg",
                         initials: "NV"
                       },
                       {
