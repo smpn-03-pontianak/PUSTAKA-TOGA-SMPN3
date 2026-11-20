@@ -2140,7 +2140,7 @@ export default function App() {
                         name: "Fatur Rahman", nim: "F1221231020",
                         prodi: "Program Studi Pendidikan Kewarganegaraan (PKN)",
                         role: "Ketua Kelompok & Pengembang Utama Website",
-                        photo: "anggota-1.jpg",
+                        photo: "Fatur Rahman.jpeg",
                         initials: "FR"
                       },
                       {
@@ -2224,7 +2224,7 @@ export default function App() {
                       {
                         name: "Fitri Febriani Firdaus", nim: "F1021231031",
                         prodi: "Program Studi Pendidikan Bahasa Inggris",
-                        photo: "anggota-8.jpg",
+                        photo: "Fitri Febriani Firdaus.png",
                         initials: "FF"
                       },
                       {
