@@ -255,7 +255,7 @@ const BotanicalIllustration = () => (
     <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-0.5 rounded-full">
       Karya &amp; Inovasi Mahasiswa
     </span>
-    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] leading-snug">
+    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 leading-snug">
       Hasil Produk Program MSB{" "}
       <span className="text-[#FDE68A] font-extrabold drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
         FKIP UNTAN di SMP NEGERI 3 KOTA PONTIANAK
@@ -1345,7 +1345,7 @@ export default function App() {
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-white/55 backdrop-blur-[1px] pointer-events-none"
+                  className="absolute inset-0 bg-gradient-to-r from-white/88 via-[#FCF7F0]/82 to-[#F3E4CE]/86 backdrop-blur-[1px] pointer-events-none"
                 />
                 <style>{`
   @keyframes heroSmoothIn {
@@ -1385,11 +1385,9 @@ export default function App() {
                     </div>
 
                     <div className="space-y-2.5">
-                      <div className="bg-white/85 backdrop-blur-md border border-white/90 rounded-2xl px-4 py-3 shadow-sm">
-                        <h1 className="text-xl font-extrabold text-slate-900 leading-snug tracking-tight">
-                          🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
-                        </h1>
-                      </div>
+                      <h1 className="text-xl font-extrabold text-[#1E293B] leading-snug tracking-tight">
+                        🌿 Kenali Tanamannya, Pahami Manfaatnya, Lestarikan Alamnya!
+                      </h1>
                       <div className="space-y-2 text-xs text-[#4A2532]/85 leading-relaxed text-justify">
                       <div className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl p-4 shadow-sm space-y-2.5">
                         <p className="font-bold text-slate-950 leading-relaxed">
@@ -1399,7 +1397,7 @@ export default function App() {
                           Melalui website ini, mari bersama-sama menjelajahi kekayaan tanaman obat keluarga (TOGA), mengenal berbagai jenis tanaman, memahami manfaatnya, dan menemukan fakta unik di balik setiap tumbuhan.
                         </p>
                       </div>
-                        <p className="font-bold text-slate-900 bg-white/85 backdrop-blur-md border border-white/90 rounded-2xl px-4 py-3 shadow-sm">
+                        <p className="font-semibold text-[#1E293B]">
                           Yuk, mulai petualangan mengenal tanaman! Karena semakin kita mengenal alam, semakin kita memahami betapa berharganya kehidupan. 🌱
                         </p>
                     <div className="pt-2">
