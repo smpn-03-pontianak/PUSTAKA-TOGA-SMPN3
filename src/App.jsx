@@ -1284,7 +1284,7 @@ export default function App() {
                 { id: "beranda", label: "Beranda" },
                 { id: "koleksi", label: "Katalog TOGA" },
                 { id: "scan", label: "Pindai QR" },
-                { id: "aktivitas", label: "Aktivitas" },
+                { id: "aktivitas", label: "Jelajah Seru" },
                 { id: "tentang", label: "Profil" }
               ].map((item) => (
                 <button
@@ -2656,7 +2656,7 @@ export default function App() {
               }`}
             >
               <BookOpen className={`w-5 h-5 ${activePage === 'aktivitas' ? 'text-[#1E293B]' : ''}`} />
-              <span className="text-[10px]">Aktivitas</span>
+              <span className="text-[10px]">Jelajah Seru</span>
             </button>
 
             <button
