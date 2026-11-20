@@ -2109,8 +2109,15 @@ export default function App() {
           {activePage === 'tentang' && (
             <div className="space-y-5">
               {/* 1 & 2. Kotak Tabel Utama: Latar Belakang (Profil Website & Tujuan) */}
-              <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/80 shadow-sm space-y-5">
-                <div className="border-b border-[#E3CCA8]/70 pb-3.5 flex flex-wrap items-center justify-between gap-2">
+              <div className="relative overflow-hidden rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/80 shadow-md space-y-5">
+                <img
+                  src={`${import.meta.env.BASE_URL}taman-toga.jpeg`}
+                  alt="Latar Belakang Taman TOGA SMP NEGERI 3 KOTA PONTIANAK"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+
+                <div className="relative z-10 bg-white/85 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/70 flex flex-wrap items-center justify-between gap-2 shadow-xs">
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#7C4700]">
                       Dokumentasi &amp; Dasar Pengembangan
@@ -2126,9 +2133,9 @@ export default function App() {
                 </div>
 
                 {/* Tabel Terstruktur Latar Belakang & Tujuan */}
-                <div className="rounded-2xl border border-[#E3CCA8]/80 overflow-hidden divide-y divide-[#E3CCA8]/70">
+                <div className="relative z-10 rounded-2xl border border-white/70 overflow-hidden divide-y divide-[#E3CCA8]/70 shadow-sm">
                   {/* Baris 1: Profil Website */}
-                  <div className="p-4 md:p-5 bg-[#FCF7F0]/45 space-y-3">
+                  <div className="p-4 md:p-5 bg-white/88 backdrop-blur-md space-y-3">
                     <div>
                       <h1 className="text-lg md:text-xl font-extrabold text-[#1E293B] leading-snug">
                         Tentang PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
@@ -2138,7 +2145,7 @@ export default function App() {
                       </p>
                     </div>
 
-                    <div className="space-y-2.5 text-xs text-[#4A2532]/90 leading-relaxed text-justify">
+                    <div className="space-y-2.5 text-xs text-[#4A2532]/95 leading-relaxed text-justify">
                       <p>
                         <strong>PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – Discover the Green World</strong> merupakan platform katalog digital interaktif berbasis web (<em>Progressive Web App</em>) yang mengintegrasikan koleksi fisik Tanaman Obat Keluarga (TOGA) di lingkungan <strong>SMP NEGERI 3 KOTA PONTIANAK</strong> dengan teknologi pemindaian <strong>QR Code</strong>.
                       </p>
@@ -2149,7 +2156,7 @@ export default function App() {
                   </div>
 
                   {/* Baris 2: Latar Belakang & Sasaran / Tujuan Pembuatan Website */}
-                  <div className="p-4 md:p-5 bg-white space-y-3.5">
+                  <div className="p-4 md:p-5 bg-white/90 backdrop-blur-md space-y-3.5">
                     <div>
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[#7C4700]">
                         Latar Belakang &amp; Sasaran
@@ -2160,38 +2167,38 @@ export default function App() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/70 space-y-1">
+                      <div className="bg-[#FCF7F0]/95 p-4 rounded-2xl border border-[#E3CCA8]/80 space-y-1">
                         <h4 className="font-extrabold text-xs text-[#1E293B]">
                           1. Mendukung Program Unggulan Sekolah Mitra
                         </h4>
-                        <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                        <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
                           Menguatkan pelaksanaan program <strong>Sekolah Adiwiyata, Sekolah Sehat, dan Sekolah Digital</strong> melalui digitalisasi inventaris tanaman obat yang terdata rapi di lingkungan SMP NEGERI 3 KOTA PONTIANAK.
                         </p>
                       </div>
 
-                      <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/70 space-y-1">
+                      <div className="bg-[#FCF7F0]/95 p-4 rounded-2xl border border-[#E3CCA8]/80 space-y-1">
                         <h4 className="font-extrabold text-xs text-[#1E293B]">
                           2. Adaptasi Teknologi QR Code dalam Edukasi
                         </h4>
-                        <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                        <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
                           Mengatasi keterbatasan ruang pada papan nama tanaman fisik dengan menyajikan informasi lengkap mulai dari identitas ilmiah, morfologi, khasiat, hingga panduan perawatan cukup dengan memindai label QR Code.
                         </p>
                       </div>
 
-                      <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/70 space-y-1">
+                      <div className="bg-[#FCF7F0]/95 p-4 rounded-2xl border border-[#E3CCA8]/80 space-y-1">
                         <h4 className="font-extrabold text-xs text-[#1E293B]">
                           3. Media Pembelajaran Kontekstual
                         </h4>
-                        <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                        <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
                           Menyediakan sumber belajar botani digital yang interaktif dan mudah diakses melalui smartphone siswa maupun guru dalam kegiatan intrakurikuler dan kokurikuler.
                         </p>
                       </div>
 
-                      <div className="bg-[#FCF7F0] p-4 rounded-2xl border border-[#E3CCA8]/70 space-y-1">
+                      <div className="bg-[#FCF7F0]/95 p-4 rounded-2xl border border-[#E3CCA8]/80 space-y-1">
                         <h4 className="font-extrabold text-xs text-[#1E293B]">
                           4. Menumbuhkan Kepedulian Lingkungan
                         </h4>
-                        <p className="text-xs text-[#4A2532]/85 leading-relaxed text-justify">
+                        <p className="text-xs text-[#4A2532]/90 leading-relaxed text-justify">
                           Mendorong warga sekolah untuk mengenal, merawat, dan melestarikan keanekaragaman hayati serta tanaman berkhasiat obat di lingkungan sekolah secara berkelanjutan.
                         </p>
                       </div>
