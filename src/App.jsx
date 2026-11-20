@@ -1282,10 +1282,10 @@ export default function App() {
             <nav className="hidden md:flex items-center gap-1.5">
               {[
                 { id: "beranda", label: "Beranda" },
-                { id: "koleksi", label: "Koleksi" },
-                { id: "scan", label: "Scan QR" },
+                { id: "koleksi", label: "Katalog TOGA" },
+                { id: "scan", label: "Pindai QR" },
                 { id: "aktivitas", label: "Aktivitas" },
-                { id: "tentang", label: "Profil Mahasiswa" }
+                { id: "tentang", label: "Profil" }
               ].map((item) => (
                 <button
                   key={item.id}
@@ -2635,7 +2635,7 @@ export default function App() {
               }`}
             >
               <Leaf className={`w-5 h-5 ${activePage === 'koleksi' ? 'text-[#1E293B]' : ''}`} />
-              <span className="text-[10px]">Koleksi</span>
+              <span className="text-[10px]">Katalog TOGA</span>
             </button>
 
             <div className="flex flex-col items-center justify-center -mt-6">
@@ -2646,7 +2646,7 @@ export default function App() {
               >
                 <QrCode className="w-6 h-6 text-[#E3CCA8]" />
               </button>
-              <span className="text-[10px] font-extrabold text-[#1E293B] mt-1">Scan QR</span>
+              <span className="text-[10px] font-extrabold text-[#1E293B] mt-1">Pindai QR</span>
             </div>
 
             <button
@@ -2666,7 +2666,7 @@ export default function App() {
               }`}
             >
               <Info className={`w-5 h-5 ${activePage === 'tentang' ? 'text-[#1E293B]' : ''}`} />
-              <span className="text-[10px] text-center leading-tight">Profil Mahasiswa</span>
+              <span className="text-[10px]">Profil</span>
             </button>
           </div>
         </nav>
