@@ -1488,37 +1488,155 @@ export default function App() {
               </section>
 
               {/* Statistik Koleksi */}
-              <section className="bg-[#7C4700] text-white rounded-3xl p-5 space-y-4 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#E3CCA8]">
-                      Inventaris Hijau Sekolah
-                    </span>
-                    <h2 className="text-lg font-extrabold">Koleksi Terdata</h2>
-                  </div>
+              <div className="pt-2">
+                {/* Tombol Kanan Atas mengambang di atas banner */}
+                <div className="flex justify-end mb-2.5">
                   <button
                     onClick={() => setActivePage('koleksi')}
-                    className="bg-[#A3620A] text-white text-xs font-bold px-3.5 py-2 rounded-xl"
+                    className="inline-flex items-center gap-2 bg-[#4A672C] hover:bg-[#3A5321] text-white text-xs font-bold px-4 py-2 rounded-full shadow-xs transition-all cursor-pointer"
                   >
-                    Lihat Semua
+                    <span>Lihat Semua Koleksi</span>
+                    <span aria-hidden="true">→</span>
                   </button>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-white/10 rounded-2xl p-3.5 border border-white/15">
-                    <div className="text-2xl font-extrabold text-[#E3CCA8]">{plants.length}</div>
-                    <div className="text-[11px] font-medium mt-0.5">Spesies Tanaman</div>
-                  </div>
-                  <div className="bg-white/10 rounded-2xl p-3.5 border border-white/15">
-                    <div className="text-2xl font-extrabold text-[#E3CCA8]">
-                      {new Set(plants.map(p => p.category)).size}
-                    </div>
-                    <div className="text-[11px] font-medium mt-0.5">Kategori Utama</div>
-                  </div>
-                </div>
-              </section>
+                <section className="relative overflow-hidden rounded-3xl bg-[#F4F1EA] border border-[#E3CCA8]/80 shadow-sm">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                    {/* Panel Kiri Melengkung Hijau Tua */}
+                    <div className="lg:col-span-4 relative bg-gradient-to-br from-[#4D6A2E] via-[#456128] to-[#3B5421] text-white p-6 md:p-7 lg:rounded-r-[90px] flex flex-col justify-center space-y-3 overflow-hidden">
+                      {/* Dekorasi Siluet Daun Tipis */}
+                      <svg
+                        viewBox="0 0 120 120"
+                        className="absolute -bottom-6 -left-6 w-36 h-36 text-white/10 pointer-events-none"
+                        fill="currentColor"
+                      >
+                        <path d="M60 10C30 35 20 70 40 105C65 95 95 65 85 25C78 15 68 12 60 10Z" />
+                      </svg>
 
-              
+                      <div className="relative z-10 inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#E6EED6]">
+                        <Sprout className="w-3.5 h-3.5 text-[#D8E6C3]" />
+                        <span>INVENTARIS HIJAU SEKOLAH</span>
+                      </div>
+
+                      <h2 className="relative z-10 text-2xl md:text-[26px] font-extrabold tracking-tight text-white leading-tight">
+                        Koleksi Kami
+                      </h2>
+
+                      <div className="relative z-10 w-8 h-0.5 bg-[#C5D8A4]/75 rounded-full" />
+
+                      <p className="relative z-10 text-xs text-white/90 leading-relaxed max-w-xs">
+                        Beragam tanaman obat yang dirawat dengan cinta untuk mendukung kesehatan dan kelestarian lingkungan sekolah.
+                      </p>
+                    </div>
+
+                    {/* Bagian Tengah: 2 Kartu Statistik Putih */}
+                    <div className="lg:col-span-5 p-5 md:p-6 flex items-center">
+                      <div className="grid grid-cols-2 gap-3.5 md:gap-4 w-full">
+                        {/* Kartu 1: Jenis Tanaman */}
+                        <div className="relative bg-white rounded-2xl pt-8 pb-4 px-3.5 text-center border border-[#E6DFD3] shadow-xs mt-4">
+                          <div className="w-11 h-11 rounded-full bg-gradient-to-b from-[#557334] to-[#3F5924] border-4 border-[#F4F1EA] shadow-xs flex items-center justify-center mx-auto -mt-13 mb-2">
+                            <Sprout className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="text-3xl font-extrabold text-[#2E421B] leading-none">
+                            {plants.length}
+                          </div>
+                          <div className="text-xs font-extrabold text-[#1E293B] mt-1.5">
+                            Jenis Tanaman
+                          </div>
+                          <p className="text-[10px] text-[#4A2532]/75 leading-snug mt-1">
+                            Aneka tanaman obat terdokumentasi
+                          </p>
+                        </div>
+
+                        {/* Kartu 2: Kategori Utama */}
+                        <div className="relative bg-white rounded-2xl pt-8 pb-4 px-3.5 text-center border border-[#E6DFD3] shadow-xs mt-4">
+                          <div className="w-11 h-11 rounded-full bg-gradient-to-b from-[#557334] to-[#3F5924] border-4 border-[#F4F1EA] shadow-xs flex items-center justify-center mx-auto -mt-13 mb-2">
+                            <Leaf className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="text-3xl font-extrabold text-[#2E421B] leading-none">
+                            {new Set(plants.map(p => p.category)).size}
+                          </div>
+                          <div className="text-xs font-extrabold text-[#1E293B] mt-1.5">
+                            Kategori Utama
+                          </div>
+                          <p className="text-[10px] text-[#4A2532]/75 leading-snug mt-1">
+                            Klasifikasi untuk memudahkan pencarian
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bagian Kanan: Ilustrasi Pot Tanaman & Papan Kayu "Hijau Sekolah Sehat Bersama" */}
+                    <div className="lg:col-span-3 relative flex items-end justify-center px-4 pt-3 pb-0 overflow-hidden min-h-[150px]">
+                      <svg
+                        viewBox="0 0 240 165"
+                        className="w-full max-w-[230px] h-auto block"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        {/* Dedaunan Latar */}
+                        <ellipse cx="52" cy="115" rx="34" ry="26" fill="#DCE5CE" />
+                        <ellipse cx="188" cy="112" rx="36" ry="28" fill="#DCE5CE" />
+                        <path d="M168 128C164 98 175 74 192 60C196 84 190 108 176 128H168Z" fill="#7D9B56" />
+                        <path d="M180 128C186 102 202 85 218 78C214 98 202 115 186 128H180Z" fill="#5D7D3B" />
+                        <path d="M68 125C64 96 50 78 36 68C36 88 45 108 60 125H68Z" fill="#7D9B56" />
+
+                        {/* Tiang & Papan Kayu */}
+                        <rect x="115" y="96" width="10" height="58" rx="2" fill="#8C582B" />
+                        <rect x="64" y="56" width="112" height="48" rx="8" fill="#B57B45" stroke="#8C582B" strokeWidth="2.5" />
+                        <rect x="69" y="61" width="102" height="38" rx="5" fill="#C68B53" />
+                        <text
+                          x="120"
+                          y="76"
+                          textAnchor="middle"
+                          fill="#FFFFFF"
+                          fontSize="10.5"
+                          fontWeight="800"
+                          fontFamily="sans-serif"
+                        >
+                          Hijau Sekolah
+                        </text>
+                        <text
+                          x="120"
+                          y="90"
+                          textAnchor="middle"
+                          fill="#FFF8EB"
+                          fontSize="10"
+                          fontWeight="700"
+                          fontFamily="sans-serif"
+                        >
+                          Sehat Bersama
+                        </text>
+
+                        {/* Pot Terakota Kiri */}
+                        <path d="M38 118H74L69 154H43L38 118Z" fill="#C46A3B" />
+                        <rect x="35" y="113" width="42" height="7" rx="3" fill="#D67B4B" />
+                        <path d="M56 113C50 96 38 90 32 94C38 103 46 109 56 113Z" fill="#5A7A38" />
+                        <path d="M56 113C62 94 74 88 80 92C74 102 66 108 56 113Z" fill="#6E9146" />
+                        <path d="M56 113C55 92 56 80 58 74C61 84 61 98 56 113Z" fill="#4B692C" />
+
+                        {/* Pot Kecil Tengah */}
+                        <path d="M84 128H110L106 154H88L84 128Z" fill="#B85D32" />
+                        <rect x="82" y="124" width="30" height="5" rx="2.5" fill="#CA6E42" />
+                        <circle cx="97" cy="117" r="8" fill="#6E9146" />
+                        <circle cx="91" cy="120" r="6" fill="#557534" />
+                        <circle cx="103" cy="120" r="6" fill="#7FA354" />
+
+                        {/* Pot Besar Kanan */}
+                        <path d="M164 114H204L198 154H170L164 114Z" fill="#C46A3B" />
+                        <rect x="161" y="109" width="46" height="7" rx="3" fill="#D67B4B" />
+                        <path d="M184 109C176 90 164 82 156 86C163 97 173 104 184 109Z" fill="#4F6E2F" />
+                        <path d="M184 109C192 88 205 80 212 85C205 96 195 103 184 109Z" fill="#6E9146" />
+                        <circle cx="168" cy="103" r="4" fill="#F2B84B" />
+                        <circle cx="199" cy="101" r="4" fill="#F2B84B" />
+
+                        {/* Garis Tanah */}
+                        <rect x="20" y="153" width="200" height="4" rx="2" fill="#D5CCB8" />
+                      </svg>
+                    </div>
+                  </div>
+                </section>
+              </div>
 
               {/* Tanaman Pilihan */}
               <section className="space-y-3">
