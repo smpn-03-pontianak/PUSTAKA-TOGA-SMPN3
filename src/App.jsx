@@ -2008,7 +2008,7 @@ export default function App() {
             <div className="space-y-5">
               <section className="relative overflow-hidden rounded-3xl p-5 md:p-8 shadow-2xl border border-white/30 space-y-6">
                 <img
-                  src={`${import.meta.env.BASE_URL}background aktivitas.jpeg`}
+                  src={`${import.meta.env.BASE_URL}background aktivitas.jpeg?v=2`}
                   alt="Background Aktivitas Program TOGA SMP NEGERI 3 KOTA PONTIANAK"
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
