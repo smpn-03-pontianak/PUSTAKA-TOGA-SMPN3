@@ -696,7 +696,7 @@ const NonTeachingAutoSlider = () => {
     },
     {
       num: "2",
-      stage: "Tahap 01 • Koordinasi & Perizinan",
+      stage: "Tahap 02 • Observasi Lingkungan Sekolah",
       title: "Observasi Awal Lingkungan Sekolah",
       points: [
         "Peninjauan langsung kondisi eksisting area taman sekolah bersama guru pendamping.",
@@ -707,7 +707,7 @@ const NonTeachingAutoSlider = () => {
     },
     {
       num: "3",
-      stage: "Tahap 02 • Observasi & Revitalisasi Taman",
+      stage: "Tahap 03 • Pembersihan & Pengolahan Lahan",
       title: "Pembersihan & Pengolahan Lahan Taman",
       points: [
         "Gotong royong mahasiswa MSB membersihkan gulma, rumput liar, serta sampah organik di sekitar area Taman TOGA.",
@@ -718,7 +718,7 @@ const NonTeachingAutoSlider = () => {
     },
     {
       num: "4",
-      stage: "Tahap 02 • Observasi & Revitalisasi Taman",
+      stage: "Tahap 04 • Penanaman & Penataan Koleksi",
       title: "Penanaman & Penataan Koleksi Tanaman Obat",
       points: [
         "Penanaman ragam bibit Tanaman Obat Keluarga (TOGA) pilihan berdasarkan kebutuhan cahaya dan karakter pertumbuhannya.",
@@ -729,7 +729,7 @@ const NonTeachingAutoSlider = () => {
     },
     {
       num: "5",
-      stage: "Tahap 03 • Inovasi & Digitalisasi QR Code",
+      stage: "Tahap 05 • Inventarisasi Data & Pembuatan QR Code",
       title: "Inventarisasi Data Botani & Pembuatan QR Code",
       points: [
         "Pendataan nama lokal, nama ilmiah, klasifikasi taksonomi, morfologi, manfaat kesehatan, dan cara perawatan tiap spesies.",
@@ -740,7 +740,7 @@ const NonTeachingAutoSlider = () => {
     },
     {
       num: "6",
-      stage: "Tahap 03 • Inovasi & Digitalisasi QR Code",
+      stage: "Tahap 06 • Pemasangan Papan Label QR Code",
       title: "Pemasangan Papan Label QR Code",
       points: [
         "Pencetakan papan nama tanaman tahan cuaca yang memuat nama spesies dan kode QR PUSTAKA TOGA.",
@@ -751,7 +751,7 @@ const NonTeachingAutoSlider = () => {
     },
     {
       num: "7",
-      stage: "Tahap 04 • Edukasi & Pemanfaatan Produk",
+      stage: "Tahap 07 • Sosialisasi Pemanfaatan PUSTAKA TOGA",
       title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Siswa",
       points: [
         "Pendampingan siswa dan guru memindai label QR Code secara langsung di area Taman TOGA menggunakan smartphone.",
@@ -762,7 +762,7 @@ const NonTeachingAutoSlider = () => {
     },
     {
       num: "8",
-      stage: "Tahap 04 • Penyelesaian & Penyerahan Produk",
+      stage: "Tahap 08 • Dokumentasi Akhir & Penyerahan Produk",
       title: "Dokumentasi Akhir Kegiatan Non-Mengajar MSB",
       points: [
         "Serah terima produk inovasi digital PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK beserta area taman yang telah direvitalisasi kepada pihak sekolah.",
