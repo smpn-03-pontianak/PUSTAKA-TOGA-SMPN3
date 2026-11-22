@@ -1905,15 +1905,35 @@ export default function App() {
                   </button>
 
                   <div className="bg-white rounded-3xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm">
-                    <div className="bg-[#FCF7F0] relative py-4 px-4 flex items-center justify-center border-b border-[#E3CCA8]/50">
-                      <img
-                        src={selectedPlant.image}
-                        alt={selectedPlant.name}
-                        className="w-auto h-auto max-w-full max-h-[300px] sm:max-h-[350px] object-contain rounded-2xl shadow-xs"
-                      />
-                      <span className="absolute top-3 left-3 bg-[#7C4700]/90 text-white text-xs font-bold px-3 py-1 rounded-full shadow-xs">
-                        {selectedPlant.category}
-                      </span>
+                    <div className="bg-[#FCF7F0] p-4 sm:p-6 border-b border-[#E3CCA8]/50">
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-center">
+                        {/* Kolom Kiri: Lencana Kategori & Foto Tanaman Rata Kiri */}
+                        <div className="md:col-span-8 flex flex-col items-start space-y-3">
+                          <span className="inline-block bg-[#7C4700] text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-xs">
+                            {selectedPlant.category}
+                          </span>
+                          <div className="w-full flex justify-start">
+                            <img
+                              src={selectedPlant.image}
+                              alt={selectedPlant.name}
+                              className="w-auto h-auto max-w-full max-h-[300px] sm:max-h-[340px] object-contain rounded-2xl border border-[#E3CCA8]/70 shadow-sm bg-white"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Kolom Kanan: QR Code Tanaman */}
+                        <div className="md:col-span-4 flex flex-col items-center justify-center text-center bg-white/80 rounded-2xl p-4 border border-[#E3CCA8]/70 shadow-xs space-y-2">
+                          <p className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#1E293B]">
+                            QR CODE TANAMAN
+                          </p>
+                          <SmartPlantQRWidget
+                            code={selectedPlant.code}
+                            plantName={selectedPlant.name}
+                            size={150}
+                            showDownload={true}
+                          />
+                        </div>
+                      </div>
                     </div>
 
                     <div className="p-5 space-y-3">
@@ -2004,16 +2024,6 @@ export default function App() {
                       <Sparkles className="w-4 h-4" /> Tahukah Kamu ? Tanaman
                     </h3>
                     <div className="text-white [&_p]:text-white [&_li]:text-white [&_span]:text-white"><RichTextContent content={selectedPlant.funFact} defaultAlign="text-justify" /></div>
-                  </div>
-
-                  <div className="bg-white rounded-3xl p-5 border border-[#E3CCA8]/70 flex flex-col items-center text-center space-y-2">
-                    <p className="text-xs font-extrabold text-[#1E293B]">QR Code Tanaman</p>
-                    <SmartPlantQRWidget
-                      code={selectedPlant.code}
-                      plantName={selectedPlant.name}
-                      size={130}
-                      showDownload={true}
-                    />
                   </div>
                 </div>
               )}
