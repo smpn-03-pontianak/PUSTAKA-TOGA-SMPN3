@@ -1332,7 +1332,7 @@ export default function App() {
                 </div>
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-[#E3CCA8] flex items-center justify-center p-1 shadow-sm overflow-hidden">
                   <img
-                    src={`${import.meta.env.BASE_URL}logo sekolah.png`}
+                    src={`${import.meta.env.BASE_URL}logo sekolah.png?v=2`}
                     alt="Logo SMP Negeri 3 Kota Pontianak"
                     className="w-full h-full object-contain"
                   />
