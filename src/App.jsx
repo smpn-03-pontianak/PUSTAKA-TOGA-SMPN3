@@ -1315,28 +1315,12 @@ export default function App() {
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
               className="flex items-center gap-2.5 cursor-pointer"
             >
-              <div className="flex items-center gap-1.5 flex-shrink-0">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-[#E3CCA8] flex items-center justify-center p-1 shadow-sm overflow-hidden">
-                  <img
-                    src={`${import.meta.env.BASE_URL}logo untan.png`}
-                    alt="Logo Universitas Tanjungpura"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-[#E3CCA8] flex items-center justify-center p-1 shadow-sm overflow-hidden">
-                  <img
-                    src={`${import.meta.env.BASE_URL}logo-toga.png?v=3`}
-                    alt="Logo MSB Pustaka TOGA"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-[#E3CCA8] flex items-center justify-center p-1 shadow-sm overflow-hidden">
-                  <img
-                    src={`${import.meta.env.BASE_URL}logo sekolah.png?v=2`}
-                    alt="Logo SMP Negeri 3 Kota Pontianak"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+              <div className="w-11 h-11 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center p-1 shadow-sm relative flex-shrink-0 overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}logo-toga.png?v=3`}
+                  alt="Logo Pustaka TOGA SMPN 3"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <span className="font-extrabold text-sm tracking-tight text-white block leading-tight drop-shadow-xs">
