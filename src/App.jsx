@@ -2384,59 +2384,16 @@ export default function App() {
 
               {/* 3. Tim Mahasiswa MSB FKIP UNTAN (12 Anggota) */}
               <div className="bg-white rounded-3xl p-5 md:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-5">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
-                      Tim Pengembang &amp; Pelaksana Program
-                    </span>
-                    <h2 className="text-lg font-extrabold text-[#1E293B]">
-                      Mahasiswa Magang Sekolah Berdampak (MSB) FKIP UNTAN
-                    </h2>
-                    <p className="text-xs text-[#4A2532]/80 leading-relaxed">
-                      Kelompok mahasiswa lintas program studi FKIP Universitas Tanjungpura yang bertugas di SMP NEGERI 3 KOTA PONTIANAK.
-                    </p>
-                  </div>
-
-                  {/* Bilah Kontrol Khusus Admin untuk Zoom In / Zoom Out & Simpan */}
-                  {isAdmin && (
-                    <div className="flex flex-wrap items-center gap-2 bg-[#FCF7F0] border border-[#A3620A]/40 px-3 py-2 rounded-2xl">
-                      <button
-                        type="button"
-                        onClick={() => setIsEditingMsbPhotos((v) => !v)}
-                        className={`px-3 py-1.5 rounded-xl text-[11px] font-extrabold transition-all cursor-pointer ${
-                          isEditingMsbPhotos
-                            ? "bg-[#1E293B] text-white"
-                            : "bg-[#7C4700] text-white hover:bg-[#5F3600]"
-                        }`}
-                      >
-                        {isEditingMsbPhotos ? "Selesai Edit Foto" : "Edit Zoom Foto (Admin)"}
-                      </button>
-                      {isEditingMsbPhotos && (
-                        <>
-                          <button
-                            type="button"
-                            onClick={handleSaveMsbPhotos}
-                            className="px-3 py-1.5 rounded-xl text-[11px] font-extrabold bg-[#4A672C] hover:bg-[#3A5321] text-white cursor-pointer"
-                          >
-                            Simpan
-                          </button>
-                          <button
-                            type="button"
-                            onClick={handleCopyMsbConfig}
-                            className="px-2.5 py-1.5 rounded-xl text-[11px] font-bold bg-white border border-[#E3CCA8] text-[#1E293B] hover:bg-[#FCF7F0] cursor-pointer"
-                            title="Salin konfigurasi JSON untuk dipasang permanen ke semua perangkat"
-                          >
-                            Salin Kode
-                          </button>
-                        </>
-                      )}
-                      {msbSaveNotice && (
-                        <span className="text-[11px] font-bold text-[#4A672C] px-1">
-                          ✓ {msbSaveNotice}
-                        </span>
-                      )}
-                    </div>
-                  )}
+                <div className="space-y-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E293B]">
+                    Tim Pengembang &amp; Pelaksana Program
+                  </span>
+                  <h2 className="text-lg font-extrabold text-[#1E293B]">
+                    Mahasiswa Magang Sekolah Berdampak (MSB) FKIP UNTAN
+                  </h2>
+                  <p className="text-xs text-[#4A2532]/80 leading-relaxed">
+                    Kelompok mahasiswa lintas program studi FKIP Universitas Tanjungpura yang bertugas di SMP NEGERI 3 KOTA PONTIANAK.
+                  </p>
                 </div>
 
                 {/* Sorotan: Ketua Kelompok & Pengembang Utama Website */}
@@ -2451,91 +2408,56 @@ export default function App() {
                         prodi: "Program Studi Pendidikan Kewarganegaraan (PKN)",
                         role: "Ketua Kelompok & Pengembang Utama Website",
                         photo: "Fatur Rahman.jpeg",
-                        initials: "FR"
+                        initials: "FR",
+                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1)", transformOrigin: "50% 50%" }
                       },
                       {
                         name: "Nurhayani", nim: "F1261231001",
                         prodi: "Program Studi Pendidikan IPS",
                         role: "Pengembang Utama Website",
                         photo: "nurhayani.jpeg",
-                        initials: "NH"
+                        initials: "NH",
+                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
                       },
                       {
                         name: "Anita", nim: "F1041231055",
                         prodi: "Program Studi Pendidikan Matematika",
                         role: "Pengembang Utama Website",
                         photo: "anita.jpeg?v=2",
-                        initials: "AN"
+                        initials: "AN",
+                        photoStyle: { objectPosition: "50% 15%", transform: "scale(1)", transformOrigin: "50% 15%" }
                       }
-                    ].map((member, idx) => {
-                      const cfg = msbPhotoEdits[member.name] || { scale: 1, x: 50, y: 50 };
-                      return (
-                        <div
-                          key={idx}
-                          className="bg-gradient-to-b from-[#FCF7F0] to-white rounded-2xl p-4 border-2 border-[#A3620A]/50 shadow-xs flex flex-col items-center text-center space-y-2.5"
-                        >
-                          <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#7C4700] bg-gradient-to-br from-[#7C4700] to-[#A3620A] flex items-center justify-center shadow-xs relative">
-                            <span className="text-white font-extrabold text-base tracking-wide">
-                              {member.initials}
-                            </span>
-                            <img
-                              src={`${import.meta.env.BASE_URL}${member.photo}`}
-                              alt={member.name}
-                              onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                              style={getMsbPhotoStyle(member.name)}
-                              className="w-full h-full object-cover absolute inset-0 transition-all duration-200"
-                            />
-                          </div>
-
-                          {/* Kontrol Admin Zoom In / Out & Geser Posisi */}
-                          {isAdmin && isEditingMsbPhotos && (
-                            <div className="w-full bg-[#FCF7F0] border border-[#E3CCA8] rounded-xl p-2 space-y-1.5">
-                              <div className="flex items-center justify-between gap-1">
-                                <button
-                                  type="button"
-                                  onClick={() => updateMsbPhoto(member.name, { scale: cfg.scale - 0.08 })}
-                                  className="px-2 py-0.5 rounded-lg bg-white border border-[#E3CCA8] text-xs font-extrabold text-[#1E293B] hover:bg-[#7C4700] hover:text-white cursor-pointer"
-                                  title="Zoom Out"
-                                >
-                                  −
-                                </button>
-                                <span className="text-[10px] font-mono font-bold text-[#7C4700]">
-                                  Zoom {Math.round(cfg.scale * 100)}%
-                                </span>
-                                <button
-                                  type="button"
-                                  onClick={() => updateMsbPhoto(member.name, { scale: cfg.scale + 0.08 })}
-                                  className="px-2 py-0.5 rounded-lg bg-white border border-[#E3CCA8] text-xs font-extrabold text-[#1E293B] hover:bg-[#7C4700] hover:text-white cursor-pointer"
-                                  title="Zoom In"
-                                >
-                                  +
-                                </button>
-                              </div>
-                              <div className="flex items-center justify-center gap-1 text-[10px]">
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { y: cfg.y - 6 })} className="px-1.5 py-0.5 rounded bg-white border border-[#E3CCA8] font-bold hover:bg-[#E3CCA8]/40 cursor-pointer" title="Geser Atas">↑</button>
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { y: cfg.y + 6 })} className="px-1.5 py-0.5 rounded bg-white border border-[#E3CCA8] font-bold hover:bg-[#E3CCA8]/40 cursor-pointer" title="Geser Bawah">↓</button>
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { x: cfg.x - 6 })} className="px-1.5 py-0.5 rounded bg-white border border-[#E3CCA8] font-bold hover:bg-[#E3CCA8]/40 cursor-pointer" title="Geser Kiri">←</button>
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { x: cfg.x + 6 })} className="px-1.5 py-0.5 rounded bg-white border border-[#E3CCA8] font-bold hover:bg-[#E3CCA8]/40 cursor-pointer" title="Geser Kanan">→</button>
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { scale: 1, x: 50, y: 50 })} className="px-1.5 py-0.5 rounded bg-white border border-[#E3CCA8] font-bold text-[#7C4700] hover:bg-[#E3CCA8]/40 cursor-pointer" title="Reset">Reset</button>
-                              </div>
-                            </div>
-                          )}
-
-                          <div className="space-y-1">
-                            <span className="inline-block bg-[#7C4700] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">
-                              {member.role}
-                            </span>
-                            <h3 className="font-extrabold text-sm text-[#4A2532] leading-snug">
-                              {member.name}
-                            </h3>
-                            {member.nim && <p className="text-[11px] font-mono font-bold text-[#7C4700] tracking-wide">NIM. {member.nim}</p>}
-                            <p className="text-[11px] font-medium text-[#1E293B]">
-                              {member.prodi}
-                            </p>
-                          </div>
+                    ].map((member, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-gradient-to-b from-[#FCF7F0] to-white rounded-2xl p-4 border-2 border-[#A3620A]/50 shadow-xs flex flex-col items-center text-center space-y-2.5"
+                      >
+                        <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#7C4700] bg-gradient-to-br from-[#7C4700] to-[#A3620A] flex items-center justify-center shadow-xs relative">
+                          <span className="text-white font-extrabold text-base tracking-wide">
+                            {member.initials}
+                          </span>
+                          <img
+                            src={`${import.meta.env.BASE_URL}${member.photo}`}
+                            alt={member.name}
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            style={member.photoStyle}
+                            className="w-full h-full object-cover absolute inset-0 transition-transform duration-300"
+                          />
                         </div>
-                      );
-                    })}
+                        <div className="space-y-1">
+                          <span className="inline-block bg-[#7C4700] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">
+                            {member.role}
+                          </span>
+                          <h3 className="font-extrabold text-sm text-[#4A2532] leading-snug">
+                            {member.name}
+                          </h3>
+                          {member.nim && <p className="text-[11px] font-mono font-bold text-[#7C4700] tracking-wide">NIM. {member.nim}</p>}
+                          <p className="text-[11px] font-medium text-[#1E293B]">
+                            {member.prodi}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -2550,13 +2472,15 @@ export default function App() {
                         name: "Aisyiyah Baroqah Qodariah", nim: "F1111231026",
                         prodi: "Program Studi Seni dan Pertunjukan",
                         photo: "aisyiyah baroqah qodariah.jpeg",
-                        initials: "AB"
+                        initials: "AB",
+                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1.78)", transformOrigin: "50% 50%" }
                       },
                       {
                         name: "Niko Demus Misel", nim: "F1042231018",
                         prodi: "Program Studi Pendidikan Matematika",
                         photo: "niko demus misel.jpeg",
-                        initials: "ND"
+                        initials: "ND",
+                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
                       },
                       {
                         name: "Meisya Nazirra Paraswati", nim: "F1101231042",
@@ -2568,7 +2492,8 @@ export default function App() {
                         name: "Roihan Alfarisi", nim: "F1012231007",
                         prodi: "Program Studi Pendidikan Bahasa Indonesia",
                         photo: "roihan alfarisi.jpeg",
-                        initials: "RA"
+                        initials: "RA",
+                        photoStyle: { objectPosition: "56% 50%", transform: "scale(1.7)", transformOrigin: "56% 50%" }
                       },
                       {
                         name: "Fitri Febriani Firdaus", nim: "F1021231031",
@@ -2592,7 +2517,8 @@ export default function App() {
                         name: "Egyta Ramadhani", nim: "F1071231056",
                         prodi: "Program Studi Pendidikan Biologi",
                         photo: "egyta ramadhani.jpg",
-                        initials: "ER"
+                        initials: "ER",
+                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
                       },
                       {
                         name: "Kartika Sari", nim: "F1051231036",
@@ -2600,72 +2526,34 @@ export default function App() {
                         photo: "Kartika Sari.jpeg",
                         initials: "KS"
                       }
-                    ].map((member, idx) => {
-                      const cfg = msbPhotoEdits[member.name] || { scale: 1, x: 50, y: 50 };
-                      return (
-                        <div
-                          key={idx}
-                          className="bg-[#FCF7F0]/70 rounded-2xl p-3.5 border border-[#E3CCA8]/70 flex flex-col items-center text-center space-y-2"
-                        >
-                          <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#A3620A] bg-gradient-to-br from-[#A3620A] to-[#7C4700] flex items-center justify-center shadow-xs relative">
-                            <span className="text-white font-extrabold text-lg">
-                              {member.initials}
-                            </span>
-                            <img
-                              src={`${import.meta.env.BASE_URL}${member.photo}`}
-                              alt={member.name}
-                              onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                              style={getMsbPhotoStyle(member.name)}
-                              className="w-full h-full object-cover absolute inset-0 transition-all duration-200"
-                            />
-                          </div>
-
-                          {/* Kontrol Admin Zoom In / Out & Geser Posisi */}
-                          {isAdmin && isEditingMsbPhotos && (
-                            <div className="w-full bg-white border border-[#E3CCA8] rounded-xl p-1.5 space-y-1">
-                              <div className="flex items-center justify-between gap-1">
-                                <button
-                                  type="button"
-                                  onClick={() => updateMsbPhoto(member.name, { scale: cfg.scale - 0.08 })}
-                                  className="px-2 py-0.5 rounded-lg bg-[#FCF7F0] border border-[#E3CCA8] text-xs font-extrabold text-[#1E293B] hover:bg-[#7C4700] hover:text-white cursor-pointer"
-                                  title="Zoom Out"
-                                >
-                                  −
-                                </button>
-                                <span className="text-[10px] font-mono font-bold text-[#7C4700]">
-                                  {Math.round(cfg.scale * 100)}%
-                                </span>
-                                <button
-                                  type="button"
-                                  onClick={() => updateMsbPhoto(member.name, { scale: cfg.scale + 0.08 })}
-                                  className="px-2 py-0.5 rounded-lg bg-[#FCF7F0] border border-[#E3CCA8] text-xs font-extrabold text-[#1E293B] hover:bg-[#7C4700] hover:text-white cursor-pointer"
-                                  title="Zoom In"
-                                >
-                                  +
-                                </button>
-                              </div>
-                              <div className="flex items-center justify-center gap-0.5 text-[10px]">
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { y: cfg.y - 6 })} className="px-1.5 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] font-bold hover:bg-[#E3CCA8]/40 cursor-pointer" title="Geser Atas">↑</button>
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { y: cfg.y + 6 })} className="px-1.5 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] font-bold hover:bg-[#E3CCA8]/40 cursor-pointer" title="Geser Bawah">↓</button>
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { x: cfg.x - 6 })} className="px-1.5 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] font-bold hover:bg-[#E3CCA8]/40 cursor-pointer" title="Geser Kiri">←</button>
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { x: cfg.x + 6 })} className="px-1.5 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] font-bold hover:bg-[#E3CCA8]/40 cursor-pointer" title="Geser Kanan">→</button>
-                                <button type="button" onClick={() => updateMsbPhoto(member.name, { scale: 1, x: 50, y: 50 })} className="px-1 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] font-bold text-[#7C4700] hover:bg-[#E3CCA8]/40 cursor-pointer" title="Reset">R</button>
-                              </div>
-                            </div>
-                          )}
-
-                          <div className="space-y-0.5">
-                            <h3 className="font-extrabold text-xs text-[#4A2532] leading-snug">
-                              {member.name}
-                            </h3>
-                            {member.nim && <p className="text-[11px] font-mono font-bold text-[#7C4700] tracking-wide">NIM. {member.nim}</p>}
-                            <p className="text-[10px] font-medium text-[#1E293B]/90 leading-tight">
-                              {member.prodi}
-                            </p>
-                          </div>
+                    ].map((member, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-[#FCF7F0]/70 rounded-2xl p-3.5 border border-[#E3CCA8]/70 flex flex-col items-center text-center space-y-2"
+                      >
+                        <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#A3620A] bg-gradient-to-br from-[#A3620A] to-[#7C4700] flex items-center justify-center shadow-xs relative">
+                          <span className="text-white font-extrabold text-lg">
+                            {member.initials}
+                          </span>
+                          <img
+                            src={`${import.meta.env.BASE_URL}${member.photo}`}
+                            alt={member.name}
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            style={member.photoStyle}
+                            className="w-full h-full object-cover absolute inset-0 transition-transform duration-300"
+                          />
                         </div>
-                      );
-                    })}
+                        <div className="space-y-0.5">
+                          <h3 className="font-extrabold text-xs text-[#4A2532] leading-snug">
+                            {member.name}
+                          </h3>
+                          {member.nim && <p className="text-[11px] font-mono font-bold text-[#7C4700] tracking-wide">NIM. {member.nim}</p>}
+                          <p className="text-[10px] font-medium text-[#1E293B]/90 leading-tight">
+                            {member.prodi}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
