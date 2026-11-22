@@ -752,7 +752,7 @@ const NonTeachingAutoSlider = () => {
     {
       num: "7",
       stage: "Tahap 07 • Sosialisasi Pemanfaatan PUSTAKA TOGA",
-      title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Siswa",
+      title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Guru & Siswa",
       points: [
         "Pendampingan siswa dan guru memindai label QR Code secara langsung di area Taman TOGA menggunakan smartphone.",
         "Pengenalan cara membaca informasi botani dan khasiat tanaman obat sebagai media belajar kontekstual.",
