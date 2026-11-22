@@ -555,9 +555,9 @@ const WelcomeSplash = ({ onFinish }) => {
         closing ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
     >
-      <div className="relative flex flex-col items-center max-w-md animate-[fadeInUp_0.8s_ease-out]">
+      <div className="relative flex flex-col items-center w-full max-w-[320px] bg-white/75 backdrop-blur-md border border-[#E3CCA8] rounded-3xl px-5 py-6 shadow-xl animate-[fadeInUp_0.8s_ease-out]">
         {/* Lingkaran Ikon Daun Berdenyut Lembut */}
-        <div className="w-24 h-24 rounded-3xl bg-white shadow-lg border border-[#E3CCA8] flex items-center justify-center p-2.5 mb-5 animate-bounce overflow-hidden">
+        <div className="w-14 h-14 rounded-2xl bg-white shadow-sm border border-[#E3CCA8] flex items-center justify-center p-1.5 mb-3.5 animate-bounce overflow-hidden">
           <img
             src={`${import.meta.env.BASE_URL}logo-toga.png?v=2`}
             alt="Logo Pustaka TOGA SMPN 3"
@@ -565,26 +565,26 @@ const WelcomeSplash = ({ onFinish }) => {
           />
         </div>
 
-        <span className="inline-flex items-center gap-1.5 bg-white/80 border border-[#E3CCA8] px-3.5 py-1 rounded-full text-xs font-bold text-[#1E293B] mb-3 shadow-2xs">
+        <span className="inline-flex items-center gap-1 bg-white/90 border border-[#E3CCA8] px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#1E293B] mb-2 shadow-2xs">
           🌿 Selamat Datang di
         </span>
 
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1E293B] tracking-tight leading-snug mb-2">
+        <h1 className="text-base font-extrabold text-[#1E293B] tracking-tight leading-snug mb-1.5">
           PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
         </h1>
-        <p className="text-xs sm:text-sm font-medium text-[#4A2532]/80 mb-6">
+        <p className="text-[11px] font-medium text-[#4A2532]/80 leading-relaxed mb-4">
           Edukasi Digital Tanaman Obat Keluarga • SMP NEGERI 3 KOTA PONTIANAK
         </p>
 
         {/* Bilah Progres Animasi */}
-        <div className="w-48 h-1.5 bg-white/80 rounded-full overflow-hidden border border-[#E3CCA8]/60 mb-5">
+        <div className="w-36 h-1 bg-white/90 rounded-full overflow-hidden border border-[#E3CCA8]/60 mb-3.5">
           <div className="h-full bg-gradient-to-r from-[#A3620A] to-[#7C4700] rounded-full animate-[progressFill_1.7s_ease-in-out_forwards]" />
         </div>
 
         <button
           type="button"
           onClick={handleSkip}
-          className="text-[11px] font-bold text-[#1E293B]/80 hover:text-[#1E293B] underline underline-offset-4 transition-colors"
+          className="text-[10px] font-bold text-[#1E293B]/80 hover:text-[#1E293B] underline underline-offset-4 transition-colors"
         >
           Masuk Sekarang →
         </button>
