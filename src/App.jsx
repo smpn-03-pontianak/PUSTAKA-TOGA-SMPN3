@@ -1333,7 +1333,7 @@ export default function App() {
             </div>
 
             
-            <nav className="flex flex-wrap items-center gap-1 sm:gap-1.5">
+            <nav className="hidden md:flex items-center gap-1.5">
               {[
                 { id: "beranda", label: "Beranda" },
                 { id: "koleksi", label: "Katalog TOGA" },
@@ -1912,7 +1912,7 @@ export default function App() {
                         </span>
                       </div>
 
-                      <div className="flex flex-row items-stretch gap-2.5 sm:gap-4">
+                      <div className="flex flex-col md:flex-row items-stretch gap-4">
                         {/* Kolom Kiri: Foto Tanaman Adaptif Rasio 16:9 */}
                         <div className="flex-1 aspect-video rounded-2xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm bg-white flex items-center justify-center">
                           <img
@@ -1923,7 +1923,7 @@ export default function App() {
                         </div>
 
                         {/* Kolom Kanan: QR Code Tanaman Sejajar & Rapat */}
-                        <div className="w-[135px] sm:w-56 md:w-64 flex-shrink-0 flex flex-col items-center justify-center text-center bg-white rounded-2xl p-2.5 sm:p-4 border border-[#E3CCA8]/70 shadow-xs space-y-1.5 sm:space-y-2">
+                        <div className="md:w-64 flex-shrink-0 flex flex-col items-center justify-center text-center bg-white rounded-2xl p-4 border border-[#E3CCA8]/70 shadow-xs space-y-2">
                           <p className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#1E293B]">
                             QR CODE TANAMAN
                           </p>
