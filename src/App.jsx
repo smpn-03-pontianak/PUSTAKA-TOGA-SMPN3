@@ -1425,7 +1425,7 @@ export default function App() {
     animation: heroSmoothIn 1.0s cubic-bezier(0.22, 1, 0.36, 1) 1.3s forwards;
   }
 `}</style>
-<div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+<div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
                   {/* Kolom 1 (Kiri): Slide Foto */}
                   <div className="anim-hero-col-1 lg:col-span-4 w-full">
                     <HeroPhotoSlider />
