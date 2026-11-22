@@ -555,9 +555,9 @@ const WelcomeSplash = ({ onFinish }) => {
         closing ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
     >
-      <div className="relative flex flex-col items-center w-full max-w-[320px] bg-white/75 backdrop-blur-md border border-[#E3CCA8] rounded-3xl px-5 py-6 shadow-xl animate-[fadeInUp_0.8s_ease-out]">
+      <div className="relative flex flex-col items-center w-full max-w-[720px] bg-white/85 backdrop-blur-md border-2 border-[#E3CCA8] rounded-[2.5rem] px-10 py-12 shadow-2xl animate-[fadeInUp_0.8s_ease-out]">
         {/* Lingkaran Ikon Daun Berdenyut Lembut */}
-        <div className="w-14 h-14 rounded-2xl bg-white shadow-sm border border-[#E3CCA8] flex items-center justify-center p-1.5 mb-3.5 animate-bounce overflow-hidden">
+        <div className="w-28 h-28 rounded-3xl bg-white shadow-md border-2 border-[#E3CCA8] flex items-center justify-center p-3 mb-6 animate-bounce overflow-hidden">
           <img
             src={`${import.meta.env.BASE_URL}logo-toga.png?v=2`}
             alt="Logo Pustaka TOGA SMPN 3"
@@ -565,26 +565,26 @@ const WelcomeSplash = ({ onFinish }) => {
           />
         </div>
 
-        <span className="inline-flex items-center gap-1 bg-white/90 border border-[#E3CCA8] px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#1E293B] mb-2 shadow-2xs">
+        <span className="inline-flex items-center gap-2 bg-white border border-[#E3CCA8] px-5 py-1.5 rounded-full text-lg font-bold text-[#1E293B] mb-4 shadow-xs">
           🌿 Selamat Datang di
         </span>
 
-        <h1 className="text-base font-extrabold text-[#1E293B] tracking-tight leading-snug mb-1.5">
+        <h1 className="text-4xl font-extrabold text-[#1E293B] tracking-tight leading-tight mb-3">
           PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
         </h1>
-        <p className="text-[11px] font-medium text-[#4A2532]/80 leading-relaxed mb-4">
+        <p className="text-xl font-medium text-[#4A2532]/85 leading-relaxed mb-8">
           Edukasi Digital Tanaman Obat Keluarga • SMP NEGERI 3 KOTA PONTIANAK
         </p>
 
         {/* Bilah Progres Animasi */}
-        <div className="w-36 h-1 bg-white/90 rounded-full overflow-hidden border border-[#E3CCA8]/60 mb-3.5">
+        <div className="w-80 h-2.5 bg-white rounded-full overflow-hidden border border-[#E3CCA8] mb-6">
           <div className="h-full bg-gradient-to-r from-[#A3620A] to-[#7C4700] rounded-full animate-[progressFill_1.7s_ease-in-out_forwards]" />
         </div>
 
         <button
           type="button"
           onClick={handleSkip}
-          className="text-[10px] font-bold text-[#1E293B]/80 hover:text-[#1E293B] underline underline-offset-4 transition-colors"
+          className="text-lg font-bold text-[#1E293B]/85 hover:text-[#1E293B] underline underline-offset-4 transition-colors"
         >
           Masuk Sekarang →
         </button>
