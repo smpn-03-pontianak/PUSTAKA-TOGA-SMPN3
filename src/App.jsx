@@ -1879,7 +1879,7 @@ export default function App() {
 
                               {/* Kolom Foto Tanaman */}
                               <div className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                                <div className="w-full aspect-[16/10] max-h-[290px] rounded-2xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm bg-[#FCF7F0]">
+                                <div className="w-full aspect-video rounded-2xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm bg-[#FCF7F0]">
                                   <img
                                     src={plant.image}
                                     alt={plant.name}
@@ -1913,7 +1913,8 @@ export default function App() {
                       </div>
 
                       <div className="flex flex-col md:flex-row items-stretch gap-4">
-                        <div className="flex-1 aspect-[16/10] max-h-[320px] rounded-2xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm bg-white">
+                        {/* Kolom Kiri: Foto Tanaman Adaptif Rasio 16:9 */}
+                        <div className="flex-1 aspect-video rounded-2xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm bg-white flex items-center justify-center">
                           <img
                             src={selectedPlant.image}
                             alt={selectedPlant.name}
@@ -1921,6 +1922,7 @@ export default function App() {
                           />
                         </div>
 
+                        {/* Kolom Kanan: QR Code Tanaman Sejajar & Rapat */}
                         <div className="md:w-64 flex-shrink-0 flex flex-col items-center justify-center text-center bg-white rounded-2xl p-4 border border-[#E3CCA8]/70 shadow-xs space-y-2">
                           <p className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#1E293B]">
                             QR CODE TANAMAN
