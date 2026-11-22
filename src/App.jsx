@@ -879,7 +879,6 @@ export default function App() {
       return DEFAULT_MSB_PHOTO_EDITS;
     }
   });
-  const [isEditingMsbPhotos, setIsEditingMsbPhotos] = useState(false);
   const [msbSaveNotice, setMsbSaveNotice] = useState("");
 
   const getMsbPhotoStyle = (name) => {
