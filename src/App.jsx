@@ -1905,13 +1905,13 @@ export default function App() {
                   </button>
 
                   <div className="bg-white rounded-3xl overflow-hidden border border-[#E3CCA8]/70 shadow-sm">
-                    <div className="aspect-[4/3] bg-[#FCF7F0] relative">
+                    <div className="bg-[#FCF7F0] relative py-4 px-4 flex items-center justify-center border-b border-[#E3CCA8]/50">
                       <img
                         src={selectedPlant.image}
                         alt={selectedPlant.name}
-                        className="w-full h-full object-cover"
+                        className="w-auto h-auto max-w-full max-h-[300px] sm:max-h-[350px] object-contain rounded-2xl shadow-xs"
                       />
-                      <span className="absolute top-3 left-3 bg-[#7C4700]/90 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      <span className="absolute top-3 left-3 bg-[#7C4700]/90 text-white text-xs font-bold px-3 py-1 rounded-full shadow-xs">
                         {selectedPlant.category}
                       </span>
                     </div>
