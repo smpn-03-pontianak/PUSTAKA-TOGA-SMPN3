@@ -2375,6 +2375,7 @@ export default function App() {
                       {
                         name: "Egyta Ramadhani", nim: "F1071231056",
                         prodi: "Program Studi Pendidikan Biologi",
+                        role: "Koordinator Inovasi Eco-Enzym",
                         photo: "egyta ramadhani.jpg",
                         initials: "ER",
                         photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
