@@ -970,21 +970,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!firebaseUser) return;
-    const plantsCollection = collection(db, 'artifacts', appId, 'public', 'data', 'plants');
-    const unsubPlants = onSnapshot(plantsCollection, (snapshot) => {
-      if (!snapshot.empty) {
-        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        setPlants(list);
-      } else {
-        INITIAL_PLANTS.forEach(async (item) => {
-          await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'plants', item.id), item);
-        });
-      }
-    }, (err) => console.warn('Sync plants:', err));
-
-    return () => unsubPlants();
-  }, [firebaseUser]);
+    setPlants(INITIAL_PLANTS);
+  }, []);
 
   useEffect(() => {
     if (activePage !== 'scan' && cameraActive) {
