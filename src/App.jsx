@@ -2371,7 +2371,7 @@ export default function App() {
                         name: "Roihan Alfarisi", nim: "F1012231007",
                         prodi: "Program Studi Pendidikan Bahasa Indonesia",
                         role: "Koordinator Pembangunan Toga",
-                        photo: "roihan alfarisi.jpeg",
+                        photo: "roihan alfarisi.jpeg?v=3",
                         initials: "RA",
                         photoStyle: { objectPosition: "56% 50%", transform: "scale(1.7)", transformOrigin: "56% 50%" }
                       },
