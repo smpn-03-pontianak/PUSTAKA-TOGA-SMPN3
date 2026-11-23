@@ -2368,31 +2368,34 @@ export default function App() {
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3">
                     {[
                       {
-                        name: "Aisyiyah Baroqah Qodariah", nim: "F1111231026",
-                        prodi: "Program Studi Seni dan Pertunjukan",
-                        photo: "aisyiyah baroqah qodariah.jpeg",
-                        initials: "AB",
-                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1.78)", transformOrigin: "50% 50%" }
+                        name: "Roihan Alfarisi", nim: "F1012231007",
+                        prodi: "Program Studi Pendidikan Bahasa Indonesia",
+                        role: "Koordinator Pembangunan Toga",
+                        photo: "roihan alfarisi.jpeg",
+                        initials: "RA",
+                        photoStyle: { objectPosition: "56% 50%", transform: "scale(1.7)", transformOrigin: "56% 50%" }
                       },
                       {
                         name: "Niko Demus Misel", nim: "F1042231018",
                         prodi: "Program Studi Pendidikan Matematika",
+                        role: "Koordinator Pembangunan Toga",
                         photo: "niko demus misel.jpeg",
                         initials: "ND",
                         photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
                       },
                       {
-                        name: "Meisya Nazirra Paraswati", nim: "F1101231042",
-                        prodi: "Program Studi Pendidikan Jasmani & Kesehatan",
-                        photo: "meisya nazirra paraswati.jpg",
-                        initials: "MN"
+                        name: "Nabila Verbrianti", nim: "F1141231006",
+                        prodi: "Program Studi Bimbingan dan Konseling",
+                        role: "Koordinator Flipbook",
+                        photo: "nabila.jpeg",
+                        initials: "NV"
                       },
                       {
-                        name: "Roihan Alfarisi", nim: "F1012231007",
-                        prodi: "Program Studi Pendidikan Bahasa Indonesia",
-                        photo: "roihan alfarisi.jpeg",
-                        initials: "RA",
-                        photoStyle: { objectPosition: "56% 50%", transform: "scale(1.7)", transformOrigin: "56% 50%" }
+                        name: "Egyta Ramadhani", nim: "F1071231056",
+                        prodi: "Program Studi Pendidikan Biologi",
+                        photo: "egyta ramadhani.jpg",
+                        initials: "ER",
+                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
                       },
                       {
                         name: "Fitri Febriani Firdaus", nim: "F1021231031",
@@ -2407,23 +2410,23 @@ export default function App() {
                         initials: "NA"
                       },
                       {
-                        name: "Nabila Verbrianti", nim: "F1141231006",
-                        prodi: "Program Studi Bimbingan dan Konseling",
-                        photo: "nabila.jpeg",
-                        initials: "NV"
-                      },
-                      {
-                        name: "Egyta Ramadhani", nim: "F1071231056",
-                        prodi: "Program Studi Pendidikan Biologi",
-                        photo: "egyta ramadhani.jpg",
-                        initials: "ER",
-                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
+                        name: "Meisya Nazirra Paraswati", nim: "F1101231042",
+                        prodi: "Program Studi Pendidikan Jasmani & Kesehatan",
+                        photo: "meisya nazirra paraswati.jpg",
+                        initials: "MN"
                       },
                       {
                         name: "Kartika Sari", nim: "F1051231036",
                         prodi: "Program Studi Pendidikan Fisika",
                         photo: "Kartika Sari.jpeg",
                         initials: "KS"
+                      },
+                      {
+                        name: "Aisyiyah Baroqah Qodariah", nim: "F1111231026",
+                        prodi: "Program Studi Seni dan Pertunjukan",
+                        photo: "aisyiyah baroqah qodariah.jpeg",
+                        initials: "AB",
+                        photoStyle: { objectPosition: "50% 50%", transform: "scale(1.78)", transformOrigin: "50% 50%" }
                       }
                     ].map((member, idx) => (
                       <div
@@ -2442,7 +2445,12 @@ export default function App() {
                             className="w-full h-full object-cover absolute inset-0 transition-transform duration-300"
                           />
                         </div>
-                        <div className="space-y-0.5">
+                        <div className="space-y-1">
+                          {member.role && (
+                            <span className="inline-block bg-[#7C4700] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">
+                              {member.role}
+                            </span>
+                          )}
                           <h3 className="font-extrabold text-xs text-[#4A2532] leading-snug">
                             {member.name}
                           </h3>
