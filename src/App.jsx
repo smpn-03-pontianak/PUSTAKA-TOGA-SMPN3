@@ -845,28 +845,10 @@ export default function App() {
   useEffect(() => {
     if (!firebaseUser) return;
     const plantsCollection = collection(db, 'artifacts', appId, 'public', 'data', 'plants');
-    const REMOVED_DEFAULT_NAMES = [
-      "jahe merah",
-      "jambu air madu deli",
-      "ketapang kencana",
-      "lidah buaya pontianak",
-      "lidah mertua",
-      "pucuk merah"
-    ];
-
     const unsubPlants = onSnapshot(plantsCollection, (snapshot) => {
       if (!snapshot.empty) {
-        const validList = [];
-        snapshot.docs.forEach((d) => {
-          const data = d.data();
-          const nameLower = (data.name || "").trim().toLowerCase();
-          if (REMOVED_DEFAULT_NAMES.includes(nameLower)) {
-            deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'plants', d.id)).catch(() => {});
-          } else {
-            validList.push({ id: d.id, ...data });
-          }
-        });
-        setPlants(validList);
+        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        setPlants(list);
       } else {
         setPlants([]);
       }
