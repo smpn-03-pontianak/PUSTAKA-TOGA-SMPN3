@@ -42,134 +42,7 @@ const appId = typeof __app_id !== 'undefined' ? __app_id : 'pustaka-toga-smpn3';
 // ============================================================================
 // 2. DATA AWAL TANAMAN LINGKUNGAN SMP NEGERI 3 KOTA PONTIANAK
 // ============================================================================
-const INITIAL_PLANTS = [
-  {
-    id: 'PLT-001',
-    code: 'SPN3-LIDAHBUAYA',
-    name: 'Lidah Buaya Pontianak',
-    scientificName: 'Aloe vera var. chinensis',
-    category: 'Tanaman obat',
-    image: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=900&q=80',
-    description: 'Lidah buaya merupakan tanaman sukulen dengan daun tebal berdaging yang menyimpan cadangan air serta gel bening kaya manfaat. Tanaman ini menjadi salah satu ikon flora unggulan Kota Pontianak.',
-    morphology: 'Tumbuhan herba sukulen tak berbatang jelas dengan susunan daun roset rapat berwarna hijau keabuan dan tepi bergerigi lunak.',
-    parts: {
-      daun: 'Tebal, berdaging, berbentuk tombak memanjang, ujung meruncing, bagian dalam berisi gel bening.',
-      batang: 'Sangat pendek dan tersembunyi di balik pangkal pelepah daun yang tersusun melingkar.',
-      akar: 'Akar serabut dangkal yang menyebar horizontal untuk menyerap air secara cepat.',
-      bunga: 'Tumbuh pada tangkai tegak menjulang dari tengah roset, berwarna kuning hingga jingga kemerahan.',
-      buah: 'Berbentuk kapsul kecil berisi biji-biji ringan setelah penyerbukan bunga.'
-    },
-    habitat: 'Tumbuh subur di tanah gembur berdrainase baik dengan paparan sinar matahari penuh di area apotek hidup SMP NEGERI 3 KOTA PONTIANAK.',
-    benefits: 'Menyejukkan luka bakar ringan, melembapkan kulit, bahan minuman segar khas Pontianak, serta membantu menyaring polutan udara.',
-    care: 'Siram secukupnya 2–3 kali seminggu saat media tanam mulai kering. Hindari genangan air agar akar tidak membusuk.',
-    funFact: 'Lidah buaya Pontianak terkenal memiliki ukuran pelepah yang lebih besar dibandingkan varietas dari daerah lain karena kecocokan iklim tropis khatulistiwa!'
-  },
-  {
-    id: 'PLT-002',
-    code: 'SPN3-PUCUKMERAH',
-    name: 'Pucuk Merah',
-    scientificName: 'Syzygium myrtifolium',
-    category: 'Tanaman hias',
-    image: 'https://images.unsplash.com/photo-1598880940371-c756e015faf1?auto=format&fit=crop&w=900&q=80',
-    description: 'Pucuk merah adalah tanaman perdu hias yang banyak ditanam sebagai pembatas taman sekolah karena pucuk daun mudanya berwarna merah menyala yang indah.',
-    morphology: 'Perdu berkayu tegak dengan percabangan rapat, daun tunggal berhadapan, serta gradasi warna daun dari merah, jingga, hingga hijau tua.',
-    parts: {
-      daun: 'Tunggal, berbentuk lanset lonjong, permukaan mengilap; daun muda berwarna merah cerah lalu berubah hijau saat dewasa.',
-      batang: 'Berkayu keras, bulat, bercabang banyak dari bagian bawah dengan kulit batang cokelat keabuan.',
-      akar: 'Akar tunggang kuat dengan cabang akar serabut yang kokoh mencengkeram tanah.',
-      bunga: 'Bunga majemuk kecil berwarna putih kekuningan dengan benang sari yang menonjol.',
-      buah: 'Buah buni bulat kecil berwarna ungu kehitaman saat matang.'
-    },
-    habitat: 'Tumbuh optimal di halaman depan dan sepanjang jalur pedestrian taman SMP NEGERI 3 KOTA PONTIANAK dengan sinar matahari langsung.',
-    benefits: 'Memperindah tata ruang sekolah, menyerap karbon dioksida, serta membantu menahan erosi tanah di tepi taman.',
-    care: 'Lakukan pemangkasan pucuk secara berkala setiap 1–2 bulan untuk merangsang tumbuhnya tunas merah baru yang lebat.',
-    funFact: 'Warna merah pada daun muda Pucuk Merah berasal dari pigmen antosianin yang melindungi daun muda dari paparan sinar ultraviolet berlebih!'
-  },
-  {
-    id: 'PLT-003',
-    code: 'SPN3-KETAPANG',
-    name: 'Ketapang Kencana',
-    scientificName: 'Terminalia mantaly',
-    category: 'Tanaman pelindung',
-    image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=900&q=80',
-    description: 'Ketapang kencana adalah pohon peneduh modern dengan tajuk bertingkat mendatar menyerupai payung sehingga menciptakan suasana sejuk di halaman sekolah.',
-    morphology: 'Pohon berkayu tinggi dengan percabangan simetris mendatar bertingkat dan daun berukuran kecil yang rimbun.',
-    parts: {
-      daun: 'Berukuran kecil, bulat telur sungsang, tersusun rapat di ujung ranting dengan warna hijau segar.',
-      batang: 'Tegak lurus, berkayu keras, berwarna cokelat keabuan dengan cabang tumbuh mendatar.',
-      akar: 'Akar tunggang dalam dan kuat sehingga tahan terhadap tiupan angin kencang.',
-      bunga: 'Bunga kecil tersusun dalam bulir pendek berwarna putih kehijauan.',
-      buah: 'Buah kecil berbentuk lonjong pipih dengan sedikit sayap tipis.'
-    },
-    habitat: 'Area lapangan upacara dan tepi halaman parkir SMP NEGERI 3 KOTA PONTIANAK sebagai pohon peneduh utama.',
-    benefits: 'Menurunkan suhu udara di sekitar halaman sekolah, memberikan keteduhan alami, dan menyerap debu udara.',
-    care: 'Pohon dewasa sangat mandiri; cukup bersihkan daun gugur di sekitar pangkal batang dan beri pupuk kompos 6 bulan sekali.',
-    funFact: 'Pola percabangan bertingkat pada Ketapang Kencana membentuk susunan alami yang memaksimalkan penangkapan cahaya matahari!'
-  },
-  {
-    id: 'PLT-004',
-    code: 'SPN3-JAMBUAIR',
-    name: 'Jambu Air Madu Deli',
-    scientificName: 'Syzygium aqueum',
-    category: 'Tanaman buah',
-    image: 'https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=900&q=80',
-    description: 'Jambu air merupakan pohon buah tropis yang menghasilkan buah segar berair dengan rasa manis renyah dan sangat cocok tumbuh di iklim Pontianak.',
-    morphology: 'Pohon buah berukuran sedang dengan tajuk rimbun, batang bercabang rendah, dan daun lebar berwarna hijau tua.',
-    parts: {
-      daun: 'Tunggal, berhadapan, berbentuk jorong lebar dengan tulang daun menyirip jelas.',
-      batang: 'Berkayu, agak bengkok dengan kulit batang kecokelatan yang sedikit mengelupas halus.',
-      akar: 'Akar tunggang dengan perakaran lateral yang luas untuk menyerap unsur hara.',
-      bunga: 'Muncul berkelompok pada ranting atau ketiak daun, berwarna putih kehijauan dengan banyak benang sari.',
-      buah: 'Berbentuk lonceng atau gasing, kulit mengilap berwarna hijau kemerahan, daging buah renyah dan berair.'
-    },
-    habitat: 'Kebun edukasi produktif SMP NEGERI 3 KOTA PONTIANAK dengan penyinaran matahari penuh dan tanah subur.',
-    benefits: 'Menghasilkan buah sehat kaya vitamin C dan air, serta menjadi media belajar praktik budidaya tanaman buah bagi murid.',
-    care: 'Siram teratur pada musim kemarau, berikan pupuk organik saat mulai berbunga, dan bungkus buah muda agar terhindar dari lalat buah.',
-    funFact: 'Kandungan air dalam buah jambu air mencapai lebih dari 85%, menjadikannya salah satu buah paling menyegarkan di daerah tropis!'
-  },
-  {
-    id: 'PLT-005',
-    code: 'SPN3-LIDAHMERTUA',
-    name: 'Lidah Mertua',
-    scientificName: 'Dracaena trifasciata',
-    category: 'Tanaman hias',
-    image: 'https://images.unsplash.com/photo-1572688484438-313a6e50c333?auto=format&fit=crop&w=900&q=80',
-    description: 'Lidah mertua adalah tanaman hias tangguh berdaun tegak seperti pedang dengan corak belang hijau keperakan yang sangat mudah dirawat di pot maupun taman.',
-    morphology: 'Tumbuhan herba menahun tanpa batang di atas tanah, memiliki rimpang bawah tanah dan daun kaku tegak.',
-    parts: {
-      daun: 'Tebal, kaku, tumbuh tegak vertikal dengan ujung meruncing dan motif garis melintang hijau tua-muda.',
-      batang: 'Berupa rimpang (rhizome) yang menjalar di bawah permukaan tanah.',
-      akar: 'Akar serabut berwarna putih kekuningan yang tumbuh dari rimpang.',
-      bunga: 'Tumbuh pada tangkai tegak berisi bunga-bunga kecil putih kehijauan yang harum di malam hari.',
-      buah: 'Buah buni bulat kecil berwarna jingga kemerahan.'
-    },
-    habitat: 'Teras ruang kelas, taman selasar, dan sudut hijau SMP NEGERI 3 KOTA PONTIANAK karena tahan tempat teduh maupun terang.',
-    benefits: 'Mampu menyerap berbagai polutan udara dalam ruangan dan menghasilkan oksigen bahkan pada malam hari.',
-    care: 'Sangat hemat air; cukup disiram 1–2 kali seminggu dan bersihkan debu pada permukaan daun dengan kain lembap.',
-    funFact: 'Berbeda dari kebanyakan tumbuhan, Lidah Mertua melakukan fotosintesis CAM sehingga melepaskan oksigen pada malam hari!'
-  },
-  {
-    id: 'PLT-006',
-    code: 'SPN3-JAHEMERAH',
-    name: 'Jahe Merah',
-    scientificName: 'Zingiber officinale var. rubrum',
-    category: 'Tanaman obat',
-    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=900&q=80',
-    description: 'Jahe merah adalah tanaman rimpang berkhasiat obat dengan aroma pedas hangat yang khas dan kulit rimpang berwarna kemerahan.',
-    morphology: 'Tumbuhan terna berbatang semu tegak yang tersusun dari pelepah-pelepah daun dengan rimpang bercabang di dalam tanah.',
-    parts: {
-      daun: 'Berbentuk pita memanjang, berseling, berwarna hijau dengan ujung meruncing.',
-      batang: 'Batang semu tegak setinggi 40–70 cm yang terbentuk dari susunan pelepah daun.',
-      akar: 'Akar serabut yang muncul dari bagian bawah rimpang yang gemuk dan bercabang.',
-      bunga: 'Muncul langsung dari rimpang berupa tongkol bulat telur dengan kelopak kemerahan.',
-      buah: 'Rimpang bawah tanah berkulit merah keunguan dengan rasa pedas kuat (bagian utama yang dimanfaatkan).'
-    },
-    habitat: 'Bedengan tanaman toga (tanaman obat keluarga) SMP NEGERI 3 KOTA PONTIANAK yang gembur dan kaya humus.',
-    benefits: 'Menghangatkan tubuh, membantu meredakan batuk dan masuk angin, serta meningkatkan daya tahan tubuh secara alami.',
-    care: 'Tanam pada tanah gembur yang tidak tergenang air, beri pupuk kompos secara berkala, dan panen setelah berumur 8–10 bulan.',
-    funFact: 'Rasa pedas dan hangat pada Jahe Merah berasal dari senyawa alami bernama gingerol dan shogaol yang tinggi!'
-  }
-];
+const INITIAL_PLANTS = [];
 
 const PLANT_FACTS = [
   {
@@ -972,14 +845,30 @@ export default function App() {
   useEffect(() => {
     if (!firebaseUser) return;
     const plantsCollection = collection(db, 'artifacts', appId, 'public', 'data', 'plants');
+    const REMOVED_DEFAULT_NAMES = [
+      "jahe merah",
+      "jambu air madu deli",
+      "ketapang kencana",
+      "lidah buaya pontianak",
+      "lidah mertua",
+      "pucuk merah"
+    ];
+
     const unsubPlants = onSnapshot(plantsCollection, (snapshot) => {
       if (!snapshot.empty) {
-        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        setPlants(list);
-      } else {
-        INITIAL_PLANTS.forEach(async (item) => {
-          await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'plants', item.id), item);
+        const validList = [];
+        snapshot.docs.forEach((d) => {
+          const data = d.data();
+          const nameLower = (data.name || "").trim().toLowerCase();
+          if (REMOVED_DEFAULT_NAMES.includes(nameLower)) {
+            deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'plants', d.id)).catch(() => {});
+          } else {
+            validList.push({ id: d.id, ...data });
+          }
         });
+        setPlants(validList);
+      } else {
+        setPlants([]);
       }
     }, (err) => console.warn('Sync plants:', err));
 
