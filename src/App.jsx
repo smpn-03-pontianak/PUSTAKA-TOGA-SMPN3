@@ -2383,7 +2383,7 @@ export default function App() {
                       {
                         name: "Roihan Alfarisi", nim: "F1012231007",
                         prodi: "Program Studi Pendidikan Bahasa Indonesia",
-                        role: "Koordinator Pembangunan Toga",
+                        role: "Koordinator Pembangunan Taman Toga",
                         photo: "roihan alfarisi.jpeg?v=3",
                         initials: "RA",
                         photoStyle: { objectPosition: "56% 50%", transform: "scale(1.7)", transformOrigin: "56% 50%" }
@@ -2391,7 +2391,7 @@ export default function App() {
                       {
                         name: "Niko Demus Misel", nim: "F1042231018",
                         prodi: "Program Studi Pendidikan Matematika",
-                        role: "Koordinator Pembangunan Toga",
+                        role: "Koordinator Pembangunan Taman Toga",
                         photo: "niko demus misel.jpeg",
                         initials: "ND",
                         photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
