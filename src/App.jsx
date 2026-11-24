@@ -843,14 +843,33 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    try {
+      const cached = localStorage.getItem("pustaka_toga_plants_backup");
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setPlants(prev => prev.length > 0 ? prev : parsed);
+        }
+      }
+    } catch {}
+  }, []);
+
+  useEffect(() => {
     if (!firebaseUser) return;
     const plantsCollection = collection(db, 'artifacts', appId, 'public', 'data', 'plants');
     const unsubPlants = onSnapshot(plantsCollection, (snapshot) => {
       if (!snapshot.empty) {
         const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        list.sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || a.createdAt || 0));
         setPlants(list);
+        try {
+          localStorage.setItem("pustaka_toga_plants_backup", JSON.stringify(list));
+        } catch {}
       } else {
         setPlants([]);
+        try {
+          localStorage.removeItem("pustaka_toga_plants_backup");
+        } catch {}
       }
     }, (err) => console.warn('Sync plants:', err));
 
@@ -956,7 +975,7 @@ export default function App() {
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = () => { const img = new Image(); img.onload = () => { const canvas = document.createElement("canvas"); const maxW = 800; const scale = img.width > maxW ? maxW / img.width : 1; canvas.width = img.width * scale; canvas.height = img.height * scale; canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height); const compressed = canvas.toDataURL("image/jpeg", 0.75); setPlantForm(prev => ({ ...prev, image: compressed })); showToast("Foto Siap", "Foto berhasil dikompresi dan dimuat ke pratinjau."); }; img.src = reader.result; };
+    reader.onload = () => { const img = new Image(); img.onload = () => { const canvas = document.createElement("canvas"); const maxW = 640; const scale = img.width > maxW ? maxW / img.width : 1; canvas.width = Math.round(img.width * scale); canvas.height = Math.round(img.height * scale); canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height); const compressed = canvas.toDataURL("image/jpeg", 0.68); setPlantForm(prev => ({ ...prev, image: compressed })); showToast("Foto Siap", "Foto berhasil dikompresi dan dimuat ke pratinjau."); }; img.src = reader.result; };
     reader.readAsDataURL(file);
   };
 
@@ -968,12 +987,12 @@ export default function App() {
       const img = new Image();
       img.onload = () => {
         const canvas = document.createElement("canvas");
-        const maxW = 600;
+        const maxW = 420;
         const scale = img.width > maxW ? maxW / img.width : 1;
-        canvas.width = img.width * scale;
-        canvas.height = img.height * scale;
+        canvas.width = Math.round(img.width * scale);
+        canvas.height = Math.round(img.height * scale);
         canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
-        const compressed = canvas.toDataURL("image/jpeg", 0.78);
+        const compressed = canvas.toDataURL("image/jpeg", 0.65);
         setPlantForm(prev => ({ ...prev, [partKey + "Image"]: compressed }));
         showToast("Foto Bagian Siap", "Foto bagian tanaman berhasil dimuat.");
       };
@@ -986,9 +1005,12 @@ export default function App() {
     e.preventDefault();
     if (!plantForm.name.trim() || !plantForm.code.trim()) return;
 
-    const id = editingPlantId || `PLT-${Date.now().toString().slice(-4)}`;
+    const nowTs = Date.now();
+    const id = editingPlantId || `PLT-${nowTs}`;
     const payload = {
       id,
+      createdAt: nowTs,
+      updatedAt: nowTs,
       code: plantForm.code.trim().toUpperCase(),
       name: plantForm.name.trim(),
       scientificName: plantForm.scientificName.trim() || 'Spesies belum dicantumkan',
@@ -1016,15 +1038,24 @@ export default function App() {
       funFact: plantForm.funFact
     };
 
-    setPlants(prev => editingPlantId ? prev.map(p => p.id === id ? payload : p) : [payload, ...prev]);
-    if (firebaseUser) {
-      try {
-        await setDoc(doc(db, "artifacts", appId, "public", "data", "plants", id), payload);
-      } catch (err) {
-        console.error("Gagal simpan ke Firebase:", err);
-        showToast("Gagal Simpan Cloud", err.message, "error");
-        return;
+    try {
+      let activeUser = firebaseUser || auth.currentUser;
+      if (!activeUser) {
+        const cred = await signInAnonymously(auth);
+        activeUser = cred.user;
       }
+      await setDoc(doc(db, "artifacts", appId, "public", "data", "plants", id), payload, { merge: true });
+      setPlants(prev => {
+        const next = editingPlantId ? prev.map(p => p.id === id ? payload : p) : [payload, ...prev.filter(p => p.id !== id)];
+        try {
+          localStorage.setItem("pustaka_toga_plants_backup", JSON.stringify(next));
+        } catch {}
+        return next;
+      });
+    } catch (err) {
+      console.error("Gagal simpan permanen ke Firebase:", err);
+      showToast("Gagal Simpan ke Database", "Pastikan internet aktif atau perkecil ukuran foto lalu coba simpan lagi.", "error");
+      return;
     }
 
     setEditingPlantId(null);
