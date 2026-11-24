@@ -330,7 +330,7 @@ const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
 };
 
 const HeroPhotoSlider = () => {
-  const photos = ["1.jpeg","22.jpeg","33.jpeg","hero-toga.jpeg"];
+  const photos = ["1.jpeg", "galeri-1.jpeg", "galeri-2.jpeg", "galeri-3.jpeg", "33.jpeg", "hero-toga.jpeg"];
   const [currentIdx, setCurrentIdx] = useState(0);
 
   useEffect(() => {
@@ -354,7 +354,7 @@ const HeroPhotoSlider = () => {
           }`}
         >
           <img
-            src={`${import.meta.env.BASE_URL}${photo}?v=1794565952752`}
+            src={`${import.meta.env.BASE_URL}${photo}?v=1795535232880`}
             alt={`Dokumentasi Taman Toga SMPN 3 - ${idx + 1}`}
             className="w-full h-auto max-h-[520px] object-contain mx-auto block"
           />
