@@ -1,3 +1,4 @@
+import DEFAULT_PLANTS from "./defaultPlants.json";
 import React, { useState, useEffect, useRef } from 'react';
 import { initializeApp } from 'firebase/app';
 import { 
@@ -42,7 +43,7 @@ const appId = typeof __app_id !== 'undefined' ? __app_id : 'pustaka-toga-smpn3';
 // ============================================================================
 // 2. DATA AWAL TANAMAN LINGKUNGAN SMP NEGERI 3 KOTA PONTIANAK
 // ============================================================================
-const INITIAL_PLANTS = [];
+const INITIAL_PLANTS = DEFAULT_PLANTS;
 
 const PLANT_FACTS = [
   {
@@ -858,19 +859,17 @@ export default function App() {
     if (!firebaseUser) return;
     const plantsCollection = collection(db, 'artifacts', appId, 'public', 'data', 'plants');
     const unsubPlants = onSnapshot(plantsCollection, (snapshot) => {
-      if (!snapshot.empty) {
-        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        list.sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || a.createdAt || 0));
-        setPlants(list);
-        try {
-          localStorage.setItem("pustaka_toga_plants_backup", JSON.stringify(list));
-        } catch {}
-      } else {
-        setPlants([]);
-        try {
-          localStorage.removeItem("pustaka_toga_plants_backup");
-        } catch {}
-      }
+      const remoteList = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      const remoteIds = new Set(remoteList.map(p => p.id));
+      const merged = [
+        ...remoteList,
+        ...INITIAL_PLANTS.filter(p => !remoteIds.has(p.id))
+      ];
+      merged.sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || a.createdAt || 0));
+      setPlants(merged);
+      try {
+        localStorage.setItem("pustaka_toga_plants_backup", JSON.stringify(merged));
+      } catch {}
     }, (err) => console.warn('Sync plants:', err));
 
     return () => unsubPlants();
