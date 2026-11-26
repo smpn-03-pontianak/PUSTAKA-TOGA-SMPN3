@@ -253,6 +253,43 @@ const BotanicalIllustration = ({ onOpenFlipbook }) => (
 </div>
 );
 
+// ============================================================================
+// 4B. KOMPONEN WELCOME SPLASH
+// ============================================================================
+const WelcomeSplash = ({ onEnter }) => (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#0F3D2E] via-[#164B36] to-[#0B2B20] text-white p-6">
+    <div className="max-w-md w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-7 text-center space-y-5 shadow-2xl">
+      <div className="w-20 h-20 mx-auto rounded-2xl bg-white p-2 shadow-lg flex items-center justify-center">
+        <img
+          src={`${import.meta.env.BASE_URL}logo-toga.png`}
+          alt="Logo Pustaka TOGA SMPN 3 Pontianak"
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="space-y-1.5">
+        <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-400/20 text-[#FDE68A] border border-emerald-300/30">
+          Adiwiyata Digital Library
+        </span>
+        <h1 className="text-2xl font-extrabold tracking-tight">
+          PUSTAKA TOGA
+        </h1>
+        <p className="text-xs font-semibold text-emerald-100/90">
+          SMP Negeri 3 Kota Pontianak
+        </p>
+      </div>
+      <p className="text-xs text-white/80 leading-relaxed">
+        Jelajahi koleksi tanaman obat keluarga, manfaat kesehatan, dan buku digital interaktif sekolah secara mudah.
+      </p>
+      <button
+        onClick={onEnter}
+        className="w-full py-3 px-5 rounded-2xl bg-[#7C4700] hover:bg-[#A3620A] text-white font-extrabold text-sm shadow-lg border border-[#E3CCA8]/50 transition-transform active:scale-95 cursor-pointer"
+      >
+        Masuk ke Pustaka TOGA
+      </button>
+    </div>
+  </div>
+);
+
 export default function App() {
   const [showSplash, setShowSplash] = useState(() => {
     try {
