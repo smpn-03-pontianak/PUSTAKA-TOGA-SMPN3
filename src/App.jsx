@@ -704,11 +704,24 @@ export default function App() {
   const [plants, setPlants] = useState(INITIAL_PLANTS);
 
   // Navigasi Halaman ('beranda' | 'koleksi' | 'aktivitas' | 'tentang' | 'scan' | 'admin')
-  const [activePage, setActivePage] = useState('beranda');
+  const [activePage, setActivePage] = useState(() => {
+    try {
+      const p = new URLSearchParams(window.location.search).get("page");
+      const h = window.location.hash.replace("#", "").toLowerCase();
+      if (p === "flipbook" || h === "flipbook") return "flipbook";
+    } catch {}
+    return "beranda";
+  });
   const [selectedPlant, setSelectedPlant] = useState(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    const pageParam = params.get("page");
+    if (pageParam === "flipbook" || window.location.hash.toLowerCase() === "#flipbook") {
+      setActivePage("flipbook");
+      setSelectedPlant(null);
+      return;
+    }
     const plantParam = params.get("plant");
     if (plantParam && plants.length > 0) {
       const found = plants.find(
@@ -2804,6 +2817,54 @@ export default function App() {
                 <p className="text-xs sm:text-[13px] text-[#4A2532]/85 leading-relaxed">
                   Buku digital karya tim <strong>MSB FKIP UNTAN 2026</strong> ini merangkum ragam <strong>Tanaman Obat Keluarga (TOGA)</strong> yang ada di lingkungan <strong>SMP Negeri 3 Kota Pontianak</strong>. Di dalamnya tersaji informasi mengenai pengenalan jenis dan ciri morfologi tanaman, manfaat serta khasiatnya bagi kesehatan, hingga panduan perawatan sederhana sebagai bahan literasi lingkungan hidup untuk mendukung gerakan sekolah <strong>Adiwiyata</strong>.
                 </p>
+              </div>
+
+              <div className="bg-white/95 rounded-3xl p-5 border border-[#E3CCA8]/70 shadow-sm flex flex-col sm:flex-row items-center gap-4">
+                <div className="bg-white p-2.5 rounded-2xl border-2 border-[#E3CCA8] shadow-xs shrink-0">
+                  <img
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data=https%3A%2F%2Fsmpn-03-pontianak.github.io%2FPUSTAKA-TOGA-SMPN3%2F%3Fpage%3Dflipbook"
+                    alt="QR Code Flipbook Pustaka TOGA SMPN 3 Pontianak"
+                    className="w-28 h-28 object-contain"
+                  />
+                </div>
+                <div className="flex-1 text-center sm:text-left space-y-1.5">
+                  <div className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FCF7F0] text-[#7C4700] border border-[#E3CCA8]">
+                    <QrCode className="w-3 h-3" />
+                    <span>QR Code Akses Langsung Flipbook</span>
+                  </div>
+                  <h3 className="text-sm font-extrabold text-[#1E293B]">
+                    Pindai untuk Membuka Flipbook di Website Taman TOGA
+                  </h3>
+                  <p className="text-xs text-[#4A2532]/80 leading-relaxed">
+                    Cetak dan tempelkan QR Code ini di area Taman TOGA atau papan informasi sekolah agar siswa dapat langsung membuka buku digital ini melalui website.
+                  </p>
+                  <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        try {
+                          const res = await fetch("https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=16&data=https%3A%2F%2Fsmpn-03-pontianak.github.io%2FPUSTAKA-TOGA-SMPN3%2F%3Fpage%3Dflipbook");
+                          const blob = await res.blob();
+                          const url = URL.createObjectURL(blob);
+                          const a = document.createElement("a");
+                          a.href = url;
+                          a.download = "QR-Flipbook-Pustaka-TOGA-SMPN3.png";
+                          a.click();
+                          URL.revokeObjectURL(url);
+                        } catch {
+                          window.open("https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=16&data=https%3A%2F%2Fsmpn-03-pontianak.github.io%2FPUSTAKA-TOGA-SMPN3%2F%3Fpage%3Dflipbook", "_blank");
+                        }
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#7C4700] hover:bg-[#A3620A] text-white text-xs font-bold shadow-xs transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5 text-[#E3CCA8]" />
+                      <span>Unduh PNG QR Flipbook</span>
+                    </button>
+                    <span className="text-[11px] font-mono text-[#4A2532]/70 bg-[#FCF7F0] px-2.5 py-1.5 rounded-xl border border-[#E3CCA8]/70 select-all">
+                      ?page=flipbook
+                    </span>
+                  </div>
+                </div>
               </div>
 
               <div className="bg-white/95 rounded-3xl p-2 sm:p-3 border border-[#E3CCA8]/80 shadow-md overflow-hidden">
