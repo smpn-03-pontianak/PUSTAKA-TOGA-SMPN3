@@ -1238,6 +1238,7 @@ export default function App() {
               {[
                 { id: "beranda", label: "Beranda" },
                 { id: "koleksi", label: "Katalog TOGA" },
+                { id: "flipbook", label: "Flipbook" },
                 { id: "scan", label: "Pindai QR" },
                 { id: "aktivitas", label: "Jelajah Seru" },
                 { id: "tentang", label: "Profil" }
@@ -2758,19 +2759,67 @@ export default function App() {
               </div>
             </div>
           )}
+
+          {/* ===================================================================== */}
+          {/* HALAMAN FLIPBOOK DIGITAL PUSTAKA TOGA                                 */}
+          {/* ===================================================================== */}
+          {activePage === "flipbook" && (
+            <div className="space-y-4">
+              <div className="bg-white/95 rounded-3xl p-5 border border-[#E3CCA8]/70 shadow-sm flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <div className="w-11 h-11 rounded-2xl bg-[#FCF7F0] border border-[#E3CCA8] flex items-center justify-center shrink-0">
+                    <BookOpen className="w-5 h-5 text-[#7C4700]" />
+                  </div>
+                  <div>
+                    <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FCF7F0] text-[#7C4700] border border-[#E3CCA8] mb-1">
+                      E-Book Interaktif Adiwiyata
+                    </span>
+                    <h2 className="text-base sm:text-lg font-extrabold text-[#1E293B]">
+                      Flipbook Digital Pustaka TOGA SMPN 3 Pontianak
+                    </h2>
+                    <p className="text-xs text-[#4A2532]/75 mt-0.5">
+                      Geser atau klik sudut halaman buku digital di bawah ini untuk membaca panduan tanaman obat keluarga dan inovasi sekolah.
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href="https://heyzine.com/flip-book/86343a748e.html#page/1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#7C4700] hover:bg-[#A3620A] text-white text-xs font-bold shadow-xs transition-colors shrink-0"
+                >
+                  <Eye className="w-4 h-4 text-[#E3CCA8]" />
+                  <span>Buka Layar Penuh</span>
+                </a>
+              </div>
+
+              <div className="bg-white/95 rounded-3xl p-2 sm:p-3 border border-[#E3CCA8]/80 shadow-md overflow-hidden">
+                <div className="relative w-full h-[72vh] min-h-[480px] max-h-[820px] rounded-2xl overflow-hidden bg-[#FCF7F0] border border-[#E3CCA8]/50">
+                  <iframe
+                    src="https://heyzine.com/flip-book/86343a748e.html#page/1"
+                    title="Flipbook Digital Pustaka TOGA SMP Negeri 3 Kota Pontianak"
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </main>
 
         {/* BOTTOM NAVIGATION BAR PORTRAIT */}
         <nav className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-[480px] md:max-w-6xl bg-white/95 backdrop-blur-md border-t border-[#E3CCA8]/70 px-2 py-2 shadow-[0_-4px_20px_rgba(22,75,54,0.08)]">
-          <div className="grid grid-cols-5 items-center">
+          <div className="grid grid-cols-6 items-center">
             <button
               onClick={() => { setActivePage('beranda'); setSelectedPlant(null); }}
               className={`flex flex-col items-center justify-center py-1 gap-1 rounded-xl transition-colors ${
                 activePage === 'beranda' ? 'text-[#1E293B] font-extrabold' : 'text-[#4A2532]/60 font-medium'
               }`}
             >
-              <Sprout className={`w-5 h-5 ${activePage === 'beranda' ? 'text-[#1E293B]' : ''}`} />
-              <span className="text-[10px]">Beranda</span>
+              <Sprout className={`w-4 h-4 ${activePage === 'beranda' ? 'text-[#1E293B]' : ''}`} />
+              <span className="text-[9px]">Beranda</span>
             </button>
 
             <button
@@ -2779,8 +2828,18 @@ export default function App() {
                 activePage === 'koleksi' ? 'text-[#1E293B] font-extrabold' : 'text-[#4A2532]/60 font-medium'
               }`}
             >
-              <Leaf className={`w-5 h-5 ${activePage === 'koleksi' ? 'text-[#1E293B]' : ''}`} />
-              <span className="text-[10px]">Katalog TOGA</span>
+              <Leaf className={`w-4 h-4 ${activePage === 'koleksi' ? 'text-[#1E293B]' : ''}`} />
+              <span className="text-[9px]">Katalog</span>
+            </button>
+
+            <button
+              onClick={() => { setActivePage('flipbook'); setSelectedPlant(null); }}
+              className={`flex flex-col items-center justify-center py-1 gap-1 rounded-xl transition-colors ${
+                activePage === 'flipbook' ? 'text-[#1E293B] font-extrabold' : 'text-[#4A2532]/60 font-medium'
+              }`}
+            >
+              <Layers className={`w-4 h-4 ${activePage === 'flipbook' ? 'text-[#1E293B]' : ''}`} />
+              <span className="text-[9px]">Flipbook</span>
             </button>
 
             <div className="flex flex-col items-center justify-center -mt-6">
