@@ -2794,6 +2794,18 @@ export default function App() {
                 </a>
               </div>
 
+              <div className="bg-white/95 rounded-3xl p-5 sm:p-6 border border-[#E3CCA8]/70 shadow-sm space-y-2">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#7C4700] shrink-0" />
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#1E293B]">
+                    Sekilas Tentang Buku Digital Pustaka TOGA
+                  </h3>
+                </div>
+                <p className="text-xs sm:text-[13px] text-[#4A2532]/85 leading-relaxed">
+                  Buku digital karya tim <strong>MSB FKIP UNTAN 2026</strong> ini merangkum ragam <strong>Tanaman Obat Keluarga (TOGA)</strong> yang ada di lingkungan <strong>SMP Negeri 3 Kota Pontianak</strong>. Di dalamnya tersaji informasi mengenai pengenalan jenis dan ciri morfologi tanaman, manfaat serta khasiatnya bagi kesehatan, hingga panduan perawatan sederhana sebagai bahan literasi lingkungan hidup untuk mendukung gerakan sekolah <strong>Adiwiyata</strong>.
+                </p>
+              </div>
+
               <div className="bg-white/95 rounded-3xl p-2 sm:p-3 border border-[#E3CCA8]/80 shadow-md overflow-hidden">
                 <div className="relative w-full h-[72vh] min-h-[480px] max-h-[820px] rounded-2xl overflow-hidden bg-[#FCF7F0] border border-[#E3CCA8]/50">
                   <iframe
