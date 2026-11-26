@@ -120,11 +120,11 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
 // ============================================================================
 // 4. KOMPONEN ILUSTRASI BOTANI MODERN (MODEL PORTRAIT)
 // ============================================================================
-const BotanicalIllustration = () => (
+const BotanicalIllustration = ({ onOpenFlipbook }) => (
   <div className="w-full space-y-5 pt-3 pb-2">
   <style>{"@keyframes bentoReveal {\n  0% { opacity: 0; transform: translateY(18px) scale(0.985); }\n  100% { opacity: 1; transform: translateY(0) scale(1); }\n}\n.bento-heading { opacity: 0; animation: bentoReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; }\n.bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; }\n.bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; }\n.bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }\n.bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }"}</style>
 
-  {/* Judul Terpusat Dua Warna seperti Referensi */}
+  {/* Judul Terpusat Dua Warna */}
   <div className="text-center max-w-2xl mx-auto px-2 space-y-1.5 bento-heading">
     <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-0.5 rounded-full">
       Karya &amp; Inovasi Mahasiswa
@@ -137,10 +137,10 @@ const BotanicalIllustration = () => (
     </h2>
   </div>
 
-  {/* Bento Grid 4 Produk */}
+  {/* Bento Grid 4 Produk: Taman Toga (Portrait) | Flip Book (Portrait Clickable) | Eco Enzym (Atas) + Website (Bawah) */}
   <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
-    {/* Produk 1 (Kiri Vertikal Tinggi): Taman Toga */}
-    <div className="md:col-span-5 relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[350px] shadow-xs group bento-box-1 bg-emerald-950">
+    {/* Produk 1 (Kolom Kiri Portrait): Taman Toga */}
+    <div className="md:col-span-4 relative rounded-2xl overflow-hidden min-h-[300px] sm:min-h-[380px] shadow-xs group bento-box-1 bg-emerald-950">
       <img
         src={`${import.meta.env.BASE_URL}taman-toga.jpeg`}
         alt="Taman Toga SMP NEGERI 3 KOTA PONTIANAK"
@@ -148,542 +148,100 @@ const BotanicalIllustration = () => (
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
       <div className="absolute bottom-0 inset-x-0 p-4 text-white space-y-1 z-10">
-        <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
+        <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/85 text-white">
           Produk 01
         </span>
         <h3 className="text-sm sm:text-base font-bold leading-snug text-white">
-          Taman Toga
+          Taman TOGA
         </h3>
         <p className="text-xs leading-relaxed text-white/85">
-          Penataan kebun edukasi Tanaman Obat Keluarga (TOGA) yang asri dan tertata di lingkungan SMP NEGERI 3 KOTA PONTIANAK.
+          Penataan dan revitalisasi kebun tanaman obat keluarga sebagai laboratorium hidup lingkungan sekolah.
         </p>
       </div>
     </div>
 
-    {/* Kolom Kanan (Produk 2 Atas + Produk 3 & 4 Bawah) */}
-    <div className="md:col-span-7 flex flex-col gap-3.5">
-      {/* Produk 2 (Kanan Atas Lebar): Flip Book */}
-      <div className="relative rounded-2xl overflow-hidden min-h-[165px] sm:min-h-[180px] shadow-xs group bento-box-2 bg-emerald-900">
-        <div data-placeholder="Flip-Book" className="absolute inset-0 bg-gradient-to-br from-teal-950 via-emerald-900 to-cyan-900 flex flex-col items-center justify-center p-4 text-center pb-24">
-        <div className="px-3.5 py-2 rounded-xl bg-white/10 border border-dashed border-white/35 backdrop-blur-xs max-w-[90%]">
-          <p className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-semibold mb-0.5">
-            File Foto
-          </p>
-          <p className="text-xs sm:text-sm font-mono font-bold text-white break-words">
-            Flip-Book
-          </p>
-        </div>
+    {/* Produk 2 (Kolom Tengah Portrait & Clickable): Flip Book */}
+    <a
+      href="?page=flipbook"
+      onClick={(e) => {
+        if (onOpenFlipbook) {
+          e.preventDefault();
+          onOpenFlipbook();
+        }
+      }}
+      title="Klik untuk membuka halaman Flipbook Pustaka TOGA"
+      className="md:col-span-4 relative rounded-2xl overflow-hidden min-h-[340px] sm:min-h-[380px] shadow-xs group bento-box-2 bg-emerald-950 block cursor-pointer ring-1 ring-white/20 hover:ring-2 hover:ring-[#FDE68A] transition-all"
+    >
+      <img
+        src={`${import.meta.env.BASE_URL}Flip-Book.jpeg`}
+        alt="Flip Book Pustaka TOGA SMP NEGERI 3 KOTA PONTIANAK"
+        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 pointer-events-none" />
+      <div className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#7C4700]/95 text-[#FDE68A] border border-[#E3CCA8]/70 text-[10px] font-extrabold shadow-xs group-hover:bg-[#A3620A] transition-colors">
+        <BookOpen className="w-3 h-3" />
+        <span>Buka Flipbook ↗</span>
       </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-        <div className="absolute bottom-0 inset-x-0 p-4 text-white space-y-1">
-          <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
-            Produk 02
+      <div className="absolute bottom-0 inset-x-0 p-4 text-white space-y-1 z-10">
+        <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/85 text-white">
+          Produk 02
+        </span>
+        <h3 className="text-sm sm:text-base font-bold leading-snug text-white group-hover:text-[#FDE68A] transition-colors">
+          Flip Book
+        </h3>
+        <p className="text-xs leading-relaxed text-white/85">
+          Buku digital interaktif sebagai panduan praktis mengenal jenis, klasifikasi, dan manfaat tanaman obat keluarga.
+        </p>
+      </div>
+    </a>
+
+    {/* Kolom Kanan: Produk 03 (Eco Enzym di Atas) & Produk 04 (Website-Pustaka TOGA di Bawah) */}
+    <div className="md:col-span-4 flex flex-col gap-3.5">
+      {/* Produk 3 (Atas): Eco Enzym */}
+      <div className="relative rounded-2xl overflow-hidden min-h-[180px] flex-1 shadow-xs group bento-box-3 bg-emerald-900">
+        <img
+          src={`${import.meta.env.BASE_URL}Eco-Enzym.jpeg`}
+          alt="Eco Enzym SMP NEGERI 3 KOTA PONTIANAK"
+          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5 z-10">
+          <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/85 text-white">
+            Produk 03
           </span>
-          <h3 className="text-sm sm:text-base font-bold leading-snug text-white">
-            Flip Book
+          <h3 className="text-xs sm:text-sm font-bold leading-snug text-white">
+            Eco Enzym
           </h3>
-          <p className="text-xs leading-relaxed text-white/85">
-            Buku digital interaktif sebagai panduan praktis mengenal jenis, klasifikasi, dan manfaat tanaman obat keluarga.
+          <p className="text-[11px] leading-snug text-white/85">
+            Inovasi pengolahan limbah organik menjadi cairan serbaguna ramah lingkungan.
           </p>
         </div>
       </div>
 
-      {/* Produk 3 & 4 (Kanan Bawah Berdampingan) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1">
-        {/* Produk 3: Eco Enzym */}
-        <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-3 bg-emerald-900">
-          <img
-            src={`${import.meta.env.BASE_URL}Eco-Enzym.jpeg`}
-            alt="Eco Enzym SMP NEGERI 3 KOTA PONTIANAK"
-            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
-          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5 z-10">
-            <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
-              Produk 03
-            </span>
-            <h3 className="text-xs sm:text-sm font-bold leading-snug text-white">
-              Eco Enzym
-            </h3>
-            <p className="text-[11px] leading-snug text-white/85">
-              Inovasi pengolahan limbah organik menjadi cairan serbaguna ramah lingkungan.
-            </p>
-          </div>
-        </div>
-
-        {/* Produk 4: Website-Pustaka TOGA */}
-        <div className="relative rounded-2xl overflow-hidden min-h-[155px] shadow-xs group bento-box-4 bg-emerald-900">
-          <img
-            src={`${import.meta.env.BASE_URL}${encodeURIComponent("Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak.jpeg")}`}
-            alt="Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak"
-            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
-          <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5 z-10">
-            <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/80 text-white">
-              Produk 04
-            </span>
-            <h3 className="text-xs sm:text-sm font-bold leading-snug text-white">
-              Website-Pustaka TOGA SMP NEGERI 3 KOTA PONTIANAK
-            </h3>
-            <p className="text-[11px] leading-snug text-white/85">
-              Platform edukasi digital terintegrasi label QR Code tanaman.
-            </p>
-          </div>
+      {/* Produk 4 (Bawah): Website-Pustaka TOGA */}
+      <div className="relative rounded-2xl overflow-hidden min-h-[180px] flex-1 shadow-xs group bento-box-4 bg-emerald-900">
+        <img
+          src={`${import.meta.env.BASE_URL}${encodeURIComponent("Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak.jpeg")}`}
+          alt="Website-Pustaka TOGA SMP Negeri 3 Kota Pontianak"
+          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 p-3.5 text-white space-y-0.5 z-10">
+          <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/85 text-white">
+            Produk 04
+          </span>
+          <h3 className="text-xs sm:text-sm font-bold leading-snug text-white">
+            Website-Pustaka TOGA SMP NEGERI 3 KOTA PONTIANAK
+          </h3>
+          <p className="text-[11px] leading-snug text-white/85">
+            Platform edukasi digital terintegrasi label QR Code tanaman.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </div>
 );
-
-// ============================================================================
-// 5. APLIKASI UTAMA: PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – SMP NEGERI 3 KOTA PONTIANAK (MODEL PORTRAIT)
-// ============================================================================
-
-const RichTextContent = ({ content, defaultAlign = "text-justify" }) => {
-  if (!content) return null;
-  const hasHtml = /<[a-z][\s\S]*>/i.test(content);
-
-  if (hasHtml) {
-    return (
-      <div
-        className={`rich-botanical text-xs text-slate-800 leading-relaxed ${defaultAlign}`}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
-    );
-  }
-
-  const lines = content.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-  const isNumberedList = lines.length > 1 && lines.every(l => /^\d+[.)]\s+/.test(l));
-
-  if (isNumberedList) {
-    return (
-      <ol className={`list-decimal pl-5 space-y-1.5 text-xs text-slate-800 leading-relaxed ${defaultAlign}`}>
-        {lines.map((line, i) => (
-          <li key={i} className="pl-1">
-            {line.replace(/^\d+[.)]\s+/, "")}
-          </li>
-        ))}
-      </ol>
-    );
-  }
-
-  return (
-    <div className={`space-y-1.5 text-xs text-slate-800 leading-relaxed ${defaultAlign}`}>
-      {lines.map((line, i) => (
-        <p key={i}>{line}</p>
-      ))}
-    </div>
-  );
-};
-
-const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
-  const editorRef = useRef(null);
-
-  useEffect(() => {
-    if (editorRef.current && editorRef.current.innerHTML !== (value || "")) {
-      editorRef.current.innerHTML = value || "";
-    }
-  }, [value]);
-
-  const execCmd = (cmd, val = null) => {
-    editorRef.current?.focus();
-    document.execCommand(cmd, false, val);
-    if (editorRef.current) onChange(editorRef.current.innerHTML);
-  };
-
-  return (
-    <div className="space-y-1">
-      {label && <label className="text-[11px] font-bold text-[#1E293B] block">{label}</label>}
-      <div className="rounded-xl border border-[#E3CCA8] bg-[#FCF7F0] overflow-hidden">
-        <div className="flex flex-wrap items-center gap-1 p-1.5 bg-white border-b border-[#E3CCA8]/70 text-[11px]">
-          <button type="button" onClick={() => execCmd("bold")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-extrabold text-[#1E293B] border border-[#E3CCA8]/60">B</button>
-          <button type="button" onClick={() => execCmd("italic")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] italic font-semibold text-[#1E293B] border border-[#E3CCA8]/60">I</button>
-          <button type="button" onClick={() => execCmd("underline")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] underline font-semibold text-[#1E293B] border border-[#E3CCA8]/60">U</button>
-          <button type="button" onClick={() => execCmd("insertOrderedList")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-bold text-[#1E293B] border border-[#E3CCA8]/60">1. List</button>
-          <button type="button" onClick={() => execCmd("justifyLeft")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kiri</button>
-          <button type="button" onClick={() => execCmd("justifyCenter")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Tengah</button>
-          <button type="button" onClick={() => execCmd("justifyRight")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kanan</button>
-          <button type="button" onClick={() => execCmd("justifyFull")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kanan-Kiri</button>
-          <select
-            onChange={(e) => { if (e.target.value) execCmd("fontName", e.target.value); }}
-            defaultValue=""
-            className="ml-auto px-2 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] text-[10px] font-bold text-[#1E293B] outline-none"
-          >
-            <option value="" disabled>Pilih Font</option>
-            <option value="Plus Jakarta Sans, sans-serif">Sans Modern</option>
-            <option value="Georgia, serif">Georgia</option>
-            <option value="Times New Roman, serif">Times New Roman</option>
-            <option value="Courier New, monospace">Monospace</option>
-          </select>
-        </div>
-        <div
-          ref={editorRef}
-          contentEditable
-          onInput={(e) => onChange(e.currentTarget.innerHTML)}
-          style={{ minHeight }}
-          className="rich-botanical p-3 text-xs text-[#4A2532] leading-relaxed outline-none bg-[#FCF7F0]"
-        />
-      </div>
-    </div>
-  );
-};
-
-const HeroPhotoSlider = () => {
-  const photos = ["1.jpeg", "galeri-1.jpeg", "galeri-2.jpeg", "galeri-3.jpeg", "33.jpeg", "hero-toga.jpeg"];
-  const [currentIdx, setCurrentIdx] = useState(0);
-
-  useEffect(() => {
-    if (photos.length <= 1) return;
-    const timer = setInterval(() => {
-      setCurrentIdx((prev) => (prev + 1) % photos.length);
-    }, 3500);
-    return () => clearInterval(timer);
-  }, [photos.length]);
-
-  const prevSlide = () => setCurrentIdx((prev) => (prev - 1 + photos.length) % photos.length);
-  const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % photos.length);
-
-  return (
-    <div className="relative w-full rounded-2xl overflow-hidden border border-[#E3CCA8]/80 shadow-sm bg-[#FCF7F0] group">
-      {photos.map((photo, idx) => (
-        <div
-          key={photo + idx}
-          className={`w-full transition-opacity duration-700 ${
-            idx === currentIdx ? "relative opacity-100 z-10" : "absolute inset-0 opacity-0 z-0 pointer-events-none"
-          }`}
-        >
-          <img
-            src={`${import.meta.env.BASE_URL}${photo}?v=1795535232880`}
-            alt={`Dokumentasi Taman Toga SMPN 3 - ${idx + 1}`}
-            className="w-full h-auto max-h-[520px] object-contain mx-auto block"
-          />
-        </div>
-      ))}
-
-      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/45 via-black/15 to-transparent z-20 pointer-events-none" />
-
-      <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#1E293B] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#E3CCA8]">
-        Galeri Taman Toga SMP NEGERI 3 KOTA PONTIANAK
-      </div>
-
-      {photos.length > 1 && (
-        <>
-          <button
-            type="button"
-            onClick={prevSlide}
-            aria-label="Foto sebelumnya"
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#1E293B] flex items-center justify-center shadow text-xs font-bold"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            onClick={nextSlide}
-            aria-label="Foto berikutnya"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#1E293B] flex items-center justify-center shadow text-xs font-bold"
-          >
-            ›
-          </button>
-
-          <div className="absolute bottom-3 inset-x-0 z-20 flex items-center justify-center gap-1.5">
-            {photos.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setCurrentIdx(idx)}
-                aria-label={`Pilih foto ${idx + 1}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  idx === currentIdx ? "w-5 bg-[#E3CCA8]" : "w-1.5 bg-white/75"
-                }`}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
-
-const WelcomeSplash = ({ onFinish }) => {
-  const [closing, setClosing] = useState(false);
-
-  useEffect(() => {
-    const closeTimer = setTimeout(() => setClosing(true), 1600);
-    const finishTimer = setTimeout(() => onFinish(), 2200);
-    return () => {
-      clearTimeout(closeTimer);
-      clearTimeout(finishTimer);
-    };
-  }, [onFinish]);
-
-  const handleSkip = () => {
-    setClosing(true);
-    setTimeout(() => onFinish(), 450);
-  };
-
-  return (
-    <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#FCF7F0] via-[#F3E4CE] to-[#E3CCA8]/60 px-6 text-center transition-all duration-700 ${
-        closing ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
-      }`}
-    >
-      <div className="relative flex flex-col items-center w-full max-w-[320px] bg-white/75 backdrop-blur-md border border-[#E3CCA8] rounded-3xl px-5 py-6 shadow-xl animate-[fadeInUp_0.8s_ease-out]">
-        {/* Lingkaran Ikon Daun Berdenyut Lembut */}
-        <div className="w-14 h-14 rounded-2xl bg-white shadow-sm border border-[#E3CCA8] flex items-center justify-center p-1.5 mb-3.5 animate-bounce overflow-hidden">
-          <img
-            src={`${import.meta.env.BASE_URL}logo-toga.png?v=2`}
-            alt="Logo Pustaka TOGA SMPN 3"
-            className="w-full h-full object-contain"
-          />
-        </div>
-
-        <span className="inline-flex items-center gap-1 bg-white/90 border border-[#E3CCA8] px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#1E293B] mb-2 shadow-2xs">
-          🌿 Selamat Datang di
-        </span>
-
-        <h1 className="text-base font-extrabold text-[#1E293B] tracking-tight leading-snug mb-1.5">
-          PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
-        </h1>
-        <p className="text-[11px] font-medium text-[#4A2532]/80 leading-relaxed mb-4">
-          Edukasi Digital Tanaman Obat Keluarga • SMP NEGERI 3 KOTA PONTIANAK
-        </p>
-
-        {/* Bilah Progres Animasi */}
-        <div className="w-36 h-1 bg-white/90 rounded-full overflow-hidden border border-[#E3CCA8]/60 mb-3.5">
-          <div className="h-full bg-gradient-to-r from-[#A3620A] to-[#7C4700] rounded-full animate-[progressFill_1.7s_ease-in-out_forwards]" />
-        </div>
-
-        <button
-          type="button"
-          onClick={handleSkip}
-          className="text-[10px] font-bold text-[#1E293B]/80 hover:text-[#1E293B] underline underline-offset-4 transition-colors"
-        >
-          Masuk Sekarang →
-        </button>
-      </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(18px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes progressFill {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-      `}</style>
-    </div>
-  );
-};
-
-const PointPhotoSlider = ({ photos, altTitle }) => {
-  const [idx, setIdx] = useState(0);
-  const [missingFiles, setMissingFiles] = useState({});
-
-  useEffect(() => {
-    if (!photos || photos.length <= 1) return;
-    const timer = setInterval(() => {
-      setIdx((current) => (current + 1) % photos.length);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, [photos]);
-
-  const currentSrc = photos[idx];
-  const isMissing = missingFiles[currentSrc];
-
-  return (
-    <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-[#E3CCA8] bg-gradient-to-br from-[#FCF7F0] to-[#F3E4CE] shadow-sm group">
-      {!isMissing ? (
-        <img
-          src={`${import.meta.env.BASE_URL}${currentSrc}`}
-          alt={`${altTitle} - Foto ${idx + 1}`}
-          onError={() => setMissingFiles((prev) => ({ ...prev, [currentSrc]: true }))}
-          className="w-full h-full object-cover transition-all duration-500"
-        />
-      ) : (
-        <div className="w-full h-full flex flex-col items-center justify-center p-5 text-center space-y-2">
-          <div className="w-10 h-10 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center shadow-2xs">
-            <Sprout className="w-5 h-5 text-[#1E293B]" />
-          </div>
-          <p className="text-xs font-extrabold text-[#1E293B]">
-            Slide Foto Kegiatan ({idx + 1}/{photos.length})
-          </p>
-          <p className="text-[11px] text-[#4A2532]/75">
-            Unggah file <code className="bg-white px-2 py-0.5 rounded border border-[#E3CCA8] font-bold text-[#1E293B]">{currentSrc}</code> ke folder <code>public/</code>
-          </p>
-        </div>
-      )}
-
-      <div className="absolute top-2.5 right-2.5 z-10 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
-        {idx + 1} / {photos.length}
-      </div>
-
-      {photos.length > 1 && (
-        <>
-          <button
-            type="button"
-            onClick={() => setIdx((idx - 1 + photos.length) % photos.length)}
-            aria-label="Foto sebelumnya"
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold transition-transform active:scale-95"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            onClick={() => setIdx((idx + 1) % photos.length)}
-            aria-label="Foto berikutnya"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold transition-transform active:scale-95"
-          >
-            ›
-          </button>
-          <div className="absolute bottom-2.5 inset-x-0 z-10 flex items-center justify-center gap-1.5">
-            {photos.map((_, pIdx) => (
-              <button
-                key={pIdx}
-                type="button"
-                onClick={() => setIdx(pIdx)}
-                aria-label={`Pilih foto ${pIdx + 1}`}
-                className={`h-1.5 rounded-full transition-all ${pIdx === idx ? "w-5 bg-white shadow-xs" : "w-1.5 bg-white/55 hover:bg-white/80"}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
-
-const NonTeachingAutoSlider = () => {
-  const milestones = [
-    {
-      num: "1",
-      stage: "Tahap 01 • Koordinasi & Perizinan",
-      title: "Koordinasi Awal & Pemaparan Program Kerja",
-      points: [
-        "Audiensi bersama Kepala Sekolah SMP NEGERI 3 KOTA PONTIANAK dan Guru Pendamping untuk memperoleh persetujuan resmi pelaksanaan program TOGA.",
-        "Penyampaian rancangan kegiatan non-mengajar Mahasiswa MSB FKIP UNTAN yang selaras dengan program Sekolah Adiwiyata dan Sekolah Digital.",
-        "Penyelarasan jadwal pelaksanaan serta titik lokasi pengembangan Taman TOGA di lingkungan sekolah."
-      ],
-      photos: ["aktivitas-1.jpeg", "aktivitas-1b.jpeg"]
-    },
-    {
-      num: "2",
-      stage: "Tahap 02 • Observasi Lingkungan Sekolah",
-      title: "Observasi Awal Lingkungan Sekolah",
-      points: [
-        "Peninjauan langsung kondisi eksisting area taman sekolah bersama guru pendamping.",
-        "Identifikasi jenis tanaman obat yang sudah tersedia serta pemetaan lahan potensial untuk penambahan koleksi baru.",
-        "Pencatatan kebutuhan media tanam, peralatan berkebun, dan papan informasi tanaman."
-      ],
-      photos: ["aktivitas-2.jpeg", "aktivitas-2b.jpeg", "aktivitas-2c.jpeg"]
-    },
-    {
-      num: "3",
-      stage: "Tahap 03 • Pembersihan & Pengolahan Lahan",
-      title: "Pembersihan & Pengolahan Lahan Taman",
-      points: [
-        "Gotong royong mahasiswa MSB membersihkan gulma, rumput liar, serta sampah organik di sekitar area Taman TOGA.",
-        "Penggemburan tanah dan pencampuran pupuk organik agar media tanam siap ditanami bibit baru.",
-        "Perapian batas petak taman supaya jalur pengamatan siswa tertata bersih dan nyaman."
-      ],
-      photos: ["aktivitas-3.jpeg", "aktivitas-3b.jpeg", "aktivitas-3c.jpeg"]
-    },
-    {
-      num: "4",
-      stage: "Tahap 04 • Penanaman & Penataan Koleksi",
-      title: "Penanaman & Penataan Koleksi Tanaman Obat",
-      points: [
-        "Penanaman ragam bibit Tanaman Obat Keluarga (TOGA) pilihan berdasarkan kebutuhan cahaya dan karakter pertumbuhannya.",
-        "Pengelompokan tata letak tanaman agar memudahkan proses perawatan berkala dan identifikasi spesies.",
-        "Penyiraman awal serta pemantauan kesegaran bibit pascapenanaman."
-      ],
-      photos: ["aktivitas-4.jpeg", "aktivitas-4b.jpeg", "aktivitas-4c.jpeg"]
-    },
-    {
-      num: "5",
-      stage: "Tahap 05 • Inventarisasi Data & Pembuatan QR Code",
-      title: "Inventarisasi Data Botani & Pembuatan QR Code",
-      points: [
-        "Pendataan nama lokal, nama ilmiah, klasifikasi taksonomi, morfologi, manfaat kesehatan, dan cara perawatan tiap spesies.",
-        "Integrasi seluruh basis data ilmiah ke dalam platform katalog digital PUSTAKA TOGA SMPN 3.",
-        "Pembuatan dan pengujian kode QR unik yang terhubung langsung ke halaman profil masing-masing tanaman."
-      ],
-      photos: ["aktivitas-5.jpeg", "aktivitas-5b.jpeg", "aktivitas-5c.jpeg"]
-    },
-    {
-      num: "6",
-      stage: "Tahap 06 • Pemasangan Papan Label QR Code",
-      title: "Pemasangan Papan Label QR Code",
-      points: [
-        "Pencetakan papan nama tanaman tahan cuaca yang memuat nama spesies dan kode QR PUSTAKA TOGA.",
-        "Pemasangan papan label di setiap titik tanaman pada area Taman TOGA SMP NEGERI 3 KOTA PONTIANAK.",
-        "Uji coba pemindaian langsung di lapangan menggunakan kamera ponsel untuk memastikan kecepatan akses halaman."
-      ],
-      photos: ["aktivitas-6.jpeg", "aktivitas-6b.jpeg", "aktivitas-6c.jpeg"]
-    },
-    {
-      num: "7",
-      stage: "Tahap 07 • Sosialisasi Pemanfaatan PUSTAKA TOGA",
-      title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Guru & Siswa",
-      points: [
-        "Pendampingan siswa dan guru memindai label QR Code secara langsung di area Taman TOGA menggunakan smartphone.",
-        "Pengenalan cara membaca informasi botani dan khasiat tanaman obat sebagai media belajar kontekstual.",
-        "Menumbuhkan literasi hijau serta kepedulian warga sekolah terhadap pelestarian tanaman berkhasiat."
-      ],
-      photos: ["aktivitas-7.jpeg", "aktivitas-7b.jpeg", "aktivitas-7c.jpeg"]
-    },
-    {
-      num: "8",
-      stage: "Tahap 08 • Dokumentasi Akhir & Penyerahan Produk",
-      title: "Dokumentasi Akhir Kegiatan Non-Mengajar MSB",
-      points: [
-        "Serah terima produk inovasi digital PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK beserta area taman yang telah direvitalisasi kepada pihak sekolah.",
-        "Evaluasi keberlanjutan pemeliharaan taman dan pemanfaatan katalog digital bersama guru pendamping.",
-        "Dokumentasi bersama jajaran pimpinan sekolah, guru, dan tim mahasiswa MSB FKIP UNTAN."
-      ],
-      photos: ["aktivitas-8.jpeg", "aktivitas-8b.jpeg", "aktivitas-8c.jpeg"]
-    }
-  ];
-
-  return (
-    <div className="divide-y divide-[#E3CCA8]/70">
-      {milestones.map((item, index) => {
-        const isEven = index % 2 === 1;
-        return (
-          <div
-            key={item.num}
-            className="py-6 first:pt-2 last:pb-2 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center"
-          >
-            {/* Kolom Penjelasan Poin */}
-            <div className={`lg:col-span-6 space-y-2.5 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-              <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0] border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
-                {item.stage}
-              </span>
-              <h3 className="text-base md:text-lg font-extrabold text-[#1E293B] leading-snug">
-                {item.num}. {item.title}
-              </h3>
-              <ul className="space-y-1.5 text-xs text-[#4A2532]/90 leading-relaxed">
-                {item.points.map((pt, ptIdx) => (
-                  <li key={ptIdx} className="flex items-start gap-2">
-                    <span className="text-[#7C4700] font-extrabold mt-0.5">–</span>
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Kolom Slide Foto Kegiatan */}
-            <div className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-              <PointPhotoSlider photos={item.photos} altTitle={`${item.num}. ${item.title}`} />
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(() => {
@@ -1451,7 +1009,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <BotanicalIllustration />
+                <BotanicalIllustration onOpenFlipbook={() => { setActivePage("flipbook"); setSelectedPlant(null); window.scrollTo({ top: 0, behavior: "smooth" }); }} />
 
                 
               </section>
