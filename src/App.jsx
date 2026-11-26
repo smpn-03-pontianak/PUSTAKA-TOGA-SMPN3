@@ -254,41 +254,361 @@ const BotanicalIllustration = ({ onOpenFlipbook }) => (
 );
 
 // ============================================================================
-// 4B. KOMPONEN WELCOME SPLASH
-// ============================================================================
-const WelcomeSplash = ({ onEnter }) => (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#0F3D2E] via-[#164B36] to-[#0B2B20] text-white p-6">
-    <div className="max-w-md w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-7 text-center space-y-5 shadow-2xl">
-      <div className="w-20 h-20 mx-auto rounded-2xl bg-white p-2 shadow-lg flex items-center justify-center">
-        <img
-          src={`${import.meta.env.BASE_URL}logo-toga.png`}
-          alt="Logo Pustaka TOGA SMPN 3 Pontianak"
-          className="w-full h-full object-contain"
-        />
+const HeroPhotoSlider = () => {
+  const photos = ["1.jpeg", "galeri-1.jpeg", "galeri-2.jpeg", "galeri-3.jpeg", "33.jpeg", "hero-toga.jpeg"];
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    if (photos.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % photos.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [photos.length]);
+
+  const prevSlide = () => setCurrentIdx((prev) => (prev - 1 + photos.length) % photos.length);
+  const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % photos.length);
+
+  return (
+    <div className="relative w-full rounded-2xl overflow-hidden border border-[#E3CCA8]/80 shadow-sm bg-[#FCF7F0] group">
+      {photos.map((photo, idx) => (
+        <div
+          key={photo + idx}
+          className={`w-full transition-opacity duration-700 ${
+            idx === currentIdx ? "relative opacity-100 z-10" : "absolute inset-0 opacity-0 z-0 pointer-events-none"
+          }`}
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}${photo}?v=1795535232880`}
+            alt={`Dokumentasi Taman Toga SMPN 3 - ${idx + 1}`}
+            className="w-full h-auto max-h-[520px] object-contain mx-auto block"
+          />
+        </div>
+      ))}
+
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/45 via-black/15 to-transparent z-20 pointer-events-none" />
+
+      <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-[#1E293B] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#E3CCA8]">
+        Galeri Taman Toga SMP NEGERI 3 KOTA PONTIANAK
       </div>
-      <div className="space-y-1.5">
-        <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-400/20 text-[#FDE68A] border border-emerald-300/30">
-          Adiwiyata Digital Library
-        </span>
-        <h1 className="text-2xl font-extrabold tracking-tight">
-          PUSTAKA TOGA
-        </h1>
-        <p className="text-xs font-semibold text-emerald-100/90">
-          SMP Negeri 3 Kota Pontianak
-        </p>
-      </div>
-      <p className="text-xs text-white/80 leading-relaxed">
-        Jelajahi koleksi tanaman obat keluarga, manfaat kesehatan, dan buku digital interaktif sekolah secara mudah.
-      </p>
-      <button
-        onClick={onEnter}
-        className="w-full py-3 px-5 rounded-2xl bg-[#7C4700] hover:bg-[#A3620A] text-white font-extrabold text-sm shadow-lg border border-[#E3CCA8]/50 transition-transform active:scale-95 cursor-pointer"
-      >
-        Masuk ke Pustaka TOGA
-      </button>
+
+      {photos.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={prevSlide}
+            aria-label="Foto sebelumnya"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#1E293B] flex items-center justify-center shadow text-xs font-bold"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={nextSlide}
+            aria-label="Foto berikutnya"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-[#1E293B] flex items-center justify-center shadow text-xs font-bold"
+          >
+            ›
+          </button>
+
+          <div className="absolute bottom-3 inset-x-0 z-20 flex items-center justify-center gap-1.5">
+            {photos.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setCurrentIdx(idx)}
+                aria-label={`Pilih foto ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  idx === currentIdx ? "w-5 bg-[#E3CCA8]" : "w-1.5 bg-white/75"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
-  </div>
-);
+  );
+};
+
+const WelcomeSplash = ({ onFinish }) => {
+  const [closing, setClosing] = useState(false);
+
+  useEffect(() => {
+    const closeTimer = setTimeout(() => setClosing(true), 1600);
+    const finishTimer = setTimeout(() => onFinish(), 2200);
+    return () => {
+      clearTimeout(closeTimer);
+      clearTimeout(finishTimer);
+    };
+  }, [onFinish]);
+
+  const handleSkip = () => {
+    setClosing(true);
+    setTimeout(() => onFinish(), 450);
+  };
+
+  return (
+    <div
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#FCF7F0] via-[#F3E4CE] to-[#E3CCA8]/60 px-6 text-center transition-all duration-700 ${
+        closing ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
+      }`}
+    >
+      <div className="relative flex flex-col items-center w-full max-w-[320px] bg-white/75 backdrop-blur-md border border-[#E3CCA8] rounded-3xl px-5 py-6 shadow-xl animate-[fadeInUp_0.8s_ease-out]">
+        {/* Lingkaran Ikon Daun Berdenyut Lembut */}
+        <div className="w-14 h-14 rounded-2xl bg-white shadow-sm border border-[#E3CCA8] flex items-center justify-center p-1.5 mb-3.5 animate-bounce overflow-hidden">
+          <img
+            src={`${import.meta.env.BASE_URL}logo-toga.png?v=2`}
+            alt="Logo Pustaka TOGA SMPN 3"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        <span className="inline-flex items-center gap-1 bg-white/90 border border-[#E3CCA8] px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#1E293B] mb-2 shadow-2xs">
+          🌿 Selamat Datang di
+        </span>
+
+        <h1 className="text-base font-extrabold text-[#1E293B] tracking-tight leading-snug mb-1.5">
+          PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK
+        </h1>
+        <p className="text-[11px] font-medium text-[#4A2532]/80 leading-relaxed mb-4">
+          Edukasi Digital Tanaman Obat Keluarga • SMP NEGERI 3 KOTA PONTIANAK
+        </p>
+
+        {/* Bilah Progres Animasi */}
+        <div className="w-36 h-1 bg-white/90 rounded-full overflow-hidden border border-[#E3CCA8]/60 mb-3.5">
+          <div className="h-full bg-gradient-to-r from-[#A3620A] to-[#7C4700] rounded-full animate-[progressFill_1.7s_ease-in-out_forwards]" />
+        </div>
+
+        <button
+          type="button"
+          onClick={handleSkip}
+          className="text-[10px] font-bold text-[#1E293B]/80 hover:text-[#1E293B] underline underline-offset-4 transition-colors"
+        >
+          Masuk Sekarang →
+        </button>
+      </div>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(18px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes progressFill {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+const PointPhotoSlider = ({ photos, altTitle }) => {
+  const [idx, setIdx] = useState(0);
+  const [missingFiles, setMissingFiles] = useState({});
+
+  useEffect(() => {
+    if (!photos || photos.length <= 1) return;
+    const timer = setInterval(() => {
+      setIdx((current) => (current + 1) % photos.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [photos]);
+
+  const currentSrc = photos[idx];
+  const isMissing = missingFiles[currentSrc];
+
+  return (
+    <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-[#E3CCA8] bg-gradient-to-br from-[#FCF7F0] to-[#F3E4CE] shadow-sm group">
+      {!isMissing ? (
+        <img
+          src={`${import.meta.env.BASE_URL}${currentSrc}`}
+          alt={`${altTitle} - Foto ${idx + 1}`}
+          onError={() => setMissingFiles((prev) => ({ ...prev, [currentSrc]: true }))}
+          className="w-full h-full object-cover transition-all duration-500"
+        />
+      ) : (
+        <div className="w-full h-full flex flex-col items-center justify-center p-5 text-center space-y-2">
+          <div className="w-10 h-10 rounded-2xl bg-white border border-[#E3CCA8] flex items-center justify-center shadow-2xs">
+            <Sprout className="w-5 h-5 text-[#1E293B]" />
+          </div>
+          <p className="text-xs font-extrabold text-[#1E293B]">
+            Slide Foto Kegiatan ({idx + 1}/{photos.length})
+          </p>
+          <p className="text-[11px] text-[#4A2532]/75">
+            Unggah file <code className="bg-white px-2 py-0.5 rounded border border-[#E3CCA8] font-bold text-[#1E293B]">{currentSrc}</code> ke folder <code>public/</code>
+          </p>
+        </div>
+      )}
+
+      <div className="absolute top-2.5 right-2.5 z-10 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+        {idx + 1} / {photos.length}
+      </div>
+
+      {photos.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={() => setIdx((idx - 1 + photos.length) % photos.length)}
+            aria-label="Foto sebelumnya"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold transition-transform active:scale-95"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={() => setIdx((idx + 1) % photos.length)}
+            aria-label="Foto berikutnya"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1E293B] flex items-center justify-center shadow-sm text-sm font-extrabold transition-transform active:scale-95"
+          >
+            ›
+          </button>
+          <div className="absolute bottom-2.5 inset-x-0 z-10 flex items-center justify-center gap-1.5">
+            {photos.map((_, pIdx) => (
+              <button
+                key={pIdx}
+                type="button"
+                onClick={() => setIdx(pIdx)}
+                aria-label={`Pilih foto ${pIdx + 1}`}
+                className={`h-1.5 rounded-full transition-all ${pIdx === idx ? "w-5 bg-white shadow-xs" : "w-1.5 bg-white/55 hover:bg-white/80"}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+const NonTeachingAutoSlider = () => {
+  const milestones = [
+    {
+      num: "1",
+      stage: "Tahap 01 • Koordinasi & Perizinan",
+      title: "Koordinasi Awal & Pemaparan Program Kerja",
+      points: [
+        "Audiensi bersama Kepala Sekolah SMP NEGERI 3 KOTA PONTIANAK dan Guru Pendamping untuk memperoleh persetujuan resmi pelaksanaan program TOGA.",
+        "Penyampaian rancangan kegiatan non-mengajar Mahasiswa MSB FKIP UNTAN yang selaras dengan program Sekolah Adiwiyata dan Sekolah Digital.",
+        "Penyelarasan jadwal pelaksanaan serta titik lokasi pengembangan Taman TOGA di lingkungan sekolah."
+      ],
+      photos: ["aktivitas-1.jpeg", "aktivitas-1b.jpeg"]
+    },
+    {
+      num: "2",
+      stage: "Tahap 02 • Observasi Lingkungan Sekolah",
+      title: "Observasi Awal Lingkungan Sekolah",
+      points: [
+        "Peninjauan langsung kondisi eksisting area taman sekolah bersama guru pendamping.",
+        "Identifikasi jenis tanaman obat yang sudah tersedia serta pemetaan lahan potensial untuk penambahan koleksi baru.",
+        "Pencatatan kebutuhan media tanam, peralatan berkebun, dan papan informasi tanaman."
+      ],
+      photos: ["aktivitas-2.jpeg", "aktivitas-2b.jpeg", "aktivitas-2c.jpeg"]
+    },
+    {
+      num: "3",
+      stage: "Tahap 03 • Pembersihan & Pengolahan Lahan",
+      title: "Pembersihan & Pengolahan Lahan Taman",
+      points: [
+        "Gotong royong mahasiswa MSB membersihkan gulma, rumput liar, serta sampah organik di sekitar area Taman TOGA.",
+        "Penggemburan tanah dan pencampuran pupuk organik agar media tanam siap ditanami bibit baru.",
+        "Perapian batas petak taman supaya jalur pengamatan siswa tertata bersih dan nyaman."
+      ],
+      photos: ["aktivitas-3.jpeg", "aktivitas-3b.jpeg", "aktivitas-3c.jpeg"]
+    },
+    {
+      num: "4",
+      stage: "Tahap 04 • Penanaman & Penataan Koleksi",
+      title: "Penanaman & Penataan Koleksi Tanaman Obat",
+      points: [
+        "Penanaman ragam bibit Tanaman Obat Keluarga (TOGA) pilihan berdasarkan kebutuhan cahaya dan karakter pertumbuhannya.",
+        "Pengelompokan tata letak tanaman agar memudahkan proses perawatan berkala dan identifikasi spesies.",
+        "Penyiraman awal serta pemantauan kesegaran bibit pascapenanaman."
+      ],
+      photos: ["aktivitas-4.jpeg", "aktivitas-4b.jpeg", "aktivitas-4c.jpeg"]
+    },
+    {
+      num: "5",
+      stage: "Tahap 05 • Inventarisasi Data & Pembuatan QR Code",
+      title: "Inventarisasi Data Botani & Pembuatan QR Code",
+      points: [
+        "Pendataan nama lokal, nama ilmiah, klasifikasi taksonomi, morfologi, manfaat kesehatan, dan cara perawatan tiap spesies.",
+        "Integrasi seluruh basis data ilmiah ke dalam platform katalog digital PUSTAKA TOGA SMPN 3.",
+        "Pembuatan dan pengujian kode QR unik yang terhubung langsung ke halaman profil masing-masing tanaman."
+      ],
+      photos: ["aktivitas-5.jpeg", "aktivitas-5b.jpeg", "aktivitas-5c.jpeg"]
+    },
+    {
+      num: "6",
+      stage: "Tahap 06 • Pemasangan Papan Label QR Code",
+      title: "Pemasangan Papan Label QR Code",
+      points: [
+        "Pencetakan papan nama tanaman tahan cuaca yang memuat nama spesies dan kode QR PUSTAKA TOGA.",
+        "Pemasangan papan label di setiap titik tanaman pada area Taman TOGA SMP NEGERI 3 KOTA PONTIANAK.",
+        "Uji coba pemindaian langsung di lapangan menggunakan kamera ponsel untuk memastikan kecepatan akses halaman."
+      ],
+      photos: ["aktivitas-6.jpeg", "aktivitas-6b.jpeg", "aktivitas-6c.jpeg"]
+    },
+    {
+      num: "7",
+      stage: "Tahap 07 • Sosialisasi Pemanfaatan PUSTAKA TOGA",
+      title: "Sosialisasi Pemanfaatan PUSTAKA TOGA kepada Guru & Siswa",
+      points: [
+        "Pendampingan siswa dan guru memindai label QR Code secara langsung di area Taman TOGA menggunakan smartphone.",
+        "Pengenalan cara membaca informasi botani dan khasiat tanaman obat sebagai media belajar kontekstual.",
+        "Menumbuhkan literasi hijau serta kepedulian warga sekolah terhadap pelestarian tanaman berkhasiat."
+      ],
+      photos: ["aktivitas-7.jpeg", "aktivitas-7b.jpeg", "aktivitas-7c.jpeg"]
+    },
+    {
+      num: "8",
+      stage: "Tahap 08 • Dokumentasi Akhir & Penyerahan Produk",
+      title: "Dokumentasi Akhir Kegiatan Non-Mengajar MSB",
+      points: [
+        "Serah terima produk inovasi digital PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK beserta area taman yang telah direvitalisasi kepada pihak sekolah.",
+        "Evaluasi keberlanjutan pemeliharaan taman dan pemanfaatan katalog digital bersama guru pendamping.",
+        "Dokumentasi bersama jajaran pimpinan sekolah, guru, dan tim mahasiswa MSB FKIP UNTAN."
+      ],
+      photos: ["aktivitas-8.jpeg", "aktivitas-8b.jpeg", "aktivitas-8c.jpeg"]
+    }
+  ];
+
+  return (
+    <div className="divide-y divide-[#E3CCA8]/70">
+      {milestones.map((item, index) => {
+        const isEven = index % 2 === 1;
+        return (
+          <div
+            key={item.num}
+            className="py-6 first:pt-2 last:pb-2 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center"
+          >
+            {/* Kolom Penjelasan Poin */}
+            <div className={`lg:col-span-6 space-y-2.5 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+              <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[#7C4700] bg-[#FCF7F0] border border-[#E3CCA8] px-2.5 py-0.5 rounded-full">
+                {item.stage}
+              </span>
+              <h3 className="text-base md:text-lg font-extrabold text-[#1E293B] leading-snug">
+                {item.num}. {item.title}
+              </h3>
+              <ul className="space-y-1.5 text-xs text-[#4A2532]/90 leading-relaxed">
+                {item.points.map((pt, ptIdx) => (
+                  <li key={ptIdx} className="flex items-start gap-2">
+                    <span className="text-[#7C4700] font-extrabold mt-0.5">–</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Kolom Slide Foto Kegiatan */}
+            <div className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+              <PointPhotoSlider photos={item.photos} altTitle={`${item.num}. ${item.title}`} />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(() => {
