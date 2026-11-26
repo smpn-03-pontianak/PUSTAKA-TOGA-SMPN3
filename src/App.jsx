@@ -122,7 +122,17 @@ const SmartPlantQRWidget = ({ code, plantName = "Tanaman", size = 140, showDownl
 // ============================================================================
 const BotanicalIllustration = ({ onOpenFlipbook }) => (
   <div className="w-full space-y-5 pt-3 pb-2">
-  <style>{"@keyframes bentoReveal {\n  0% { opacity: 0; transform: translateY(18px) scale(0.985); }\n  100% { opacity: 1; transform: translateY(0) scale(1); }\n}\n.bento-heading { opacity: 0; animation: bentoReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; }\n.bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; }\n.bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; }\n.bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }\n.bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }"}</style>
+  <style>{`
+@keyframes bentoReveal {
+  0% { opacity: 0; transform: translateY(18px) scale(0.985); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.bento-heading { opacity: 0; animation: bentoReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; }
+.bento-box-1 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; }
+.bento-box-2 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; }
+.bento-box-3 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards; }
+.bento-box-4 { opacity: 0; animation: bentoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards; }
+`}</style>
 
   {/* Judul Terpusat Dua Warna */}
   <div className="text-center max-w-2xl mx-auto px-2 space-y-1.5 bento-heading">
