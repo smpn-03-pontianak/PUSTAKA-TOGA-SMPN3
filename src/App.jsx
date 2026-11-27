@@ -254,6 +254,98 @@ const BotanicalIllustration = ({ onOpenFlipbook }) => (
 );
 
 // ============================================================================
+// 5. APLIKASI UTAMA: PUSTAKA TOGA SMP NEGERI 3 KOTA PONTIANAK – SMP NEGERI 3 KOTA PONTIANAK (MODEL PORTRAIT)
+// ============================================================================
+
+const RichTextContent = ({ content, defaultAlign = "text-justify" }) => {
+  if (!content) return null;
+  const hasHtml = /<[a-z][\s\S]*>/i.test(content);
+
+  if (hasHtml) {
+    return (
+      <div
+        className={`rich-botanical text-xs text-slate-800 leading-relaxed ${defaultAlign}`}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+    );
+  }
+
+  const lines = content.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const isNumberedList = lines.length > 1 && lines.every(l => /^\d+[.)]\s+/.test(l));
+
+  if (isNumberedList) {
+    return (
+      <ol className={`list-decimal pl-5 space-y-1.5 text-xs text-slate-800 leading-relaxed ${defaultAlign}`}>
+        {lines.map((line, i) => (
+          <li key={i} className="pl-1">
+            {line.replace(/^\d+[.)]\s+/, "")}
+          </li>
+        ))}
+      </ol>
+    );
+  }
+
+  return (
+    <div className={`space-y-1.5 text-xs text-slate-800 leading-relaxed ${defaultAlign}`}>
+      {lines.map((line, i) => (
+        <p key={i}>{line}</p>
+      ))}
+    </div>
+  );
+};
+
+const AdminRichEditor = ({ label, value, onChange, minHeight = "80px" }) => {
+  const editorRef = useRef(null);
+
+  useEffect(() => {
+    if (editorRef.current && editorRef.current.innerHTML !== (value || "")) {
+      editorRef.current.innerHTML = value || "";
+    }
+  }, [value]);
+
+  const execCmd = (cmd, val = null) => {
+    editorRef.current?.focus();
+    document.execCommand(cmd, false, val);
+    if (editorRef.current) onChange(editorRef.current.innerHTML);
+  };
+
+  return (
+    <div className="space-y-1">
+      {label && <label className="text-[11px] font-bold text-[#1E293B] block">{label}</label>}
+      <div className="rounded-xl border border-[#E3CCA8] bg-[#FCF7F0] overflow-hidden">
+        <div className="flex flex-wrap items-center gap-1 p-1.5 bg-white border-b border-[#E3CCA8]/70 text-[11px]">
+          <button type="button" onClick={() => execCmd("bold")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-extrabold text-[#1E293B] border border-[#E3CCA8]/60">B</button>
+          <button type="button" onClick={() => execCmd("italic")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] italic font-semibold text-[#1E293B] border border-[#E3CCA8]/60">I</button>
+          <button type="button" onClick={() => execCmd("underline")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] underline font-semibold text-[#1E293B] border border-[#E3CCA8]/60">U</button>
+          <button type="button" onClick={() => execCmd("insertOrderedList")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] font-bold text-[#1E293B] border border-[#E3CCA8]/60">1. List</button>
+          <button type="button" onClick={() => execCmd("justifyLeft")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kiri</button>
+          <button type="button" onClick={() => execCmd("justifyCenter")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Tengah</button>
+          <button type="button" onClick={() => execCmd("justifyRight")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kanan</button>
+          <button type="button" onClick={() => execCmd("justifyFull")} className="px-2 py-0.5 rounded hover:bg-[#FCF7F0] text-[#4A2532] border border-[#E3CCA8]/60">Kanan-Kiri</button>
+          <select
+            onChange={(e) => { if (e.target.value) execCmd("fontName", e.target.value); }}
+            defaultValue=""
+            className="ml-auto px-2 py-0.5 rounded bg-[#FCF7F0] border border-[#E3CCA8] text-[10px] font-bold text-[#1E293B] outline-none"
+          >
+            <option value="" disabled>Pilih Font</option>
+            <option value="Plus Jakarta Sans, sans-serif">Sans Modern</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="Times New Roman, serif">Times New Roman</option>
+            <option value="Courier New, monospace">Monospace</option>
+          </select>
+        </div>
+        <div
+          ref={editorRef}
+          contentEditable
+          onInput={(e) => onChange(e.currentTarget.innerHTML)}
+          style={{ minHeight }}
+          className="rich-botanical p-3 text-xs text-[#4A2532] leading-relaxed outline-none bg-[#FCF7F0]"
+        />
+      </div>
+    </div>
+  );
+};
+
 const HeroPhotoSlider = () => {
   const photos = ["1.jpeg", "galeri-1.jpeg", "galeri-2.jpeg", "galeri-3.jpeg", "33.jpeg", "hero-toga.jpeg"];
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -608,7 +700,6 @@ const NonTeachingAutoSlider = () => {
     </div>
   );
 };
-
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(() => {
