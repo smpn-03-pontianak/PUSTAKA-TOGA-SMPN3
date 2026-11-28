@@ -2421,7 +2421,7 @@ export default function App() {
                         name: "Niko Demus Misel", nim: "F1042231018",
                         prodi: "Program Studi Pendidikan Matematika",
                         role: "Koordinator Pembangunan Taman Toga",
-                        photo: "niko demus misel.jpeg",
+                        photo: "niko demus misel.jpeg?v=1795869259250",
                         initials: "ND",
                         photoStyle: { objectPosition: "50% 50%", transform: "scale(1.38)", transformOrigin: "50% 50%" }
                       },
